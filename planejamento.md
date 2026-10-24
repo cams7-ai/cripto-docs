@@ -1,8 +1,12 @@
 # Planejamento incremental — robô Binance Spot em Python
 
-Data da análise: 24/10/2026. Raiz obrigatória e diretório de execução dos comandos: `/home/cams7/Dev/Cripto`.
+Data da análise: 24/10/2026. Raiz do workspace: `/home/cams7/Dev/Cripto`. Comandos da aplicação executam em `/home/cams7/Dev/Cripto/cripto-bot`, conforme a organização da seção 5.
 
-**Estado: planejamento, nenhuma Sprint implementada.** Esta entrega cria somente este documento. Não autoriza provisionamento, envio de notificações ou ordens, acesso a credenciais nem alterações nos projetos de referência. Os caminhos futuros descritos abaixo são propostas, não arquivos existentes.
+**Estado em 24/10/2026: Sprint 01 implementada e validada localmente; organização dos repositórios definida pelo responsável.** A entrega original era somente este planejamento. A implementação da Sprint 01 foi posteriormente solicitada pelo responsável; isso não autoriza provisionamento, envio de notificações ou ordens, acesso a credenciais nem alterações nos projetos de referência. Os caminhos de Sprints futuras continuam sendo propostas.
+
+**Atualização em 24/10/2026:** Sprint 01 especificada em [docs/sprints/sprint-01.md](sprints/sprint-01.md), com contratos de configuração/CLI, entregáveis, matriz de aceite e prompt de execução. Implementação e validação permanecem pendentes. Na inspeção atual, a raiz Git é `/home/cams7/Dev/Cripto/docs`, distinta da raiz funcional prevista; a especificação registra essa condição sem alterar o repositório.
+
+**Execução posterior em 24/10/2026:** pacote/CLI PAPER offline entregues; AC01–AC16 aprovados, com 79 testes, 100% de cobertura de linhas/ramificações, lint, formatação, tipagem e wheel instalado verificados. Consulte o [guia de validação](testes/sprint-01-validacao.md) e as [evidências](testes/sprint-01-evidencias.json). A raiz Git foi preservada; fontes e lock fora de `docs` ainda não são cobertos pelo repositório. A conclusão global aguarda essa decisão, sem liberação automática da Sprint 02.
 
 ## 1. Visão do produto e premissas
 
@@ -165,44 +169,43 @@ Agendamento começa desabilitado. Antes de atualizar: pausar novos disparos, agu
 
 ## 5. Estrutura de diretórios prevista
 
-Tudo abaixo permanece em `/home/cams7/Dev/Cripto`. Criar cada diretório apenas na Sprint que o usa; a primeira entrega contém somente `docs/planejamento.md`.
+A raiz do workspace é `/home/cams7/Dev/Cripto`. **Cada novo módulo será criado em um diretório diretamente nessa raiz e terá controle de versão Git independente**, com seu próprio `.git`, histórico, branches e configuração de remoto. Não criar um repositório agregador na raiz nem submódulos Git sem decisão específica.
+
+O módulo da aplicação da Sprint 01 está em `/home/cams7/Dev/Cripto/cripto-bot`, com repositório próprio inicializado na branch `main`. O repositório de documentação em `/home/cams7/Dev/Cripto/docs` permanece independente e com seu histórico preservado. Nenhum commit inicial ou remoto da aplicação foi criado nesta reorganização.
 
 ```text
-/home/cams7/Dev/Cripto/
-├── README.md
-├── pyproject.toml
-├── uv.lock
-├── .python-version
-├── .gitignore
-├── docs/
+/home/cams7/Dev/Cripto/              # workspace; não é um repositório Git
+├── docs/                           # repositório independente da documentação
+│   ├── .git/
 │   ├── planejamento.md
 │   ├── arquitetura.md
-│   ├── decisoes/                 # ADRs numerados, em português
-│   ├── sprints/sprint-XX.md
-│   └── testes/sprint-XX-validacao.md
-├── modules/trading/src/cripto_bot/
-│   ├── domain/
-│   ├── application/
-│   ├── adapters/
-│   ├── observability/
-│   └── entrypoints/
-├── tests/
-│   ├── unit/
-│   ├── integration/
-│   ├── contracts/
-│   ├── fixtures/
-│   └── sam_local/
-├── config/                       # exemplos públicos e não secretos
-├── infra/
-│   ├── terraform/foundation/
-│   ├── terraform/application/
-│   └── sam/template.yaml
-├── scripts/
-├── data/                         # gerado, ignorado pelo Git
-└── reports/                      # gerado; evidências resumidas vão para docs/testes
+│   ├── decisoes/
+│   ├── sprints/
+│   └── testes/
+└── cripto-bot/                      # repositório independente da aplicação
+    ├── .git/
+    ├── README.md
+    ├── pyproject.toml
+    ├── uv.lock
+    ├── .python-version
+    ├── .gitignore
+    ├── config/paper.example.toml
+    ├── modules/trading/src/cripto_bot/
+    │   ├── domain/
+    │   ├── application/
+    │   ├── adapters/
+    │   ├── observability/
+    │   └── entrypoints/
+    └── tests/
 ```
 
-Não criar repositórios adicionais agora. ADRs iniciais: monólito/portas, modos seguros e precisão decimal. Na etapa AWS: computação/rede, persistência e propriedade Terraform/SAM.
+Os subpacotes internos de `cripto_bot` continuam pertencendo ao mesmo módulo e repositório; não recebem Git próprio. Um novo módulo independente, quando necessário, será irmão de `cripto-bot` e `docs`, nunca um repositório aninhado dentro deles. Criar diretórios apenas quando usados; não criar módulos futuros vazios.
+
+Convenção de caminhos: `docs/...` é relativo à raiz do workspace. Caminhos da aplicação como `pyproject.toml`, `uv.lock`, `config/`, `modules/trading/src`, `tests/` e seus artefatos são relativos a `cripto-bot/`. Para comandos Python/uv, usar `/home/cams7/Dev/Cripto/cripto-bot` como diretório de execução. Exemplos e prompts antigos que usavam diretamente a raiz do workspace ficam atualizados por esta convenção. Novos componentes de infraestrutura terão sua organização definida na Sprint pertinente, observando a regra de repositório independente quando constituírem um novo módulo.
+
+Os commits de documentação e aplicação são feitos separadamente. Evidências centrais devem identificar o módulo e, quando houver commits, a revisão validada de cada repositório. Remotos e publicação serão configurados apenas quando definidos pelo responsável.
+
+ADRs iniciais: monólito/portas, modos seguros e precisão decimal. Na etapa AWS: computação/rede, persistência e propriedade Terraform/SAM.
 
 ## 6. Negociação, estratégia e avaliação
 
@@ -419,7 +422,7 @@ Excluir HTTP, Binance SDK, boto3, banco, estratégia, scheduler, containers, Ter
 Os comandos abaixo são o contrato proposto para a implementação, **não foram executados nesta entrega**. O executor deverá ajustar comandos incompatíveis com as versões efetivamente fixadas e registrar o motivo. O arquivo de exemplo deverá ser aceito pelo argumento `--config`.
 
 ```bash
-cd /home/cams7/Dev/Cripto
+cd /home/cams7/Dev/Cripto/cripto-bot
 uv sync --locked --group dev
 uv run --locked ruff check .
 uv run --locked ruff format --check .
@@ -443,8 +446,11 @@ Guia 01 registra versões de Python/uv, comandos/exit codes, resumo de testes e 
 ```text
 Implemente somente a Sprint 01 do robô Binance Spot em Python.
 
-Raiz obrigatória: /home/cams7/Dev/Cripto. Execute comandos a partir dela;
-todos os arquivos produzidos devem permanecer nela. Leia instruções locais,
+Workspace obrigatório: /home/cams7/Dev/Cripto. Execute comandos Python/uv
+em /home/cams7/Dev/Cripto/cripto-bot, repositório da aplicação. Caminhos
+docs/... são relativos ao workspace; os demais entregáveis desta Sprint
+são relativos ao repositório cripto-bot. Cada novo módulo independente
+deve ser criado diretamente no workspace com Git próprio. Leia instruções locais,
 docs/planejamento.md (especialmente seções 3, 4, 7, 8 e 12), README.md,
 docs/arquitetura.md e docs/decisoes/ se já existirem. Inspecione módulos,
 testes, configuração e alterações atuais antes de editar. Os documentos
@@ -603,4 +609,10 @@ Realizado nesta etapa: inspeção somente leitura dos seis projetos, verificaç�
 
 Na revisão do documento, foram verificados os 21 links locais (todos existentes) e o balanceamento dos blocos de código Markdown. O arquivo `docs/prompt_robo_cripto_261024.md`, observado na verificação final do workspace, foi preservado; não foi criado nem alterado por esta entrega.
 
-Não realizado: implementação, instalação de dependências do robô, testes funcionais, benchmark, coleta Binance, teste de acesso regional, autenticação, notificações, provisionamento, backtest ou ordens. Nenhuma Sprint está aprovada. Próxima ação prevista: executar a Sprint 01 mediante nova solicitação, usando o prompt da seção 12.
+Na entrega original não houve implementação, instalação de dependências do robô, testes funcionais, benchmark, coleta Binance, teste de acesso regional, autenticação, notificações, provisionamento, backtest ou ordens. Posteriormente, mediante solicitação, foi executada a [Sprint 01](sprints/sprint-01.md#12-registro-da-execução-em-24102026): implementação local e critérios técnicos aprovados conforme o [guia](testes/sprint-01-validacao.md). A conclusão global permanece PENDENTE de definição do versionamento da aplicação fora de `docs`. Não houve coleta Binance, teste AWS/regional, autenticação, notificações, backtest ou ordens. Próximo passo: resolver essa pendência e revisar as evidências antes de detalhar a Sprint 02.
+
+## 15. Organização dos repositórios — decisão em 24/10/2026
+
+Por solicitação do responsável, a aplicação foi organizada em `cripto-bot/`, diretamente na raiz do workspace, e recebeu Git independente. A pasta `docs/` manteve seu repositório e histórico. Esta decisão resolve a pendência de alcance do Git registrada na execução inicial da Sprint 01; os registros anteriores permanecem como histórico. Não houve commit ou configuração de remoto.
+
+Cada novo módulo terá seu próprio diretório diretamente em `/home/cams7/Dev/Cripto` e controle de versão independente, conforme a seção 5. A raiz continua sendo somente o workspace. A Sprint 02 não foi iniciada por esta reorganização.
