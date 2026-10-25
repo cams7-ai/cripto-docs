@@ -1,0 +1,702 @@
+{
+  "date": "2026-10-24",
+  "timezone": "America/Sao_Paulo",
+  "cwd": "/home/cams7/Dev/Cripto/cripto-bot",
+  "application_base_commit": "2224caf97d694fb0fe9fca78c29b14c8e44c7b06",
+  "docs_base_commit": "a36baf95828692b24a3f256590060a6bd2f1d2ed",
+  "application_status": " M .gitignore\n M README.md\n M modules/trading/src/cripto_bot/adapters/config.py\n M modules/trading/src/cripto_bot/domain/models.py\n M modules/trading/src/cripto_bot/entrypoints/cli.py\n M pyproject.toml\n M tests/offline_runner.py\n M tests/wheel_smoke.py\n M uv.lock\n?? config/fixtures/\n?? config/market.fixture.example.toml\n?? config/market.public.example.toml\n?? modules/trading/src/cripto_bot/adapters/binance/\n?? modules/trading/src/cripto_bot/adapters/storage/\n?? modules/trading/src/cripto_bot/application/collect_market.py\n?? modules/trading/src/cripto_bot/application/ports.py\n?? modules/trading/src/cripto_bot/domain/market.py\n?? modules/trading/src/cripto_bot/entrypoints/market.py\n?? tests/__init__.py\n?? tests/factories.py\n?? tests/integration/test_collect_cli.py\n?? tests/integration/test_market_storage.py\n?? tests/unit/test_binance_public.py\n?? tests/unit/test_collect_market.py\n?? tests/unit/test_collection_entrypoint.py\n?? tests/unit/test_market.py\n?? tests/unit/test_market_config.py\n",
+  "versions": {
+    "httpx": "0.28.1",
+    "httpcore": "1.0.9",
+    "anyio": "4.15.1",
+    "pydantic": "2.14.1",
+    "pytest": "9.1.1",
+    "pytest-cov": "7.1.0",
+    "coverage": "7.17.0",
+    "ruff": "0.17.2",
+    "mypy": "1.20.2"
+  },
+  "httpx_license": "BSD-3-Clause",
+  "checks": [
+    {
+      "command": [
+        "uv",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "uv 0.12.19 (x86_64-unknown-linux-gnu)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "Python 3.13.15\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "40 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "mypy",
+        "modules/trading/src"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 21 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "check-config",
+        "--config",
+        "config/market.fixture.example.toml"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"run_id\": \"4c6b8524-8dc1-4910-a85b-fa528db17ff5\", \"timestamp\": \"2026-10-24T23:57:37.406657+00:00\", \"mode\": \"PAPER\", \"status\": \"VALID\"}\n",
+      "stderr": "{\"run_id\": \"4c6b8524-8dc1-4910-a85b-fa528db17ff5\", \"timestamp\": \"2026-10-24T23:57:37.406657+00:00\", \"mode\": \"PAPER\", \"level\": \"INFO\", \"event\": \"check-config\"}\n"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "tests/wheel_smoke.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"wheel\": \"cripto_bot-0.1.0-py3-none-any.whl\",\n  \"sha256\": \"310377e7b0ed88ed1754963e39a529ba241e4aa101effa5c866c7b0f0133e008\",\n  \"origin\": \"/home/cams7/Dev/Cripto/cripto-bot/.venv-wheel/lib/python3.13/site-packages/cripto_bot/__init__.py\",\n  \"checks\": [\n    {\n      \"command\": \"check-config\",\n      \"exit_code\": 0,\n      \"result\": {\n        \"run_id\": \"06d19bf3-1cd4-4e5e-b187-4f163f7475ac\",\n        \"timestamp\": \"2026-10-24T23:57:37.970874+00:00\",\n        \"mode\": \"PAPER\",\n        \"status\": \"VALID\"\n      }\n    },\n    {\n      \"command\": \"run-once\",\n      \"exit_code\": 0,\n      \"result\": {\n        \"run_id\": \"755c1de1-2721-4a12-9e6e-bdb41043b3cc\",\n        \"timestamp\": \"2026-10-24T23:57:38.205712+00:00\",\n        \"mode\": \"PAPER\",\n        \"status\": \"NOOP\",\n        \"orders_sent\": 0\n      }\n    },\n    {\n      \"command\": \"collect-market\",\n      \"exit_code\": 0,\n      \"result\": {\n        \"run_id\": \"d1efbed9-f43f-4cff-a5dc-989e2caeea90\",\n        \"timestamp\": \"2026-10-24T23:57:38.437879+00:00\",\n        \"mode\": \"PAPER\",\n        \"dataset\": \"fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1\",\n        \"source\": \"fixture\",\n        \"symbol\": \"BTCUSDT\",\n        \"interval\": \"15m\",\n        \"start\": 1790812800000,\n        \"end\": 1790814600000,\n        \"orders_sent\": 0,\n        \"status\": \"COLLECTED\",\n        \"complete\": true,\n        \"manifest\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/market-h7lqmga2/data/exports/d1efbed9-f43f-4cff-a5dc-989e2caeea90/manifest.json\",\n        \"next_open_time\": 1790814600000,\n        \"inserted\": 2,\n        \"duplicated\": 0,\n        \"ignored\": 0\n      }\n    },\n    {\n      \"command\": \"collect-market\",\n      \"exit_code\": 0,\n      \"result\": {\n        \"run_id\": \"e39f0b5b-75a7-4a2e-843c-0cfb1275e0e8\",\n        \"timestamp\": \"2026-10-24T23:57:38.716254+00:00\",\n        \"mode\": \"PAPER\",\n        \"dataset\": \"fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1\",\n        \"source\": \"fixture\",\n        \"symbol\": \"BTCUSDT\",\n        \"interval\": \"15m\",\n        \"start\": 1790812800000,\n        \"end\": 1790814600000,\n        \"orders_sent\": 0,\n        \"status\": \"COLLECTED\",\n        \"complete\": true,\n        \"manifest\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/market-h7lqmga2/data/exports/e39f0b5b-75a7-4a2e-843c-0cfb1275e0e8/manifest.json\",\n        \"next_open_time\": 1790814600000,\n        \"inserted\": 0,\n        \"duplicated\": 0,\n        \"ignored\": 0\n      }\n    }\n  ],\n  \"live_exit_code\": 2,\n  \"socket_probe_blocked\": true\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "--cov=cripto_bot",
+        "--cov-branch",
+        "--cov-report=term-missing"
+      ],
+      "exit_code": 0,
+      "stdout": "204 passed in 8.00s; coverage report preserved in totals/files below",
+      "note": "Resultado da execucao final anterior; sem repetir a suite para gerar este arquivo."
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "note": "Build final executado antes da reinstalacao do wheel."
+    }
+  ],
+  "pytest_passed": 204,
+  "coverage_totals": {
+    "covered_lines": 729,
+    "num_statements": 736,
+    "percent_covered": 98.82478632478633,
+    "percent_covered_display": "99",
+    "missing_lines": 7,
+    "excluded_lines": 14,
+    "percent_statements_covered": 99.04891304347827,
+    "percent_statements_covered_display": "99",
+    "num_branches": 200,
+    "num_partial_branches": 4,
+    "covered_branches": 196,
+    "missing_branches": 4,
+    "percent_branches_covered": 98.0,
+    "percent_branches_covered_display": "98"
+  },
+  "coverage_files": {
+    "modules/trading/src/cripto_bot/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 0,
+      "num_partial_branches": 0,
+      "covered_branches": 0,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/adapters/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 0,
+      "num_partial_branches": 0,
+      "covered_branches": 0,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/adapters/binance/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 0,
+      "num_partial_branches": 0,
+      "covered_branches": 0,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/adapters/binance/fixture.py": {
+      "covered_lines": 26,
+      "num_statements": 26,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 6,
+      "num_partial_branches": 0,
+      "covered_branches": 6,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/adapters/binance/public.py": {
+      "covered_lines": 97,
+      "num_statements": 98,
+      "percent_covered": 98.50746268656717,
+      "percent_covered_display": "99",
+      "missing_lines": [
+        160
+      ],
+      "excluded_lines": 0,
+      "percent_statements_covered": 98.9795918367347,
+      "percent_statements_covered_display": "99",
+      "num_branches": 36,
+      "num_partial_branches": 1,
+      "covered_branches": 35,
+      "missing_branches": [
+        [
+          107,
+          160
+        ]
+      ],
+      "percent_branches_covered": 97.22222222222223,
+      "percent_branches_covered_display": "97"
+    },
+    "modules/trading/src/cripto_bot/adapters/config.py": {
+      "covered_lines": 67,
+      "num_statements": 69,
+      "percent_covered": 96.7032967032967,
+      "percent_covered_display": "97",
+      "missing_lines": [
+        38,
+        39
+      ],
+      "excluded_lines": 0,
+      "percent_statements_covered": 97.10144927536231,
+      "percent_statements_covered_display": "97",
+      "num_branches": 22,
+      "num_partial_branches": 1,
+      "covered_branches": 21,
+      "missing_branches": [
+        [
+          33,
+          29
+        ]
+      ],
+      "percent_branches_covered": 95.45454545454545,
+      "percent_branches_covered_display": "95"
+    },
+    "modules/trading/src/cripto_bot/adapters/storage/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 0,
+      "num_partial_branches": 0,
+      "covered_branches": 0,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/adapters/storage/market_export.py": {
+      "covered_lines": 56,
+      "num_statements": 58,
+      "percent_covered": 96.875,
+      "percent_covered_display": "97",
+      "missing_lines": [
+        37,
+        38
+      ],
+      "excluded_lines": 0,
+      "percent_statements_covered": 96.55172413793103,
+      "percent_statements_covered_display": "97",
+      "num_branches": 6,
+      "num_partial_branches": 0,
+      "covered_branches": 6,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/adapters/storage/market_sqlite.py": {
+      "covered_lines": 114,
+      "num_statements": 115,
+      "percent_covered": 97.95918367346938,
+      "percent_covered_display": "98",
+      "missing_lines": [
+        69
+      ],
+      "excluded_lines": 0,
+      "percent_statements_covered": 99.1304347826087,
+      "percent_statements_covered_display": "99",
+      "num_branches": 32,
+      "num_partial_branches": 2,
+      "covered_branches": 30,
+      "missing_branches": [
+        [
+          68,
+          69
+        ],
+        [
+          79,
+          81
+        ]
+      ],
+      "percent_branches_covered": 93.75,
+      "percent_branches_covered_display": "94"
+    },
+    "modules/trading/src/cripto_bot/application/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 0,
+      "num_partial_branches": 0,
+      "covered_branches": 0,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/application/collect_market.py": {
+      "covered_lines": 58,
+      "num_statements": 58,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 22,
+      "num_partial_branches": 0,
+      "covered_branches": 22,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/application/ports.py": {
+      "covered_lines": 25,
+      "num_statements": 25,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 14,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 0,
+      "num_partial_branches": 0,
+      "covered_branches": 0,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/application/run_once.py": {
+      "covered_lines": 10,
+      "num_statements": 10,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 0,
+      "num_partial_branches": 0,
+      "covered_branches": 0,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/domain/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 0,
+      "num_partial_branches": 0,
+      "covered_branches": 0,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/domain/market.py": {
+      "covered_lines": 128,
+      "num_statements": 129,
+      "percent_covered": 99.44134078212291,
+      "percent_covered_display": "99",
+      "missing_lines": [
+        83
+      ],
+      "excluded_lines": 0,
+      "percent_statements_covered": 99.2248062015504,
+      "percent_statements_covered_display": "99",
+      "num_branches": 50,
+      "num_partial_branches": 0,
+      "covered_branches": 50,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/domain/models.py": {
+      "covered_lines": 29,
+      "num_statements": 29,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 4,
+      "num_partial_branches": 0,
+      "covered_branches": 4,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/entrypoints/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 0,
+      "num_partial_branches": 0,
+      "covered_branches": 0,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/entrypoints/cli.py": {
+      "covered_lines": 51,
+      "num_statements": 51,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 8,
+      "num_partial_branches": 0,
+      "covered_branches": 8,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/entrypoints/market.py": {
+      "covered_lines": 56,
+      "num_statements": 56,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 12,
+      "num_partial_branches": 0,
+      "covered_branches": 12,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/observability/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 0,
+      "num_partial_branches": 0,
+      "covered_branches": 0,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    },
+    "modules/trading/src/cripto_bot/observability/logging.py": {
+      "covered_lines": 12,
+      "num_statements": 12,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 2,
+      "num_partial_branches": 0,
+      "covered_branches": 2,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    }
+  },
+  "wheel_smoke": {
+    "wheel": "cripto_bot-0.1.0-py3-none-any.whl",
+    "sha256": "310377e7b0ed88ed1754963e39a529ba241e4aa101effa5c866c7b0f0133e008",
+    "origin": "/home/cams7/Dev/Cripto/cripto-bot/.venv-wheel/lib/python3.13/site-packages/cripto_bot/__init__.py",
+    "checks": [
+      {
+        "command": "check-config",
+        "exit_code": 0,
+        "result": {
+          "run_id": "06d19bf3-1cd4-4e5e-b187-4f163f7475ac",
+          "timestamp": "2026-10-24T23:57:37.970874+00:00",
+          "mode": "PAPER",
+          "status": "VALID"
+        }
+      },
+      {
+        "command": "run-once",
+        "exit_code": 0,
+        "result": {
+          "run_id": "755c1de1-2721-4a12-9e6e-bdb41043b3cc",
+          "timestamp": "2026-10-24T23:57:38.205712+00:00",
+          "mode": "PAPER",
+          "status": "NOOP",
+          "orders_sent": 0
+        }
+      },
+      {
+        "command": "collect-market",
+        "exit_code": 0,
+        "result": {
+          "run_id": "d1efbed9-f43f-4cff-a5dc-989e2caeea90",
+          "timestamp": "2026-10-24T23:57:38.437879+00:00",
+          "mode": "PAPER",
+          "dataset": "fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1",
+          "source": "fixture",
+          "symbol": "BTCUSDT",
+          "interval": "15m",
+          "start": 1790812800000,
+          "end": 1790814600000,
+          "orders_sent": 0,
+          "status": "COLLECTED",
+          "complete": true,
+          "manifest": "/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/market-h7lqmga2/data/exports/d1efbed9-f43f-4cff-a5dc-989e2caeea90/manifest.json",
+          "next_open_time": 1790814600000,
+          "inserted": 2,
+          "duplicated": 0,
+          "ignored": 0
+        }
+      },
+      {
+        "command": "collect-market",
+        "exit_code": 0,
+        "result": {
+          "run_id": "e39f0b5b-75a7-4a2e-843c-0cfb1275e0e8",
+          "timestamp": "2026-10-24T23:57:38.716254+00:00",
+          "mode": "PAPER",
+          "dataset": "fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1",
+          "source": "fixture",
+          "symbol": "BTCUSDT",
+          "interval": "15m",
+          "start": 1790812800000,
+          "end": 1790814600000,
+          "orders_sent": 0,
+          "status": "COLLECTED",
+          "complete": true,
+          "manifest": "/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/market-h7lqmga2/data/exports/e39f0b5b-75a7-4a2e-843c-0cfb1275e0e8/manifest.json",
+          "next_open_time": 1790814600000,
+          "inserted": 0,
+          "duplicated": 0,
+          "ignored": 0
+        }
+      }
+    ],
+    "live_exit_code": 2,
+    "socket_probe_blocked": true
+  },
+  "manual_collection": [
+    {
+      "command": "cripto-bot collect-market --config config/market.fixture.example.toml --start 2026-10-01T00:00:00Z --end 2026-10-01T00:30:00Z",
+      "exit_code": 0,
+      "inserted": 2,
+      "next_open_time": 1790814600000,
+      "manifest": {
+        "code_revision": "2224caf97d694fb0fe9fca78c29b14c8e44c7b06+dirty",
+        "complete": true,
+        "config_sha256": "dd5c21e4ffcf3a1a4a4bb179baa5e9682e576dfc82483e717428eda4306bff27",
+        "count": 2,
+        "data_sha256": "fec39ffcbf53d685fcd5606a51585e364c6dbecd06b991d0dabc4722e04aa74d",
+        "dataset": "fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1",
+        "end": 1790814600000,
+        "exported_at": "2026-10-24T23:55:11.358907+00:00",
+        "files": {
+          "candles.jsonl.gz": "1f11a306449b3c98dd4c6d388fa8fb60a14ddd22414f9b3b7fbabd67509a8473",
+          "provenance.json": "fa8d214c1bfa0a4d606bcaf29deecb19d317b53d8779a4c7e171b32da256e37c",
+          "raw.jsonl.gz": "29e7a02e9e93e5c288a45e2d333355996a26fb2ba5f719f6bb15f80a902645e7",
+          "snapshots.json": "06dded3e7080ca4ffcceb13bb900d6bc210ce68a607822fff5712b3107dce423"
+        },
+        "fixture_sha256": "15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426",
+        "interval": "15m",
+        "package_version": "0.1.0",
+        "parser": "spot-market-v1",
+        "run_id": "28466e9f-82ab-481c-9b1b-14e868befa1e",
+        "schema": 1,
+        "source": "fixture",
+        "source_sha256": "482e7d3abe0d5d53163cfd6576aa8750b63ed7cd02a52c75978f2d1dec86a7f2",
+        "start": 1790812800000,
+        "symbol": "BTCUSDT"
+      },
+      "manifest_path": "/home/cams7/Dev/Cripto/cripto-bot/data/market-fixture/exports/28466e9f-82ab-481c-9b1b-14e868befa1e/manifest.json"
+    },
+    {
+      "command": "cripto-bot collect-market --config config/market.fixture.example.toml --start 2026-10-01T00:00:00Z --end 2026-10-01T00:30:00Z",
+      "exit_code": 0,
+      "inserted": 0,
+      "next_open_time": 1790814600000,
+      "manifest": {
+        "code_revision": "2224caf97d694fb0fe9fca78c29b14c8e44c7b06+dirty",
+        "complete": true,
+        "config_sha256": "dd5c21e4ffcf3a1a4a4bb179baa5e9682e576dfc82483e717428eda4306bff27",
+        "count": 2,
+        "data_sha256": "fec39ffcbf53d685fcd5606a51585e364c6dbecd06b991d0dabc4722e04aa74d",
+        "dataset": "fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1",
+        "end": 1790814600000,
+        "exported_at": "2026-10-24T23:55:11.641068+00:00",
+        "files": {
+          "candles.jsonl.gz": "1f11a306449b3c98dd4c6d388fa8fb60a14ddd22414f9b3b7fbabd67509a8473",
+          "provenance.json": "fa8d214c1bfa0a4d606bcaf29deecb19d317b53d8779a4c7e171b32da256e37c",
+          "raw.jsonl.gz": "471175121ed791baf715bc4c288776be9f24e10fe335353f5451e2a38835f113",
+          "snapshots.json": "496dd6808f355209602c3326aa74417c33326f3e327a75544b0eefda940ef3bb"
+        },
+        "fixture_sha256": "15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426",
+        "interval": "15m",
+        "package_version": "0.1.0",
+        "parser": "spot-market-v1",
+        "run_id": "f0b9c64b-dd5a-457b-afe9-7c86a107e8f6",
+        "schema": 1,
+        "source": "fixture",
+        "source_sha256": "482e7d3abe0d5d53163cfd6576aa8750b63ed7cd02a52c75978f2d1dec86a7f2",
+        "start": 1790812800000,
+        "symbol": "BTCUSDT"
+      },
+      "manifest_path": "/home/cams7/Dev/Cripto/cripto-bot/data/market-fixture/exports/f0b9c64b-dd5a-457b-afe9-7c86a107e8f6/manifest.json"
+    }
+  ],
+  "database": {
+    "count": 2,
+    "checkpoints": [
+      [
+        "fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1",
+        1790812800000,
+        1790814600000
+      ]
+    ],
+    "schema_version": 1
+  },
+  "source_sha256": {
+    "pyproject.toml": "2d0ed77262a2c2173120bef51851beef12c4115844ea2fe785aa255fd5c09778",
+    "uv.lock": "44dad0af709c00de1f24061077b938eb47fa1a55dc39d43991c3bab66b80bd23",
+    ".python-version": "861b3dd8083d28f336ef70f6755bc399538ddad627b1d095820ca34cb953cf14",
+    "modules/trading/src/cripto_bot/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/adapters/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/adapters/binance/__init__.py": "b5366ac9c27365f9a5091a5bfa99fccf0bfe00d6c025660633cac40557591fe8",
+    "modules/trading/src/cripto_bot/adapters/binance/fixture.py": "dc0df195320f8da6350e364359d600990128df3a7a15c0e41340681c5a306667",
+    "modules/trading/src/cripto_bot/adapters/binance/public.py": "dc56ca3e9df5945e7e4cc9688e5f9274161979558523ec29dd0604ad22781dfa",
+    "modules/trading/src/cripto_bot/adapters/config.py": "5e71c9f18921e0785b3fe49a028c093551e5b1ba790ca97a09a0871215b46a0d",
+    "modules/trading/src/cripto_bot/adapters/storage/__init__.py": "b5366ac9c27365f9a5091a5bfa99fccf0bfe00d6c025660633cac40557591fe8",
+    "modules/trading/src/cripto_bot/adapters/storage/market_export.py": "12a62ccc8450d35598e943f5657aff54a24bc20d0120211b2fee07100a802afb",
+    "modules/trading/src/cripto_bot/adapters/storage/market_sqlite.py": "6ec43ee9658e1cfe91234ced17061deae9f8668e00322c4b1126b7dd325651dc",
+    "modules/trading/src/cripto_bot/application/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/application/collect_market.py": "cc07cd220186b5f9f2db3e291c7bac3bb3230ad38d40d56ebb7a5db153663e0a",
+    "modules/trading/src/cripto_bot/application/ports.py": "b3a2de31d1a06e8d3409e97c80f04a8e951dee0e4a836e078c39a32318627c81",
+    "modules/trading/src/cripto_bot/application/run_once.py": "1bf8d8f55c5e4090a31306668161d1d12a505332b5f8bfa6b5a14bd1377028fa",
+    "modules/trading/src/cripto_bot/domain/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/domain/market.py": "cec39de702989fb1a753f095d53af86b2a3312d08b37a54bf4c0f5260ef07bc4",
+    "modules/trading/src/cripto_bot/domain/models.py": "adac4251093224389bf5a136279926c99bb592e677f6a042ed6f20716a95359d",
+    "modules/trading/src/cripto_bot/entrypoints/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/entrypoints/cli.py": "02b3eb306e42d31725e4ddcc0abc6683758d7cd14d95f2335e038915b1c35fc4",
+    "modules/trading/src/cripto_bot/entrypoints/market.py": "1fdcc40f44c235c910f5348ed17d428f3c4ee19ab391c40a9bf72b0db3426bb6",
+    "modules/trading/src/cripto_bot/observability/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/observability/logging.py": "8924b981bab5af5ffaa07600043fdf85ac66f2278db9359b63d1c283ae228a7a"
+  },
+  "public_collection": "NOT_EXECUTED",
+  "aws_resources_created": 0,
+  "orders_sent": 0
+}
