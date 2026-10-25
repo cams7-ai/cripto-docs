@@ -1,0 +1,3335 @@
+{
+  "date": "2026-10-24",
+  "timezone": "America/Sao_Paulo",
+  "cwd": "/home/cams7/Dev/Cripto/cripto-bot",
+  "application_base_commit": "a102223e66be024f540a796c67094fcd4e6e138f",
+  "docs_base_commit": "552b3f27b5fab7edbc157308753b497028e69f82",
+  "application_status": " M .gitignore\n M README.md\n M modules/trading/src/cripto_bot/adapters/config.py\n M modules/trading/src/cripto_bot/domain/models.py\n M modules/trading/src/cripto_bot/entrypoints/cli.py\n M tests/wheel_smoke.py\n?? config/fixtures/paper-roundtrip.json\n?? config/paper.execution.example.toml\n?? modules/trading/src/cripto_bot/adapters/execution/\n?? modules/trading/src/cripto_bot/adapters/paper_scenario.py\n?? modules/trading/src/cripto_bot/adapters/storage/paper_report.py\n?? modules/trading/src/cripto_bot/adapters/storage/paper_sqlite.py\n?? modules/trading/src/cripto_bot/application/paper_reconcile.py\n?? modules/trading/src/cripto_bot/application/paper_run.py\n?? modules/trading/src/cripto_bot/domain/portfolio/\n?? modules/trading/src/cripto_bot/domain/risk/\n?? modules/trading/src/cripto_bot/entrypoints/paper.py\n?? tests/integration/test_paper_cli.py\n?? tests/integration/test_paper_storage.py\n?? tests/paper_factories.py\n?? tests/unit/test_paper_config.py\n?? tests/unit/test_paper_execution.py\n?? tests/unit/test_paper_failures.py\n?? tests/unit/test_paper_scenario.py\n?? tests/unit/test_portfolio.py\n?? tests/unit/test_risk.py\n",
+  "versions": {
+    "pydantic": "2.14.1",
+    "httpx": "0.28.1",
+    "pytest": "9.1.1",
+    "pytest-cov": "7.1.0",
+    "coverage": "7.17.0",
+    "ruff": "0.17.2",
+    "mypy": "1.20.2"
+  },
+  "checks": [
+    {
+      "command": [
+        "uv",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "uv 0.12.19 (x86_64-unknown-linux-gnu)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "Python 3.13.15\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "63 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "mypy",
+        "modules/trading/src"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 35 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "--cov=cripto_bot",
+        "--cov-branch",
+        "--cov-report=term-missing"
+      ],
+      "exit_code": 0,
+      "stdout": "316 passed in 14.95s; sem avisos",
+      "note": "Resultado da execucao final anterior; suite nao repetida para gerar este arquivo."
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "note": "Build final executado antes da reinstalacao do wheel."
+    }
+  ],
+  "pytest_passed": 316,
+  "coverage_totals": {
+    "covered_lines": 1631,
+    "num_statements": 1654,
+    "percent_covered": 98.1158088235294,
+    "percent_covered_display": "98",
+    "missing_lines": 23,
+    "excluded_lines": 29,
+    "percent_statements_covered": 98.60943168077388,
+    "percent_statements_covered_display": "99",
+    "num_branches": 522,
+    "num_partial_branches": 18,
+    "covered_branches": 504,
+    "missing_branches": 18,
+    "percent_branches_covered": 96.55172413793103,
+    "percent_branches_covered_display": "97"
+  },
+  "coverage_files": {
+    "modules/trading/src/cripto_bot/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/adapters/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/adapters/binance/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/adapters/binance/fixture.py": {
+      "summary": {
+        "covered_lines": 26,
+        "num_statements": 26,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 6,
+        "num_partial_branches": 0,
+        "covered_branches": 6,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/adapters/binance/public.py": {
+      "summary": {
+        "covered_lines": 97,
+        "num_statements": 98,
+        "percent_covered": 98.50746268656717,
+        "percent_covered_display": "99",
+        "missing_lines": 1,
+        "excluded_lines": 0,
+        "percent_statements_covered": 98.9795918367347,
+        "percent_statements_covered_display": "99",
+        "num_branches": 36,
+        "num_partial_branches": 1,
+        "covered_branches": 35,
+        "missing_branches": 1,
+        "percent_branches_covered": 97.22222222222223,
+        "percent_branches_covered_display": "97"
+      },
+      "missing_lines": [
+        160
+      ],
+      "missing_branches": [
+        [
+          107,
+          160
+        ]
+      ]
+    },
+    "modules/trading/src/cripto_bot/adapters/config.py": {
+      "summary": {
+        "covered_lines": 101,
+        "num_statements": 103,
+        "percent_covered": 97.81021897810218,
+        "percent_covered_display": "98",
+        "missing_lines": 2,
+        "excluded_lines": 0,
+        "percent_statements_covered": 98.05825242718447,
+        "percent_statements_covered_display": "98",
+        "num_branches": 34,
+        "num_partial_branches": 1,
+        "covered_branches": 33,
+        "missing_branches": 1,
+        "percent_branches_covered": 97.05882352941177,
+        "percent_branches_covered_display": "97"
+      },
+      "missing_lines": [
+        39,
+        40
+      ],
+      "missing_branches": [
+        [
+          34,
+          30
+        ]
+      ]
+    },
+    "modules/trading/src/cripto_bot/adapters/execution/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/adapters/execution/paper.py": {
+      "summary": {
+        "covered_lines": 4,
+        "num_statements": 4,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/adapters/paper_scenario.py": {
+      "summary": {
+        "covered_lines": 117,
+        "num_statements": 118,
+        "percent_covered": 98.17073170731707,
+        "percent_covered_display": "98",
+        "missing_lines": 1,
+        "excluded_lines": 0,
+        "percent_statements_covered": 99.15254237288136,
+        "percent_statements_covered_display": "99",
+        "num_branches": 46,
+        "num_partial_branches": 2,
+        "covered_branches": 44,
+        "missing_branches": 2,
+        "percent_branches_covered": 95.65217391304348,
+        "percent_branches_covered_display": "96"
+      },
+      "missing_lines": [
+        141
+      ],
+      "missing_branches": [
+        [
+          75,
+          70
+        ],
+        [
+          140,
+          141
+        ]
+      ]
+    },
+    "modules/trading/src/cripto_bot/adapters/storage/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/adapters/storage/market_export.py": {
+      "summary": {
+        "covered_lines": 56,
+        "num_statements": 58,
+        "percent_covered": 96.875,
+        "percent_covered_display": "97",
+        "missing_lines": 2,
+        "excluded_lines": 0,
+        "percent_statements_covered": 96.55172413793103,
+        "percent_statements_covered_display": "97",
+        "num_branches": 6,
+        "num_partial_branches": 0,
+        "covered_branches": 6,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [
+        37,
+        38
+      ],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/adapters/storage/market_sqlite.py": {
+      "summary": {
+        "covered_lines": 114,
+        "num_statements": 115,
+        "percent_covered": 97.95918367346938,
+        "percent_covered_display": "98",
+        "missing_lines": 1,
+        "excluded_lines": 0,
+        "percent_statements_covered": 99.1304347826087,
+        "percent_statements_covered_display": "99",
+        "num_branches": 32,
+        "num_partial_branches": 2,
+        "covered_branches": 30,
+        "missing_branches": 2,
+        "percent_branches_covered": 93.75,
+        "percent_branches_covered_display": "94"
+      },
+      "missing_lines": [
+        69
+      ],
+      "missing_branches": [
+        [
+          68,
+          69
+        ],
+        [
+          79,
+          81
+        ]
+      ]
+    },
+    "modules/trading/src/cripto_bot/adapters/storage/paper_report.py": {
+      "summary": {
+        "covered_lines": 55,
+        "num_statements": 55,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 2,
+        "num_partial_branches": 0,
+        "covered_branches": 2,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/adapters/storage/paper_sqlite.py": {
+      "summary": {
+        "covered_lines": 176,
+        "num_statements": 183,
+        "percent_covered": 94.25287356321839,
+        "percent_covered_display": "94",
+        "missing_lines": 7,
+        "excluded_lines": 0,
+        "percent_statements_covered": 96.17486338797814,
+        "percent_statements_covered_display": "96",
+        "num_branches": 78,
+        "num_partial_branches": 8,
+        "covered_branches": 70,
+        "missing_branches": 8,
+        "percent_branches_covered": 89.74358974358974,
+        "percent_branches_covered_display": "90"
+      },
+      "missing_lines": [
+        54,
+        98,
+        129,
+        228,
+        260,
+        268,
+        275
+      ],
+      "missing_branches": [
+        [
+          53,
+          54
+        ],
+        [
+          97,
+          98
+        ],
+        [
+          128,
+          129
+        ],
+        [
+          140,
+          -139
+        ],
+        [
+          227,
+          228
+        ],
+        [
+          259,
+          260
+        ],
+        [
+          267,
+          268
+        ],
+        [
+          270,
+          275
+        ]
+      ]
+    },
+    "modules/trading/src/cripto_bot/application/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/application/collect_market.py": {
+      "summary": {
+        "covered_lines": 58,
+        "num_statements": 58,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 22,
+        "num_partial_branches": 0,
+        "covered_branches": 22,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/application/paper_reconcile.py": {
+      "summary": {
+        "covered_lines": 12,
+        "num_statements": 12,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 5,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 2,
+        "num_partial_branches": 0,
+        "covered_branches": 2,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/application/paper_run.py": {
+      "summary": {
+        "covered_lines": 33,
+        "num_statements": 33,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 10,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 12,
+        "num_partial_branches": 0,
+        "covered_branches": 12,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/application/ports.py": {
+      "summary": {
+        "covered_lines": 25,
+        "num_statements": 25,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 14,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/application/run_once.py": {
+      "summary": {
+        "covered_lines": 10,
+        "num_statements": 10,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/domain/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/domain/market.py": {
+      "summary": {
+        "covered_lines": 129,
+        "num_statements": 129,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 50,
+        "num_partial_branches": 0,
+        "covered_branches": 50,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/domain/models.py": {
+      "summary": {
+        "covered_lines": 48,
+        "num_statements": 48,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 4,
+        "num_partial_branches": 0,
+        "covered_branches": 4,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/domain/portfolio/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/domain/portfolio/engine.py": {
+      "summary": {
+        "covered_lines": 117,
+        "num_statements": 117,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 36,
+        "num_partial_branches": 0,
+        "covered_branches": 36,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/domain/portfolio/models.py": {
+      "summary": {
+        "covered_lines": 140,
+        "num_statements": 144,
+        "percent_covered": 96.7032967032967,
+        "percent_covered_display": "97",
+        "missing_lines": 4,
+        "excluded_lines": 0,
+        "percent_statements_covered": 97.22222222222223,
+        "percent_statements_covered_display": "97",
+        "num_branches": 38,
+        "num_partial_branches": 2,
+        "covered_branches": 36,
+        "missing_branches": 2,
+        "percent_branches_covered": 94.73684210526316,
+        "percent_branches_covered_display": "95"
+      },
+      "missing_lines": [
+        67,
+        172,
+        199,
+        200
+      ],
+      "missing_branches": [
+        [
+          66,
+          67
+        ],
+        [
+          171,
+          172
+        ]
+      ]
+    },
+    "modules/trading/src/cripto_bot/domain/risk/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/domain/risk/execution.py": {
+      "summary": {
+        "covered_lines": 101,
+        "num_statements": 101,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 54,
+        "num_partial_branches": 0,
+        "covered_branches": 54,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/domain/risk/limits.py": {
+      "summary": {
+        "covered_lines": 31,
+        "num_statements": 31,
+        "percent_covered": 98.18181818181819,
+        "percent_covered_display": "98",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 24,
+        "num_partial_branches": 1,
+        "covered_branches": 23,
+        "missing_branches": 1,
+        "percent_branches_covered": 95.83333333333333,
+        "percent_branches_covered_display": "96"
+      },
+      "missing_lines": [],
+      "missing_branches": [
+        [
+          10,
+          15
+        ]
+      ]
+    },
+    "modules/trading/src/cripto_bot/entrypoints/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/entrypoints/cli.py": {
+      "summary": {
+        "covered_lines": 55,
+        "num_statements": 55,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 10,
+        "num_partial_branches": 0,
+        "covered_branches": 10,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/entrypoints/market.py": {
+      "summary": {
+        "covered_lines": 56,
+        "num_statements": 56,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 12,
+        "num_partial_branches": 0,
+        "covered_branches": 12,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/entrypoints/paper.py": {
+      "summary": {
+        "covered_lines": 58,
+        "num_statements": 63,
+        "percent_covered": 92.40506329113924,
+        "percent_covered_display": "92",
+        "missing_lines": 5,
+        "excluded_lines": 0,
+        "percent_statements_covered": 92.06349206349206,
+        "percent_statements_covered_display": "92",
+        "num_branches": 16,
+        "num_partial_branches": 1,
+        "covered_branches": 15,
+        "missing_branches": 1,
+        "percent_branches_covered": 93.75,
+        "percent_branches_covered_display": "94"
+      },
+      "missing_lines": [
+        27,
+        28,
+        100,
+        101,
+        105
+      ],
+      "missing_branches": [
+        [
+          78,
+          87
+        ]
+      ]
+    },
+    "modules/trading/src/cripto_bot/observability/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    },
+    "modules/trading/src/cripto_bot/observability/logging.py": {
+      "summary": {
+        "covered_lines": 12,
+        "num_statements": 12,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 2,
+        "num_partial_branches": 0,
+        "covered_branches": 2,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "missing_lines": [],
+      "missing_branches": []
+    }
+  },
+  "manual_config": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint-03-_94qv2ax/execution.toml",
+  "manual_commands": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "check-config",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint-03-_94qv2ax/execution.toml"
+      ],
+      "exit_code": 0,
+      "result": {
+        "run_id": "e8cf9982-3406-4ef4-a257-d15be700d0e4",
+        "timestamp": "2026-10-25T01:03:35.615503+00:00",
+        "mode": "PAPER",
+        "status": "VALID"
+      },
+      "event": {
+        "run_id": "e8cf9982-3406-4ef4-a257-d15be700d0e4",
+        "timestamp": "2026-10-25T01:03:35.615503+00:00",
+        "mode": "PAPER",
+        "level": "INFO",
+        "event": "check-config"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "paper-run",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint-03-_94qv2ax/execution.toml"
+      ],
+      "exit_code": 0,
+      "result": {
+        "run_id": "dd89885a-840f-44cc-a4a6-31bdea7ef959",
+        "timestamp": "2026-10-25T01:03:35.865224+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "wallet_id": "paper-demo",
+        "simulated_fills": 2,
+        "rejected_intents": 0,
+        "replayed_actions": 0,
+        "wallet": {
+          "usdt_free": "10009.58001000",
+          "usdt_reserved": "0.00000000",
+          "btc_free": "0.00000000",
+          "btc_reserved": "0.00000000",
+          "cost_basis": "0.00000000",
+          "fees": "0.20999000",
+          "realized": "9.58001000",
+          "mark": "110.00000000",
+          "peak": "10009.79990000",
+          "baseline": "10000.00000000",
+          "day": "2026-10-01",
+          "daily_blocked": false,
+          "drawdown_blocked": false,
+          "clock": 1790814601001,
+          "version": 6,
+          "cursor": 3,
+          "intents": {
+            "paper-demo:roundtrip-v1:buy": {
+              "state": "FILLED",
+              "payload_hash": "85feca4c56f8d53394fcbc3c6803d90663f0132bbce16504695c60e563228457",
+              "plan": {
+                "action": "paper-demo:roundtrip-v1:buy",
+                "side": "BUY",
+                "requested": "1.00000000",
+                "quantity": "1.00000000",
+                "price": "100.10000000",
+                "notional": "100.10000000",
+                "fee": "0.10010000",
+                "mark": "100.00000000",
+                "fill_at": 1790813701001,
+                "observed_at": 1790813701000
+              },
+              "reason": "",
+              "reserved": "0.00000000"
+            },
+            "paper-demo:roundtrip-v1:sell": {
+              "state": "FILLED",
+              "payload_hash": "2921b74e643667dcdc6e59b8be1ad7ca740b8c53d46ab7aa8fcc829d9fb5f32e",
+              "plan": {
+                "action": "paper-demo:roundtrip-v1:sell",
+                "side": "SELL",
+                "requested": "1.00000000",
+                "quantity": "1.00000000",
+                "price": "109.89000000",
+                "notional": "109.89000000",
+                "fee": "0.10989000",
+                "mark": "110.00000000",
+                "fill_at": 1790814601001,
+                "observed_at": 1790814601000
+              },
+              "reason": "",
+              "reserved": "0.00000000"
+            }
+          },
+          "cost_average": "0.00000000",
+          "unrealized": "0.00000000",
+          "equity": "10009.58001000",
+          "exposure_fraction": "0.00000000",
+          "daily_loss_fraction": "0.00000000",
+          "drawdown_fraction": "0.00002197"
+        },
+        "model": "paper-integral-v1",
+        "context": {
+          "model": "paper-integral-v1",
+          "parameters": {
+            "fee_bps": "10",
+            "initial_usdt": "10000.00",
+            "max_daily_loss_fraction": "0.01",
+            "max_drawdown_fraction": "0.05",
+            "max_entry_fraction": "0.10",
+            "max_exposure_fraction": "0.10",
+            "max_quote_age_ms": 5000,
+            "slippage_bps": "5",
+            "spread_bps": "10",
+            "wallet_id": "paper-demo"
+          },
+          "rules": {
+            "baseAsset": "BTC",
+            "filters": [
+              {
+                "filterType": "PRICE_FILTER",
+                "maxPrice": "1000000",
+                "minPrice": "0.01",
+                "tickSize": "0.01"
+              },
+              {
+                "filterType": "LOT_SIZE",
+                "maxQty": "1000",
+                "minQty": "0.000001",
+                "stepSize": "0.000001"
+              },
+              {
+                "filterType": "MARKET_LOT_SIZE",
+                "maxQty": "1000",
+                "minQty": "0.000001",
+                "stepSize": "0.000001"
+              },
+              {
+                "applyToMarket": true,
+                "filterType": "MIN_NOTIONAL",
+                "minNotional": "10"
+              }
+            ],
+            "isSpotTradingAllowed": true,
+            "quoteAsset": "USDT",
+            "rule_version": "synthetic-v1",
+            "status": "TRADING",
+            "symbol": "BTCUSDT"
+          },
+          "scenario_id": "roundtrip-v1",
+          "scenario_sha256": "e6fd53862c52b1d1fdbbcfaf67619e7f9830827c506e0ebedbd2afecbd675af6",
+          "start_time": "2026-10-01T00:00:00Z"
+        },
+        "reconciled": true,
+        "blocked": false,
+        "total_simulated_fills": 2,
+        "total_rejected_intents": 0,
+        "journal": [
+          {
+            "seq": 1,
+            "event_key": "GENESIS",
+            "kind": "GENESIS",
+            "payload": {
+              "timestamp": "2026-10-01T00:00:00Z"
+            },
+            "previous_hash": "2497a46ee629119ccf7f76687df61469a9dc9fc39645e96bfcb8c6de67c390cf",
+            "chain_hash": "2b01b09fc4a9490b08dd43cc7469b98ff83ab75c378e0eb6f4a86980688dba0a"
+          },
+          {
+            "seq": 2,
+            "event_key": "paper-demo:roundtrip-v1:day-1",
+            "kind": "DAY_START",
+            "payload": {
+              "event_id": "day-1",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:00:00Z",
+                "price": "100",
+                "quote_id": "day-mark",
+                "symbol": "BTCUSDT"
+              },
+              "timestamp": "2026-10-01T00:00:00Z",
+              "type": "DAY_START"
+            },
+            "previous_hash": "2b01b09fc4a9490b08dd43cc7469b98ff83ab75c378e0eb6f4a86980688dba0a",
+            "chain_hash": "2f59e7691a36f1e95430979938b9bb6c56349dfb235f87211d6dba79ebd7349a"
+          },
+          {
+            "seq": 3,
+            "event_key": "paper-demo:roundtrip-v1:buy",
+            "kind": "ORDER",
+            "payload": {
+              "action_id": "buy",
+              "action_key": "paper-demo:roundtrip-v1:buy",
+              "decision_at": "2026-10-01T00:15:00Z",
+              "event_id": "buy",
+              "fill_at": "2026-10-01T00:15:01.001Z",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:15:01Z",
+                "price": "100",
+                "quote_id": "buy-quote",
+                "symbol": "BTCUSDT"
+              },
+              "quantity": "1",
+              "side": "BUY",
+              "timestamp": "2026-10-01T00:15:01Z",
+              "type": "ORDER"
+            },
+            "previous_hash": "2f59e7691a36f1e95430979938b9bb6c56349dfb235f87211d6dba79ebd7349a",
+            "chain_hash": "d208756fdb1e0fba66171de364c319a969882a29c4cfb60d400ef34d2b539868"
+          },
+          {
+            "seq": 4,
+            "event_key": "paper-demo:roundtrip-v1:buy:FILL",
+            "kind": "FILL",
+            "payload": {
+              "action_key": "paper-demo:roundtrip-v1:buy",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6"
+            },
+            "previous_hash": "d208756fdb1e0fba66171de364c319a969882a29c4cfb60d400ef34d2b539868",
+            "chain_hash": "c310c0061e2a805c19bc0cf6891038ab6cc9625cb0c30b2a232b63e05ba19cef"
+          },
+          {
+            "seq": 5,
+            "event_key": "paper-demo:roundtrip-v1:sell",
+            "kind": "ORDER",
+            "payload": {
+              "action_id": "sell",
+              "action_key": "paper-demo:roundtrip-v1:sell",
+              "decision_at": "2026-10-01T00:30:00Z",
+              "event_id": "sell",
+              "fill_at": "2026-10-01T00:30:01.001Z",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:30:01Z",
+                "price": "110",
+                "quote_id": "sell-quote",
+                "symbol": "BTCUSDT"
+              },
+              "quantity": "1",
+              "side": "SELL",
+              "timestamp": "2026-10-01T00:30:01Z",
+              "type": "ORDER"
+            },
+            "previous_hash": "c310c0061e2a805c19bc0cf6891038ab6cc9625cb0c30b2a232b63e05ba19cef",
+            "chain_hash": "b1d0671e817acecc3e728362b7d0869c176314ca92ae86b472ec1e5fc40df66c"
+          },
+          {
+            "seq": 6,
+            "event_key": "paper-demo:roundtrip-v1:sell:FILL",
+            "kind": "FILL",
+            "payload": {
+              "action_key": "paper-demo:roundtrip-v1:sell",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632"
+            },
+            "previous_hash": "b1d0671e817acecc3e728362b7d0869c176314ca92ae86b472ec1e5fc40df66c",
+            "chain_hash": "96a0b864fd2c9cb604a7c5eef393c099eba4e4168265f583dce318ce2a74be37"
+          }
+        ],
+        "ledger": [
+          {
+            "seq": 1,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "10000.00000000",
+              "reference": "GENESIS",
+              "timestamp": "2026-10-01T00:00:00+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 1,
+            "index": 1,
+            "posting": {
+              "account": "capital",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "-10000.00000000",
+              "reference": "GENESIS",
+              "timestamp": "2026-10-01T00:00:00+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 3,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "-100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 3,
+            "index": 1,
+            "posting": {
+              "account": "reserved",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 0,
+            "posting": {
+              "account": "reserved",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "-100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 1,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "0.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 2,
+            "posting": {
+              "account": "market",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "100.10000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 3,
+            "posting": {
+              "account": "fees",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "0.10010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 4,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 5,
+            "posting": {
+              "account": "market",
+              "asset": "BTC",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 5,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": null,
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 5,
+            "index": 1,
+            "posting": {
+              "account": "reserved",
+              "asset": "BTC",
+              "fill_id": null,
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 0,
+            "posting": {
+              "account": "reserved",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 1,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "0.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 2,
+            "posting": {
+              "account": "market",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 3,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "109.78011000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 4,
+            "posting": {
+              "account": "market",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "-109.89000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 5,
+            "posting": {
+              "account": "fees",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "0.10989000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          }
+        ],
+        "financial_sha256": "d4389da8aff0d298fe2ee1c049f0d0278257fd60627b754a0d2525e528338a37",
+        "status": "PAPER_COMPLETED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint-03-_94qv2ax/wallet/reports/dd89885a-840f-44cc-a4a6-31bdea7ef959/manifest.json"
+      },
+      "event": {
+        "run_id": "dd89885a-840f-44cc-a4a6-31bdea7ef959",
+        "timestamp": "2026-10-25T01:03:35.865224+00:00",
+        "mode": "PAPER",
+        "level": "INFO",
+        "event": "paper-run"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "paper-reconcile",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint-03-_94qv2ax/execution.toml"
+      ],
+      "exit_code": 0,
+      "result": {
+        "run_id": "d1a148e2-8855-470a-835c-9e648ac450f1",
+        "timestamp": "2026-10-25T01:03:36.183600+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "wallet_id": "paper-demo",
+        "simulated_fills": 0,
+        "rejected_intents": 0,
+        "replayed_actions": 0,
+        "wallet": {
+          "usdt_free": "10009.58001000",
+          "usdt_reserved": "0.00000000",
+          "btc_free": "0.00000000",
+          "btc_reserved": "0.00000000",
+          "cost_basis": "0.00000000",
+          "fees": "0.20999000",
+          "realized": "9.58001000",
+          "mark": "110.00000000",
+          "peak": "10009.79990000",
+          "baseline": "10000.00000000",
+          "day": "2026-10-01",
+          "daily_blocked": false,
+          "drawdown_blocked": false,
+          "clock": 1790814601001,
+          "version": 6,
+          "cursor": 3,
+          "intents": {
+            "paper-demo:roundtrip-v1:buy": {
+              "state": "FILLED",
+              "payload_hash": "85feca4c56f8d53394fcbc3c6803d90663f0132bbce16504695c60e563228457",
+              "plan": {
+                "action": "paper-demo:roundtrip-v1:buy",
+                "side": "BUY",
+                "requested": "1.00000000",
+                "quantity": "1.00000000",
+                "price": "100.10000000",
+                "notional": "100.10000000",
+                "fee": "0.10010000",
+                "mark": "100.00000000",
+                "fill_at": 1790813701001,
+                "observed_at": 1790813701000
+              },
+              "reason": "",
+              "reserved": "0.00000000"
+            },
+            "paper-demo:roundtrip-v1:sell": {
+              "state": "FILLED",
+              "payload_hash": "2921b74e643667dcdc6e59b8be1ad7ca740b8c53d46ab7aa8fcc829d9fb5f32e",
+              "plan": {
+                "action": "paper-demo:roundtrip-v1:sell",
+                "side": "SELL",
+                "requested": "1.00000000",
+                "quantity": "1.00000000",
+                "price": "109.89000000",
+                "notional": "109.89000000",
+                "fee": "0.10989000",
+                "mark": "110.00000000",
+                "fill_at": 1790814601001,
+                "observed_at": 1790814601000
+              },
+              "reason": "",
+              "reserved": "0.00000000"
+            }
+          },
+          "cost_average": "0.00000000",
+          "unrealized": "0.00000000",
+          "equity": "10009.58001000",
+          "exposure_fraction": "0.00000000",
+          "daily_loss_fraction": "0.00000000",
+          "drawdown_fraction": "0.00002197"
+        },
+        "model": "paper-integral-v1",
+        "context": {
+          "model": "paper-integral-v1",
+          "parameters": {
+            "fee_bps": "10",
+            "initial_usdt": "10000.00",
+            "max_daily_loss_fraction": "0.01",
+            "max_drawdown_fraction": "0.05",
+            "max_entry_fraction": "0.10",
+            "max_exposure_fraction": "0.10",
+            "max_quote_age_ms": 5000,
+            "slippage_bps": "5",
+            "spread_bps": "10",
+            "wallet_id": "paper-demo"
+          },
+          "rules": {
+            "baseAsset": "BTC",
+            "filters": [
+              {
+                "filterType": "PRICE_FILTER",
+                "maxPrice": "1000000",
+                "minPrice": "0.01",
+                "tickSize": "0.01"
+              },
+              {
+                "filterType": "LOT_SIZE",
+                "maxQty": "1000",
+                "minQty": "0.000001",
+                "stepSize": "0.000001"
+              },
+              {
+                "filterType": "MARKET_LOT_SIZE",
+                "maxQty": "1000",
+                "minQty": "0.000001",
+                "stepSize": "0.000001"
+              },
+              {
+                "applyToMarket": true,
+                "filterType": "MIN_NOTIONAL",
+                "minNotional": "10"
+              }
+            ],
+            "isSpotTradingAllowed": true,
+            "quoteAsset": "USDT",
+            "rule_version": "synthetic-v1",
+            "status": "TRADING",
+            "symbol": "BTCUSDT"
+          },
+          "scenario_id": "roundtrip-v1",
+          "scenario_sha256": "e6fd53862c52b1d1fdbbcfaf67619e7f9830827c506e0ebedbd2afecbd675af6",
+          "start_time": "2026-10-01T00:00:00Z"
+        },
+        "reconciled": true,
+        "blocked": false,
+        "total_simulated_fills": 2,
+        "total_rejected_intents": 0,
+        "journal": [
+          {
+            "seq": 1,
+            "event_key": "GENESIS",
+            "kind": "GENESIS",
+            "payload": {
+              "timestamp": "2026-10-01T00:00:00Z"
+            },
+            "previous_hash": "2497a46ee629119ccf7f76687df61469a9dc9fc39645e96bfcb8c6de67c390cf",
+            "chain_hash": "2b01b09fc4a9490b08dd43cc7469b98ff83ab75c378e0eb6f4a86980688dba0a"
+          },
+          {
+            "seq": 2,
+            "event_key": "paper-demo:roundtrip-v1:day-1",
+            "kind": "DAY_START",
+            "payload": {
+              "event_id": "day-1",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:00:00Z",
+                "price": "100",
+                "quote_id": "day-mark",
+                "symbol": "BTCUSDT"
+              },
+              "timestamp": "2026-10-01T00:00:00Z",
+              "type": "DAY_START"
+            },
+            "previous_hash": "2b01b09fc4a9490b08dd43cc7469b98ff83ab75c378e0eb6f4a86980688dba0a",
+            "chain_hash": "2f59e7691a36f1e95430979938b9bb6c56349dfb235f87211d6dba79ebd7349a"
+          },
+          {
+            "seq": 3,
+            "event_key": "paper-demo:roundtrip-v1:buy",
+            "kind": "ORDER",
+            "payload": {
+              "action_id": "buy",
+              "action_key": "paper-demo:roundtrip-v1:buy",
+              "decision_at": "2026-10-01T00:15:00Z",
+              "event_id": "buy",
+              "fill_at": "2026-10-01T00:15:01.001Z",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:15:01Z",
+                "price": "100",
+                "quote_id": "buy-quote",
+                "symbol": "BTCUSDT"
+              },
+              "quantity": "1",
+              "side": "BUY",
+              "timestamp": "2026-10-01T00:15:01Z",
+              "type": "ORDER"
+            },
+            "previous_hash": "2f59e7691a36f1e95430979938b9bb6c56349dfb235f87211d6dba79ebd7349a",
+            "chain_hash": "d208756fdb1e0fba66171de364c319a969882a29c4cfb60d400ef34d2b539868"
+          },
+          {
+            "seq": 4,
+            "event_key": "paper-demo:roundtrip-v1:buy:FILL",
+            "kind": "FILL",
+            "payload": {
+              "action_key": "paper-demo:roundtrip-v1:buy",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6"
+            },
+            "previous_hash": "d208756fdb1e0fba66171de364c319a969882a29c4cfb60d400ef34d2b539868",
+            "chain_hash": "c310c0061e2a805c19bc0cf6891038ab6cc9625cb0c30b2a232b63e05ba19cef"
+          },
+          {
+            "seq": 5,
+            "event_key": "paper-demo:roundtrip-v1:sell",
+            "kind": "ORDER",
+            "payload": {
+              "action_id": "sell",
+              "action_key": "paper-demo:roundtrip-v1:sell",
+              "decision_at": "2026-10-01T00:30:00Z",
+              "event_id": "sell",
+              "fill_at": "2026-10-01T00:30:01.001Z",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:30:01Z",
+                "price": "110",
+                "quote_id": "sell-quote",
+                "symbol": "BTCUSDT"
+              },
+              "quantity": "1",
+              "side": "SELL",
+              "timestamp": "2026-10-01T00:30:01Z",
+              "type": "ORDER"
+            },
+            "previous_hash": "c310c0061e2a805c19bc0cf6891038ab6cc9625cb0c30b2a232b63e05ba19cef",
+            "chain_hash": "b1d0671e817acecc3e728362b7d0869c176314ca92ae86b472ec1e5fc40df66c"
+          },
+          {
+            "seq": 6,
+            "event_key": "paper-demo:roundtrip-v1:sell:FILL",
+            "kind": "FILL",
+            "payload": {
+              "action_key": "paper-demo:roundtrip-v1:sell",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632"
+            },
+            "previous_hash": "b1d0671e817acecc3e728362b7d0869c176314ca92ae86b472ec1e5fc40df66c",
+            "chain_hash": "96a0b864fd2c9cb604a7c5eef393c099eba4e4168265f583dce318ce2a74be37"
+          }
+        ],
+        "ledger": [
+          {
+            "seq": 1,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "10000.00000000",
+              "reference": "GENESIS",
+              "timestamp": "2026-10-01T00:00:00+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 1,
+            "index": 1,
+            "posting": {
+              "account": "capital",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "-10000.00000000",
+              "reference": "GENESIS",
+              "timestamp": "2026-10-01T00:00:00+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 3,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "-100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 3,
+            "index": 1,
+            "posting": {
+              "account": "reserved",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 0,
+            "posting": {
+              "account": "reserved",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "-100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 1,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "0.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 2,
+            "posting": {
+              "account": "market",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "100.10000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 3,
+            "posting": {
+              "account": "fees",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "0.10010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 4,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 5,
+            "posting": {
+              "account": "market",
+              "asset": "BTC",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 5,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": null,
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 5,
+            "index": 1,
+            "posting": {
+              "account": "reserved",
+              "asset": "BTC",
+              "fill_id": null,
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 0,
+            "posting": {
+              "account": "reserved",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 1,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "0.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 2,
+            "posting": {
+              "account": "market",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 3,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "109.78011000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 4,
+            "posting": {
+              "account": "market",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "-109.89000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 5,
+            "posting": {
+              "account": "fees",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "0.10989000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          }
+        ],
+        "financial_sha256": "d4389da8aff0d298fe2ee1c049f0d0278257fd60627b754a0d2525e528338a37",
+        "status": "PAPER_RECONCILED"
+      },
+      "event": {
+        "run_id": "d1a148e2-8855-470a-835c-9e648ac450f1",
+        "timestamp": "2026-10-25T01:03:36.183600+00:00",
+        "mode": "PAPER",
+        "level": "INFO",
+        "event": "paper-reconcile"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "paper-report",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint-03-_94qv2ax/execution.toml"
+      ],
+      "exit_code": 0,
+      "result": {
+        "run_id": "1c35fd21-32aa-4f48-864e-1de927000248",
+        "timestamp": "2026-10-25T01:03:36.443026+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "wallet_id": "paper-demo",
+        "simulated_fills": 0,
+        "rejected_intents": 0,
+        "replayed_actions": 0,
+        "wallet": {
+          "usdt_free": "10009.58001000",
+          "usdt_reserved": "0.00000000",
+          "btc_free": "0.00000000",
+          "btc_reserved": "0.00000000",
+          "cost_basis": "0.00000000",
+          "fees": "0.20999000",
+          "realized": "9.58001000",
+          "mark": "110.00000000",
+          "peak": "10009.79990000",
+          "baseline": "10000.00000000",
+          "day": "2026-10-01",
+          "daily_blocked": false,
+          "drawdown_blocked": false,
+          "clock": 1790814601001,
+          "version": 6,
+          "cursor": 3,
+          "intents": {
+            "paper-demo:roundtrip-v1:buy": {
+              "state": "FILLED",
+              "payload_hash": "85feca4c56f8d53394fcbc3c6803d90663f0132bbce16504695c60e563228457",
+              "plan": {
+                "action": "paper-demo:roundtrip-v1:buy",
+                "side": "BUY",
+                "requested": "1.00000000",
+                "quantity": "1.00000000",
+                "price": "100.10000000",
+                "notional": "100.10000000",
+                "fee": "0.10010000",
+                "mark": "100.00000000",
+                "fill_at": 1790813701001,
+                "observed_at": 1790813701000
+              },
+              "reason": "",
+              "reserved": "0.00000000"
+            },
+            "paper-demo:roundtrip-v1:sell": {
+              "state": "FILLED",
+              "payload_hash": "2921b74e643667dcdc6e59b8be1ad7ca740b8c53d46ab7aa8fcc829d9fb5f32e",
+              "plan": {
+                "action": "paper-demo:roundtrip-v1:sell",
+                "side": "SELL",
+                "requested": "1.00000000",
+                "quantity": "1.00000000",
+                "price": "109.89000000",
+                "notional": "109.89000000",
+                "fee": "0.10989000",
+                "mark": "110.00000000",
+                "fill_at": 1790814601001,
+                "observed_at": 1790814601000
+              },
+              "reason": "",
+              "reserved": "0.00000000"
+            }
+          },
+          "cost_average": "0.00000000",
+          "unrealized": "0.00000000",
+          "equity": "10009.58001000",
+          "exposure_fraction": "0.00000000",
+          "daily_loss_fraction": "0.00000000",
+          "drawdown_fraction": "0.00002197"
+        },
+        "model": "paper-integral-v1",
+        "context": {
+          "model": "paper-integral-v1",
+          "parameters": {
+            "fee_bps": "10",
+            "initial_usdt": "10000.00",
+            "max_daily_loss_fraction": "0.01",
+            "max_drawdown_fraction": "0.05",
+            "max_entry_fraction": "0.10",
+            "max_exposure_fraction": "0.10",
+            "max_quote_age_ms": 5000,
+            "slippage_bps": "5",
+            "spread_bps": "10",
+            "wallet_id": "paper-demo"
+          },
+          "rules": {
+            "baseAsset": "BTC",
+            "filters": [
+              {
+                "filterType": "PRICE_FILTER",
+                "maxPrice": "1000000",
+                "minPrice": "0.01",
+                "tickSize": "0.01"
+              },
+              {
+                "filterType": "LOT_SIZE",
+                "maxQty": "1000",
+                "minQty": "0.000001",
+                "stepSize": "0.000001"
+              },
+              {
+                "filterType": "MARKET_LOT_SIZE",
+                "maxQty": "1000",
+                "minQty": "0.000001",
+                "stepSize": "0.000001"
+              },
+              {
+                "applyToMarket": true,
+                "filterType": "MIN_NOTIONAL",
+                "minNotional": "10"
+              }
+            ],
+            "isSpotTradingAllowed": true,
+            "quoteAsset": "USDT",
+            "rule_version": "synthetic-v1",
+            "status": "TRADING",
+            "symbol": "BTCUSDT"
+          },
+          "scenario_id": "roundtrip-v1",
+          "scenario_sha256": "e6fd53862c52b1d1fdbbcfaf67619e7f9830827c506e0ebedbd2afecbd675af6",
+          "start_time": "2026-10-01T00:00:00Z"
+        },
+        "reconciled": true,
+        "blocked": false,
+        "total_simulated_fills": 2,
+        "total_rejected_intents": 0,
+        "journal": [
+          {
+            "seq": 1,
+            "event_key": "GENESIS",
+            "kind": "GENESIS",
+            "payload": {
+              "timestamp": "2026-10-01T00:00:00Z"
+            },
+            "previous_hash": "2497a46ee629119ccf7f76687df61469a9dc9fc39645e96bfcb8c6de67c390cf",
+            "chain_hash": "2b01b09fc4a9490b08dd43cc7469b98ff83ab75c378e0eb6f4a86980688dba0a"
+          },
+          {
+            "seq": 2,
+            "event_key": "paper-demo:roundtrip-v1:day-1",
+            "kind": "DAY_START",
+            "payload": {
+              "event_id": "day-1",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:00:00Z",
+                "price": "100",
+                "quote_id": "day-mark",
+                "symbol": "BTCUSDT"
+              },
+              "timestamp": "2026-10-01T00:00:00Z",
+              "type": "DAY_START"
+            },
+            "previous_hash": "2b01b09fc4a9490b08dd43cc7469b98ff83ab75c378e0eb6f4a86980688dba0a",
+            "chain_hash": "2f59e7691a36f1e95430979938b9bb6c56349dfb235f87211d6dba79ebd7349a"
+          },
+          {
+            "seq": 3,
+            "event_key": "paper-demo:roundtrip-v1:buy",
+            "kind": "ORDER",
+            "payload": {
+              "action_id": "buy",
+              "action_key": "paper-demo:roundtrip-v1:buy",
+              "decision_at": "2026-10-01T00:15:00Z",
+              "event_id": "buy",
+              "fill_at": "2026-10-01T00:15:01.001Z",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:15:01Z",
+                "price": "100",
+                "quote_id": "buy-quote",
+                "symbol": "BTCUSDT"
+              },
+              "quantity": "1",
+              "side": "BUY",
+              "timestamp": "2026-10-01T00:15:01Z",
+              "type": "ORDER"
+            },
+            "previous_hash": "2f59e7691a36f1e95430979938b9bb6c56349dfb235f87211d6dba79ebd7349a",
+            "chain_hash": "d208756fdb1e0fba66171de364c319a969882a29c4cfb60d400ef34d2b539868"
+          },
+          {
+            "seq": 4,
+            "event_key": "paper-demo:roundtrip-v1:buy:FILL",
+            "kind": "FILL",
+            "payload": {
+              "action_key": "paper-demo:roundtrip-v1:buy",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6"
+            },
+            "previous_hash": "d208756fdb1e0fba66171de364c319a969882a29c4cfb60d400ef34d2b539868",
+            "chain_hash": "c310c0061e2a805c19bc0cf6891038ab6cc9625cb0c30b2a232b63e05ba19cef"
+          },
+          {
+            "seq": 5,
+            "event_key": "paper-demo:roundtrip-v1:sell",
+            "kind": "ORDER",
+            "payload": {
+              "action_id": "sell",
+              "action_key": "paper-demo:roundtrip-v1:sell",
+              "decision_at": "2026-10-01T00:30:00Z",
+              "event_id": "sell",
+              "fill_at": "2026-10-01T00:30:01.001Z",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:30:01Z",
+                "price": "110",
+                "quote_id": "sell-quote",
+                "symbol": "BTCUSDT"
+              },
+              "quantity": "1",
+              "side": "SELL",
+              "timestamp": "2026-10-01T00:30:01Z",
+              "type": "ORDER"
+            },
+            "previous_hash": "c310c0061e2a805c19bc0cf6891038ab6cc9625cb0c30b2a232b63e05ba19cef",
+            "chain_hash": "b1d0671e817acecc3e728362b7d0869c176314ca92ae86b472ec1e5fc40df66c"
+          },
+          {
+            "seq": 6,
+            "event_key": "paper-demo:roundtrip-v1:sell:FILL",
+            "kind": "FILL",
+            "payload": {
+              "action_key": "paper-demo:roundtrip-v1:sell",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632"
+            },
+            "previous_hash": "b1d0671e817acecc3e728362b7d0869c176314ca92ae86b472ec1e5fc40df66c",
+            "chain_hash": "96a0b864fd2c9cb604a7c5eef393c099eba4e4168265f583dce318ce2a74be37"
+          }
+        ],
+        "ledger": [
+          {
+            "seq": 1,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "10000.00000000",
+              "reference": "GENESIS",
+              "timestamp": "2026-10-01T00:00:00+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 1,
+            "index": 1,
+            "posting": {
+              "account": "capital",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "-10000.00000000",
+              "reference": "GENESIS",
+              "timestamp": "2026-10-01T00:00:00+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 3,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "-100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 3,
+            "index": 1,
+            "posting": {
+              "account": "reserved",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 0,
+            "posting": {
+              "account": "reserved",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "-100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 1,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "0.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 2,
+            "posting": {
+              "account": "market",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "100.10000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 3,
+            "posting": {
+              "account": "fees",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "0.10010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 4,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 5,
+            "posting": {
+              "account": "market",
+              "asset": "BTC",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 5,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": null,
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 5,
+            "index": 1,
+            "posting": {
+              "account": "reserved",
+              "asset": "BTC",
+              "fill_id": null,
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 0,
+            "posting": {
+              "account": "reserved",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 1,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "0.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 2,
+            "posting": {
+              "account": "market",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 3,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "109.78011000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 4,
+            "posting": {
+              "account": "market",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "-109.89000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 5,
+            "posting": {
+              "account": "fees",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "0.10989000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          }
+        ],
+        "financial_sha256": "d4389da8aff0d298fe2ee1c049f0d0278257fd60627b754a0d2525e528338a37",
+        "status": "PAPER_REPORT"
+      },
+      "event": {
+        "run_id": "1c35fd21-32aa-4f48-864e-1de927000248",
+        "timestamp": "2026-10-25T01:03:36.443026+00:00",
+        "mode": "PAPER",
+        "level": "INFO",
+        "event": "paper-report"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "paper-run",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint-03-_94qv2ax/execution.toml"
+      ],
+      "exit_code": 0,
+      "result": {
+        "run_id": "647dc702-8d76-43e4-988c-03e9d265d860",
+        "timestamp": "2026-10-25T01:03:36.698857+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "wallet_id": "paper-demo",
+        "simulated_fills": 0,
+        "rejected_intents": 0,
+        "replayed_actions": 3,
+        "wallet": {
+          "usdt_free": "10009.58001000",
+          "usdt_reserved": "0.00000000",
+          "btc_free": "0.00000000",
+          "btc_reserved": "0.00000000",
+          "cost_basis": "0.00000000",
+          "fees": "0.20999000",
+          "realized": "9.58001000",
+          "mark": "110.00000000",
+          "peak": "10009.79990000",
+          "baseline": "10000.00000000",
+          "day": "2026-10-01",
+          "daily_blocked": false,
+          "drawdown_blocked": false,
+          "clock": 1790814601001,
+          "version": 6,
+          "cursor": 3,
+          "intents": {
+            "paper-demo:roundtrip-v1:buy": {
+              "state": "FILLED",
+              "payload_hash": "85feca4c56f8d53394fcbc3c6803d90663f0132bbce16504695c60e563228457",
+              "plan": {
+                "action": "paper-demo:roundtrip-v1:buy",
+                "side": "BUY",
+                "requested": "1.00000000",
+                "quantity": "1.00000000",
+                "price": "100.10000000",
+                "notional": "100.10000000",
+                "fee": "0.10010000",
+                "mark": "100.00000000",
+                "fill_at": 1790813701001,
+                "observed_at": 1790813701000
+              },
+              "reason": "",
+              "reserved": "0.00000000"
+            },
+            "paper-demo:roundtrip-v1:sell": {
+              "state": "FILLED",
+              "payload_hash": "2921b74e643667dcdc6e59b8be1ad7ca740b8c53d46ab7aa8fcc829d9fb5f32e",
+              "plan": {
+                "action": "paper-demo:roundtrip-v1:sell",
+                "side": "SELL",
+                "requested": "1.00000000",
+                "quantity": "1.00000000",
+                "price": "109.89000000",
+                "notional": "109.89000000",
+                "fee": "0.10989000",
+                "mark": "110.00000000",
+                "fill_at": 1790814601001,
+                "observed_at": 1790814601000
+              },
+              "reason": "",
+              "reserved": "0.00000000"
+            }
+          },
+          "cost_average": "0.00000000",
+          "unrealized": "0.00000000",
+          "equity": "10009.58001000",
+          "exposure_fraction": "0.00000000",
+          "daily_loss_fraction": "0.00000000",
+          "drawdown_fraction": "0.00002197"
+        },
+        "model": "paper-integral-v1",
+        "context": {
+          "model": "paper-integral-v1",
+          "parameters": {
+            "fee_bps": "10",
+            "initial_usdt": "10000.00",
+            "max_daily_loss_fraction": "0.01",
+            "max_drawdown_fraction": "0.05",
+            "max_entry_fraction": "0.10",
+            "max_exposure_fraction": "0.10",
+            "max_quote_age_ms": 5000,
+            "slippage_bps": "5",
+            "spread_bps": "10",
+            "wallet_id": "paper-demo"
+          },
+          "rules": {
+            "baseAsset": "BTC",
+            "filters": [
+              {
+                "filterType": "PRICE_FILTER",
+                "maxPrice": "1000000",
+                "minPrice": "0.01",
+                "tickSize": "0.01"
+              },
+              {
+                "filterType": "LOT_SIZE",
+                "maxQty": "1000",
+                "minQty": "0.000001",
+                "stepSize": "0.000001"
+              },
+              {
+                "filterType": "MARKET_LOT_SIZE",
+                "maxQty": "1000",
+                "minQty": "0.000001",
+                "stepSize": "0.000001"
+              },
+              {
+                "applyToMarket": true,
+                "filterType": "MIN_NOTIONAL",
+                "minNotional": "10"
+              }
+            ],
+            "isSpotTradingAllowed": true,
+            "quoteAsset": "USDT",
+            "rule_version": "synthetic-v1",
+            "status": "TRADING",
+            "symbol": "BTCUSDT"
+          },
+          "scenario_id": "roundtrip-v1",
+          "scenario_sha256": "e6fd53862c52b1d1fdbbcfaf67619e7f9830827c506e0ebedbd2afecbd675af6",
+          "start_time": "2026-10-01T00:00:00Z"
+        },
+        "reconciled": true,
+        "blocked": false,
+        "total_simulated_fills": 2,
+        "total_rejected_intents": 0,
+        "journal": [
+          {
+            "seq": 1,
+            "event_key": "GENESIS",
+            "kind": "GENESIS",
+            "payload": {
+              "timestamp": "2026-10-01T00:00:00Z"
+            },
+            "previous_hash": "2497a46ee629119ccf7f76687df61469a9dc9fc39645e96bfcb8c6de67c390cf",
+            "chain_hash": "2b01b09fc4a9490b08dd43cc7469b98ff83ab75c378e0eb6f4a86980688dba0a"
+          },
+          {
+            "seq": 2,
+            "event_key": "paper-demo:roundtrip-v1:day-1",
+            "kind": "DAY_START",
+            "payload": {
+              "event_id": "day-1",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:00:00Z",
+                "price": "100",
+                "quote_id": "day-mark",
+                "symbol": "BTCUSDT"
+              },
+              "timestamp": "2026-10-01T00:00:00Z",
+              "type": "DAY_START"
+            },
+            "previous_hash": "2b01b09fc4a9490b08dd43cc7469b98ff83ab75c378e0eb6f4a86980688dba0a",
+            "chain_hash": "2f59e7691a36f1e95430979938b9bb6c56349dfb235f87211d6dba79ebd7349a"
+          },
+          {
+            "seq": 3,
+            "event_key": "paper-demo:roundtrip-v1:buy",
+            "kind": "ORDER",
+            "payload": {
+              "action_id": "buy",
+              "action_key": "paper-demo:roundtrip-v1:buy",
+              "decision_at": "2026-10-01T00:15:00Z",
+              "event_id": "buy",
+              "fill_at": "2026-10-01T00:15:01.001Z",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:15:01Z",
+                "price": "100",
+                "quote_id": "buy-quote",
+                "symbol": "BTCUSDT"
+              },
+              "quantity": "1",
+              "side": "BUY",
+              "timestamp": "2026-10-01T00:15:01Z",
+              "type": "ORDER"
+            },
+            "previous_hash": "2f59e7691a36f1e95430979938b9bb6c56349dfb235f87211d6dba79ebd7349a",
+            "chain_hash": "d208756fdb1e0fba66171de364c319a969882a29c4cfb60d400ef34d2b539868"
+          },
+          {
+            "seq": 4,
+            "event_key": "paper-demo:roundtrip-v1:buy:FILL",
+            "kind": "FILL",
+            "payload": {
+              "action_key": "paper-demo:roundtrip-v1:buy",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6"
+            },
+            "previous_hash": "d208756fdb1e0fba66171de364c319a969882a29c4cfb60d400ef34d2b539868",
+            "chain_hash": "c310c0061e2a805c19bc0cf6891038ab6cc9625cb0c30b2a232b63e05ba19cef"
+          },
+          {
+            "seq": 5,
+            "event_key": "paper-demo:roundtrip-v1:sell",
+            "kind": "ORDER",
+            "payload": {
+              "action_id": "sell",
+              "action_key": "paper-demo:roundtrip-v1:sell",
+              "decision_at": "2026-10-01T00:30:00Z",
+              "event_id": "sell",
+              "fill_at": "2026-10-01T00:30:01.001Z",
+              "observation": {
+                "kind": "REFERENCE",
+                "observed_at": "2026-10-01T00:30:01Z",
+                "price": "110",
+                "quote_id": "sell-quote",
+                "symbol": "BTCUSDT"
+              },
+              "quantity": "1",
+              "side": "SELL",
+              "timestamp": "2026-10-01T00:30:01Z",
+              "type": "ORDER"
+            },
+            "previous_hash": "c310c0061e2a805c19bc0cf6891038ab6cc9625cb0c30b2a232b63e05ba19cef",
+            "chain_hash": "b1d0671e817acecc3e728362b7d0869c176314ca92ae86b472ec1e5fc40df66c"
+          },
+          {
+            "seq": 6,
+            "event_key": "paper-demo:roundtrip-v1:sell:FILL",
+            "kind": "FILL",
+            "payload": {
+              "action_key": "paper-demo:roundtrip-v1:sell",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632"
+            },
+            "previous_hash": "b1d0671e817acecc3e728362b7d0869c176314ca92ae86b472ec1e5fc40df66c",
+            "chain_hash": "96a0b864fd2c9cb604a7c5eef393c099eba4e4168265f583dce318ce2a74be37"
+          }
+        ],
+        "ledger": [
+          {
+            "seq": 1,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "10000.00000000",
+              "reference": "GENESIS",
+              "timestamp": "2026-10-01T00:00:00+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 1,
+            "index": 1,
+            "posting": {
+              "account": "capital",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "-10000.00000000",
+              "reference": "GENESIS",
+              "timestamp": "2026-10-01T00:00:00+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 3,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "-100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 3,
+            "index": 1,
+            "posting": {
+              "account": "reserved",
+              "asset": "USDT",
+              "fill_id": null,
+              "quantity": "100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 0,
+            "posting": {
+              "account": "reserved",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "-100.20010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 1,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "0.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 2,
+            "posting": {
+              "account": "market",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "100.10000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 3,
+            "posting": {
+              "account": "fees",
+              "asset": "USDT",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "0.10010000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 4,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 4,
+            "index": 5,
+            "posting": {
+              "account": "market",
+              "asset": "BTC",
+              "fill_id": "017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6",
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:buy",
+              "timestamp": "2026-10-01T00:15:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 5,
+            "index": 0,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": null,
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 5,
+            "index": 1,
+            "posting": {
+              "account": "reserved",
+              "asset": "BTC",
+              "fill_id": null,
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 0,
+            "posting": {
+              "account": "reserved",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "-1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 1,
+            "posting": {
+              "account": "free",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "0.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 2,
+            "posting": {
+              "account": "market",
+              "asset": "BTC",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "1.00000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 3,
+            "posting": {
+              "account": "free",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "109.78011000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 4,
+            "posting": {
+              "account": "market",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "-109.89000000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          },
+          {
+            "seq": 6,
+            "index": 5,
+            "posting": {
+              "account": "fees",
+              "asset": "USDT",
+              "fill_id": "2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632",
+              "quantity": "0.10989000",
+              "reference": "paper-demo:roundtrip-v1:sell",
+              "timestamp": "2026-10-01T00:30:01.001000+00:00",
+              "wallet_id": "paper-demo"
+            }
+          }
+        ],
+        "financial_sha256": "d4389da8aff0d298fe2ee1c049f0d0278257fd60627b754a0d2525e528338a37",
+        "status": "PAPER_COMPLETED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint-03-_94qv2ax/wallet/reports/647dc702-8d76-43e4-988c-03e9d265d860/manifest.json"
+      },
+      "event": {
+        "run_id": "647dc702-8d76-43e4-988c-03e9d265d860",
+        "timestamp": "2026-10-25T01:03:36.698857+00:00",
+        "mode": "PAPER",
+        "level": "INFO",
+        "event": "paper-run"
+      }
+    }
+  ],
+  "database": {
+    "schema_version": 1,
+    "journal_events": 6,
+    "postings": 18,
+    "intents": 2,
+    "fills": 2
+  },
+  "wheel_smoke": {
+    "wheel": "cripto_bot-0.1.0-py3-none-any.whl",
+    "sha256": "2597958d3edc3eefb996a580040273fcf9815d438419e09149fe6610d3bc1637",
+    "origin": "/home/cams7/Dev/Cripto/cripto-bot/.venv-wheel/lib/python3.13/site-packages/cripto_bot/__init__.py",
+    "checks": [
+      {
+        "command": "check-config",
+        "exit_code": 0,
+        "result": {
+          "run_id": "7b27e9fd-9191-47e2-a0ae-6ac5f3c13f50",
+          "timestamp": "2026-10-25T01:01:02.941021+00:00",
+          "mode": "PAPER",
+          "status": "VALID"
+        }
+      },
+      {
+        "command": "run-once",
+        "exit_code": 0,
+        "result": {
+          "run_id": "e033975f-4219-4458-9899-003f3b84d593",
+          "timestamp": "2026-10-25T01:01:03.192349+00:00",
+          "mode": "PAPER",
+          "status": "NOOP",
+          "orders_sent": 0
+        }
+      },
+      {
+        "command": "collect-market",
+        "exit_code": 0,
+        "result": {
+          "run_id": "20545b5a-5847-4d2f-ac33-4b1f14846ef1",
+          "timestamp": "2026-10-25T01:01:03.444371+00:00",
+          "mode": "PAPER",
+          "dataset": "fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1",
+          "source": "fixture",
+          "symbol": "BTCUSDT",
+          "interval": "15m",
+          "start": 1790812800000,
+          "end": 1790814600000,
+          "orders_sent": 0,
+          "status": "COLLECTED",
+          "complete": true,
+          "manifest": "/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/market-b5xhg8pr/data/exports/20545b5a-5847-4d2f-ac33-4b1f14846ef1/manifest.json",
+          "next_open_time": 1790814600000,
+          "inserted": 2,
+          "duplicated": 0,
+          "ignored": 0
+        }
+      },
+      {
+        "command": "collect-market",
+        "exit_code": 0,
+        "result": {
+          "run_id": "89991d46-3a78-4901-8d44-262cc38e4696",
+          "timestamp": "2026-10-25T01:01:03.732103+00:00",
+          "mode": "PAPER",
+          "dataset": "fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1",
+          "source": "fixture",
+          "symbol": "BTCUSDT",
+          "interval": "15m",
+          "start": 1790812800000,
+          "end": 1790814600000,
+          "orders_sent": 0,
+          "status": "COLLECTED",
+          "complete": true,
+          "manifest": "/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/market-b5xhg8pr/data/exports/89991d46-3a78-4901-8d44-262cc38e4696/manifest.json",
+          "next_open_time": 1790814600000,
+          "inserted": 0,
+          "duplicated": 0,
+          "ignored": 0
+        }
+      },
+      {
+        "command": "paper-run",
+        "exit_code": 0,
+        "result": {
+          "status": "PAPER_COMPLETED",
+          "simulated_fills": 2,
+          "total_simulated_fills": 2,
+          "reconciled": true,
+          "financial_sha256": "d4389da8aff0d298fe2ee1c049f0d0278257fd60627b754a0d2525e528338a37",
+          "wallet": {
+            "usdt_free": "10009.58001000",
+            "usdt_reserved": "0.00000000",
+            "btc_free": "0.00000000",
+            "btc_reserved": "0.00000000",
+            "cost_basis": "0.00000000",
+            "fees": "0.20999000",
+            "realized": "9.58001000",
+            "mark": "110.00000000",
+            "peak": "10009.79990000",
+            "baseline": "10000.00000000",
+            "day": "2026-10-01",
+            "daily_blocked": false,
+            "drawdown_blocked": false,
+            "clock": 1790814601001,
+            "version": 6,
+            "cursor": 3,
+            "intents": {
+              "paper-demo:roundtrip-v1:buy": {
+                "state": "FILLED",
+                "payload_hash": "85feca4c56f8d53394fcbc3c6803d90663f0132bbce16504695c60e563228457",
+                "plan": {
+                  "action": "paper-demo:roundtrip-v1:buy",
+                  "side": "BUY",
+                  "requested": "1.00000000",
+                  "quantity": "1.00000000",
+                  "price": "100.10000000",
+                  "notional": "100.10000000",
+                  "fee": "0.10010000",
+                  "mark": "100.00000000",
+                  "fill_at": 1790813701001,
+                  "observed_at": 1790813701000
+                },
+                "reason": "",
+                "reserved": "0.00000000"
+              },
+              "paper-demo:roundtrip-v1:sell": {
+                "state": "FILLED",
+                "payload_hash": "2921b74e643667dcdc6e59b8be1ad7ca740b8c53d46ab7aa8fcc829d9fb5f32e",
+                "plan": {
+                  "action": "paper-demo:roundtrip-v1:sell",
+                  "side": "SELL",
+                  "requested": "1.00000000",
+                  "quantity": "1.00000000",
+                  "price": "109.89000000",
+                  "notional": "109.89000000",
+                  "fee": "0.10989000",
+                  "mark": "110.00000000",
+                  "fill_at": 1790814601001,
+                  "observed_at": 1790814601000
+                },
+                "reason": "",
+                "reserved": "0.00000000"
+              }
+            },
+            "cost_average": "0.00000000",
+            "unrealized": "0.00000000",
+            "equity": "10009.58001000",
+            "exposure_fraction": "0.00000000",
+            "daily_loss_fraction": "0.00000000",
+            "drawdown_fraction": "0.00002197"
+          }
+        }
+      },
+      {
+        "command": "paper-reconcile",
+        "exit_code": 0,
+        "result": {
+          "status": "PAPER_RECONCILED",
+          "simulated_fills": 0,
+          "total_simulated_fills": 2,
+          "reconciled": true,
+          "financial_sha256": "d4389da8aff0d298fe2ee1c049f0d0278257fd60627b754a0d2525e528338a37",
+          "wallet": {
+            "usdt_free": "10009.58001000",
+            "usdt_reserved": "0.00000000",
+            "btc_free": "0.00000000",
+            "btc_reserved": "0.00000000",
+            "cost_basis": "0.00000000",
+            "fees": "0.20999000",
+            "realized": "9.58001000",
+            "mark": "110.00000000",
+            "peak": "10009.79990000",
+            "baseline": "10000.00000000",
+            "day": "2026-10-01",
+            "daily_blocked": false,
+            "drawdown_blocked": false,
+            "clock": 1790814601001,
+            "version": 6,
+            "cursor": 3,
+            "intents": {
+              "paper-demo:roundtrip-v1:buy": {
+                "state": "FILLED",
+                "payload_hash": "85feca4c56f8d53394fcbc3c6803d90663f0132bbce16504695c60e563228457",
+                "plan": {
+                  "action": "paper-demo:roundtrip-v1:buy",
+                  "side": "BUY",
+                  "requested": "1.00000000",
+                  "quantity": "1.00000000",
+                  "price": "100.10000000",
+                  "notional": "100.10000000",
+                  "fee": "0.10010000",
+                  "mark": "100.00000000",
+                  "fill_at": 1790813701001,
+                  "observed_at": 1790813701000
+                },
+                "reason": "",
+                "reserved": "0.00000000"
+              },
+              "paper-demo:roundtrip-v1:sell": {
+                "state": "FILLED",
+                "payload_hash": "2921b74e643667dcdc6e59b8be1ad7ca740b8c53d46ab7aa8fcc829d9fb5f32e",
+                "plan": {
+                  "action": "paper-demo:roundtrip-v1:sell",
+                  "side": "SELL",
+                  "requested": "1.00000000",
+                  "quantity": "1.00000000",
+                  "price": "109.89000000",
+                  "notional": "109.89000000",
+                  "fee": "0.10989000",
+                  "mark": "110.00000000",
+                  "fill_at": 1790814601001,
+                  "observed_at": 1790814601000
+                },
+                "reason": "",
+                "reserved": "0.00000000"
+              }
+            },
+            "cost_average": "0.00000000",
+            "unrealized": "0.00000000",
+            "equity": "10009.58001000",
+            "exposure_fraction": "0.00000000",
+            "daily_loss_fraction": "0.00000000",
+            "drawdown_fraction": "0.00002197"
+          }
+        }
+      },
+      {
+        "command": "paper-report",
+        "exit_code": 0,
+        "result": {
+          "status": "PAPER_REPORT",
+          "simulated_fills": 0,
+          "total_simulated_fills": 2,
+          "reconciled": true,
+          "financial_sha256": "d4389da8aff0d298fe2ee1c049f0d0278257fd60627b754a0d2525e528338a37",
+          "wallet": {
+            "usdt_free": "10009.58001000",
+            "usdt_reserved": "0.00000000",
+            "btc_free": "0.00000000",
+            "btc_reserved": "0.00000000",
+            "cost_basis": "0.00000000",
+            "fees": "0.20999000",
+            "realized": "9.58001000",
+            "mark": "110.00000000",
+            "peak": "10009.79990000",
+            "baseline": "10000.00000000",
+            "day": "2026-10-01",
+            "daily_blocked": false,
+            "drawdown_blocked": false,
+            "clock": 1790814601001,
+            "version": 6,
+            "cursor": 3,
+            "intents": {
+              "paper-demo:roundtrip-v1:buy": {
+                "state": "FILLED",
+                "payload_hash": "85feca4c56f8d53394fcbc3c6803d90663f0132bbce16504695c60e563228457",
+                "plan": {
+                  "action": "paper-demo:roundtrip-v1:buy",
+                  "side": "BUY",
+                  "requested": "1.00000000",
+                  "quantity": "1.00000000",
+                  "price": "100.10000000",
+                  "notional": "100.10000000",
+                  "fee": "0.10010000",
+                  "mark": "100.00000000",
+                  "fill_at": 1790813701001,
+                  "observed_at": 1790813701000
+                },
+                "reason": "",
+                "reserved": "0.00000000"
+              },
+              "paper-demo:roundtrip-v1:sell": {
+                "state": "FILLED",
+                "payload_hash": "2921b74e643667dcdc6e59b8be1ad7ca740b8c53d46ab7aa8fcc829d9fb5f32e",
+                "plan": {
+                  "action": "paper-demo:roundtrip-v1:sell",
+                  "side": "SELL",
+                  "requested": "1.00000000",
+                  "quantity": "1.00000000",
+                  "price": "109.89000000",
+                  "notional": "109.89000000",
+                  "fee": "0.10989000",
+                  "mark": "110.00000000",
+                  "fill_at": 1790814601001,
+                  "observed_at": 1790814601000
+                },
+                "reason": "",
+                "reserved": "0.00000000"
+              }
+            },
+            "cost_average": "0.00000000",
+            "unrealized": "0.00000000",
+            "equity": "10009.58001000",
+            "exposure_fraction": "0.00000000",
+            "daily_loss_fraction": "0.00000000",
+            "drawdown_fraction": "0.00002197"
+          }
+        }
+      },
+      {
+        "command": "paper-run",
+        "exit_code": 0,
+        "result": {
+          "status": "PAPER_COMPLETED",
+          "simulated_fills": 0,
+          "total_simulated_fills": 2,
+          "reconciled": true,
+          "financial_sha256": "d4389da8aff0d298fe2ee1c049f0d0278257fd60627b754a0d2525e528338a37",
+          "wallet": {
+            "usdt_free": "10009.58001000",
+            "usdt_reserved": "0.00000000",
+            "btc_free": "0.00000000",
+            "btc_reserved": "0.00000000",
+            "cost_basis": "0.00000000",
+            "fees": "0.20999000",
+            "realized": "9.58001000",
+            "mark": "110.00000000",
+            "peak": "10009.79990000",
+            "baseline": "10000.00000000",
+            "day": "2026-10-01",
+            "daily_blocked": false,
+            "drawdown_blocked": false,
+            "clock": 1790814601001,
+            "version": 6,
+            "cursor": 3,
+            "intents": {
+              "paper-demo:roundtrip-v1:buy": {
+                "state": "FILLED",
+                "payload_hash": "85feca4c56f8d53394fcbc3c6803d90663f0132bbce16504695c60e563228457",
+                "plan": {
+                  "action": "paper-demo:roundtrip-v1:buy",
+                  "side": "BUY",
+                  "requested": "1.00000000",
+                  "quantity": "1.00000000",
+                  "price": "100.10000000",
+                  "notional": "100.10000000",
+                  "fee": "0.10010000",
+                  "mark": "100.00000000",
+                  "fill_at": 1790813701001,
+                  "observed_at": 1790813701000
+                },
+                "reason": "",
+                "reserved": "0.00000000"
+              },
+              "paper-demo:roundtrip-v1:sell": {
+                "state": "FILLED",
+                "payload_hash": "2921b74e643667dcdc6e59b8be1ad7ca740b8c53d46ab7aa8fcc829d9fb5f32e",
+                "plan": {
+                  "action": "paper-demo:roundtrip-v1:sell",
+                  "side": "SELL",
+                  "requested": "1.00000000",
+                  "quantity": "1.00000000",
+                  "price": "109.89000000",
+                  "notional": "109.89000000",
+                  "fee": "0.10989000",
+                  "mark": "110.00000000",
+                  "fill_at": 1790814601001,
+                  "observed_at": 1790814601000
+                },
+                "reason": "",
+                "reserved": "0.00000000"
+              }
+            },
+            "cost_average": "0.00000000",
+            "unrealized": "0.00000000",
+            "equity": "10009.58001000",
+            "exposure_fraction": "0.00000000",
+            "daily_loss_fraction": "0.00000000",
+            "drawdown_fraction": "0.00002197"
+          }
+        }
+      }
+    ],
+    "live_exit_code": 2,
+    "socket_probe_blocked": true
+  },
+  "source_sha256": {
+    "pyproject.toml": "2d0ed77262a2c2173120bef51851beef12c4115844ea2fe785aa255fd5c09778",
+    "uv.lock": "44dad0af709c00de1f24061077b938eb47fa1a55dc39d43991c3bab66b80bd23",
+    ".python-version": "861b3dd8083d28f336ef70f6755bc399538ddad627b1d095820ca34cb953cf14",
+    "modules/trading/src/cripto_bot/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/adapters/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/adapters/binance/__init__.py": "b5366ac9c27365f9a5091a5bfa99fccf0bfe00d6c025660633cac40557591fe8",
+    "modules/trading/src/cripto_bot/adapters/binance/fixture.py": "dc0df195320f8da6350e364359d600990128df3a7a15c0e41340681c5a306667",
+    "modules/trading/src/cripto_bot/adapters/binance/public.py": "dc56ca3e9df5945e7e4cc9688e5f9274161979558523ec29dd0604ad22781dfa",
+    "modules/trading/src/cripto_bot/adapters/config.py": "73d684c8de09345bc3b4115d3c667f5fe0a4e67b89d1c92374d5f43a50607433",
+    "modules/trading/src/cripto_bot/adapters/execution/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "modules/trading/src/cripto_bot/adapters/execution/paper.py": "d905e866903f376dc26ed9280769f74bfc62aeb7fdedf871f64da68f11fb3951",
+    "modules/trading/src/cripto_bot/adapters/paper_scenario.py": "0b398aeb2f50f8d4acf3f5f95abd95463316fcae710da9f4ce5617de0c3e3eea",
+    "modules/trading/src/cripto_bot/adapters/storage/__init__.py": "b5366ac9c27365f9a5091a5bfa99fccf0bfe00d6c025660633cac40557591fe8",
+    "modules/trading/src/cripto_bot/adapters/storage/market_export.py": "12a62ccc8450d35598e943f5657aff54a24bc20d0120211b2fee07100a802afb",
+    "modules/trading/src/cripto_bot/adapters/storage/market_sqlite.py": "6ec43ee9658e1cfe91234ced17061deae9f8668e00322c4b1126b7dd325651dc",
+    "modules/trading/src/cripto_bot/adapters/storage/paper_report.py": "73d52804cf8e6fc3ca4380e8c880d981149fd02113f030360c5c195878eae053",
+    "modules/trading/src/cripto_bot/adapters/storage/paper_sqlite.py": "7553602a32941fdc351cbc2e9f5bfc0ebaad58dd39efab9e429716e3b5d7a5bc",
+    "modules/trading/src/cripto_bot/application/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/application/collect_market.py": "cc07cd220186b5f9f2db3e291c7bac3bb3230ad38d40d56ebb7a5db153663e0a",
+    "modules/trading/src/cripto_bot/application/paper_reconcile.py": "5dd4692317ae7c7f1c3f776072e98f966fae695f75913d550b14f24fc6641155",
+    "modules/trading/src/cripto_bot/application/paper_run.py": "e602191e2a0717a589e0fa1de402dec54ad3791c0eef99bc0f86a45416e6c525",
+    "modules/trading/src/cripto_bot/application/ports.py": "b3a2de31d1a06e8d3409e97c80f04a8e951dee0e4a836e078c39a32318627c81",
+    "modules/trading/src/cripto_bot/application/run_once.py": "1bf8d8f55c5e4090a31306668161d1d12a505332b5f8bfa6b5a14bd1377028fa",
+    "modules/trading/src/cripto_bot/domain/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/domain/market.py": "cec39de702989fb1a753f095d53af86b2a3312d08b37a54bf4c0f5260ef07bc4",
+    "modules/trading/src/cripto_bot/domain/models.py": "f45ce415b28af32038b59fd9a1f6be2d1a9b67f01288a1d7db2f6299b7a3e441",
+    "modules/trading/src/cripto_bot/domain/portfolio/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "modules/trading/src/cripto_bot/domain/portfolio/engine.py": "ef9279b41bd9801e867b62882de4e16ca570ef6169f0c833298d575a34b55d04",
+    "modules/trading/src/cripto_bot/domain/portfolio/models.py": "00a7f044596bbf03454ffc0333d6e13c334b468e1405766c6b8cb21c93cee0d5",
+    "modules/trading/src/cripto_bot/domain/risk/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "modules/trading/src/cripto_bot/domain/risk/execution.py": "c81f58c63157e6969a555c35ee328a33fd3d0b4b8b040834069634c193a745ed",
+    "modules/trading/src/cripto_bot/domain/risk/limits.py": "a082b62be0b08634a301572d1ca32177271635bbd14b922b417851384a614cef",
+    "modules/trading/src/cripto_bot/entrypoints/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/entrypoints/cli.py": "00cd7515bf3083915ccd1a4897bdf5b41f2188e6e88488adf6497a150bbfa27d",
+    "modules/trading/src/cripto_bot/entrypoints/market.py": "1fdcc40f44c235c910f5348ed17d428f3c4ee19ab391c40a9bf72b0db3426bb6",
+    "modules/trading/src/cripto_bot/entrypoints/paper.py": "41a8cd2d3ac0b4ec383461a5f22a4747f4885422fda728f92a4a339dbaa4bb71",
+    "modules/trading/src/cripto_bot/observability/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/observability/logging.py": "8924b981bab5af5ffaa07600043fdf85ac66f2278db9359b63d1c283ae228a7a",
+    "config/paper.execution.example.toml": "b09e2f16b6b5dcbf74aff0fd29d471940777084efac0e01b0ba3ad5c4cd65ae0",
+    "config/fixtures/paper-roundtrip.json": "dc3c4d0f5fb90fb66ccbc295e85dac59921e94e50d1eff65911e97ae51ac4e04"
+  },
+  "orders_sent": 0,
+  "network_collection": "NOT_EXECUTED",
+  "aws_resources_created": 0
+}

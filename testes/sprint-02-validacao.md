@@ -197,3 +197,13 @@ Após inspecionar o que foi criado, podem ser removidos datasets sintéticos esp
 Os contratos oficiais foram reconfirmados em 24/10/2026: [Binance host público](https://github.com/binance/binance-spot-api-docs/blob/master/faqs/market_data_only.md), [mercado](https://developers.binance.com/en/docs/catalog/core-trading-spot-trading/api/rest-api/market), [gerais](https://developers.binance.com/en/docs/catalog/core-trading-spot-trading/api/rest-api/general), [limites](https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#limits), [HTTPX transportes](https://www.python-httpx.org/advanced/transports/), [timeouts](https://www.python-httpx.org/advanced/timeouts/) e [sqlite3](https://docs.python.org/3.13/library/sqlite3.html). Ver [ADR 0003](../decisoes/0003-coleta-publica-e-persistencia-local.md).
 
 Implementação local concluída e matriz offline aprovada com as limitações registradas. A revisão de entrega pode usar os fontes, as evidências JSON e este guia. A próxima ação é revisar essas evidências antes de detalhar a Sprint 03; esta entrega não a inicia nem promove qualquer modo operacional.
+
+## Adendo documental de 25/10/2026 — validações antes de LIVE
+
+O aceite registrado neste documento permanece restrito ao escopo histórico executado. Ele não comprova backtest fora da amostra, PAPER contínuo, Demo Spot, Spot Testnet ou `POST /api/v3/order/test`. A sequência e os gates atualizados estão no [planejamento, seção 10](../planejamento.md#10-gates-entre-ambientes-e-modos) e no [roteiro de validação](../testes/validacao-pre-live.md). Demo passa à Sprint 09, Testnet complementar à 10 e preparação LIVE à 11, sem ativação. A implementação desta Sprint continua exclusivamente PAPER; DEMO/TESTNET/LIVE não são liberados por esta revisão.
+
+Nenhum teste foi repetido e nenhuma evidência JSON foi alterada por este adendo. A solicitação atual autoriza somente revisão documental. LIVE permanece bloqueado por padrão e exige validações concluídas, limites de risco reais e aprovação explícita vigente do responsável.
+
+## Referência documental do banco — revisão de 25/10/2026
+
+O DDL existente foi documentado em [bancos/market-sqlite.md](../bancos/market-sqlite.md), com diagrama relacional, constraints, operação e rejeição de schemas incompatíveis. Esta revisão foi leitura de fonte, sem abrir bancos, executar migrations ou repetir testes; não amplia o aceite histórico. Qualquer futura mudança estrutural exige atualização desse documento e do [catálogo](../bancos/README.md), com verificação/evidências na Sprint responsável, conforme seção 4.8 do planejamento.

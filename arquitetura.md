@@ -1,4 +1,4 @@
-# Arquitetura — base local das Sprints 01 e 02
+# Arquitetura — base local das Sprints 01 a 03
 
 Atualizado em 24/10/2026. A implementação atual é um pacote Python 3.13, `cripto_bot`, instalado pelo manifest do repositório `/home/cams7/Dev/Cripto/cripto-bot`. O console script é `cripto-bot`.
 
@@ -14,6 +14,11 @@ Atualizado em 24/10/2026. A implementação atual é um pacote Python 3.13, `cri
 | `adapters/binance/` | Leituras públicas e fixture via transporte substituível |
 | `adapters/storage/` | SQLite, checkpoint, flock e exportação com manifesto |
 | `entrypoints/market.py` | Composição, opt-in e resultados da coleta |
+| `domain/portfolio/`, `domain/risk/` | Carteira, ledger por ativo, precisão, filtros e limites persistentes |
+| `adapters/execution/paper.py`, `adapters/paper_scenario.py` | Plano sintético determinístico e roteiro validado |
+| `application/paper_run.py`, `paper_reconcile.py` | Replay, recuperação e reconciliação financeira |
+| `adapters/storage/paper_sqlite.py`, `paper_report.py` | Journal financeiro, projeções e relatórios derivados |
+| `entrypoints/paper.py` | Composição exclusivamente offline dos comandos financeiros |
 | `application/run_once.py` | Resultado tipado NOOP, com zero ordens enviadas |
 | `observability/logging.py` | Serialização JSON e timestamps UTC |
 
@@ -37,7 +42,7 @@ Em sucesso, stdout tem um objeto JSON e stderr um evento JSON. Compartilham `run
 
 ## Limites atuais
 
-A Sprint 02 implementa coleta e banco local. Não existem saldo, carteira, ledger financeiro, estratégia, integração privada Binance/AWS ou executor financeiro. A fonte pública tem contrato implementado e testes com transporte em memória; a coleta real não foi executada. O conversor decimal não quantiza valores nem define regras de preço/quantidade. O roadmap do [planejamento](planejamento.md) permanece uma proposta futura.
+A Sprint 03 implementa carteira e executor PAPER sintético. Estratégia, integração privada Binance/AWS e ordens externas permanecem futuras. A fonte pública da Sprint 02 tem contrato implementado e testes com transporte em memória; a coleta real não foi executada. O conversor básico preserva entradas; o domínio financeiro separado aplica quantum, ticks, steps e arredondamentos explícitos. As etapas posteriores do [planejamento](planejamento.md) permanecem propostas.
 
 O wheel inclui somente `cripto_bot` e metadados. Os testes ficam fora dele. O harness `tests/offline_runner.py` instala um audit hook que bloqueia eventos `socket.*` nos subprocessos; fixtures bloqueiam sockets nos testes unitários. Trata-se de verificação do código Python desta etapa, sem pretensão de sandbox para programas arbitrários.
 
@@ -47,7 +52,7 @@ A validação do wheel usa `.venv-wheel`, diretório neutro e Python com `-I`, s
 
 A raiz do workspace é `/home/cams7/Dev/Cripto`. `cripto-bot/` contém a aplicação e seu Git próprio; `docs/` contém a documentação central e seu Git independente. Cada novo módulo independente será criado em um diretório diretamente na raiz, com seu próprio controle de versão. Subpacotes internos da aplicação continuam no mesmo repositório.
 
-A aplicação foi movida para `cripto-bot` por solicitação do responsável, resolvendo a pendência anterior de alcance do Git. O histórico de `docs` foi preservado. Não houve commit inicial nem configuração de remoto da aplicação. Comandos Python/uv agora executam em `cripto-bot`.
+A aplicação foi movida para `cripto-bot` por solicitação do responsável, resolvendo a pendência anterior de alcance do Git. O histórico de `docs` foi preservado. Na execução da Sprint 03, a base da aplicação já era o commit `a102223`; nenhum commit ou remoto foi criado por essa execução. Comandos Python/uv executam em `cripto-bot`.
 
 Decisões: [ADR 0001](decisoes/0001-monolito-modular.md) e [ADR 0002](decisoes/0002-modos-e-decimais.md).
 
@@ -78,3 +83,46 @@ O hash canônico dos candles exclui horários locais e identidade da execução.
 O orçamento monotônico é verificado entre operações; retries limitados e 429/418 não provocam repetição ilimitada. A restrição pública persistida é compartilhada apenas dentro do mesmo SQLite. Perda de energia, coordenação entre bancos/hosts e conectividade Binance real não foram validadas.
 
 Validação: [guia 02](testes/sprint-02-validacao.md), [evidências](testes/sprint-02-evidencias.json) e [ADR 0003](decisoes/0003-coleta-publica-e-persistencia-local.md).
+
+## Carteira e execução da Sprint 03
+
+A tabela opcional `paper` configura carteira, paths e parâmetros sintéticos. `paper-run`, `paper-report` e `paper-reconcile` não constroem cliente HTTP e rejeitam `--allow-network`. O roteiro validado tem observações inline, relógio UTC de replay e eventos DAY_START/MARK/ORDER. `run-once` continua NOOP.
+
+O domínio usa Decimal com contexto local de precisão 80 e quantum de 1e-8. O plano de fill integral fixa preço, quantidade, taxa e reserva antes da persistência; filtros sintéticos e risco são revalidados após normalização. Entrada, exposição, perda diária e drawdown são controles persistentes. Uma trava impede BUY; SELL de redução continua sujeito a dados e saldo íntegros, sem liquidação automática.
+
+```mermaid
+flowchart TD
+    A[paper-run e roteiro offline] --> B[Lock e reconciliação do journal]
+    B --> C[Plano determinístico e admissão]
+    C --> D[Transação A: intenção, reserva e ledger]
+    D --> E[Transação B: fill, saldos, posição e risco]
+    E --> F[Relatório derivado e manifesto]
+    D --> G[Reinício: retomar plano persistido]
+    G --> E
+```
+
+`paper.sqlite3` schema v1 é independente de `market.sqlite3`. O journal imutável e seus postings balanceados separadamente em BTC e USDT permitem reconstruir projeções, intenções e fills. Cada append reconcilia o histórico e verifica versão/estado dentro de BEGIN IMMEDIATE; flock protege escritores cooperantes. Identidades de ação/fill não dependem do run_id. Repetir o roteiro não reaplica capital, reserva ou fill.
+
+Contexto associa carteira, modelo `paper-integral-v1`, parâmetros, regras e hash do roteiro. Alterá-lo no mesmo store gera conflito. Divergência bloqueia novos efeitos quando possível, sem reparação silenciosa. `paper-report` abre snapshot somente leitura e não cria banco nem persiste bloqueio. Exportações usam diretório temporário e rename; falha posterior ao commit permite reexportar sem negociar novamente.
+
+São garantias locais testadas com interrupções de processos e corrupção injetada. Perda de energia, NFS, escritores não cooperantes e coordenação distribuída não foram validados. O modelo não comprova preço, liquidez ou reserva para uma ordem real.
+
+Validação: 316 testes, cobertura combinada de 98,12%, ferramentas e wheel aprovados. Detalhes, lacunas e demonstração reproduzível no [guia 03](testes/sprint-03-validacao.md), [evidências](testes/sprint-03-evidencias.json) e [ADR 0004](decisoes/0004-carteira-paper-e-ledger.md).
+
+## Validações futuras e isolamento — revisão documental de 25/10/2026
+
+A implementação das Sprints 01–03 permanece exclusivamente PAPER. O roadmap passa a backtest (05), PAPER contínuo local (06), pacote/piloto PAPER AWS (07–08), Demo Spot com validação de solicitações (09), Spot Testnet complementar (10) e preparação LIVE (11). Ver [gates](planejamento.md#10-gates-entre-ambientes-e-modos) e [roteiro de validação](testes/validacao-pre-live.md). Nenhuma capacidade foi implementada ou teste repetido nesta revisão.
+
+A futura composição separará fonte de dados, modelo de execução e destino privado. Backtest usa histórico/carteira fictícia; PAPER usa mercado real com execução interna, incluindo parcial, atraso e ausência de fill. Demo e Testnet usam chaves, hosts, stores e saldos virtuais próprios; somente esses adapters podem mutar ordens nos respectivos ambientes. order/test valida solicitações, sem substituir matching e reconciliação. Reset exige nova época rastreável sem apagar ledger.
+
+O executor LIVE permanece bloqueado por padrão. Sua composição/envio futuros dependerão conjuntamente de todos os gates, limites reais, habilitação explícita e aprovação vigente vinculada a conta/release/estratégia/configuração. Modos virtuais não acessam segredos LIVE; inconsistência de host/conta/credencial falha antes do transporte. Não há troca automática para produção nem liberação por lucro simulado. Todos os módulos e documentos permanecem em `/home/cams7/Dev/Cripto`, com Python e Spot.
+
+## Evolução modular e flags — revisão documental de 25/10/2026
+
+A [arquitetura modular proposta](arquitetura-modular.md) separa estratégias, políticas de carteira, fontes de sinal e algoritmos de execução. A Sprint 04 planeja registro/contratos, flags por ambiente/modo/par, coordenação, risco central e SMA opt-in, sem ativar estratégia por padrão. Sprints 12–21 são incrementos independentes por capacidade, sem exigir todo o catálogo. Essa extensão não altera a implementação das Sprints 01–03 nem introduz schema/configuração executável nesta revisão.
+
+Fluxo futuro: dados point-in-time → módulos explicitamente habilitados → coordenador/alocador → risco central → reserva/OMS → algoritmo de execução → adapter do modo → ledger/atribuições reconciliadas. Risco e monitoramento de ordens/posições sobrevivem à desativação da fonte. Não liquidar automaticamente; DRAINING, geração de configuração e propriedade de reservas/posições são explícitos. Ver [matriz de testes](testes/estrategias-modulares-validacao.md). Nenhuma flag autoriza LIVE ou elimina o gate SAM antes de publicação AWS.
+
+## Documentação dos bancos
+
+O [catálogo dos bancos](bancos/README.md) e os documentos [mercado SQLite v1](bancos/market-sqlite.md) e [carteira PAPER SQLite v1](bancos/paper-sqlite.md) descrevem o DDL consultado em 25/10/2026, sem inspeção de bases operacionais. Toda Sprint com mudança estrutural deve atualizar diagrama/modelo, dicionário, versão/compatibilidade, migração se existente e evidências na mesma entrega; pendência bloqueia conclusão conforme seção 4.8 do planejamento. Relações entre stores permanecem lógicas, sem FK/transação cruzada presumida.

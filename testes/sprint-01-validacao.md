@@ -212,3 +212,9 @@ Resultado: 79 testes aprovados, 100% de cobertura de linhas e ramificações, Ru
 Novo SHA-256 do wheel: `6648586f24285bbea538f335b6d5be7fc9b45b116fc4b908bec4d34d2962f03c`. Origem de importação: `/home/cams7/Dev/Cripto/cripto-bot/.venv-wheel/lib/python3.13/site-packages/cripto_bot/__init__.py`. O hash anterior (`a63c44062eed804c45723c3a2b0708f5d8140abcc3a32944008060e1e7e9e6e7`) foi preservado nas evidências originais do JSON; não corresponde ao wheel reconstruído no novo diretório.
 
 Os links no README foram ajustados para `../docs`. A documentação central segue no repositório próprio e os fontes/lock estão disponíveis para versionamento no Git de `cripto-bot`. Não houve mudança no comportamento da aplicação ou integração externa.
+
+## Adendo documental de 25/10/2026 — validações antes de LIVE
+
+O aceite registrado neste documento permanece restrito ao escopo histórico executado. Ele não comprova backtest fora da amostra, PAPER contínuo, Demo Spot, Spot Testnet ou `POST /api/v3/order/test`. A sequência e os gates atualizados estão no [planejamento, seção 10](../planejamento.md#10-gates-entre-ambientes-e-modos) e no [roteiro de validação](../testes/validacao-pre-live.md). Demo passa à Sprint 09, Testnet complementar à 10 e preparação LIVE à 11, sem ativação. A implementação desta Sprint continua exclusivamente PAPER; DEMO/TESTNET/LIVE não são liberados por esta revisão.
+
+Nenhum teste foi repetido e nenhuma evidência JSON foi alterada por este adendo. A solicitação atual autoriza somente revisão documental. LIVE permanece bloqueado por padrão e exige validações concluídas, limites de risco reais e aprovação explícita vigente do responsável.

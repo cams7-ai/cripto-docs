@@ -344,3 +344,9 @@ Os critérios técnicos AC01–AC16 estão aprovados. A conclusão global perman
 ## 13. Reorganização autorizada em 24/10/2026
 
 O responsável determinou que cada módulo independente tenha diretório e Git próprios diretamente em `/home/cams7/Dev/Cripto`. A aplicação foi movida para `cripto-bot/`, preservando fontes, testes, configuração e lock. A pasta `docs` manteve seu Git. As observações de pendência nas seções anteriores descrevem o estado inicial e foram resolvidas por essa decisão; não houve commit, remoto ou início da Sprint 02. Os comandos ativos acima usam a nova raiz da aplicação.
+
+## Adendo documental de 25/10/2026 — validações antes de LIVE
+
+O aceite registrado neste documento permanece restrito ao escopo histórico executado. Ele não comprova backtest fora da amostra, PAPER contínuo, Demo Spot, Spot Testnet ou `POST /api/v3/order/test`. A sequência e os gates atualizados estão no [planejamento, seção 10](../planejamento.md#10-gates-entre-ambientes-e-modos) e no [roteiro de validação](../testes/validacao-pre-live.md). Demo passa à Sprint 09, Testnet complementar à 10 e preparação LIVE à 11, sem ativação. A implementação desta Sprint continua exclusivamente PAPER; DEMO/TESTNET/LIVE não são liberados por esta revisão.
+
+Nenhum teste foi repetido e nenhuma evidência JSON foi alterada por este adendo. A solicitação atual autoriza somente revisão documental. LIVE permanece bloqueado por padrão e exige validações concluídas, limites de risco reais e aprovação explícita vigente do responsável.

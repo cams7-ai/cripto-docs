@@ -27,3 +27,7 @@ Não alterar o contexto global decimal ao importar. Não há quantização, pers
 TESTNET/LIVE exigem implementação e avaliação próprias; trocar uma variável não os ativa. A base retorna apenas NOOP. Diagnósticos sanitizados fornecem menos detalhes da entrada, compensados por testes de fronteira e documentação dos contratos.
 
 O tipo `Literal` orienta a tipagem; a validação efetiva de entradas externas ocorre no adapter. Esta decisão não atribui a dataclasses uma garantia de validação dinâmica de dados arbitrários.
+
+## Adendo documental de 25/10/2026
+
+Esta decisão histórica continua válida para a base exclusivamente PAPER. A futura introdução de `DEMO` também exige implementação e avaliação próprias, conforme as Sprints 09–11 e os [gates do planejamento](../planejamento.md#10-gates-entre-ambientes-e-modos). DEMO, TESTNET e LIVE permanecem rejeitados na implementação atual; esta revisão não altera código nem comprova novos testes. LIVE depende de validações concluídas, limites reais, habilitação explícita e aprovação vigente do responsável, e continua bloqueado por padrão.

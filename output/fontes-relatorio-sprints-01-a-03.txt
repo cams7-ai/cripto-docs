@@ -1,0 +1,41 @@
+INVENTÁRIO DE FONTES - RELATÓRIO SPRINTS 01 A 03
+Emissão: 25/10/2026 | Hashes SHA-256 dos arquivos lidos nesta emissão.
+Os hashes identificam os artefatos consultados; não representam revalidação do código ou do banco atual.
+
+testes/sprint-01-evidencias.json
+3fd720c1fb125ae5e5bc9fc2b552face412be3147c31ef65dac448a3a50550e7
+
+testes/sprint-01-validacao.md
+7f7a6644775493136bbc97db14617d68cf38ffa2e3bbf1b7a2aea8f891a40e56
+
+testes/sprint-02-evidencias.json
+b1b4ae5861ab2d3dcf167141a52aea5319cf7df3bf2937eb941b0d92cbe90ec6
+
+testes/sprint-02-validacao.md
+576084c2ba1404514a453d4a1fe86de7fef179a68e31ab225b770e733cbdca29
+
+testes/sprint-03-evidencias.json
+cb4473524c5f7c6b1b83db41f7f45cb51bf8b0e31928e91e852dd5803b6d4c84
+
+testes/sprint-03-validacao.md
+f84b7ed522ed4b39f8cf886633c1938ae881781485382e3aa0b53b2acdf073b0
+
+cripto-bot/reports/sprint-03-_94qv2ax/wallet/reports/dd89885a-840f-44cc-a4a6-31bdea7ef959/report.json
+ec949cc6b49f1703412ec5a415910a7102f83cd9f053170809e84212d555d90e
+
+cripto-bot/reports/sprint-03-_94qv2ax/wallet/reports/dd89885a-840f-44cc-a4a6-31bdea7ef959/manifest.json
+45ba3164ac8f49c5f915d91f57b84ca3a22ebcb7c3abadd2d3363275da886ba9
+
+cripto-bot/data/market-fixture/exports/28466e9f-82ab-481c-9b1b-14e868befa1e/manifest.json
+fc775f50f63211a2200a202e0ca9ac9c1548ca96c985d9590e04ff3f489db44d
+
+cripto-bot/data/market-fixture/exports/28466e9f-82ab-481c-9b1b-14e868befa1e/candles.jsonl.gz
+1f11a306449b3c98dd4c6d388fa8fb60a14ddd22414f9b3b7fbabd67509a8473
+
+ARTEFATOS GERADOS
+
+output/pdf/relatorio-sprints-01-a-03.pdf
+3d305b13b2b854aeb80063ee9268be63c6dca62f174aa12a9a77106eb9b8c351
+
+output/html/relatorio-sprints-01-a-03.html
+30eaad272cdeb96d1c67502eb57c752aa1d6fab04e021dbf0cabfc73a6394215

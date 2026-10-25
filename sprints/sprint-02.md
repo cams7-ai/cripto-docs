@@ -379,3 +379,13 @@ Implementação e validação offline concluídas: 204 testes, Ruff, formataçã
 Detalhes explicitados durante a implementação: a composição fica em `entrypoints/market.py`, e a exportação inclui `provenance.json` além dos arquivos inicialmente enumerados. Erros de janela estáticos retornam 2; end ainda não fechado, detectado após obter o horário da fonte, retorna 3 (`WINDOW_NOT_CLOSED`). O not_before é global aos datasets do mesmo banco, sem coordenação entre data_dirs/hosts. Símbolo/intervalo continuam fixos no schema desta Sprint.
 
 As métricas exatas, lacunas de cobertura, hashes e comandos estão no guia/evidências. Coleta pública real, AWS, ordens e notificações NÃO EXECUTADOS. A Sprint 03 não foi iniciada nem houve publicação/commit automático.
+
+## Adendo documental de 25/10/2026 — validações antes de LIVE
+
+O aceite registrado neste documento permanece restrito ao escopo histórico executado. Ele não comprova backtest fora da amostra, PAPER contínuo, Demo Spot, Spot Testnet ou `POST /api/v3/order/test`. A sequência e os gates atualizados estão no [planejamento, seção 10](../planejamento.md#10-gates-entre-ambientes-e-modos) e no [roteiro de validação](../testes/validacao-pre-live.md). Demo passa à Sprint 09, Testnet complementar à 10 e preparação LIVE à 11, sem ativação. A implementação desta Sprint continua exclusivamente PAPER; DEMO/TESTNET/LIVE não são liberados por esta revisão.
+
+Nenhum teste foi repetido e nenhuma evidência JSON foi alterada por este adendo. A solicitação atual autoriza somente revisão documental. LIVE permanece bloqueado por padrão e exige validações concluídas, limites de risco reais e aprovação explícita vigente do responsável.
+
+## Referência documental do banco — revisão de 25/10/2026
+
+O DDL existente foi documentado em [bancos/market-sqlite.md](../bancos/market-sqlite.md), com diagrama relacional, constraints, operação e rejeição de schemas incompatíveis. Esta revisão foi leitura de fonte, sem abrir bancos, executar migrations ou repetir testes; não amplia o aceite histórico. Qualquer futura mudança estrutural exige atualização desse documento e do [catálogo](../bancos/README.md), com verificação/evidências na Sprint responsável, conforme seção 4.8 do planejamento.
