@@ -1,6 +1,6 @@
 # Arquitetura modular de estratégias, carteira, sinais e execução
 
-Revisão: 25/10/2026. **Estado: contrato proposto; não implementado nem testado.** Complementa o [planejamento](planejamento.md). Aplicação Python em `/home/cams7/Dev/Cripto/cripto-bot`; documentos em `/home/cams7/Dev/Cripto/docs`. Binance Spot sem margem, empréstimos, short ou alavancagem é o escopo inicial. As Sprints 01–03 continuam com seu contrato histórico.
+Revisão: 25/10/2026. **Estado: base mínima e trend_sma implementadas na Sprint 04 para fixture local/PAPER; demais capacidades continuam propostas, sem implementação/validação.** Complementa o [planejamento](planejamento.md). Aplicação Python em `/home/cams7/Dev/Cripto/cripto-bot`; documentos em `/home/cams7/Dev/Cripto/docs`. Binance Spot sem margem, empréstimos, short ou alavancagem é o escopo inicial. As Sprints 01–03 continuam com seu contrato histórico.
 
 ## Papéis e componentes compartilhados
 
@@ -16,7 +16,7 @@ Momentum relativo também é uma regra de seleção; tendência também é chama
 
 ## Contratos padronizados
 
-Interfaces Python propostas como `Protocol` e DTOs versionados; sem imports dinâmicos arbitrários, framework de plugins ou dependências opcionais carregadas no caminho desabilitado. Apenas a infraestrutura mínima e SMA surgem na Sprint 04; demais implementações só quando escolhidas.
+Interfaces Python propostas como `Protocol` e DTOs versionados; sem imports dinâmicos arbitrários, framework de plugins ou dependências opcionais carregadas no caminho desabilitado. A infraestrutura mínima e SMA foram entregues na Sprint 04; detalhes concretos, alcance e testes estão em [trend_sma](estrategias/trend_sma.md) e no [guia 04](testes/sprint-04-validacao.md). Demais implementações só quando escolhidas.
 
 | Contrato | Entradas | Saída e limite |
 |---|---|---|
@@ -36,7 +36,7 @@ Envelope obrigatório: `decision_id`, `module_id`, `instance_id`, versão da imp
 
 ## Catálogo: contratos específicos e compatibilidade Spot
 
-Todos os itens começam desabilitados e não implementados. Dependências listadas são capacidades necessárias, não obrigação de implementar outros itens do catálogo. Métricas comuns de custo/risco são adicionais às específicas abaixo.
+Todos os itens começam desabilitados. trend_sma possui implementação para fixture local/PAPER; os demais continuam não implementados. Dependências listadas são capacidades necessárias, não obrigação de implementar outros itens do catálogo. Métricas comuns de custo/risco são adicionais às específicas abaixo.
 
 | ID / papel / Sprint | Entradas → saída | Parâmetros e estado | Dependências / métricas específicas | Compatibilidade inicial e restrições |
 |---|---|---|---|---|
@@ -57,7 +57,7 @@ Todos os itens começam desabilitados e não implementados. Dependências listad
 
 ## Flags e configuração externa validada
 
-TOML proposto, schema a implementar na Sprint 04. Exemplo abaixo é **desabilitado** e não é aceito pela implementação atual das Sprints 01–03:
+Exemplo arquitetural **desabilitado**, com capacidades futuras backtest/continuous ainda inelegíveis. O TOML executável da Sprint 04 inclui a tabela strategy e escopo fixture; consulte [configuração completa](../cripto-bot/config/strategy.sma.example.toml). O fragmento abaixo não deve ser tratado como arquivo executável completo:
 
 ```toml
 [modules.trend_btc]

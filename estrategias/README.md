@@ -4,11 +4,11 @@ Atualizado em 25/10/2026. Documentação em `/home/cams7/Dev/Cripto/docs/estrate
 
 ## Estado do catálogo
 
-Os módulos abaixo são planejados, sem implementação/validação registrada. A base e o simulador sintético das Sprints 01–03 não constituem implementação dessas estratégias. Todos permanecem desabilitados por padrão; implementação, documentação e elegibilidade operacional são estados distintos. Nenhum documento ou flag autoriza negociação real.
+A Sprint 04 entregou a base modular e trend_sma em fixture offline; os demais módulos abaixo continuam planejados, sem implementação/validação. A base e o simulador sintético das Sprints 01–03 não constituem implementação dessas estratégias. Todos permanecem desabilitados por padrão; implementação, documentação e elegibilidade operacional são estados distintos. Nenhum documento ou flag autoriza negociação real.
 
 | ID | Categoria | Sprint prevista | Arquivo a criar na implementação | Implementação / documentação individual | Elegibilidade |
 |---|---|---|---|---|---|
-| trend_sma | Estratégia: tendência | 04 | `trend_sma.md` | Planejada / pendente | Não validada; desabilitada |
+| trend_sma | Estratégia: tendência | 04 | [trend_sma.md](trend_sma.md) | Versão 1 implementada / documentada | Fixture local/PAPER/BTCUSDT/15m validada conforme guia 04; default desabilitado; backtest/contínuo/privado inelegíveis |
 | mean_reversion | Estratégia: reversão à média | 12 | `mean_reversion.md` | Planejada / pendente | Não validada; desabilitada |
 | breakout | Estratégia: rompimento | 13 | `breakout.md` | Planejada / pendente | Não validada; desabilitada |
 | dca | Gestão de carteira: compras periódicas | 14A | `dca.md` | Planejada / pendente | Não validada; desabilitada |

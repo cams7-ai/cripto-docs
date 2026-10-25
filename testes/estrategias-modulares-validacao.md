@@ -1,6 +1,6 @@
 # Guia de validação de módulos isolados e combinações
 
-Revisão: 25/10/2026. **Estado: NÃO EXECUTADO / elegibilidade PENDENTE para todos os módulos e combinações.** Documento de planejamento, sem implementação, ativação ou negociação autorizada.
+Revisão: 25/10/2026. **Estado: trend_sma aprovada no escopo fixture local/PAPER/BTCUSDT/15m da Sprint 04; demais módulos/combinações e ambientes continuam PENDENTES.** A matriz geral abaixo conserva os requisitos futuros; resultados aplicáveis da 04 estão discriminados na seção final.
 
 Escopo: [Sprint 04](../sprints/sprint-04.md), Sprints 05–11 e [incrementos opcionais 12–21](../sprints/estrategias-opcionais.md). Contratos: [arquitetura modular](../arquitetura-modular.md). Python em `/home/cams7/Dev/Cripto/cripto-bot`, evidências em `/home/cams7/Dev/Cripto/docs/testes`.
 
@@ -33,7 +33,7 @@ Cada linha abaixo requer todos os casos específicos da seção correspondente n
 
 | Sprint | Módulo | Estado | Evidência futura |
 |---|---|---|---|
-| 04 | trend_sma | NÃO EXECUTADO | Guia 04, incluindo warm-up e cruzamentos |
+| 04 | trend_sma | APROVADO somente fixture local/PAPER/BTCUSDT/15m; default desabilitado | [Guia 04](sprint-04-validacao.md), warm-up/cruzamentos/prefixo/risco/replay; backtest/contínuo/privado pendentes |
 | 12 | mean_reversion | NÃO EXECUTADO | Desvio/reversão, variância zero e regime adverso |
 | 13 | breakout | NÃO EXECUTADO | Faixa anterior, confirmação e falso rompimento |
 | 14A | dca | NÃO EXECUTADO | Calendário, orçamento e disparo perdido |
@@ -60,8 +60,34 @@ Para cada execução registrar ID, módulo/instância, versão/schema/estado/mod
 
 Aceite técnico exige 100% dos casos obrigatórios aplicáveis aprovados, zero bypass de risco, duplicação, saldo negativo ou divergência inexplicada, custos/atribuições reproduzíveis e review. Habilitação exige opt-in explícito e evidência de elegibilidade daquela versão/configuração/composição. Promoção privada depende também dos gates Demo/Testnet e aprovação LIVE nova; resultados positivos em simulação não garantem rentabilidade. Módulos não escolhidos continuam desabilitados e não bloqueiam dependentes que não os utilizem.
 
-Nenhum teste foi executado nesta revisão documental. Evidências históricas JSON não foram alteradas. Não foram criados recursos AWS, modelos, módulos ou ordens.
+A revisão documental inicial não executou testes nem alterou evidências históricas. Posteriormente, a Sprint 04 foi implementada por solicitação, conforme seção abaixo. Os JSONs 01–03 permanecem preservados; não houve recurso AWS ou ordem externa.
 
 ## Revisão documental obrigatória por módulo
 
 Aplicar o [conteúdo obrigatório e as adaptações por papel](../estrategias/README.md). Registrar por módulo/Sprint/revisão: documento e catálogo, código/schema/artefato confrontados, comandos e evidências referenciados, cálculos de taxas/resultados conferidos, exemplos de flags isoladas/conjuntas aceitos ou explicitamente planejados, itens pendentes/não suportados e decisão documental APROVADA/PENDENTE. Validar o M16 tanto na primeira implementação quanto em mudanças de regras, interfaces, parâmetros, flags ou controles de risco. O aceite documental não transforma exemplo fictício em evidência financeira nem libera operação real.
+
+
+## Resultado aplicável da Sprint 04 — 25/10/2026
+
+428 testes acumulados aprovados, com qualidade/wheel e documento individual/catálogos revisados. Evidência: [guia 04](sprint-04-validacao.md) e [JSON 04](sprint-04-evidencias.json). A matriz comum original permanece pendente em seu alcance ampliado quando exigir capacidades ausentes; não atribuir aprovação de execução privada ou combinação real aos fakes.
+
+| Caso | Resultado da 04 | Alcance restante |
+|---|---|---|
+| M01 | Default sem arquivo/flags e exemplo false: NOOP sem carteira/intenção | Nenhum opt-in implícito |
+| M02 | Escopo explícito local/PAPER/fixture/BTCUSDT; listas vazias e privados bloqueados | Outros ambientes/modos/avaliações não habilitados |
+| M03 | Registro/params/dependências/ciclo/peso/propriedade inválidos rejeitados | Catálogo futuro permanece ausente |
+| M04 | Fonte HTTP/cliente financeiro não construídos, disabled não avalia estratégia, sem imports dinâmicos | Não importa bibliotecas de módulos ausentes |
+| M05 | Coordenador fake com sinais iguais/opostos e chegada invertida rejeita disputa deterministicamente | Não aprova combinação de estratégias reais |
+| M06 | Flock/CAS/reserva atômica e crash/replay confirmados | Sem coordenação distribuída ou múltiplos donos |
+| M07 | Overrides instância/par mais restritivos, orçamento/custos e risco global | Correlação/multiativo fora do escopo |
+| M08 | Ativação TWAP/VWAP rejeitada | Pais/filhos/parcial/deadline futuros continuam pendentes |
+| M09 | Disabled com BTC fica DRAINING; RESERVED/cancelamento local e fakes de parcial/UNKNOWN mantêm monitoramento | Sem runtime remoto ou cancel_and_monitor habilitado |
+| M10 | Snapshot/generação/CAS, mudança material recusada e reativação sem replay/reset | Sem migração de estado/schema implementada |
+| M11 | Falha de avaliação aborta ciclo sem efeito; quote ausente/vencida não inventa execução; divergência bloqueia | Fontes opcionais/timeout remoto não implementados |
+| M12 | Envelope/atribuição única de inventário/custos/resultado reconcilia com consolidado | Rateio multiinstância/multiativo futuro |
+| M13 | Prefixo causal, dados fechados/UTC, custos e reinício em fixture | Avaliação fora da amostra e PAPER parcial/atrasado da 05/06 pendentes |
+| M14 | Exclusividade e configuração concorrente/sem composição suportada rejeitadas | STP privado e OMS de grupo futuros |
+| M15 | Configuração/env privados rejeitados; nenhuma flag libera executor externo | AWS/SAM/Demo/Testnet/LIVE não executados |
+| M16 | trend_sma.md, catálogos, banco v1/v2 e ADR conferidos contra fonte/config/testes/schema e exemplos | Novos módulos continuam sem documentos antecipados |
+
+Aceite de engenharia em fixture não é elegibilidade econômica/operacional. Default continua false e toda evolução/composição material exige novas evidências/gates. Próxima etapa depende da revisão da 04, sem início automático.

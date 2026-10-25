@@ -42,7 +42,7 @@ Em sucesso, stdout tem um objeto JSON e stderr um evento JSON. Compartilham `run
 
 ## Limites atuais
 
-A Sprint 03 implementa carteira e executor PAPER sintético. Estratégia, integração privada Binance/AWS e ordens externas permanecem futuras. A fonte pública da Sprint 02 tem contrato implementado e testes com transporte em memória; a coleta real não foi executada. O conversor básico preserva entradas; o domínio financeiro separado aplica quantum, ticks, steps e arredondamentos explícitos. As etapas posteriores do [planejamento](planejamento.md) permanecem propostas.
+A Sprint 03 implementa carteira e executor PAPER sintético. A Sprint 04 implementa SMA opt-in e carteira modular v2 exclusivamente em fixture offline. Integração privada Binance/AWS, backtest completo e operação contínua permanecem futuros. A fonte pública da Sprint 02 tem contrato implementado e testes com transporte em memória; a coleta real não foi executada. O conversor básico preserva entradas; o domínio financeiro separado aplica quantum, ticks, steps e arredondamentos explícitos. As etapas posteriores do [planejamento](planejamento.md) permanecem propostas.
 
 O wheel inclui somente `cripto_bot` e metadados. Os testes ficam fora dele. O harness `tests/offline_runner.py` instala um audit hook que bloqueia eventos `socket.*` nos subprocessos; fixtures bloqueiam sockets nos testes unitários. Trata-se de verificação do código Python desta etapa, sem pretensão de sandbox para programas arbitrários.
 
@@ -126,3 +126,32 @@ Fluxo futuro: dados point-in-time → módulos explicitamente habilitados → co
 ## Documentação dos bancos
 
 O [catálogo dos bancos](bancos/README.md) e os documentos [mercado SQLite v1](bancos/market-sqlite.md) e [carteira PAPER SQLite v1](bancos/paper-sqlite.md) descrevem o DDL consultado em 25/10/2026, sem inspeção de bases operacionais. Toda Sprint com mudança estrutural deve atualizar diagrama/modelo, dicionário, versão/compatibilidade, migração se existente e evidências na mesma entrega; pendência bloqueia conclusão conforme seção 4.8 do planejamento. Relações entre stores permanecem lógicas, sem FK/transação cruzada presumida.
+
+
+## Base modular entregue na Sprint 04
+
+`strategy-run` compõe somente fixture local, SMA pura, coordenador exclusive_owner,
+dimensionamento/risco central, journal modular e relatório JSON/HTML. Default sem
+configuração ou sem módulo habilitado retorna NOOP sem carteira. `strategy-report`
+abre snapshot somente leitura e reexporta; `strategy-reconcile` verifica e bloqueia
+quando necessário. `paper-*` continua no roteiro manual/v1 e `run-once` NOOP.
+
+O schema v2 preserva o DDL financeiro e acrescenta configurações, instâncias,
+ciclos e atribuições no mesmo banco/transação. Não há migração v1 automática.
+CYCLE/HOLD grava estado/cursor; CYCLE direcional une reserva e decisão; FILL
+confirma custos/posição/atribuição. Replay inicial/final reconstrói tudo; CAS e
+assinatura SQLite do escritor exclusivo evitam reconstrução integral redundante
+entre commits conhecidos. Postings e históricos continuam verificáveis por ativo.
+
+Snapshot temporal contém só candles fechados disponíveis, Decimal local de
+precisão 80 e relógio de replay. Envelopes identificam instância/geração/época,
+prefixo e execução; acrescentar futuro não altera identidade passada. DAY_START
+precede decisões do dia UTC, inclusive candle que fecha à meia-noite.
+Desativação mantém recuperação e DRAINING com BTC residual, sem liquidação.
+
+Relatório HTML autocontido não depende de browser ou bibliotecas gráficas no
+runtime; o browser foi usado somente na revisão visual. Exportação após commit
+não é operação financeira. Ver [ADR 0005](decisoes/0005-estrategia-modular-e-persistencia.md),
+[SMA](estrategias/trend_sma.md), [banco v1/v2](bancos/paper-sqlite.md) e
+[guia/evidências 04](testes/sprint-04-validacao.md). Outros módulos e modelos de
+execução permanecem não implementados e desabilitados.
