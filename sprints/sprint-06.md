@@ -2,9 +2,9 @@
 
 Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B/06C implementadas/validadas; software 06D validado offline; piloto/gate global pendentes.** Documento agregador alinhado ao planejamento vigente. Substitui a organização anterior, de 25/10/2026, que concentrava a Sprint no piloto contínuo; seus critérios operacionais são preservados em 06D.
 
-Registro da revisão documental original: esta entrega atualizava somente a documentação. Não cria projetos, move fontes/dados, executa testes, coleta, envia mensagens, inicia o piloto ou autoriza operações externas. O detalhamento executável de cada etapa deve preceder sua implementação e usar o estado real dos repositórios.
+Estado consolidado: 06A–06C e os marcos offline D-M1–D-M3 da 06D foram implementados e validados. Faltam D-M4 (preflight, entregas autorizadas e observação real) e D-M5 (revisão/aceite integrado). Esta atualização é documental; não inicia processos, coleta ou mensagens. As seções 13–20 preservam registros históricos; o estado atual está nas seções 5.4, 9–10 e 21.
 
-Referências principais: [planejamento](../planejamento.md), seções 4.5–4.10, 5, 6.3–6.5, 8–10 e 13; [Sprint 05](sprint-05.md), em especial o registro da execução e o ajuste analítico posterior; [guia 05](../testes/sprint-05-validacao.md), [validação DuckDB/Parquet](../testes/duckdb-parquet-validacao.md), [arquitetura modular](../arquitetura-modular.md) e [matriz modular](../testes/estrategias-modulares-validacao.md). Decisões: [ADR 0005](../decisoes/0005-estrategia-modular-e-persistencia.md), [ADR 0006](../decisoes/0006-backtest-historico-e-protocolo.md) e [ADR 0007](../decisoes/0007-duckdb-parquet-analitico.md).
+Referências principais: [planejamento](../planejamento.md), seções 4.5–4.10, 5, 6.3–6.5, 8–10 e 13; [Sprint 05](sprint-05.md), em especial o registro da execução e o ajuste analítico posterior; [guia 05](../testes/sprint-05-validacao.md), [validação DuckDB/Parquet](../testes/duckdb-parquet-validacao.md), [arquitetura modular](../arquitetura-modular.md) e [matriz modular](../testes/estrategias-modulares-validacao.md). Decisões: [ADR 0005](../decisoes/0005-estrategia-modular-e-persistencia.md), [ADR 0006](../decisoes/0006-backtest-historico-e-protocolo.md) e [ADR 0007](../decisoes/0007-duckdb-parquet-analitico.md). A execução contínua e a entrega local são detalhadas no [ADR 0011](../decisoes/0011-paper-continuous-e-entrega-local.md).
 
 ## 1. Objetivo e incremento demonstrável
 
@@ -12,11 +12,11 @@ Entregar, na ordem **06A → 06B → 06C → 06D**, uma composição Python inst
 
 Cada extração precisa demonstrar consumidor funcional, equivalência dos contratos e ausência de duplicação das regras. A entrega final demonstra a composição congelada operando continuamente, com relatórios diários, outbox, pausa/retomada e cenários de falha. Separar equivalência de software, observação de mercado e cenários injetados; lucro não é condição de aceite técnico nem prova de desempenho futuro.
 
-Este agregador define sequência, fronteiras e aceites. Os arquivos `docs/sprints/sprint-06a.md` a `sprint-06d.md`, seus guias e prompts autossuficientes surgem no detalhamento da etapa elegível, sem criar placeholders das demais. O texto anterior da 06 não permite começar pelo piloto.
+Este agregador define sequência, fronteiras e aceites. As especificações [06A](sprint-06a.md), [06B](sprint-06b.md), [06C](sprint-06c.md) e [06D](sprint-06d.md), seus guias e prompts já existem. A próxima ação é revisar o preparo operacional da 06D e atender às condições de D-M4; não recriar especificações ou iniciar o piloto por inferência.
 
 ## 2. Diretórios, estado e pré-requisitos
 
-Workspace exclusivo: `/home/cams7/Dev/Cripto`. Aplicação existente em `cripto-bot/`; documentação central em `docs/`, com Git independente. Cada novo projeto será irmão desses diretórios, com Git, manifest, versão, lock, testes e build próprios. Não criar repositório agregador, submódulos ou Git aninhado. Todos os arquivos de Cripto permanecem no workspace.
+Workspace exclusivo: `/home/cams7/Dev/Cripto`. Aplicação existente em `cripto-bot/`; documentação central em `docs/`, com Git independente. Os projetos `cripto-core`, `cripto-market-data` e `cripto-analytics` já existem como irmãos desses diretórios, com Git, manifest, versão, lock, testes e build próprios. Não criar repositório agregador, submódulos ou Git aninhado. Todos os arquivos de Cripto permanecem no workspace.
 
 A Sprint 05 registra implementação e validação local/PAPER/backtest/BTCUSDT/15m; o guia complementar registra a camada DuckDB/Parquet aprovada. Esses são resultados documentais históricos, não resultados novos do piloto. As regressões e a integridade da baseline foram posteriormente conferidas em 06A, conforme seu guia. A configuração/modelo que vier a executar o piloto deve ser identificada separadamente.
 
@@ -27,7 +27,7 @@ A Sprint 05 registra implementação e validação local/PAPER/backtest/BTCUSDT/
 | D03 — Identidade e ferramentas | `pyproject.toml`, `uv.lock` e pin Python do bot; referências da 05 e do ajuste analítico | Inspecionar HEAD, alterações locais, versões e hashes reais; preservar trabalho e registrar baseline por projeto; não atualizar dependências por conveniência |
 | D04 — Estado e proveniência | Stores de mercado/financeiros/históricos distintos e registro de consumo final | Inventariar ownership, schemas, paths e fingerprints; preservar dados, locks, journal, checkpoints e registro de uso |
 | D05 — Sequência | Decisão multiprojeto e layout da seção 9.2 do planejamento | 06B exige 06A aprovada; 06C exige 06B aprovada; 06D exige 06A–06C aprovadas e composição congelada |
-| D06 — Piloto e mensagens | Critérios originais da 06 e contratos da seção 4.5 do planejamento | Detalhar relógio contínuo, dados, execução, retenção, canais e ensaios antes de 06D; envio efetivo somente no escopo explicitamente autorizado |
+| D06 — Piloto e mensagens | Contratos detalhados e software validado offline na 06D; critérios da seção 4.5 do planejamento | Antes de D-M4, confirmar configuração, serviços/destinatários autorizados e recursos; a evidência operacional e o aceite integrado permanecem pendentes |
 
 Falha em um pré-requisito mantém a etapa dependente pendente. Não declarar revisões limpas, hashes conferidos ou novo gate aprovado sem verificação efetiva. O relatório histórico não elege automaticamente a SMA para negociação privada.
 
@@ -43,14 +43,14 @@ Fora da Sprint: AWS/deploy, credenciais Binance, DEMO/TESTNET/LIVE, API web, mic
 
 ## 4. Estrutura-alvo e fronteiras de arquitetura
 
-Estrutura planejada, criada progressivamente na etapa correspondente:
+Estrutura implementada nas etapas 06A–06C:
 
 ```text
 /home/cams7/Dev/Cripto/
 ├── docs/                          # Git e evidências centrais existentes
 ├── cripto-bot/                    # Git existente
 │   ├── pyproject.toml
-│   ├── src/cripto_bot/            # alvo da reorganização 06A
+│   ├── src/cripto_bot/            # layout validado na 06A
 │   └── tests/
 ├── cripto-core/                   # 06A: Git e pacote independentes
 │   ├── pyproject.toml
@@ -66,7 +66,7 @@ Estrutura planejada, criada progressivamente na etapa correspondente:
     └── tests/
 ```
 
-Até a reorganização validada da 06A, o caminho dos fontes do bot continua `modules/trading/src/cripto_bot`. `src/` ficará diretamente na raiz de cada projeto Python; os subpacotes internos não recebem outra árvore de projeto ou Git. Caminhos `docs/...` são relativos ao workspace; comandos uv/Python executam na raiz do projeto identificado no guia.
+O caminho atual dos fontes do bot é `cripto-bot/src/cripto_bot`, validado na 06A. `modules/trading/src/cripto_bot` é o caminho histórico anterior. `src/` está diretamente na raiz de cada projeto Python; os subpacotes internos não recebem outra árvore de projeto ou Git. Caminhos `docs/...` são relativos ao workspace; comandos uv/Python executam na raiz do projeto identificado no guia.
 
 | Projeto | Responsabilidade | Dependências e restrições |
 |---|---|---|
@@ -81,7 +81,7 @@ Chamadas Python síncronas e composição explícita permanecem suficientes. Nã
 
 ### 5.1 06A — Layout do bot e extração de `cripto-core`
 
-Dependência: D01–D04 revisadas e inventário de interfaces/fingerprints disponível.
+Estado: implementada e aprovada conforme [guia 06A](../testes/sprint-06a-validacao.md) e seção 14. As tarefas abaixo preservam o contrato executado; não são trabalho ainda pendente. Dependências verificadas: D01–D04 e inventário de interfaces/fingerprints.
 
 1. Registrar baseline e reorganizar `cripto-bot/modules/trading/src/cripto_bot` para `cripto-bot/src/cripto_bot`, preservando pacote `cripto_bot` e console script `cripto-bot`.
 2. Atualizar descoberta de pacotes, tipagem/qualidade/cobertura, fixtures/testes que referenciem fontes, resolução de caminhos e fingerprints; atualizar README, arquitetura e ADRs afetados. Dados/configuração/relatórios conservam locais e identidade.
@@ -93,9 +93,9 @@ Avanço: layout e integração core aprovados; não usar a extração para mudar
 
 ### 5.2 06B — Extração de `cripto-market-data`
 
-Dependência: 06A aprovada.
+Estado: implementada e aprovada conforme [guia 06B](../testes/sprint-06b-validacao.md) e seção 16. Dependência atendida: 06A aprovada. O contrato de extração abaixo foi executado.
 
-Extrair coleta pública, normalização, validação, persistência/checkpoint de mercado e manifestos para `src/cripto_market_data`. Preservar `collect-market` no bot por delegação; o detalhamento define a CLI própria efetiva e seus contratos, sem inventar comandos neste agregador.
+Extrair coleta pública, normalização, validação, persistência/checkpoint de mercado e manifestos para `src/cripto_market_data`. Preservar `collect-market` no bot por delegação; a CLI própria e seus contratos estão descritos na [especificação 06B](sprint-06b.md) e no respectivo guia.
 
 Exigir continuidade, deduplicação, hashes canônicos, retomada, rollback/falha de exportação e rejeição de fonte inválida equivalentes à baseline. Tratar paths, descoberta de raiz e symlinks sem derivar o diretório de dados de `site-packages`. Testar o pacote instalado fora do checkout, com fakes/guards de rede. Coleta pública real somente quando explicitamente prevista e autorizada; nunca implícita em backtest ou relatório.
 
@@ -113,15 +113,15 @@ Avanço: composição integrada funciona antes de aposentar a implementação an
 
 ### 5.4 06D — PAPER contínuo local com a composição validada
 
-[Especificação/execução 06D](sprint-06d.md): software D-M1–D-M3 validado offline; observação real/mensagens e D-M4/D-M5 pendentes. Estado SOFTWARE_VALIDATED/PILOT_PENDING; ver seção21 e guia próprio.
+[Especificação/execução 06D](sprint-06d.md): software D-M1–D-M3 validado offline; observação real/mensagens e D-M4/D-M5 pendentes. Estado SOFTWARE_VALIDATED/PILOT_PENDING; ver seção 21 e [guia próprio](../testes/sprint-06d-validacao.md).
 
-Dependência: 06A–06C aprovadas, versões/hashes/configuração/modelo congelados e pré-requisitos operacionais revisados.
+Dependência de software atendida: 06A–06C aprovadas e composição offline identificada. Antes de D-M4, revisar os artefatos/configuração, confirmar os pré-requisitos operacionais e congelar a janela real somente após preflight autorizado e elegível.
 
 Entregar o piloto original: ciclo contínuo com dados públicos reais, execução interna, carteira/risco/coordenação sob controle do bot, outbox/clientes HTTP locais, relatórios diários e runbook de pausa/retomada. Modelo de execução ampliado e versionado, com fill integral, parcial, atraso, ausência de fill e cancelamento. Detalhar antes de executar o relógio, validade de dados/cotações, frequência, filtros, orçamento do ciclo e política de recuperação de evento atrasado; não executar sinais antigos para compensar indisponibilidade.
 
-Observar pelo menos sete dias consecutivos e ≥99% dos ciclos elegíveis. Fixar previamente denominador, critério de elegibilidade e manutenções; não excluir falhas para melhorar a métrica. Rejeição válida de risco/HOLD não equivale a falha de processamento, nem todos os ciclos precisam produzir fill. Separar a amostra observada dos drills determinísticos.
+Observar sete dias UTC completos, com denominador fixo de 672 slots e pelo menos 666 válidos no prazo (≥99%), conforme seção 10 da 06D. Manutenção, downtime, kill, disable e falhas não removem slots do denominador. Rejeição válida de risco/HOLD não equivale a falha de processamento, nem todos os ciclos precisam produzir fill. Separar a amostra observada dos drills determinísticos.
 
-Sem módulo habilitado, não iniciar negociação simulada ou carteira implicitamente. A configuração de continuous exige opt-in próprio; não herda habilitação de fixture/backtest. O detalhamento deve definir o comportamento de inicialização/NOOP e os comandos reais antes de fornecê-los como instruções executáveis.
+Sem módulo habilitado, não iniciar negociação simulada ou carteira implicitamente. A configuração de continuous exige opt-in próprio; não herda habilitação de fixture/backtest. O comportamento de inicialização/NOOP e os comandos reais estão implementados e documentados na [API](../api/continuous.md) e no [runbook](../operacao/continuous-runbook.md). Opt-ins técnicos não substituem autorização para a fase externa.
 
 ## 6. Configuração modular, risco e mensagens
 
@@ -129,7 +129,7 @@ Todos os módulos começam desabilitados; opt-in por instância, ambiente, modo,
 
 A política inicial continua `exclusive_owner`. Testar isolamento, conflitos, orçamento concorrente e composição com fakes de contrato sem apresentá-los como validação de estratégias reais ausentes. Composição real não suportada deve ser rejeitada. Capital/reservas, atribuição de inventário e limites globais/por instância permanecem centralizados. Desativação bloqueia entradas, mantém custódia/monitoramento e DRAINING com posições remanescentes, sem venda, transferência ou reset automáticos. Reload/reativação preservam geração, deduplicação, custos e pico de drawdown; UNKNOWN bloqueia novos compromissos afetados até reconciliação.
 
-Em 06D, introduzir porta de notificação, outbox e clientes HTTP locais conforme seção 4.5 do planejamento: e-mail via `mail-sender`; WhatsApp via `whatsapp-notify`, quando habilitado, com consulta da sessão e fallback para e-mail configurado. Não incorporar navegador/QR nem gerenciar silenciosamente sessão compartilhada. Transporte Lambda pertence à 07; IAM/rede/entrega AWS à 08.
+Na implementação offline da 06D foram introduzidos porta de notificação, outbox e clientes HTTP locais conforme seção 4.5 do planejamento: e-mail via `mail-sender`; WhatsApp via `whatsapp-notify`, quando habilitado, com consulta da sessão e fallback para e-mail configurado. Não incorporar navegador/QR nem gerenciar silenciosamente sessão compartilhada. Transporte Lambda pertence à 07; IAM/rede/entrega AWS à 08.
 
 Persistir evento/tentativas/canal confirmado; validar resposta/payload e limitar espera, repetição e frequência. Timeout pode deixar entrega desconhecida, sem garantia de exactly-once; registrar a incerteza. Falha de mensagens nunca reexecuta negociação. Se ambos os canais falham, manter outbox e diagnóstico para alarme independente. Testes de contrato usam fakes/MockTransport sem enviar mensagens; ensaios de entrega efetiva são separados, opt-in e com destinatários de teste autorizados. Não alterar projetos de referência.
 
@@ -156,7 +156,7 @@ Regressões usam fixtures e oráculos financeiros/causais: saldos, quantidades, 
 
 Rodar Ruff/formatação/mypy conforme os projetos, testes unitários/contratuais e regressões de consumidores afetados. Validar import/CLI com wheels das dependências instalados, sem `PYTHONPATH`, instalação editable ou checkout irmão implicitamente importável. Fixar cwd/paths absolutos dos ensaios; manter arquivos no workspace. Não impor o número histórico de testes como contagem fixa nem registrá-lo como execução nova.
 
-Não há novos comandos executáveis de aplicação definidos por esta revisão. Cada especificação de etapa deve fornecer comandos verificados para instalação locked, qualidade, build, smoke, demonstração, reconciliação e recuperação, com artefatos esperados e códigos de saída. A ausência desse detalhamento impede usar o agregador como prompt genérico para implementar as quatro etapas de uma vez.
+Os comandos implementados e seus resultados estão nas especificações/guias das etapas. Para a 06D, consultar a [API](../api/continuous.md), o [guia de validação](../testes/sprint-06d-validacao.md) e o [runbook](../operacao/continuous-runbook.md). O agregador não substitui esses contratos nem autoriza executar as quatro etapas novamente ou iniciar a fase externa.
 
 ## 9. Critérios objetivos de aceite
 
@@ -164,7 +164,7 @@ AC01–AC08 conservam os temas do contrato anterior e aplicam-se ao piloto 06D. 
 
 | ID | Etapa | Condição verificável |
 |---|---|---|
-| AC01 | 06D | Pelo menos sete dias consecutivos e ≥99% dos ciclos elegíveis; registrar numerador/denominador, intervalos UTC e manutenções predefinidas |
+| AC01 | 06D | Sete dias UTC completos, 672 slots e ≥666 válidos no prazo; registrar intervalos, numerador/denominador e causas, sem excluir manutenção, downtime ou falhas |
 | AC02 | 06D | Fill integral, múltiplos parciais, atraso, ordem limitada sem fill e cancelamento do restante; tocar preço não garante execução |
 | AC03 | 06D | Quantidade cumulativa ≤ solicitada, taxas por fill, saldos/reservas corretos e liberação somente do restante cancelado; zero divergência inexplicada |
 | AC04 | 06D | Timeout, reinício, repetição de evento e falhas entre transações sem duplicar fill/ledger; kill switch bloqueia novas entradas sem liquidar automaticamente |
@@ -185,7 +185,7 @@ AC01–AC08 conservam os temas do contrato anterior e aplicam-se ao piloto 06D. 
 
 ## 10. Evidências, documentação e decisão de transição
 
-O [guia 06](../testes/sprint-06-validacao.md) existente permanece como roteiro anterior, sem evidência nova de execução; deverá ser alinhado ao papel de consolidação das quatro etapas antes dos ensaios. Os guias `docs/testes/sprint-06a-validacao.md` a `sprint-06d-validacao.md` serão criados no detalhamento de cada etapa; este agregador não cria arquivos vazios nem links que pressuponham sua existência.
+O [guia 06](../testes/sprint-06-validacao.md) consolida os resultados das quatro etapas e distingue validação offline de operação pendente. Os guias [06A](../testes/sprint-06a-validacao.md), [06B](../testes/sprint-06b-validacao.md), [06C](../testes/sprint-06c-validacao.md) e [06D](../testes/sprint-06d-validacao.md) já existem e registram as execuções efetivas. Na 06D, D-M1–D-M3 estão aprovados offline; D-M4/D-M5 e o aceite global continuam pendentes.
 
 Cada guia identifica revisões/alterações locais, ferramentas, versões/hashes dos projetos/wheels/locks, configuração/modelo/dataset e schemas, comandos efetivos, intervalos UTC, resultados esperados/obtidos, métricas/custos, logs sanitizados, manifestos e limitações. Separar testes executados, apenas planejados, não aplicáveis justificados e pendentes. Caso obrigatório sem execução mantém o aceite pendente; não reduzir critérios para ocultar falha.
 
@@ -201,11 +201,11 @@ A extração modifica organização/empacotamento e proveniência do código; po
 
 Custos: CPU, disco, rede pública e retenção local; nenhum recurso AWS nesta Sprint. Estimar volume dos journals/exportações, memória/conversão analítica, orçamento de chamadas e timeouts/canais no detalhamento. Medir por etapa sem supor gratuidade de serviços externos; os sete dias de observação não podem ser comprimidos em prazo de desenvolvimento.
 
-Em falha, bloquear novos compromissos, preservar estado/evidências e reconciliar. Rollback restaura versões/locks compatíveis de toda a composição, sem sobrescrever fontes alheios ou remover dados. Incompatibilidade persistida exige plano específico; não apagar ledger, dataset, outbox, pico de risco ou registro final para destravar execução. Ensaios sintéticos usam diretórios/identidades próprios, sem reset de carteira operacional. Runbook de 06D deve cobrir pausa, custódia, restart, reconciliação, pendências, falha de dados/canais e encerramento do piloto.
+Em falha, bloquear novos compromissos, preservar estado/evidências e reconciliar. Rollback restaura versões/locks compatíveis de toda a composição, sem sobrescrever fontes alheios ou remover dados. Incompatibilidade persistida exige plano específico; não apagar ledger, dataset, outbox, pico de risco ou registro final para destravar execução. Ensaios sintéticos usam diretórios/identidades próprios, sem reset de carteira operacional. O [runbook da 06D](../operacao/continuous-runbook.md) cobre pausa, custódia, restart, reconciliação, pendências, falha de dados/canais e encerramento; sua aplicação ao piloto real permanece pendente.
 
 ## 12. Prompt para detalhar a próxima etapa elegível
 
-Este prompt é de **documentação**, não de implementação. Após o detalhamento/revisão, a etapa terá seu próprio prompt executável, com caminhos/comandos/contratos concretos, como na estrutura da Sprint 05.
+Este prompt é de **documentação**, não de implementação. Foi usado para detalhar 06A–06D, cujas especificações e prompts executáveis já existem. No estado atual, não há nova extração a detalhar nem uma etapa 06E a criar: usar a 06D existente para revisar as condições de D-M4/D-M5. O prompt não autoriza rede, mensagens, piloto ou avanço para 07.
 
 ```text
 Em /home/cams7/Dev/Cripto, detalhe somente a próxima etapa elegível de
@@ -215,6 +215,10 @@ ajuste DuckDB/Parquet, arquitetura, ADRs e contratos de estratégia/bancos.
 Inspecione código, testes, manifests, locks, pins, revisões e alterações locais
 dos projetos efetivamente existentes, preservando trabalho, dados e segredos.
 Não presuma extrações realizadas ou evidências novas aprovadas.
+
+Se 06A–06D já estiverem detalhadas e o software da 06D validado offline,
+não recrie esses documentos: registre as condições faltantes de D-M4/D-M5
+e preserve o bloqueio da 07 até o aceite integrado.
 
 Confira os pré-requisitos e identifique a etapa ainda não concluída. Se uma
 dependência falhar, registre a pendência e a correção necessária, sem detalhar
@@ -308,6 +312,6 @@ Estado: especificada, aguardando revisão/implementação. Não houve suíte/bui
 
 ## 21. Execução offline 06D — SOFTWARE_VALIDATED/PILOT_PENDING
 
-Modelo contínuo parcial isolado, scheduler/clock/controles/custódia, outbox/entrega local e snapshots implementados. Baseline542; suíte635, revisão final108 casos sobrepostos, analytics30;31 comandos instalados,48 curvas sintéticas e6 arquivos exatos/Parquet comparados. Core/dados e16 artefatos anteriores preservados; analytics0.1.1 apenas renderer. [Guia](../testes/sprint-06d-validacao.md), [evidências](../testes/sprint-06d-evidencias.json), [relatório](../testes/relatorios/sprint-06d/report.html), [módulo](../modulos/paper-continuous.md).
+Modelo contínuo parcial isolado, scheduler/clock/controles/custódia, outbox/entrega local e snapshots implementados. Baseline de 542 testes; confirmação completa de 642 testes; revisão final de 108 casos sobrepostos; analytics com 30 testes; 31 comandos instalados, 48 curvas sintéticas e seis arquivos exatos/Parquet comparados. Core/dados e16 artefatos anteriores preservados; analytics0.1.1 apenas renderer. [Guia](../testes/sprint-06d-validacao.md), [evidências](../testes/sprint-06d-evidencias.json), [relatório](../testes/relatorios/sprint-06d/report.html), [módulo](../modulos/paper-continuous.md).
 
 D-M1–D-M3 aprovados no recorte offline; D-M4/D-M5 e gate global pendentes. Não houve preflight público, entrega real ou sete dias observados; T0/Tend reais não definidos. Preservar672 slots/≥666 válidos, autorização/configuração específica e revisão antes de qualquer aceite. Drills/recibos falsos não preenchem critérios operacionais;07 continua não elegível para implementação. Seções anteriores conservam seus estados históricos.

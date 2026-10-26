@@ -1,52 +1,59 @@
 # Sprint 06 — Consolidação da validação 06A–06D
 
-Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B aprovadas; 06C aprovada; software06D validado offline; piloto/gate global pendentes.** O roteiro operacional abaixo corresponde a 06D e ainda não foi executado. A implementação 06A tem [guia próprio](sprint-06a-validacao.md) e [evidências](sprint-06a-evidencias.json).
+Revisão: 26/10/2026. **Estado: PARCIAL — 06A–06C aprovadas; software 06D validado offline; piloto e aceite global pendentes.** D-M1–D-M3 concluídos no recorte offline; D-M4 não executado e D-M5 pendente. Esta revisão corrige a consolidação documental, sem nova execução de testes ou operações.
 
-## Preparação e execução futura
+Referências atuais: [agregador 06](../sprints/sprint-06.md), [especificação 06D](../sprints/sprint-06d.md), [guia 06D](sprint-06d-validacao.md), [evidências](sprint-06d-evidencias.json), [relatório](relatorios/sprint-06d/report.html), [API](../api/continuous.md), [runbook](../operacao/continuous-runbook.md) e [pré-protocolo não armado](sprint-06d-pre-protocolo.json). Os registros de consolidação ao final preservam os estados históricos; suas antigas indicações de “próxima ação” não substituem o estado atual.
 
-Consultar [especificação 06](../sprints/sprint-06.md) e [roteiro comum](validacao-pre-live.md). Dependências de 06D: 06A–06C aprovadas, Sprint 05/ajuste analítico revistos e composição/configuração congeladas. 06A/06B foram concluídas no escopo offline; 06C foi aprovada após esclarecer a reconstrução externa, conforme consolidação abaixo.
+## Software validado e operação restante
 
-Modo permitido: PAPER; somente dados públicos reais; nenhuma ordem enviada à Binance. Comandos futuros executam em `/home/cams7/Dev/Cripto/cripto-bot`; evidências permanecem em `/home/cams7/Dev/Cripto/docs/testes`. Ao detalhar a implementação, preencher comandos reais, versões e resultados; não executar CLI fictícia deste planejamento.
+As especificações, guias, comandos e artefatos de 06A–06D já existem. A implementação offline da 06D registra 642 testes na confirmação completa, 108 casos sobrepostos na revisão final, 30 testes de analytics e 31 comandos por wheels. Esses números são resultados da execução documentada, não testes reexecutados por esta atualização editorial. Core/dados, modelos anteriores, 16 artefatos e registro final foram preservados conforme o guia.
 
-1. Identificar revisão/release e hashes de configuração/modelo/dataset; conferir dependências e isolamento antes de iniciar.
-2. Executar testes locais determinísticos com rede bloqueada, incluindo rejeições e sentinelas de transporte.
-3. Quando previstos, executar ensaios externos somente após autorização específica da etapa e validação do ambiente; nunca substituir Demo/Testnet por produção.
-4. Cobrir: Integral/parcial/sem fill, atraso, cancelamento restante, reinício antes/depois de persistir, duplicação, cotação inválida e falha de notificação.
-5. Registrar evidência por critério, distinguir fake/injeção/API, comparar ledger/saldos e submeter a revisão do responsável.
+O modo permanece PAPER/Spot/BTCUSDT/15m, sem alavancagem ou ordens privadas. Até agora foram usados dados sintéticos e transports/senders simulados para validar o software. Dados públicos reais e entregas efetivas pertencem a D-M4, após autorização/configuração específicas; flags técnicas não concedem essa autorização.
 
-## Matriz operacional 06D — pendente
+## Matriz consolidada AC01–AC08
 
-| Critério da especificação | Resultado | Evidência |
+A coluna offline registra provas já obtidas; a coluna operacional registra a evidência ainda ausente. Nenhuma linha aprova o piloto globalmente antes de D-M4/D-M5. Critérios D01–D22 e casos detalhados estão no [guia 06D](sprint-06d-validacao.md).
+
+| Critério | Resultado offline documentado | Operação/fechamento ainda pendente |
 |---|---|---|
-| AC01 | NÃO EXECUTADO | Pendente |
-| AC02 | NÃO EXECUTADO | Pendente |
-| AC03 | NÃO EXECUTADO | Pendente |
-| AC04 | NÃO EXECUTADO | Pendente |
-| AC05 | NÃO EXECUTADO | Pendente |
-| AC06 | NÃO EXECUTADO | Pendente |
-| AC07 | NÃO EXECUTADO | Pendente |
-| AC08 — contrato modular/composição | NÃO EXECUTADO | Pendente |
+| AC01 — duração e disponibilidade | Calendário, prazo e denominador fixo testados; ensaio acelerado não comprova duração real (D04/D17) | Sete dias UTC completos, 672 slots e ≥666 válidos no prazo; sem excluir downtime, manutenção ou falhas |
+| AC02 — execução simulada | Integral, múltiplos parciais, atraso, LIMIT sem fill e cancelamento validados em drills (D05/D06) | Revisão integrada dos drills e da observação; não forçar trades para obter cobertura |
+| AC03 — integridade financeira | Cumulativos, taxas, custo, saldos, reservas e partidas conciliados nos oráculos (D03/D05/D07) | Reconciliação da carteira do piloto durante a janela e no encerramento |
+| AC04 — recuperação e controles | Crash, duplicação, conflitos/CAS, UNKNOWN e controles persistentes validados offline (D08/D09) | Evidência de retomadas/controles aplicáveis no ambiente operacional e revisão final |
+| AC05 — dados e risco | Freshness, lacunas, relógio/deadline, saldo, filtros e limites testados por fixtures/mocks (D04/D07/D11) | Preflight elegível e qualidade dos dados públicos na janela real; regras incompatíveis mantêm o piloto bloqueado |
+| AC06 — guards | Rejeições de credenciais/mutações privadas, opt-ins e bloqueio de sockets validados no software (D02/D11/D15) | Evidência do uso somente das leituras públicas autorizadas durante D-M4 |
+| AC07 — entrega | Contratos, falhas, fallback, lease/retry/UNKNOWN e não repetição financeira validados por fakes (D12/D13) | Entrega efetiva autorizada dos canais habilitados, e-mail mínimo e revisão dos resultados (D14) |
+| AC08 — módulos e custódia | Flags, owner exclusivo, composição inválida, orçamento, reload/desativação e preservação de posição validados offline (D07/D09/D10) | Conferência da configuração congelada e da custódia/controles durante o piloto |
 
-## Decisão e limites
+AC09–AC13 permanecem cumpridos pelas extrações 06A–06C. AC14–AC17 têm verificações de composição, integridade e documentação no alcance das entregas, incluindo os artefatos offline da 06D; mudanças posteriores exigem revisão proporcional. AC18 e o aceite integrado continuam pendentes.
 
-Todos os critérios e a revisão das evidências permitem a Sprint 07. Piloto AWS permanece condicionado ao pacote/contratos da 07 e aos pré-requisitos da 08; nenhum gate privado é dispensado.
+## Próxima ação e condições de encerramento
 
-Dados de mercado são reais; carteira e execução são internas. Não mede fila, impacto próprio ou fills da corretora. Evidências de cenários injetados devem ser distinguidas da observação contínua.
+1. Revisar artefatos, configuração, supervisão, orçamento de recursos e backups usando o pré-protocolo/runbook existentes. Não criar nova etapa ou repetir extrações já aprovadas.
+2. Obter instrução explícita para dados públicos e serviços/destinatários de teste; confirmar a disponibilidade dos serviços. Não copiar contatos ou configurar um monitor externo como se já estivesse autorizado.
+3. Executar preflight e entrega autorizados, verificar elegibilidade/filtros/clock/dados e congelar a composição e T0/Tend antes da observação. O pré-protocolo atual mantém T0/Tend nulos.
+4. Observar sete dias UTC reais, manter todos os 672 slots no denominador, produzir sete diários e consolidado e registrar recursos, falhas, outbox e recuperação. Drills e FakeSender permanecem separados dessa evidência.
+5. Em D-M5, revisar D01–D22 e AC01–AC18 aplicáveis, conciliar resultados e registrar a decisão e as pendências remanescentes.
 
-**Registro da revisão documental original de 25/10/2026:** nenhum comando, teste funcional, chamada de API, autenticação, provisionamento ou ordem foi executado naquela revisão. Não alterar arquivos de evidência das Sprints 01–03 para representar validações novas. Custos e recursos efetivos: não aferidos; nenhum criado nesta revisão. Preservar dados/ledger e identificar ambiente/época antes de qualquer limpeza futura.
+**Atualmente a Sprint 07 não está liberada.** Somente após concluir e revisar os critérios da Sprint 06 será possível declarar a 07 elegível para detalhamento/revisão, sem execução automática. SAM/piloto AWS e gates privados conservam suas dependências próprias. Disponibilidade do PAPER não comprova rentabilidade ou fills na corretora.
 
-## Validação modular adicional — pendente
+## Validação modular e documentação técnica
 
-Executar o critério modular adicionado à especificação desta Sprint e os casos aplicáveis do [guia modular](estrategias-modulares-validacao.md), registrando instâncias/versões, flags por ambiente/modo/par, pesos, política de coordenação/desativação, algoritmo e hash/geração. Distinguir ensaio isolado, combinação real e fakes do coordenador; aceites individuais não habilitam composição sem teste conjunto. Nenhum resultado foi obtido por esta revisão; modos privados e LIVE permanecem bloqueados conforme os gates.
+A capacidade continuous da SMA e os contratos de owner/risco/flags/custódia foram implementados e testados offline. Os casos com fakes não validam combinações reais inexistentes. Consultar a [matriz modular](estrategias-modulares-validacao.md), a [SMA](../estrategias/trend_sma.md), o [catálogo](../estrategias/README.md) e o [módulo contínuo](../modulos/paper-continuous.md).
 
-## Verificação da documentação técnica — pendente
-
-Na execução futura, identificar os módulos afetados e revisar seus arquivos em `docs/estrategias/` e o catálogo segundo o [conteúdo obrigatório](../estrategias/README.md) e o caso M16 do [guia modular](estrategias-modulares-validacao.md). Conferir comportamento/parametrização/flags/risco contra código, schemas e testes, cálculos do ciclo fictício, links/versão, comandos reproduzíveis e evidências esperadas versus obtidas. Registrar APROVADA/PENDENTE por documento e revisão; pendência bloqueia conclusão da Sprint. Caso nenhum módulo seja alterado, justificar essa constatação. Estado nesta revisão: NÃO EXECUTADO, sem evidência de implementação futura.
+A documentação de módulo, API, arquitetura, ADR, runbook, estratégias/catálogos e bancos foi criada/atualizada na implementação e revisada no recorte offline (D20). A conferência de links, hashes e relatórios consta nas evidências 06D. Não permanece como tarefa de implementação futura; qualquer evolução posterior deve manter esses documentos atualizados. Evidências operacionais e relatórios reais ainda precisam ser incorporados em D-M4/D-M5.
 
 ## Estrutura dos bancos e aceite documental
 
-Se esta Sprint criar/alterar estrutura, relações, constraints/índices/triggers, formato persistido, versão ou migração de banco, atualizar na mesma entrega o documento correspondente em `docs/bancos/` e o [catálogo](../bancos/README.md): diagrama/modelo real, dicionário/DDL, operação, compatibilidade/migração ou rejeição, recuperação e referências/evidências. Confrontar com schema em fixture e testes aplicáveis; registrar a revisão no guia da Sprint. Documento ausente/desatualizado bloqueia conclusão, conforme seção 4.8 do planejamento. Sem mudança de banco, registrar ausência de impacto e justificativa. Esta revisão não executou teste ou migração.
+A 06D criou `continuous.sqlite3` e `notifications.sqlite3`, ambos schema 1, separados dos modelos anteriores. [Financeiro](../bancos/continuous-sqlite.md), [fila](../bancos/notification-sqlite.md), [catálogo](../bancos/README.md) e [introspecção](sprint-06d-schema.json) documentam os objetos reais. DDL/constraints/índices/triggers, replay, backup/restauração em scratch e rejeição de schemas incompatíveis foram verificados offline; não houve migração dos bancos históricos.
 
+Recursos medidos em drills pequenos não demonstram capacidade ou disponibilidade durante sete dias. Medições de rede/serviços, crescimento por hora, supervisão e aplicação operacional dos procedimentos permanecem pendentes. Preservar dados/ledger e os registros históricos, sem reset ou limpeza destrutiva para obter aceite.
+
+## Registros históricos das etapas
+
+Os registros abaixo descrevem o estado observado em cada entrega; o resumo e a matriz acima prevalecem para a situação atual.
+
+**Registro da revisão documental original de 25/10/2026:** nenhum comando, teste funcional, chamada de API, autenticação, provisionamento ou ordem foi executado naquela revisão. Não alterar arquivos de evidência das Sprints 01–03 para representar validações novas. Custos e recursos efetivos: não aferidos; nenhum criado nesta revisão. Preservar dados/ledger e identificar ambiente/época antes de qualquer limpeza futura.
 
 ## Consolidação 06A em 26/10/2026
 

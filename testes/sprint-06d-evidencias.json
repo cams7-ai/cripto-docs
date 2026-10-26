@@ -2257,8 +2257,8 @@
     }
   },
   "documentation_sha256": {
-    "docs/planejamento.md": "0f05ec3aae291a10174999ff642f49b9d5f5b732b957fd86e385687a2c3b17ec",
-    "docs/sprints/sprint-06.md": "11c9108a87de84e87bb4147e12ab22e06c6ba2989c22a357f7d119b53562d8d6",
+    "docs/planejamento.md": "5a0c175dd449dfd0d4a7bf739a3b4b136e275fe5851d29119f230b0394f24358",
+    "docs/sprints/sprint-06.md": "8cf25a281da6170944382b65a218cc6dd7101f556c92c4d9f185ba401f4759dc",
     "docs/sprints/sprint-06d.md": "88002d62cffe703a19f7ee9df809c205dbb587b45db69aa4f290054c3dec044c",
     "docs/testes/sprint-06d-validacao.md": "a4e85554921c35f304e0e5247b5641680d94056c796097bb8136ce14b4b3488c",
     "docs/testes/sprint-06d-schema.json": "2a203b0ff207c6f7118c9b84471a43177229b4408a0b35f883b0a45469a3afb2",
@@ -2268,7 +2268,8 @@
     "docs/operacao/continuous-runbook.md": "8566984a3432543823867fdab8fdbcf18874ea91681a302503789a86c4bb236d",
     "docs/decisoes/0011-paper-continuous-e-entrega-local.md": "e7192c7d62bfa5cbeb1b5a7f97f6909e875f4ea1c6bd31170728d7471b368ac5",
     "docs/bancos/continuous-sqlite.md": "28e40e22d22ebd2eced69204815fcc419058f2c2ca38edeb8ebef3eb21ac889c",
-    "docs/bancos/notification-sqlite.md": "b860c65a39304ed73cca717952af76ab08803ca6538c6c2c58c40bee5c618a27"
+    "docs/bancos/notification-sqlite.md": "b860c65a39304ed73cca717952af76ab08803ca6538c6c2c58c40bee5c618a27",
+    "docs/testes/sprint-06-validacao.md": "cc57a5012190e4818c99d9c43a1d4550ac7515fca69b9e8416e8e6988ab5d247"
   },
   "evidence_tools_sha256": {
     "docs/testes/ferramentas/sprint-06d-schema.py": "ee76ffb1f0252d2763ab7baba04ca4cbaa3ecbef372a762eb9cd1ae6aa2579c7",
@@ -2289,5 +2290,39 @@
     "registry_unchanged": true,
     "staged_area_not_modified_by_task": true,
     "no_commit_or_remote": true
-  }
+  },
+  "documentation_revisions": [
+    {
+      "recorded_at": "2026-10-26T21:07:55.966315+00:00",
+      "baseline_docs_head": "4f0618043552ec344bae6fb5cd88aecd9ac3567b",
+      "scope": "Editorial consolidation of Sprint06 status; existing specifications, commands/layout, AC offline versus operational evidence, 642-test count and remaining D-M4/D-M5 conditions.",
+      "files": {
+        "docs/planejamento.md": {
+          "previous_sha256": "0f05ec3aae291a10174999ff642f49b9d5f5b732b957fd86e385687a2c3b17ec",
+          "current_sha256": "5a0c175dd449dfd0d4a7bf739a3b4b136e275fe5851d29119f230b0394f24358"
+        },
+        "docs/sprints/sprint-06.md": {
+          "previous_sha256": "11c9108a87de84e87bb4147e12ab22e06c6ba2989c22a357f7d119b53562d8d6",
+          "current_sha256": "8cf25a281da6170944382b65a218cc6dd7101f556c92c4d9f185ba401f4759dc"
+        },
+        "docs/testes/sprint-06-validacao.md": {
+          "previous_sha256": "d5322dbbf677b193fa0959ca45c271992a6c5239cec542e28e901a6c09b39866",
+          "current_sha256": "cc57a5012190e4818c99d9c43a1d4550ac7515fca69b9e8416e8e6988ab5d247"
+        }
+      },
+      "checks": {
+        "markdown_files": 10,
+        "local_links": 242,
+        "missing_links": 0,
+        "json_valid": 3,
+        "git_diff_check": "PASS"
+      },
+      "application_code_changed": false,
+      "new_application_tests_executed": false,
+      "market_or_delivery_executed": false,
+      "implementation_verification_preserved": true,
+      "operational_status": "SOFTWARE_VALIDATED/PILOT_PENDING",
+      "sprint07_eligible": false
+    }
+  ]
 }
