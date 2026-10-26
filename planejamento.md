@@ -1,6 +1,6 @@
 # Planejamento incremental — robô Binance Spot em Python
 
-Data da análise: 24/10/2026. Atualização das integrações de mensagens e das etapas de validação: 25/10/2026. Raiz do workspace: `/home/cams7/Dev/Cripto`. Comandos da aplicação executam em `/home/cams7/Dev/Cripto/cripto-bot`, conforme a organização da seção 5.
+Data da análise: 24/10/2026. Atualização das integrações de mensagens e das etapas de validação: 25/10/2026. Revisão da organização em projetos e bibliotecas compartilhadas: 26/10/2026. Raiz do workspace: `/home/cams7/Dev/Cripto`. Comandos da aplicação executam em `/home/cams7/Dev/Cripto/cripto-bot`, conforme a organização da seção 5.
 
 **Estado em 24/10/2026: Sprints 01 a 03 implementadas e validadas localmente; Sprint 03 aprovada no escopo offline.** A entrega original era somente este planejamento. A implementação da Sprint 01 foi posteriormente solicitada pelo responsável; isso não autoriza provisionamento, envio de notificações ou ordens, acesso a credenciais nem alterações nos projetos de referência. Os caminhos de Sprints futuras continuam sendo propostas.
 
@@ -20,6 +20,8 @@ Data da análise: 24/10/2026. Atualização das integrações de mensagens e das
 **Revisão documental em 25/10/2026:** sequência de validação definida como backtest → `PAPER` local → `PAPER` AWS → Demo Spot (Sprint 09) → Spot Testnet complementar (Sprint 10) → preparação de LIVE (Sprint 11). As Sprints 01–03 e suas evidências históricas não comprovam essas etapas futuras. Nenhum teste externo, acesso à conta, implementação ou ativação foi autorizado por esta revisão. `LIVE` permanece bloqueado por padrão. Todos os módulos e documentos permanecem no workspace `/home/cams7/Dev/Cripto`, com Python como linguagem principal e Spot como mercado inicial.
 
 **Execução da Sprint 04 em 25/10/2026:** base modular/flags, SMA20/50 opt-in, coordenação/risco, carteira schema v2 e relatório JSON/HTML implementados e aprovados exclusivamente em fixture local/PAPER/BTCUSDT/15m. Suíte acumulada: 428 testes, cobertura combinada 96,52%, qualidade/build/wheel aprovados. Default sem habilitados retorna NOOP; demonstração com 71 ciclos/2 fills e replay sem efeitos, inclusive com resultado negativo esperado. Documentação incremental de estratégia/banco atualizada. Ver [guia 04](testes/sprint-04-validacao.md), [evidências](testes/sprint-04-evidencias.json) e seção 20. Próximo passo: revisar evidências 04 para detalhar 05; nenhuma liberação de backtest/contínuo/privado ou execução automática da próxima Sprint.
+
+**Decisão de planejamento em 26/10/2026:** preparar três novos projetos irmãos de `cripto-bot`: `cripto-core` (biblioteca compartilhada), `cripto-market-data` (coleta pública e dados) e `cripto-analytics` (análises e relatórios). A implementação continua concentrada em `cripto-bot` até a extração ser executada e validada. A Sprint 06 passa a ter etapas 06A–06D, descritas na seção 9.2; o PAPER contínuo sucede as três extrações. `cripto-backtest` e bibliotecas menores ficam adiados. Esta revisão altera somente o planejamento, sem criar repositórios, mover código/dados ou executar Sprints. Os registros anteriores conservam seu contexto histórico; a entrega 05 e o ajuste DuckDB/Parquet estão documentados nas seções 21–22.
 
 ## 1. Visão do produto e premissas
 
@@ -108,19 +110,19 @@ Evidências principais, todas somente consultadas:
 
 ### 4.1 Monólito modular e ferramentas
 
-Um único pacote instalável, `cripto_bot`, e uma release por ambiente. Implementações de módulos são independentes dentro do monólito; registro estático e flags não exigem instalar/importar dependências dos opcionais desabilitados. Módulos internos têm interfaces claras; não há justificativa inicial para microsserviços, API web, fila para cada passo ou processamento assíncrono. Os casos de uso serão funções/objetos síncronos, compartilhados pela CLI e pelo futuro handler Lambda.
+Até a Sprint 05, a aplicação possui um único pacote instalável, `cripto_bot`. A evolução planejada extrai bibliotecas e aplicações com fronteiras próprias, conforme seção 4.10, mantendo chamadas Python síncronas e composição explícita. Repositório independente não exige processo remoto: `cripto-bot` pode consumir os wheels dos demais projetos no mesmo processo. Cada release de aplicação identifica as versões e hashes da composição utilizada. Registro estático e flags continuam sem exigir importar dependências dos opcionais desabilitados. Não se introduzem microsserviços, API web, filas ou processamento assíncrono apenas para separar o código.
 
 | Escolha | Justificativa e momento |
 |---|---|
 | Python 3.13, patch fixado na implementação | Runtime estável suportado no Lambda/AL2023; conserva proximidade com referências 3.12 sem exigir versão preview. Validar wheels no Linux e reconsultar suporte antes do deploy. [Runtimes AWS](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). |
-| `pyproject.toml`, setuptools e wheel | Empacotamento padrão, já utilizado nas referências; um pacote com origem em `modules/trading/src`. [Setuptools](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html). |
+| `pyproject.toml`, setuptools e wheel | Empacotamento padrão, já utilizado nas referências; o pacote atual tem origem em `modules/trading/src`; cada projeto extraído terá manifest, versão, testes e wheel próprios, com layout definido em seu detalhamento. [Setuptools](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html). |
 | uv com `uv.lock` versionado | Ambiente e resolução reproduzíveis; `uv sync --locked` no CI. Exportação de requirements para SAM deriva do lock, nunca é mantida separadamente. Fixar também a versão da ferramenta. [Lock e sincronização](https://docs.astral.sh/uv/concepts/projects/sync/). |
 | dataclasses/Protocol/Decimal da biblioteca padrão | Objetos de domínio simples, portas testáveis e precisão sem dependências financeiras externas. |
 | Pydantic nas entradas | Validar configuração, payloads e DTOs; parsers explícitos para strings decimais e UTC, evitando coerções permissivas. Não aplicar strict mode cegamente a strings de ambiente. [Validação estrita](https://docs.pydantic.dev/latest/concepts/strict_mode/). |
 | HTTPX síncrono, a partir da Sprint 02 | Poucos endpoints públicos, timeouts e transporte substituível. Sem SDK comunitário amplo nem cliente de trading instalado antecipadamente. [Transportes e mocks](https://www.python-httpx.org/advanced/transports/). |
 | pytest/pytest-cov, Ruff e mypy strict | Testes, cobertura de ramificações, lint/formatação e tipos são verificações complementares. Adicionar Hypothesis apenas quando invariantes contábeis justificarem testes gerativos. [pytest](https://docs.pytest.org/en/stable/), [Ruff](https://docs.astral.sh/ruff/), [mypy](https://mypy.readthedocs.io/en/stable/). |
 | SQLite local; DynamoDB no piloto AWS | SQLite evita dependências de infraestrutura local. DynamoDB atende consultas conhecidas por carteira, intenção, execução e período, com escritas condicionais/transacionais; equivalência contratual precisa ser testada. |
-| JSONL compactado e manifestos; S3 na AWS | Histórico bruto e relatórios fora do store operacional. Parquet fica condicionado ao volume e à necessidade analítica. |
+| JSONL compactado e manifestos; DuckDB + Parquet analíticos; S3 somente na etapa AWS | Histórico bruto e relatórios fora do store financeiro. DuckDB + Parquet foram implementados após a 05; sua extração para `cripto-analytics` preservará CSV/JSON/HTML, métricas oficiais e publicação atômica. |
 | boto3 apenas na etapa AWS | Empacotar versão resolvida no lock em vez de depender do SDK embutido no runtime. |
 
 Não fixar neste planejamento versões numéricas de todas as bibliotecas sem testar compatibilidade. A Sprint que introduzir cada dependência verifica documentação, manutenção, licença e resolução com Python 3.13, registrando versões exatas no lock.
@@ -215,7 +217,7 @@ A integração será implementada em `adapters/notifications`, por uma porta de 
 | Fontes de sinais | Notícias/sentimento e aprendizado de máquina alimentam consumidores nomeados; não negociam sozinhos. ML pode consumir preços sem depender de notícias |
 | Algoritmos de execução | TWAP e VWAP fracionam uma intenção pai aprovada, sem gerar tese de investimento. SMA/rebalanceamento/DCA podem usá-los; apenas um por intenção pai |
 
-Contratos `ModuleDescriptor`, `Strategy`, `PortfolioPolicy`, `SignalSource`, `Coordinator`, `RiskPolicy`, `ExecutionAlgorithm`, `ExecutionPort` e `StateStore` especificam entradas point-in-time, saídas tipadas, parâmetros/schema, estado versionado, dependências/capacidades e métricas. IDs de módulo/instância, versão e hash/geração acompanham cada sinal, pai, filho, fill e resultado. Registrar atribuições/custos por instância e reconciliar com o consolidado. Reutilizar dados/indicadores, relógio, risco, ledger, OMS, avaliação e transporte, em subpacotes do monólito Python; módulos não exigem microsserviços ou instalação conjunta de bibliotecas opcionais.
+Contratos `ModuleDescriptor`, `Strategy`, `PortfolioPolicy`, `SignalSource`, `Coordinator`, `RiskPolicy`, `ExecutionAlgorithm`, `ExecutionPort` e `StateStore` especificam entradas point-in-time, saídas tipadas, parâmetros/schema, estado versionado, dependências/capacidades e métricas. IDs de módulo/instância, versão e hash/geração acompanham cada sinal, pai, filho, fill e resultado. Registrar atribuições/custos por instância e reconciliar com o consolidado. Reutilizar dados/indicadores, relógio, risco, ledger, OMS, avaliação e transporte por contratos e composição Python, seguindo a extração gradual da seção 4.10; módulos não exigem microsserviços ou instalação conjunta de bibliotecas opcionais.
 
 Flags exigem opt-in conjunto por módulo/instância, ambiente, modo, tipo de avaliação e par; ausência significa desabilitado, sem herança automática entre local/AWS ou PAPER/DEMO/TESTNET/LIVE. Configuração TOML externa validada antes de efeitos rejeita ativação não implementada, dependência ausente/cíclica, parâmetros inválidos, modo/par incompatível, orçamento sem limite e combinação não declarada. Não importar/carregar dependências opcionais desabilitadas; não aceitar nome de classe/import arbitrário vindo do arquivo. Exemplos de execução habilitada são fixtures separadas; defaults permanecem sem estratégias.
 
@@ -259,9 +261,43 @@ O relatório deve identificar Sprint, cenário, execução, período e origem do
 
 Gerar a apresentação a partir dos artefatos ou snapshots consistentes já produzidos, sem repetir operações financeiras apenas para montar o documento. Antes da entrega, conferir os valores contra as evidências e verificar visualmente a renderização, paginação, tabelas, gráficos e legibilidade. Registrar os arquivos efetivamente gerados; esta orientação não altera o aceite histórico das Sprints 01–03 nem declara PDF/HTML já implementado.
 
+### 4.10 Projetos executáveis e biblioteca compartilhada — organização planejada
+
+Distinguir três conceitos: projeto/repositório independente, biblioteca Python consumida por outro projeto e módulo de estratégia com feature flag. `trend_sma` continua sendo o módulo de estratégia implementado; uma extração de pacote não habilita outra estratégia ou modo financeiro.
+
+| Projeto | Tipo e responsabilidade planejada | Fronteira de estado e dependências |
+|---|---|---|
+| `cripto-core` | Biblioteca de contratos/DTOs, precisão Decimal, arredondamentos, custos/dimensionamento e indicadores/SMA pura já utilizados | Regras puras, preferencialmente biblioteca padrão; sem HTTP, DuckDB, SQLite, credenciais, variáveis de ambiente, relógio implícito ou efeitos financeiros. Não mantém carteira persistida nem configura flags operacionais |
+| `cripto-market-data` | Biblioteca e CLI de coleta pública, normalização, validação, checkpoints de mercado e exportações por manifesto | Depende de `cripto-core`; possui adapters de mercado e persistência de dados, sem ordens ou escrita no ledger financeiro. A permissão de rede continua explícita no entrypoint autorizado |
+| `cripto-analytics` | Biblioteca e CLI de consultas, exportação Parquet ZSTD, catálogo DuckDB e apresentação de relatórios | Depende de `cripto-core`; recebe snapshots/fluxos reconciliados por contratos somente leitura. Não admite ordens, reserva saldo, escreve no ledger ou refaz a estratégia para produzir relatório |
+| `cripto-bot` | Aplicação de negociação simulada, CLI compatível, composição, coordenação, risco operacional, carteira, executor e recuperação | Consome as bibliotecas necessárias. Continua proprietário do ledger e da atomicidade entre intenção, reserva, fill e checkpoint. O backtest permanece neste projeto inicialmente |
+
+Dependências permitidas na primeira extração:
+
+```mermaid
+flowchart TD
+    BOT[cripto-bot] --> CORE[cripto-core]
+    BOT --> MARKET[cripto-market-data]
+    BOT --> ANALYTICS[cripto-analytics: perfil de relatorios]
+    MARKET --> CORE
+    ANALYTICS --> CORE
+```
+
+A seta representa dependência de código/pacote, não uma chamada de rede obrigatória. Bibliotecas não importam `cripto-bot`; dados e análises não dependem um do outro para compartilhar tipos. Adapters do bot implementam portas de leitura para a análise, evitando passar uma dependência concreta de `BacktestStore` como contrato entre projetos. A aplicação valida configuração, permissões, modo e composição antes de utilizar qualquer biblioteca.
+
+Contratos, finanças, indicadores/estratégias e utilitários realmente compartilhados começam como subpacotes de `cripto-core`. Os projetos separados `cripto-contracts`, `cripto-finance`, `cripto-strategies`, `cripto-market` e `cripto-observability` não serão criados nesta etapa. Configuração específica, transporte, logs próprios e estado operacional continuam em seus consumidores; extrair um utilitário somente quando houver uso demonstrado. A separação futura de `cripto-backtest` depende de necessidade independente, estabilidade das interfaces e proposta específica posterior à trilha base; não integra 06A–06D.
+
+Cada biblioteca terá API pública pequena, schemas e versão explícitos, testes próprios e dependências mínimas. Desenvolvimento local pode usar dependências editáveis explicitamente configuradas; CI, wheel e produção devem instalar artefatos identificados, sem depender de checkouts irmãos ou `PYTHONPATH`. Cada consumidor mantém seu lock e registra a matriz de versões compatíveis. O perfil local de backtest/relatórios inclui `cripto-analytics`; um runtime que não o utiliza não deve importar DuckDB ou carregar dependências analíticas por efeito de um import de domínio. A falta de uma dependência exigida pelo comando deve produzir erro claro, sem relatório incompleto apresentado como sucesso.
+
+O protocolo experimental deve identificar também as bibliotecas extraídas: versões, hashes dos wheels e lock do consumidor; em uso editável, hashes dos fontes efetivos. Verificar essa identidade ao retomar, evitando que uma mudança em `cripto-core` fique invisível ao fingerprint do bot. Uma reorganização altera a identidade do código, sem transformar a janela final já consumida em amostra intocada. Comparações de regressão usam oráculos e fixtures isoladas; preservam dados e evidências originais, sem sobrescrever protocolo ou tentar reutilizar o teste final real com outro ID.
+
+A extração não move dados automaticamente nem muda o modelo financeiro. Raiz de dados é uma decisão operacional explícita, não derivada do diretório em que um wheel foi instalado. Preservar paths/configurações anteriores, validação de symlinks, escritor exclusivo, schemas e checkpoints; qualquer mudança necessária exige plano de compatibilidade/migração e recuperação aprovado no detalhamento. O registro `data/backtest-usage/test-usage.sqlite3` permanece sob propriedade do bot, com o histórico existente. Não inicializar um registro vazio em outro projeto para contornar o consumo da janela final.
+
+A documentação das bibliotecas e aplicações extraídas fica em seus READMEs/API e nas decisões/arquitetura centrais, criadas junto da implementação. A seção 4.7 continua aplicável a estratégias e políticas efetivamente afetadas; uma biblioteca de infraestrutura não recebe um documento fictício em `docs/estrategias/`. Alterações de persistência, ownership, schemas ou formatos também seguem a seção 4.8.
+
 ## 5. Estrutura de diretórios prevista
 
-A raiz do workspace é `/home/cams7/Dev/Cripto`. **Cada novo módulo será criado em um diretório diretamente nessa raiz e terá controle de versão Git independente**, com seu próprio `.git`, histórico, branches e configuração de remoto. Não criar um repositório agregador na raiz nem submódulos Git sem decisão específica.
+A raiz do workspace é `/home/cams7/Dev/Cripto`. **Cada novo projeto independente será criado em um diretório diretamente nessa raiz e terá controle de versão Git independente**, com seu próprio `.git`, histórico, branches e configuração de remoto. Não criar um repositório agregador na raiz nem submódulos Git sem decisão específica.
 
 O módulo da aplicação da Sprint 01 está em `/home/cams7/Dev/Cripto/cripto-bot`, com repositório próprio inicializado na branch `main`. O repositório de documentação em `/home/cams7/Dev/Cripto/docs` permanece independente e com seu histórico preservado. Nenhum commit inicial ou remoto da aplicação foi criado nesta reorganização.
 
@@ -293,9 +329,22 @@ O módulo da aplicação da Sprint 01 está em `/home/cams7/Dev/Cripto/cripto-bo
     └── tests/
 ```
 
-Os subpacotes internos de `cripto_bot` continuam pertencendo ao mesmo módulo e repositório; não recebem Git próprio. Um novo módulo independente, quando necessário, será irmão de `cripto-bot` e `docs`, nunca um repositório aninhado dentro deles. Criar diretórios apenas quando usados; não criar módulos futuros vazios.
+O diagrama acima registra a estrutura atual até a Sprint 05. Os subpacotes internos de `cripto_bot` continuam pertencendo ao mesmo módulo e repositório até sua extração validada; não recebem Git aninhado. Um novo módulo independente, quando necessário, será irmão de `cripto-bot` e `docs`, nunca um repositório aninhado dentro deles. Criar diretórios apenas quando usados; não criar módulos futuros vazios.
 
-Convenção de caminhos: `docs/...` é relativo à raiz do workspace. Caminhos da aplicação como `pyproject.toml`, `uv.lock`, `config/`, `modules/trading/src`, `tests/` e seus artefatos são relativos a `cripto-bot/`. Para comandos Python/uv, usar `/home/cams7/Dev/Cripto/cripto-bot` como diretório de execução. Exemplos e prompts antigos que usavam diretamente a raiz do workspace ficam atualizados por esta convenção. Novos componentes de infraestrutura terão sua organização definida na Sprint pertinente, observando a regra de repositório independente quando constituírem um novo módulo.
+Estrutura-alvo após concluir 06A–06C, ainda não criada por esta revisão:
+
+```text
+/home/cams7/Dev/Cripto/
+├── docs/                  # documentação e evidências centrais; Git existente
+├── cripto-bot/            # aplicação, ledger, risco operacional e backtest; Git existente
+├── cripto-core/           # biblioteca compartilhada; novo Git e pyproject.toml
+├── cripto-market-data/    # biblioteca/CLI de dados; novo Git e pyproject.toml
+└── cripto-analytics/      # biblioteca/CLI analítica; novo Git e pyproject.toml
+```
+
+Cada novo projeto inclui testes, README, versão de pacote, lock e build próprios. Criar somente o projeto da etapa autorizada, com consumidor funcional demonstrado. Não copiar algoritmos financeiros para manter duas implementações: o consumidor passa a usar a biblioteca, podendo existir uma fachada temporária de compatibilidade que apenas delegue à fonte única. Alterar os paths de imports não concede autorização para mover bancos, apagar artefatos ou refazer a avaliação financeira.
+
+Convenção de caminhos: `docs/...` é relativo à raiz do workspace. Caminhos da aplicação como `pyproject.toml`, `uv.lock`, `config/`, `modules/trading/src`, `tests/` e seus artefatos são relativos a `cripto-bot/`. Para comandos Python/uv do bot, usar `/home/cams7/Dev/Cripto/cripto-bot` como diretório de execução; comandos de cada projeto extraído executam na respectiva raiz, identificada em sua especificação e README. Exemplos e prompts antigos que usavam diretamente a raiz do workspace ficam atualizados por esta convenção. Novos componentes de infraestrutura terão sua organização definida na Sprint pertinente, observando a regra de repositório independente quando constituírem um novo módulo.
 
 Os commits de documentação e aplicação são feitos separadamente. Evidências centrais devem identificar o módulo e, quando houver commits, a revisão validada de cada repositório. Remotos e publicação serão configurados apenas quando definidos pelo responsável.
 
@@ -431,7 +480,7 @@ Cada guia `docs/testes/sprint-XX-validacao.md` registrará também a revisão do
 
 ## 9. Roadmap sequencial
 
-A trilha base 01–11 depende da etapa anterior concluída e de sua evidência revisada. Os incrementos opcionais 12–21 seguem suas dependências explícitas de capacidade e não exigem concluir os outros opcionais nem ativar LIVE. O roadmap fixa incrementos e critérios; a especificação futura será refinada com resultados reais. Não iniciar trabalho dependente se um pré-requisito falhar. Estimativas de 2–5 dias úteis por Sprint de código são apenas capacidade orientativa; períodos de observação não podem ser comprimidos para caber nessa estimativa.
+A trilha base 01–11 depende da etapa anterior concluída e de sua evidência revisada. A Sprint 06 será entregue em 06A → 06B → 06C → 06D, conforme seção 9.2; o gate para a 07 exige todas essas etapas aprovadas. Os incrementos opcionais 12–21 seguem suas dependências explícitas de capacidade e não exigem concluir os outros opcionais nem ativar LIVE. O roadmap fixa incrementos e critérios; a especificação futura será refinada com resultados reais. Não iniciar trabalho dependente se um pré-requisito falhar. Estimativas de 2–5 dias úteis por Sprint de código são apenas capacidade orientativa; períodos de observação não podem ser comprimidos para caber nessa estimativa.
 
 | Sprint | Incremento e caminhos previstos | Dependência e modo | Aceite/testes e evidência | Exclusões, risco e recuperação | Custo |
 |---|---|---|---|---|---|
@@ -440,8 +489,8 @@ A trilha base 01–11 depende da etapa anterior concluída e de sua evidência r
 | [03](sprints/sprint-03.md) | Carteira, ledger, reservas, executor simulado e limites em `domain/portfolio`, `domain/risk`, `adapters/execution` | 02; `PAPER` | Compra/venda scripted em fixture, taxas e reinício; rollback e duplicação; guia 03 | Sem estratégia automática; falha contábil bloqueia e restaura snapshot de teste | AWS zero |
 | [04](sprints/sprint-04.md) | Infraestrutura modular, flags, coordenação, risco central e SMA20/50 opt-in | 03; `PAPER` offline | Defaults desabilitados, configuração/contratos, isolamento, conflitos, rastreio e desativação; [guia 04](testes/sprint-04-validacao.md) | Sem demais módulos opcionais ou privados; preservar ledger e estado | AWS zero |
 | [05](sprints/sprint-05.md) | Backtest, dataset/manifesto e relatórios em `application`, `reports/` | 04; `PAPER` histórico | Split temporal congelado, taxas/spread/slippage, custos dobrados, prefixo invariável, benchmarks e repetibilidade; guia 05 | Sem promoção por lucro isolado; dataset inválido exige nova coleta | AWS zero por padrão; lote AWS só se proposto depois |
-| [06](sprints/sprint-06.md) | Piloto `PAPER` local contínuo, kill switch, fills parciais, atrasos, ordens sem execução, recuperação e notificações HTTP locais/outbox (seção 4.5) em CLI/scripts | 05; `PAPER` público | Sete dias e drills de falha, nenhuma divergência inexplicada, relatórios diários, contratos de mensagens e fallback; guia 06 | Sem daemon web; parar/reconciliar/retomar e preservar ledger | AWS zero; energia/disponibilidade local |
-| [07](sprints/sprint-07.md) | Adapters AWS, invocação de `mail-sender-aws` e pacote SAM em `adapters/storage`, `entrypoints`, `tests/sam_local`, `infra/sam` | 06; `PAPER` | `sam validate --lint`, build em container, `sam local invoke`, contratos/falhas e artefato identificável; [guia 07](testes/sprint-07-validacao.md) | Sem apply; incompatibilidade mantém piloto local | AWS zero; Docker/disco |
+| [06A–06D](sprints/sprint-06.md) | Extrair `cripto-core`, `cripto-market-data` e `cripto-analytics`, validar consumidores e depois executar o piloto `PAPER` local contínuo; detalhamento na seção 9.2 | 05 e ajuste DuckDB/Parquet revistos; 06A → 06B → 06C → 06D | Wheels/contratos/regressões por projeto; em 06D, sete dias, drills, fills parciais/atrasos/sem fill, kill switch, relatórios diários e mensagens/outbox | Não iniciar o piloto com extração pendente; preservar CLI, ledger, dados e controle de teste final; sem API web ou implantação remota | AWS zero; CPU/disco local e período de observação |
+| [07](sprints/sprint-07.md) | Adapters AWS, invocação de `mail-sender-aws` e pacote SAM em `adapters/storage`, `entrypoints`, `tests/sam_local`, `infra/sam` | 06A–06D e composição multiprojeto aprovada; `PAPER` | Wheels/locks dos projetos consumidos no pacote; `sam validate --lint`, build em container, `sam local invoke`, contratos/falhas e artefato identificável; [guia 07](testes/sprint-07-validacao.md) | Sem apply; incompatibilidade mantém piloto local | AWS zero; Docker/disco |
 | 08 | Piloto AWS com Terraform/SAM, observabilidade e runbooks em `infra/`, `scripts/` | 07 com gate SAM local da seção 8.1 aprovado antes de publicar e região/acesso/orçamento verificados; `PAPER` | IAM, entrega por `mail-sender-aws`, acesso ao `whatsapp-notify` quando habilitado, alarmes/restauração reais; ≥30 dias e metas da seção 3; guia 08 | Sem segredo de trading; rollback de release e Scheduler pausado | Reserva estimada US$5–15/mês; recotar região |
 | [09](sprints/sprint-09.md) | Demo Spot: elegibilidade, assinatura e `order/test`, ciclo privado virtual e reconciliação | 08 e gates; `PAPER`/`DEMO`; credenciais Demo próprias | ≥14 dias, ≥20 ciclos deliberados, matriz funcional e de falhas; [guia 09](testes/sprint-09-validacao.md) | Sem produção; indisponibilidade de conta/região mantém etapa pendente e LIVE bloqueado | Infra/rede; somente fundos virtuais |
 | [10](sprints/sprint-10.md) | Spot Testnet complementar: contratos, erros, reset e isolamento | 09 aprovada; `PAPER`/`TESTNET`; credenciais próprias | ≥10 ciclos deliberados, cobertura técnica e reset ensaiado; [guia 10](testes/sprint-10-validacao.md) | Preços/livro próprios; sem inferência de rentabilidade; reset invalida janela afetada | Infra/rede; somente fundos virtuais |
@@ -468,6 +517,25 @@ A conclusão da Sprint 11 não obriga expandir nem implementar o catálogo. A or
 | 21 | ML como fonte de sinal | Dataset/features/treino/versionamento e consumidor; notícias não obrigatórias |
 
 Cada linha tem contrato e critérios específicos nas [Sprints opcionais](sprints/estrategias-opcionais.md) e resultados pendentes no [guia modular](testes/estrategias-modulares-validacao.md). Critério comum: 100% dos testes obrigatórios aplicáveis aprovados, isolamento e opt-in comprovados, zero duplicação/saldo negativo/bypass de risco/divergência inexplicada, custos reproduzíveis, documentação técnica individual/catálogo atualizados conforme seção 4.7 e revisão das evidências. Combinações exigem manifesto e teste conjunto da composição exata. Dados, tempo ou lucro isolados não habilitam módulos. Variantes com short, derivativos, outras corretoras, empréstimos ou alavancagem exigem nova análise e aprovação, sem implementação antecipada.
+
+### 9.2 Etapas da Sprint 06 — extração antes de PAPER contínuo
+
+Esta distribuição é a decisão vigente de planejamento de 26/10/2026. Não renumera as Sprints 07–21 nem altera os aceites históricos 01–05. O documento [sprint-06.md](sprints/sprint-06.md) ainda contém o escopo original de PAPER contínuo e deve ser revisado antes de qualquer execução: passa a funcionar como documento agregador de 06A–06D, com o piloto concentrado em 06D. A [Sprint 07](sprints/sprint-07.md) também deverá incorporar as novas dependências no seu detalhamento. Os documentos específicos de cada etapa, por exemplo `sprint-06a.md` e seu guia, surgem somente quando essa etapa for detalhada; não criar placeholders ou tratar o texto antigo como autorização para pular as extrações.
+
+| Etapa | Incremento demonstrável e propriedade | Dependência | Critérios obrigatórios antes de avançar |
+|---|---|---|---|
+| **06A — `cripto-core`** | Criar biblioteca e Git independente; extrair contratos, precisão/custos/dimensionamento e indicadores/SMA puros; `cripto-bot` passa a consumi-la | Revisão da 05 e da validação complementar DuckDB/Parquet; inventário de interfaces e fingerprints | Testes da biblioteca e regressões do bot; oráculos financeiros e causalidade equivalentes; CLI/defaults preservados; wheel instalado em ambiente limpo; ausência de I/O no core, ciclos de imports ou cópias divergentes de regras; identidade da dependência registrada nos novos protocolos |
+| **06B — `cripto-market-data`** | Criar biblioteca/CLI e Git independente; extrair coleta pública, normalização, validação, store/checkpoint de mercado e manifestos; manter compatibilidade do `collect-market` no bot por delegação | 06A aprovada | Mesmos contratos de dados/qualidade, continuidade, hashes e retomada; testes de rede com fakes/guards e rede real somente quando explicitamente prevista; imports do core sem dependência inversa; isolamento do ledger; tratamento dos paths anteriores e instalação por wheel verificados |
+| **06C — `cripto-analytics`** | Criar biblioteca/CLI e Git independente; extrair DuckDB/Parquet e apresentação de relatórios por contratos de snapshot/fluxos somente leitura; bot mantém seus comandos por delegação | 06B aprovada, core e contratos de dados revisados | Mesmos valores oficiais e formatos compatíveis; Parquet exato, contagens SQL coerentes e publicação atômica; vazio/parcial/completo, falhas de memória/publicação e volume real representativo; banco financeiro sem mudanças; dependências analíticas isoladas do core; medições de consulta separadas do tempo de reconciliação |
+| **06D — PAPER contínuo local** | Entregar o objetivo operacional original da 06 no `cripto-bot`, consumindo as versões validadas das bibliotecas; risco, carteira, coordenação e executor continuam sob seu controle | 06A–06C aprovadas e versões da composição congeladas | Manter os critérios originais da 06: pelo menos sete dias, ≥99% dos ciclos elegíveis, fills parciais/atrasos/sem fill/cancelamento, idempotência, kill switch, retomada e mensagens/outbox; zero divergência inexplicada, ordens privadas ou bypass de risco; relatórios e runbook aprovados |
+
+As etapas de extração são locais, com fixtures e fontes de dados já disponíveis como base. Não exigem nova coleta de 24 meses nem repetição do teste final para provar que o código foi movido. Comparar saldos, quantidades, custos, decisões, métricas e causalidade com os oráculos da versão base; uma mudança legítima de fingerprint por reorganização não deve ser escondida para forçar igualdade do hash global do novo protocolo. Reexportações de bancos antigos precisam preservar a identidade selada e a leitura compatível; modelo/schema não suportado falha explicitamente, sem migração silenciosa.
+
+Cada etapa registra revisões/versões de todos os projetos envolvidos, locks, hashes dos artefatos, schemas, comandos reais, resultados e limitações no guia correspondente. Rodar qualidade/testes do projeto extraído, contratos entre projetos e regressões afetadas do bot; comprovar também o pacote instalado com dependências construídas por wheel, sem `PYTHONPATH` ou checkout irmão implicitamente importável. Mantêm-se os guards de rede/credenciais e os defaults desabilitados. Não transformar o número histórico de testes em requisito fixo ou em execução nova presumida.
+
+A versão integrada deve funcionar antes de aposentar a implementação anterior. Atualizar documentos centrais, README/configuração/CLI dos consumidores e os documentos de estratégia/banco afetados na mesma entrega. Rollback restaura a composição de versões compatíveis e preserva os dados; incompatibilidade persistida exige plano específico antes de qualquer alteração. Não remover ledger, dataset ou registro de janela final para resolver incompatibilidade de pacotes.
+
+A 07 valida o artefato efetivamente composto com SAM local, incluindo as bibliotecas necessárias e seus hashes, com dependências de produção derivadas do lock. Não enviar caminhos editáveis locais ou dependências analíticas desnecessárias ao runtime. O piloto AWS da 08 e os gates privados 09–11 permanecem condicionados aos aceites já existentes. Os incrementos opcionais 12–21 passam a consumir os contratos/bibliotecas aprovados que utilizarem, sem obrigar a criação de outras bibliotecas ou antecipar novos módulos de estratégia.
 
 ## 10. Gates entre ambientes e modos
 
@@ -686,12 +754,23 @@ Inspecione o estado atual sem sobrescrever trabalho anterior. Não altere
 repositórios de referência e não consulte segredos.
 
 Identifique a primeira Sprint base ainda não concluída ou o incremento opcional
-explicitamente escolhido e confira as evidências de suas dependências declaradas. Só detalhe trabalho dependente se elas
-estiverem aprovadas; caso contrário, registre o impedimento no documento
+explicitamente escolhido e confira as evidências de suas dependências declaradas.
+Para a Sprint 06, respeite 06A -> 06B -> 06C -> 06D da seção 9.2: a primeira
+etapa elegível é a próxima extração ainda não concluída, e não o piloto contínuo
+antes delas. Revise o documento agregador 06 quando necessário e detalhe apenas
+a etapa elegível em seu arquivo sprint-06a.md, sprint-06b.md, sprint-06c.md
+ou sprint-06d.md, com o respectivo guia de validação. Inspecione
+os repositórios efetivamente existentes; não presuma criados core/dados/análises.
+Registre consumidores, ownership de dados, contratos, dependências e hashes
+entre projetos, instalação por wheels, compatibilidade/rollback e preservação
+do ledger e do registro de janela final. Não crie os projetos na revisão documental.
+Só detalhe trabalho dependente se as evidências das dependências estiverem aprovadas; caso contrário, registre o impedimento no documento
 da Sprint correspondente e especifique a correção necessária, sem avançar.
 
 Produza somente docs/sprints/sprint-XX.md da Sprint elegível e atualizações
-necessárias em docs/planejamento.md. Não implemente código, não provisione,
+necessárias em docs/planejamento.md. Para 06A–06D, inclua também os ajustes
+necessários no documento agregador docs/sprints/sprint-06.md, sem antecipar
+as especificações das etapas seguintes. Não implemente código, não provisione,
 não envie notificações ou ordens. Consulte documentação oficial vigente
 para cada nova API, dependência ou serviço, registrando links e data.
 
@@ -855,3 +934,10 @@ Estado final: Sprint 05 implementada e validada no alcance histórico local/PAPE
 ## 22. Ajuste analítico após a Sprint 05
 
 Integração de DuckDB + Parquet autorizada em solicitação posterior. A camada analítica acrescenta arquivos colunares comprimidos e um catálogo consultável por SQL às exportações históricas; o ledger SQLite e o núcleo financeiro permanecem preservados. A primeira publicação incorpora o custo da conversão, e o replay mantém suas reconciliações completas. [ADR 0007](decisoes/0007-duckdb-parquet-analitico.md), [schema/operação](bancos/backtest-analytics.md) e [validação complementar](testes/duckdb-parquet-validacao.md). Dados e evidências originais das Sprints 01–05 permanecem separados dos resultados desta alteração.
+
+
+## 23. Organização multiprojeto planejada — 26/10/2026
+
+A solicitação de atualizar este planejamento consolida três novos projetos: `cripto-core`, `cripto-market-data` e `cripto-analytics`. A decisão e as fronteiras estão na seção 4.10, a estrutura-alvo na seção 5 e a execução progressiva em 06A–06D na seção 9.2. `cripto-bot` conserva o ledger, risco operacional, execução e backtest; bibliotecas menores e `cripto-backtest` independente ficam adiados.
+
+Nesta revisão foi alterado somente o planejamento. Nenhum repositório foi criado, código extraído, banco migrado, dado removido, teste de aplicação executado ou gate aprovado novamente. As especificações futuras devem incorporar a nova distribuição antes de implementar suas etapas; esta revisão não inicia a Sprint 06 nem autoriza operações externas.
