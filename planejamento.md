@@ -115,7 +115,7 @@ Até a Sprint 05, a aplicação possui um único pacote instalável, `cripto_bot
 | Escolha | Justificativa e momento |
 |---|---|
 | Python 3.13, patch fixado na implementação | Runtime estável suportado no Lambda/AL2023; conserva proximidade com referências 3.12 sem exigir versão preview. Validar wheels no Linux e reconsultar suporte antes do deploy. [Runtimes AWS](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). |
-| `pyproject.toml`, setuptools e wheel | Empacotamento padrão, já utilizado nas referências; o pacote atual tem origem em `modules/trading/src`; cada projeto extraído terá manifest, versão, testes e wheel próprios, com layout definido em seu detalhamento. [Setuptools](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html). |
+| `pyproject.toml`, setuptools e wheel | Empacotamento padrão, já utilizado nas referências; o pacote atual tem origem em `modules/trading/src`; cada projeto extraído terá manifest, versão, testes e wheel próprios, com `src/<pacote>/` na raiz de cada projeto, conforme seção 5. [Setuptools](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html). |
 | uv com `uv.lock` versionado | Ambiente e resolução reproduzíveis; `uv sync --locked` no CI. Exportação de requirements para SAM deriva do lock, nunca é mantida separadamente. Fixar também a versão da ferramenta. [Lock e sincronização](https://docs.astral.sh/uv/concepts/projects/sync/). |
 | dataclasses/Protocol/Decimal da biblioteca padrão | Objetos de domínio simples, portas testáveis e precisão sem dependências financeiras externas. |
 | Pydantic nas entradas | Validar configuração, payloads e DTOs; parsers explícitos para strings decimais e UTC, evitando coerções permissivas. Não aplicar strict mode cegamente a strings de ambiente. [Validação estrita](https://docs.pydantic.dev/latest/concepts/strict_mode/). |
@@ -336,15 +336,31 @@ Estrutura-alvo após concluir 06A–06C, ainda não criada por esta revisão:
 ```text
 /home/cams7/Dev/Cripto/
 ├── docs/                  # documentação e evidências centrais; Git existente
-├── cripto-bot/            # aplicação, ledger, risco operacional e backtest; Git existente
-├── cripto-core/           # biblioteca compartilhada; novo Git e pyproject.toml
-├── cripto-market-data/    # biblioteca/CLI de dados; novo Git e pyproject.toml
-└── cripto-analytics/      # biblioteca/CLI analítica; novo Git e pyproject.toml
+├── cripto-bot/            # aplicação; Git existente
+│   ├── pyproject.toml
+│   ├── src/cripto_bot/
+│   └── tests/
+├── cripto-core/           # biblioteca compartilhada; Git independente
+│   ├── pyproject.toml
+│   ├── src/cripto_core/
+│   └── tests/
+├── cripto-market-data/    # biblioteca/CLI de dados; Git independente
+│   ├── pyproject.toml
+│   ├── src/cripto_market_data/
+│   └── tests/
+└── cripto-analytics/      # biblioteca/CLI analítica; Git independente
+    ├── pyproject.toml
+    ├── src/cripto_analytics/
+    └── tests/
 ```
+
+**Convenção proposta para os próximos incrementos:** cada projeto Python independente terá `src/` diretamente na raiz do seu repositório, ao lado de `pyproject.toml` e `tests/`, com o pacote importável dentro de `src/<pacote>/`. O próprio repositório delimita o projeto; não reproduzir `modules/<nome>/src` nos novos projetos. Estratégias e outros componentes internos continuam como subpacotes, sem exigir outro repositório ou outra árvore `src`.
+
+Na 06A, incluir a reorganização de `cripto-bot/modules/trading/src/cripto_bot` para `cripto-bot/src/cripto_bot`, preservando o nome importável `cripto_bot` e o console script `cripto-bot`. Executar e verificar essa mudança antes da extração do core, para distinguir falhas de layout de falhas nos contratos extraídos. Até sua validação, o caminho atual continua vigente. A alteração é de organização dos fontes; dados, bancos, configurações e relatórios conservam seus locais e identidade.
 
 Cada novo projeto inclui testes, README, versão de pacote, lock e build próprios. Criar somente o projeto da etapa autorizada, com consumidor funcional demonstrado. Não copiar algoritmos financeiros para manter duas implementações: o consumidor passa a usar a biblioteca, podendo existir uma fachada temporária de compatibilidade que apenas delegue à fonte única. Alterar os paths de imports não concede autorização para mover bancos, apagar artefatos ou refazer a avaliação financeira.
 
-Convenção de caminhos: `docs/...` é relativo à raiz do workspace. Caminhos da aplicação como `pyproject.toml`, `uv.lock`, `config/`, `modules/trading/src`, `tests/` e seus artefatos são relativos a `cripto-bot/`. Para comandos Python/uv do bot, usar `/home/cams7/Dev/Cripto/cripto-bot` como diretório de execução; comandos de cada projeto extraído executam na respectiva raiz, identificada em sua especificação e README. Exemplos e prompts antigos que usavam diretamente a raiz do workspace ficam atualizados por esta convenção. Novos componentes de infraestrutura terão sua organização definida na Sprint pertinente, observando a regra de repositório independente quando constituírem um novo módulo.
+Convenção de caminhos: `docs/...` é relativo à raiz do workspace. Caminhos da aplicação como `pyproject.toml`, `uv.lock`, `config/`, `modules/trading/src` (atual), `src/` (alvo da 06A), `tests/` e seus artefatos são relativos a `cripto-bot/`. Para comandos Python/uv do bot, usar `/home/cams7/Dev/Cripto/cripto-bot` como diretório de execução; comandos de cada projeto extraído executam na respectiva raiz, identificada em sua especificação e README. Exemplos e prompts antigos que usavam diretamente a raiz do workspace ficam atualizados por esta convenção. Novos componentes de infraestrutura terão sua organização definida na Sprint pertinente, observando a regra de repositório independente quando constituírem um novo módulo.
 
 Os commits de documentação e aplicação são feitos separadamente. Evidências centrais devem identificar o módulo e, quando houver commits, a revisão validada de cada repositório. Remotos e publicação serão configurados apenas quando definidos pelo responsável.
 
@@ -524,10 +540,12 @@ Esta distribuição é a decisão vigente de planejamento de 26/10/2026. Não re
 
 | Etapa | Incremento demonstrável e propriedade | Dependência | Critérios obrigatórios antes de avançar |
 |---|---|---|---|
-| **06A — `cripto-core`** | Criar biblioteca e Git independente; extrair contratos, precisão/custos/dimensionamento e indicadores/SMA puros; `cripto-bot` passa a consumi-la | Revisão da 05 e da validação complementar DuckDB/Parquet; inventário de interfaces e fingerprints | Testes da biblioteca e regressões do bot; oráculos financeiros e causalidade equivalentes; CLI/defaults preservados; wheel instalado em ambiente limpo; ausência de I/O no core, ciclos de imports ou cópias divergentes de regras; identidade da dependência registrada nos novos protocolos |
-| **06B — `cripto-market-data`** | Criar biblioteca/CLI e Git independente; extrair coleta pública, normalização, validação, store/checkpoint de mercado e manifestos; manter compatibilidade do `collect-market` no bot por delegação | 06A aprovada | Mesmos contratos de dados/qualidade, continuidade, hashes e retomada; testes de rede com fakes/guards e rede real somente quando explicitamente prevista; imports do core sem dependência inversa; isolamento do ledger; tratamento dos paths anteriores e instalação por wheel verificados |
-| **06C — `cripto-analytics`** | Criar biblioteca/CLI e Git independente; extrair DuckDB/Parquet e apresentação de relatórios por contratos de snapshot/fluxos somente leitura; bot mantém seus comandos por delegação | 06B aprovada, core e contratos de dados revisados | Mesmos valores oficiais e formatos compatíveis; Parquet exato, contagens SQL coerentes e publicação atômica; vazio/parcial/completo, falhas de memória/publicação e volume real representativo; banco financeiro sem mudanças; dependências analíticas isoladas do core; medições de consulta separadas do tempo de reconciliação |
+| **06A — `cripto-core`** | Reorganizar primeiro o bot para `src/cripto_bot/` na raiz e validar; criar biblioteca em `src/cripto_core/` e Git independente; extrair contratos, precisão/custos/dimensionamento e indicadores/SMA puros; `cripto-bot` passa a consumi-la | Revisão da 05 e da validação complementar DuckDB/Parquet; inventário de interfaces e fingerprints | Testes da biblioteca e regressões do bot; oráculos financeiros e causalidade equivalentes; CLI/defaults preservados; wheel instalado em ambiente limpo; ausência de I/O no core, ciclos de imports ou cópias divergentes de regras; identidade da dependência registrada nos novos protocolos |
+| **06B — `cripto-market-data`** | Criar biblioteca/CLI em `src/cripto_market_data/` e Git independente; extrair coleta pública, normalização, validação, store/checkpoint de mercado e manifestos; manter compatibilidade do `collect-market` no bot por delegação | 06A aprovada | Mesmos contratos de dados/qualidade, continuidade, hashes e retomada; testes de rede com fakes/guards e rede real somente quando explicitamente prevista; imports do core sem dependência inversa; isolamento do ledger; tratamento dos paths anteriores e instalação por wheel verificados |
+| **06C — `cripto-analytics`** | Criar biblioteca/CLI em `src/cripto_analytics/` e Git independente; extrair DuckDB/Parquet e apresentação de relatórios por contratos de snapshot/fluxos somente leitura; bot mantém seus comandos por delegação | 06B aprovada, core e contratos de dados revisados | Mesmos valores oficiais e formatos compatíveis; Parquet exato, contagens SQL coerentes e publicação atômica; vazio/parcial/completo, falhas de memória/publicação e volume real representativo; banco financeiro sem mudanças; dependências analíticas isoladas do core; medições de consulta separadas do tempo de reconciliação |
 | **06D — PAPER contínuo local** | Entregar o objetivo operacional original da 06 no `cripto-bot`, consumindo as versões validadas das bibliotecas; risco, carteira, coordenação e executor continuam sob seu controle | 06A–06C aprovadas e versões da composição congeladas | Manter os critérios originais da 06: pelo menos sete dias, ≥99% dos ciclos elegíveis, fills parciais/atrasos/sem fill/cancelamento, idempotência, kill switch, retomada e mensagens/outbox; zero divergência inexplicada, ordens privadas ou bypass de risco; relatórios e runbook aprovados |
+
+Na reorganização da 06A, revisar a descoberta de pacotes no `pyproject.toml`, comandos de tipagem/qualidade/cobertura, testes e fixtures que referenciem fontes, cálculo de fingerprints/proveniência e resolução de caminhos. Atualizar README, arquitetura, ADRs e comandos ativos para o novo layout, preservando os registros e hashes históricos. Antes de extrair o core, exigir regressões do bot, build e instalação do wheel em ambiente neutro, com CLI e imports funcionando sem `PYTHONPATH` ou dependência do caminho antigo. As etapas 06B e 06C já nascem com `src/` na raiz; a 07 deve empacotar essa composição e eliminar referências operacionais ao layout anterior.
 
 As etapas de extração são locais, com fixtures e fontes de dados já disponíveis como base. Não exigem nova coleta de 24 meses nem repetição do teste final para provar que o código foi movido. Comparar saldos, quantidades, custos, decisões, métricas e causalidade com os oráculos da versão base; uma mudança legítima de fingerprint por reorganização não deve ser escondida para forçar igualdade do hash global do novo protocolo. Reexportações de bancos antigos precisam preservar a identidade selada e a leitura compatível; modelo/schema não suportado falha explicitamente, sem migração silenciosa.
 
@@ -749,7 +767,8 @@ Os prompts desta seção são de planejamento/revisão, não autorizações de i
 Atue como arquiteto e revisor do robô Binance Spot. Trabalhe exclusivamente
 em /home/cams7/Dev/Cripto. Leia docs/planejamento.md, docs/arquitetura.md,
 docs/decisoes/, docs/sprints/ e docs/testes/, além de pyproject.toml, lock,
-módulos em modules/trading/src/cripto_bot e testes pertinentes existentes.
+fontes no layout efetivamente existente (cripto-bot/modules/trading/src/cripto_bot
+antes da reorganização 06A; cripto-bot/src/cripto_bot depois) e testes pertinentes.
 Inspecione o estado atual sem sobrescrever trabalho anterior. Não altere
 repositórios de referência e não consulte segredos.
 
@@ -763,7 +782,11 @@ ou sprint-06d.md, com o respectivo guia de validação. Inspecione
 os repositórios efetivamente existentes; não presuma criados core/dados/análises.
 Registre consumidores, ownership de dados, contratos, dependências e hashes
 entre projetos, instalação por wheels, compatibilidade/rollback e preservação
-do ledger e do registro de janela final. Não crie os projetos na revisão documental.
+do ledger e do registro de janela final. Aplique a convenção src/<pacote>/ na
+raiz de cada projeto. Na 06A, especifique a reorganização e validação do layout
+do bot antes de extrair o core, conforme seções 5 e 9.2; nas etapas seguintes,
+use o layout aprovado e atualize os caminhos de build/testes/empacotamento.
+Não crie os projetos na revisão documental.
 Só detalhe trabalho dependente se as evidências das dependências estiverem aprovadas; caso contrário, registre o impedimento no documento
 da Sprint correspondente e especifique a correção necessária, sem avançar.
 
@@ -941,3 +964,10 @@ Integração de DuckDB + Parquet autorizada em solicitação posterior. A camada
 A solicitação de atualizar este planejamento consolida três novos projetos: `cripto-core`, `cripto-market-data` e `cripto-analytics`. A decisão e as fronteiras estão na seção 4.10, a estrutura-alvo na seção 5 e a execução progressiva em 06A–06D na seção 9.2. `cripto-bot` conserva o ledger, risco operacional, execução e backtest; bibliotecas menores e `cripto-backtest` independente ficam adiados.
 
 Nesta revisão foi alterado somente o planejamento. Nenhum repositório foi criado, código extraído, banco migrado, dado removido, teste de aplicação executado ou gate aprovado novamente. As especificações futuras devem incorporar a nova distribuição antes de implementar suas etapas; esta revisão não inicia a Sprint 06 nem autoriza operações externas.
+
+
+## 24. Padronização de `src` na raiz dos projetos — proposta em 26/10/2026
+
+Para os próximos incrementos, recomenda-se `src/<pacote>/` na raiz de cada repositório Python independente. A seção 5 apresenta a estrutura-alvo; a seção 9.2 inclui a reorganização do bot na 06A, antes da extração do core, a criação de dados/análises nesse padrão em 06B–06C e a conferência do empacotamento na 07. O detalhamento futuro deve incorporar essas tarefas e seus critérios de validação.
+
+Esta atualização é somente documental. O bot ainda usa `modules/trading/src/cripto_bot`; nenhum fonte foi movido e nenhum teste de aplicação foi executado nesta revisão. Evidências e caminhos históricos permanecem como registro das versões efetivamente validadas.
