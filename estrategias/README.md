@@ -65,3 +65,6 @@ Revisão 06A (26/10/2026): `trend_sma` passa a ser fornecida pelo core com facha
 
 
 Revisão 06B (26/10/2026): dependências/contratos de mercado de trend_sma foram atualizados por extração para market-data, sem nova estratégia, versão de regras ou habilitação. Biblioteca de dados não recebe documento fictício de estratégia. [Evidências da composição](../testes/sprint-06b-validacao.md).
+
+
+Sprint 06C: projeção/apresentação dos relatórios extraída para biblioteca analítica; não constitui nova estratégia ou flag. Regras/métricas/coordenação continuam nos proprietários existentes. [SMA](trend_sma.md) e [guia 06C](../testes/sprint-06c-validacao.md).

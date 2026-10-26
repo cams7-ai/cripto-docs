@@ -95,3 +95,8 @@ Fontes do bot em `src/cripto_bot`; helpers financeiros puros compartilhados vêm
 ## Compatibilidade na Sprint 06B
 
 O preparo histórico passa a obter parsers de mercado via fachada para `cripto_market_data`. Um manifesto novo de coleta fixture, com aquecimento e janela de score corretos, é aceito pelo mesmo leitor sem alterar o motor. O campo files conserva os quatro arquivos exigidos. A identidade do bot inclui market-data instalado: retomada sob composição diferente falha, enquanto report continua reexportando identidade selada em leitura. DDL/schema/modelo, diário, ledger e registro final permanecem no bot. [Guia 06B](../testes/sprint-06b-validacao.md).
+
+
+## Fronteira analítica — Sprint 06C
+
+Ledger/reconciliação/snapshot e métricas continuam no bot. AnalyticsRows fornece somente fluxos/contagens para publicar derivados; SQLite não é entregue à biblioteca analítica. Nenhuma migração/reset ou mudança em DDL/transações/checkpoints. Identidade inclui analytics; retomada incompatível falha e reexportação readonly preserva protocolo/resultado selados. [Guia 06C](../testes/sprint-06c-validacao.md).

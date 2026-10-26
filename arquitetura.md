@@ -177,3 +177,8 @@ A validação corrente e as limitações de cache estão no [guia 06A](testes/sp
 O exportador recebe contexto e package_version do produtor. O bot mantém code_revision/source_fingerprint em adapters/provenance e fachadas compatíveis; standalone identifica apenas market-data/core, sem consultar Git do root dos dados. A inspeção genérica de distribuição/RECORD fica em market-data, mas a política de composição e controles do consumidor permanece no bot. Seu fingerprint inclui os três pacotes efetivos; core e dados editables são rejeitados pelo consumidor.
 
 Datasets, parser/schema v1, quatro arquivos de dados e normalização/hash de candles permanecem compatíveis. Store não é movido: as duas CLIs usam o mesmo lock/checkpoint quando configuradas para o mesmo diretório. Detalhes, evidências e limitação de cache no [guia 06B](testes/sprint-06b-validacao.md) e [ADR 0009](decisoes/0009-market-data-e-proveniencia-do-produtor.md).
+
+
+## Composição analítica — Sprint 06C
+
+Apresentação/publicação paper/strategy/backtest e DuckDB/Parquet vivem em `cripto-analytics/src/cripto_analytics`. Bot mantém summary/diagnostic, snapshot/_series, métricas oficiais/Decimal e estado/reconciliação financeira. `adapters/storage/analytics_source.py` implementa ReadonlyRows: linhas/contagens consistentes, sem expor conexão ao pacote. Wrappers preservam assinaturas e comandos. DuckDB é transitivo via analytics e carregado somente quando requerido; check-config/NOOP não importam o motor. CLI analítica consulta exports, sem abrir SQLite ou executar finanças. [ADR 0010](decisoes/0010-analytics-por-snapshots-somente-leitura.md), [guia 06C](testes/sprint-06c-validacao.md).

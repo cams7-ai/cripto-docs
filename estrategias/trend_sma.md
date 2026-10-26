@@ -165,3 +165,8 @@ O consumidor passa a declarar `cripto-core==0.1.0` por wheel identificado. Mudan
 ## Sprint 06B — contratos de dados extraídos
 
 O consumidor do snapshot passa a usar Candle/validação/configuração de mercado de `cripto_market_data` por fachadas compatíveis no bot. A SMA/DTOs de decisão continuam no core; não mudaram regras, parâmetros, contexto Decimal, disponibilidade temporal, flags ou inventário. A identidade da composição inclui a biblioteca de dados instalada, exigindo nova evidência daquela composição, sem converter resultado conhecido em amostra independente. Backtest e execução permanecem no bot. [Validação 06B](../testes/sprint-06b-validacao.md).
+
+
+## Relatórios e composição — Sprint 06C
+
+Renderização/publicação delegadas a cripto-analytics por snapshot pronto. Regras SMA20/50, igualdade, dimensionamento, risco, custos, coordenação, métricas e flags não mudam. Summary/diagnostic/estado continuam no bot; dependência analítica não gera sinal ou fill. Nova identidade do software não renova amostra final; reexportação preserva identidade selada. [Guia 06C](../testes/sprint-06c-validacao.md).

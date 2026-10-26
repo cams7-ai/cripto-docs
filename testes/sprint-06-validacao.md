@@ -1,10 +1,10 @@
 # Sprint 06 — Consolidação da validação 06A–06D
 
-Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B aprovadas; 06C/06D e gate global pendentes.** O roteiro operacional abaixo corresponde a 06D e ainda não foi executado. A implementação 06A tem [guia próprio](sprint-06a-validacao.md) e [evidências](sprint-06a-evidencias.json).
+Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B aprovadas; 06C aprovada; 06D e gate global pendentes.** O roteiro operacional abaixo corresponde a 06D e ainda não foi executado. A implementação 06A tem [guia próprio](sprint-06a-validacao.md) e [evidências](sprint-06a-evidencias.json).
 
 ## Preparação e execução futura
 
-Consultar [especificação 06](../sprints/sprint-06.md) e [roteiro comum](validacao-pre-live.md). Dependências de 06D: 06A–06C aprovadas, Sprint 05/ajuste analítico revistos e composição/configuração congeladas. 06A/06B foram concluídas no escopo offline; 06C permanece pendente.
+Consultar [especificação 06](../sprints/sprint-06.md) e [roteiro comum](validacao-pre-live.md). Dependências de 06D: 06A–06C aprovadas, Sprint 05/ajuste analítico revistos e composição/configuração congeladas. 06A/06B foram concluídas no escopo offline; 06C foi aprovada após esclarecer a reconstrução externa, conforme consolidação abaixo.
 
 Modo permitido: PAPER; somente dados públicos reais; nenhuma ordem enviada à Binance. Comandos futuros executam em `/home/cams7/Dev/Cripto/cripto-bot`; evidências permanecem em `/home/cams7/Dev/Cripto/docs/testes`. Ao detalhar a implementação, preencher comandos reais, versões e resultados; não executar CLI fictícia deste planejamento.
 
@@ -56,3 +56,13 @@ M1/M2 aprovados: layout src antes do core, 533 testes bot + 54 core, qualidade/b
 ## Consolidação 06B — 26/10/2026
 
 B01–B18 aprovados offline conforme [guia 06B](sprint-06b-validacao.md), [evidências](sprint-06b-evidencias.json) e [relatório](relatorios/sprint-06b/report.html). Baseline bot 533 testes, biblioteca standalone 120, bot integrado 537; qualidade/build/wheels e regressões sintéticas/locks/manifestos/identidade aprovados. Cache frio completo não demonstrado. AC11 cumprido; critérios comuns verificados somente para composição 06B e deverão acompanhar 06C/06D. Nenhum critério do piloto operacional acima foi executado por essa extração. Próxima etapa elegível: detalhar/revisar 06C; 06D/gate global/07 pendentes.
+
+
+## Registro inicial 06C — aceite então pendente
+
+Bot 542 testes e analytics 28, qualidade/build/quatro wheels/22 comandos e compatibilidade selada aprovados tecnicamente. Ver [guia](sprint-06c-validacao.md), [evidências](sprint-06c-evidencias.json), [relatório](relatorios/sprint-06c/report.html). Quatro artefatos 06A divergiram dos hashes esperados após baseline íntegra; C01/C12/C18 pendentes de esclarecimento/recuperação ou decisão explícita de baseline revisada. AC12/AC13 têm provas técnicas; aceite integrado depende da resolução. Nenhum critério operacional do piloto foi executado; 06D/gate global/07 não liberados.
+
+
+## Consolidação final 06C
+
+Reconstrução externa confirmada e verificada por conteúdo/inventário/locks; composição já testada permanece igual. C01–C18 aprovados offline conforme [prova complementar](sprint-06c-reconstrucao-externa.json), [guia](sprint-06c-validacao.md), [evidências](sprint-06c-evidencias.json) e [relatório](relatorios/sprint-06c/report.html). Hashes históricos e atuais distintos, com limitação de rollback exato registrada; evidências anteriores e arquivos externos preservados. AC12/AC13 cumpridos. 06D somente elegível para detalhamento/revisão; nenhum critério operacional do piloto executado e gate global/07 pendentes.

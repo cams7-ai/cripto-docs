@@ -26,3 +26,8 @@ Sem mudança de regras financeiras, schemas, capital, flags ou modos. Extraçõe
 ## Adendo 06B
 
 Core/wheel 06A permaneceram inalterados. A identidade do consumidor acrescenta market-data 0.1.0 efetivamente instalado; a inspeção genérica de pacotes foi compartilhada com a biblioteca de dados, enquanto runtime_identity, controles do bot e política de instalações aceitas continuam no bot. As regras de RECORD/origem/versão e rejeição de core/dados editables permanecem. Não se altera identidade selada anterior para aceitar código novo. [ADR 0009](0009-market-data-e-proveniencia-do-produtor.md).
+
+
+## Adendo 06C
+
+A composição do consumidor acrescenta analytics 0.1.0 efetivamente instalado, mantendo política/inspector de RECORD existentes. Core/dados e suas distribuições permanecem inalterados. Mudar analytics bloqueia retomada congelada sem impedir reexportação readonly da identidade selada; registro final permanece no bot. [ADR 0010](0010-analytics-por-snapshots-somente-leitura.md).

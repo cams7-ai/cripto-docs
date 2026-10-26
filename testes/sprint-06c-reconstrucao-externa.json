@@ -1,0 +1,50 @@
+{
+  "status": "VERIFIED_EXTERNAL_REBUILD",
+  "verified_at": "2026-10-26T16:50:47.933384+00:00",
+  "user_confirmation": "Sim, houve reconstrução externa",
+  "scope": "Resolve 06C artifact provenance using current verified test composition; do not claim original 06A artifacts remain available or rewrite old evidence.",
+  "baseline_source": "docs/testes/sprint-06b-evidencias.json",
+  "rebuilt_artifacts": [
+    {
+      "project": "cripto-core",
+      "source_files_equal_to_06b_baseline": 11,
+      "sdist_readme_manifest_equal": true,
+      "wheel_sha256": "0102537f7ac3263d4dbe24fce5e6a22fbeeb1b760c09f5568f83e10033e334da",
+      "sdist_sha256": "70d80f85882a69b204cd605e9a0a3890e0ba3add711671a484a603505afbf749",
+      "historical_release_identity": "External rebuild; current bot artifact under 06a-final contains 06B source, not the original 06A release. Historical hashes remain authoritative for the old release."
+    },
+    {
+      "project": "cripto-bot",
+      "source_files_equal_to_06b_baseline": 59,
+      "sdist_readme_manifest_equal": true,
+      "wheel_sha256": "6b8714d8d79ea79609c791593ebdb5309142d9a22c0da1a33293855fb65cd63c",
+      "sdist_sha256": "3c2157551bbc505ac65d2421251ab7a27b13ec07e4761142b80466a649655198",
+      "historical_release_identity": "External rebuild; current bot artifact under 06a-final contains 06B source, not the original 06A release. Historical hashes remain authoritative for the old release."
+    }
+  ],
+  "prior_vs_current_sha256": {
+    "cripto-bot/dist/06a-final/cripto_bot-0.1.0-py3-none-any.whl": {
+      "expected": "cdb3eb50a69de82089a012846c5eabaaf784114be99e38ccf006686988f38f16",
+      "observed": "6b8714d8d79ea79609c791593ebdb5309142d9a22c0da1a33293855fb65cd63c"
+    },
+    "cripto-bot/dist/06a-final/cripto_bot-0.1.0.tar.gz": {
+      "expected": "d54590a321ca0c53988a0d962aca0116b28eca8245e0a47edeba3f6d20c4027e",
+      "observed": "3c2157551bbc505ac65d2421251ab7a27b13ec07e4761142b80466a649655198"
+    },
+    "cripto-core/dist/06a-final/cripto_core-0.1.0-py3-none-any.whl": {
+      "expected": "4163f60d14f8cb1ede373ca40914d63ca3279ca1773e1f69407dbd8561024e2f",
+      "observed": "0102537f7ac3263d4dbe24fce5e6a22fbeeb1b760c09f5568f83e10033e334da"
+    },
+    "cripto-core/dist/06a-final/cripto_core-0.1.0.tar.gz": {
+      "expected": "ffe37f129df779d048e5bad4390e38cad691b5271b9675521adec1737d0d9276",
+      "observed": "70d80f85882a69b204cd605e9a0a3890e0ba3add711671a484a603505afbf749"
+    }
+  },
+  "current_source_hashes_reverified": 214,
+  "tested_artifact_hashes_reverified": 16,
+  "consumer_core_lock_hashes_match": true,
+  "runtime_changed_after_tests": false,
+  "old_artifacts_restored_or_deleted": false,
+  "historical_evidence_modified": false,
+  "additional_runtime_tests": "Not rerun: tested sources/artifacts unchanged; checks limited to rebuilt content, source inventory, controls and lock identity."
+}

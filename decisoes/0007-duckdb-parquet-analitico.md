@@ -9,3 +9,8 @@ Não transferir o ledger para um motor orientado a análise, remover reconcilia�
 Consequências: nova dependência binária no lock e custo adicional na primeira exportação; consultas seguintes podem ler colunas dos Parquets comprimidos sem desserializar todos os JSONs. A integração não comprova, por si só, redução no tempo total do replay. Artefatos da avaliação original são preservados; validações novas usam evidências complementares, sem reabrir o teste final para seleção de parâmetros.
 
 [Schema, operação e exemplos](../bancos/backtest-analytics.md), [guia complementar](../testes/duckdb-parquet-validacao.md) e [ADR 0006](0006-backtest-historico-e-protocolo.md).
+
+
+## Adendo 06C
+
+Conversão/catálogo/publicação extraídos para cripto-analytics, com porta de linhas/contagens reconciliadas no bot; nenhum acesso direto a store.db pela biblioteca. DDL/tipos/precisão/limites/restrições e resultado selado preservados. CLI nova somente leitura de exports. Mantém-se a decisão original de SQLite/Decimal autoritativos e projeções derivadas. [ADR 0010](0010-analytics-por-snapshots-somente-leitura.md).

@@ -41,3 +41,6 @@ Sprint 06A: layout e origem de helpers atualizados nos documentos técnicos. Nen
 
 
 Sprint 06B: implementação do mercado SQLite v1 extraída para `cripto-market-data`; classe/DDL e dados físicos preservados, sem migração. Store antigo sintético e lock entre consumidores verificados. Leitor histórico mantém o contrato de quatro arquivos do manifesto. [Guia 06B](../testes/sprint-06b-validacao.md).
+
+
+Sprint 06C: [projeção analítica](backtest-analytics.md) extraída para cripto-analytics por snapshots/portas readonly; stores financeiros e reconciliação permanecem no bot. [ADR 0010](../decisoes/0010-analytics-por-snapshots-somente-leitura.md).

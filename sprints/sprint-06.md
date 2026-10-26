@@ -1,6 +1,6 @@
 # Sprint 06 — Extração multiprojeto e PAPER contínuo local
 
-Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B implementadas/validadas; 06C/06D pendentes.** Documento agregador alinhado ao planejamento vigente. Substitui a organização anterior, de 25/10/2026, que concentrava a Sprint no piloto contínuo; seus critérios operacionais são preservados em 06D.
+Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B/06C implementadas/validadas; 06D pendente.** Documento agregador alinhado ao planejamento vigente. Substitui a organização anterior, de 25/10/2026, que concentrava a Sprint no piloto contínuo; seus critérios operacionais são preservados em 06D.
 
 Registro da revisão documental original: esta entrega atualizava somente a documentação. Não cria projetos, move fontes/dados, executa testes, coleta, envia mensagens, inicia o piloto ou autoriza operações externas. O detalhamento executável de cada etapa deve preceder sua implementação e usar o estado real dos repositórios.
 
@@ -103,7 +103,7 @@ Avanço: biblioteca/CLI e delegação aprovadas, sem escrita ou migração do le
 
 ### 5.3 06C — Extração de `cripto-analytics`
 
-Dependência: 06B aprovada; core e contratos de dados revisados.
+Dependência: 06B aprovada; core e contratos de dados revisados. O [detalhamento 06C](sprint-06c.md) foi implementado/testado; aceite final aprovado conforme seção 19.
 
 Extrair exportação DuckDB/Parquet e apresentação de relatórios para `src/cripto_analytics`, por portas somente leitura. O bot conserva os comandos existentes por delegação. Métricas oficiais permanecem no núcleo Decimal; SQLite permanece autoritativo. Valores financeiros exatos continuam sem passagem silenciosa por float ou redução de precisão.
 
@@ -274,3 +274,24 @@ Em 26/10/2026, a [Sprint 06B](sprint-06b.md) foi especificada após conferir os 
 06B implementada e validada offline em 26/10/2026: B-M1 baseline 533 testes; B-M2 standalone 120 testes/CLI sem bot; B-M3 integração 537 testes/22 comandos por três wheels. B01–B18, qualidade, builds, compatibilidade/locks/store/manifestos, proveniência/relatório anterior e equivalência financeira estão no [guia 06B](../testes/sprint-06b-validacao.md), nas [evidências](../testes/sprint-06b-evidencias.json) e no [relatório](../testes/relatorios/sprint-06b/report.html). Cache frio completo não demonstrado; reutilização verificada da baseline, sem rede de mercado. Core/artefatos anteriores e registro final preservados.
 
 AC11 cumprido; AC06/AC14/AC15/AC16 foram verificados no recorte da composição 06B, devendo ser repetidos conforme as etapas seguintes. AC12/AC13 e critérios operacionais 06D continuam pendentes. Os registros das seções 13–15 são históricos. Próxima etapa elegível: detalhar/revisar 06C, sem criá-la/implementá-la nesta execução. Sprint 06 continua parcial; 07 não é liberada.
+
+
+## 17. Detalhamento da próxima etapa — 06C
+
+Em 26/10/2026, a [Sprint 06C](sprint-06c.md) foi especificada após conferir 185/185 hashes e 12/12 arquivos registrados nas evidências da 06B, sem divergência; os quatro repositórios estavam limpos no início. Define portas somente leitura, ownership dos snapshots/métricas no bot, biblioteca de apresentação/DuckDB/Parquet, CLI de validação/consultas de exports, C-M1–C-M3/C01–C18, instalação por quatro wheels e prompt autossuficiente de implementação futura.
+
+Estado: especificada, aguardando revisão; implementação/testes não executados nesta entrega. Nenhum projeto analytics, guia vazio, instalação/build, relatório econômico, migração ou piloto foi criado/executado. Próxima ação: revisar a especificação antes de solicitar implementação. 06D/gate global/07 continuam pendentes; 06A/06B e suas evidências permanecem preservadas.
+
+
+## 18. Registro inicial 06C — aceite então pendente
+
+06C implementada em 26/10/2026: analytics standalone 28 testes; bot integrado 542, qualidade/build e quatro wheels/22 comandos aprovados. Projeções/formatos/precisão/portas readonly, compatibilidade selada e medições documentados no [guia](../testes/sprint-06c-validacao.md), nas [evidências](../testes/sprint-06c-evidencias.json) e no [relatório](../testes/relatorios/sprint-06c/report.html).
+
+C01/C12/C18 pendentes: quatro artefatos 06A foram encontrados substituídos após baseline inicialmente íntegra; origem/recuperação ainda não esclarecidas. Não houve aceitação silenciosa nem alteração das evidências anteriores. AC12/AC13 têm provas técnicas; aceite integrado/comum permanece condicionado à resolução. Próxima ação: resolver hashes de artefatos e revisar 06C. 06D/gate global/07 não liberados. Registros anteriores conservam contexto histórico.
+
+
+## 19. Aceite 06C concluído após esclarecimento externo
+
+Reconstrução externa confirmada pelo responsável; conteúdo/inventário de wheels/sdists verificado contra fontes 06B e composição/locks testados inalterados. C01/C12/C18 resolvidos; C01–C18/C-M1–C-M3 aprovados offline conforme [guia](../testes/sprint-06c-validacao.md), [prova complementar](../testes/sprint-06c-reconstrucao-externa.json) e [relatório](../testes/relatorios/sprint-06c/report.html). Hashes históricos/atuais separados; não afirmar que os quatro artefatos reconstruídos são os originais 06A. Limitação de rollback exato documentada, sem restaurar/apagar trabalho externo.
+
+AC12/AC13 cumpridos; critérios comuns de composição verificados no recorte 06C, a repetir conforme a evolução. 06D fica somente elegível para detalhamento/revisão. Critérios operacionais/piloto/gate global/07 continuam pendentes; Sprint 06 ainda parcial. Seção 18 preserva o estado anterior ao esclarecimento.

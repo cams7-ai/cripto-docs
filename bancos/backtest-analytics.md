@@ -112,3 +112,8 @@ Fontes oficiais: [Python DB API](https://duckdb.org/docs/1.5/clients/python/dbap
 ## Revisão de compatibilidade — Sprint 06A
 
 Fontes do bot em `src/cripto_bot`; helpers financeiros puros compartilhados vêm de `cripto_core`. DDL, tabelas/constraints/triggers, versão, transações e ownership deste store foram preservados; nenhuma migração/reset foi introduzida. Alteração da identidade do código não regrava journal/contexto selado ou concede nova amostra independente. O protocolo histórico rejeita retomada sob composição diferente; reexportação somente leitura permanece disponível. Regressões/limitações: [guia 06A](../testes/sprint-06a-validacao.md) e [ADR 0008](../decisoes/0008-core-e-identidade-da-composicao.md).
+
+
+## Extração analítica — Sprint 06C
+
+Implementação de conversão/catálogo em `cripto-analytics/src/cripto_analytics/adapters/duckdb_export.py`; schemas em domain/contracts.py, publicação em application/publish.py. Bot conserva fachada backtest_analytics.py e adapter AnalyticsRows, mantendo SQL financeiro/reconciliação no consumidor. DDL/schema1, tipos/NULL/precisão, contagens, dez arquivos e configuração do motor preservados. CLI própria valida/consulta export publicado em read_only, sem spill/criação de banco/alteração na entrada e sem SQL livre. Constatar compatibilidade e medições na [validação 06C](../testes/sprint-06c-validacao.md); resultados anteriores permanecem históricos.

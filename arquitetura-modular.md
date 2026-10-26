@@ -147,3 +147,8 @@ A identidade dos protocolos inclui conteúdo realmente instalado do core e contr
 Candle/MarketSettings/RawResponse, parsers e coleta/store/export de mercado são fornecidos por `cripto_market_data`, com reexports de identidade no bot. Isso é biblioteca obrigatória de dados, não módulo de estratégia ou feature flag. SMA continua pura no core; Wallet/risco/coordenador e flags permanecem no bot, com defaults/escopos existentes. A nova CLI de dados não interpreta tabelas financeiras/estratégicas nem herda sua ativação.
 
 Composição instalada passa a identificar bot/core/market-data. Alterar dados/parsers/código de mercado invalida a identidade experimental para retomada, sem reabrir teste final. Nenhum novo par, módulo, algoritmo de execução ou modo foi habilitado. [Guia 06B](testes/sprint-06b-validacao.md).
+
+
+## Relatórios extraídos — Sprint 06C
+
+`cripto-analytics` consome snapshots/portas somente leitura, sem importar bot/market-data/SQLite. Bot é proprietário de risco, métricas, coordenação/flags e reconciliação. Cálculos oficiais não passam ao SQL/renderer; schemas/valores exatos e publicação permanecem compatíveis. Perfil local padrão inclui analytics por wheel, sem extra/flag de estratégia nova. Identidade instalada inclui esse conteúdo; relatórios antigos preservam identidade selada. [ADR 0010](decisoes/0010-analytics-por-snapshots-somente-leitura.md).
