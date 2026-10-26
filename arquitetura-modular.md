@@ -128,3 +128,8 @@ A SMA pura e a redução financeira/risco são compartilhadas; o caso de uso his
 Decision no close disponível; referência open observada +1 ms; plano/reserva A; fill B +2 ms. SCHEDULED não é reserva; pendência única impede gasto duplicado. Variantes não alteram a validade da fixture. Terminal mark_to_market não inventa liquidação. Benchmark 100% tem carteira e limites explícitos independentes, sem bypass da SMA.
 
 Persistência: [schema histórico 1](bancos/backtest-sqlite.md), FULL/WAL, lock/CAS, eventos e projeções encadeados, reconstrução streaming inicial/final e validação incremental entre commits conhecidos. Documentação e escolha de transações em [ADR 0006](decisoes/0006-backtest-historico-e-protocolo.md). Resultados/escala/limites e gates no [guia 05](testes/sprint-05-validacao.md); nenhum incremento autoriza execução contínua ou LIVE automaticamente.
+
+
+## Projeção analítica DuckDB + Parquet
+
+Após a entrega da Sprint 05, a exportação histórica passa a produzir séries Parquet ZSTD e catálogo DuckDB, conforme [ADR 0007](decisoes/0007-duckdb-parquet-analitico.md). O DuckDB embutido consulta os Parquets para gerar resumos e confere as contagens com o snapshot SQLite. Métricas oficiais e regras financeiras continuam no domínio Decimal existente. A camada não participa da admissão/reserva/fill, não migra o ledger e não altera o protocolo já consumido. Os arquivos são projeções derivadas publicadas atomicamente; uma falha impede a publicação e permite reexportação em leitura. Schema e restrições em [banco analítico](bancos/backtest-analytics.md); resultados novos no [guia complementar](testes/duckdb-parquet-validacao.md), separados das evidências originais.

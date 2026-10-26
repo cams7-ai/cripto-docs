@@ -80,3 +80,8 @@ CREATE INDEX outcomes_sequence ON outcomes(run_key,seq);
 ```
 
 Histórico: Sprint 05 cria schema1, sem converter bases anteriores. As identidades e o plano financeiro reutilizam o núcleo integral, preservando seus arredondamentos. [ADR 0006](../decisoes/0006-backtest-historico-e-protocolo.md), [especificação](../sprints/sprint-05.md) e fontes oficiais [sqlite3/transações](https://docs.python.org/3.13/library/sqlite3.html#transaction-control), [Decimal](https://docs.python.org/3.13/library/decimal.html), consultadas em 25/10/2026. Nenhum resultado deste store autoriza execução contínua ou LIVE.
+
+
+## Projeção analítica posterior à Sprint 05
+
+A publicação de relatórios acrescenta [DuckDB + Parquet](backtest-analytics.md), com catálogo de resumos SQL e séries completas comprimidas. O schema SQLite, suas transações, locks, CAS, triggers, ledger e reconciliação permanecem iguais. A conversão ocorre fora das transações financeiras e é publicada com o mesmo manifesto/rename dos relatórios. Falha analítica pode ser repetida por `backtest-report`, sem novos fills. Não há migração de carteira nem substituição da fonte financeira autoritativa. [ADR 0007](../decisoes/0007-duckdb-parquet-analitico.md).

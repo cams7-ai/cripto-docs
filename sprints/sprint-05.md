@@ -432,3 +432,8 @@ O prompt 13 foi executado por solicitação posterior ao detalhamento. O caminho
 Os critérios AC01–AC18 foram aprovados no alcance do [guia 05](../testes/sprint-05-validacao.md), que registra hashes, custos, limitações, cobertura e evidências observadas. A SMA no cenário-base do teste final terminou com 9.494,48742537 USDT fictícios, retorno líquido de −5,0551%; lucro não foi critério de aceite de engenharia. O registro anterior desta especificação descreve o estado do detalhamento.
 
 O núcleo financeiro/SMA e os contratos das Sprints 01–04 foram preservados. O novo `backtest.sqlite3`, schema 1, mantém ledger, atribuição e checkpoints auditáveis, com estado limitado e sem migração dos bancos anteriores. Foram ensaiadas recuperação de agendamento/reserva/fill e falhas de publicação. Execução contínua, módulos futuros e modos privados continuam inelegíveis. A Sprint 06 não foi iniciada; não houve commit ou deploy.
+
+
+## 16. Ajuste analítico posterior — DuckDB + Parquet
+
+Por solicitação posterior à entrega original, a aplicação acrescenta DuckDB 1.5.6 embutido e séries Parquet ZSTD às exportações do backtest. O SQLite continua como ledger, com schema, transações e recuperação preservados. Catálogo, tipos, validação de contagens, falhas e exemplos estão no [documento analítico](../bancos/backtest-analytics.md) e na [ADR 0007](../decisoes/0007-duckdb-parquet-analitico.md). O [guia complementar](../testes/duckdb-parquet-validacao.md) registra a versão/testes atuais e a reexportação em leitura; não substitui as evidências da avaliação original nem reabre o teste final. Este ajuste não inicia a Sprint 06.

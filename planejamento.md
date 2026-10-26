@@ -850,3 +850,8 @@ Execução autorizada posteriormente ao detalhamento, usando o prompt 13 da [Spr
 Coleta pública separada obteve os 70080 candles da janela de 25/10/2024 a 25/10/2026 UTC, mais 50 de aquecimento, em dez exportações verificáveis. Coleta não equivale a avaliação. O protocolo final processou test após desenvolvimento, validação e checks técnicos da mesma versão. Ensaios preliminares e seus bancos são preservados; alterações de desempenho exigem repetir fases com novo protocolo antes de consumir o teste.
 
 Estado final: Sprint 05 implementada e validada no alcance histórico local/PAPER, com dataset real de 24 meses, teste final separado, relatórios profissionais e critérios aplicáveis aprovados. Resultados finais, métricas, custos, cobertura, relatórios e decisão do gate estão registrados no [guia 05](testes/sprint-05-validacao.md), nas evidências 05 e na seção 15 da especificação. Nenhum resultado autoriza LIVE, commit, publicação ou início automático da Sprint 06.
+
+
+## 22. Ajuste analítico após a Sprint 05
+
+Integração de DuckDB + Parquet autorizada em solicitação posterior. A camada analítica acrescenta arquivos colunares comprimidos e um catálogo consultável por SQL às exportações históricas; o ledger SQLite e o núcleo financeiro permanecem preservados. A primeira publicação incorpora o custo da conversão, e o replay mantém suas reconciliações completas. [ADR 0007](decisoes/0007-duckdb-parquet-analitico.md), [schema/operação](bancos/backtest-analytics.md) e [validação complementar](testes/duckdb-parquet-validacao.md). Dados e evidências originais das Sprints 01–05 permanecem separados dos resultados desta alteração.

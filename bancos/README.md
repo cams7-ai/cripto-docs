@@ -6,6 +6,7 @@ Revisão: 25/10/2026. Documentos mantidos em `/home/cams7/Dev/Cripto/docs/bancos
 |---|---|---|---|
 | Mercado / SQLite | [market-sqlite.md](market-sqlite.md) | Schema v1 definido no código; leitura documental do DDL | 02 |
 | Backtest histórico / SQLite | [backtest-sqlite.md](backtest-sqlite.md) | Schema1/modelo paper-backtest-v1 independente; aceite registrado no guia 05; sem migração | 05 |
+| Análises históricas / DuckDB + Parquet | [backtest-analytics.md](backtest-analytics.md) | Projeção derivada, schema analítico 1; ledger preservado em SQLite; validação complementar | Ajuste posterior à 05 |
 | Carteira PAPER / SQLite | [paper-sqlite.md](paper-sqlite.md) | V1 histórica preservada; v2 modular implementada e confrontada com fixtures/demonstração, sem migração | 03 / 04 |
 
 A revisão documental inicial inspecionou os fontes, sem abrir arquivos SQLite de dados, executar aplicação ou migrations. Na Sprint 04, houve validação funcional/introspecção somente leitura do banco v2 sintético; os resultados e o escopo constam no [guia 04](../testes/sprint-04-validacao.md). Os diagramas representam o DDL consultado, não atestam o estado de uma instalação existente. Evidências funcionais continuam nos guias históricos, sem reexecução ou aprovação retroativa.
