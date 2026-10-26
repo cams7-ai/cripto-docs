@@ -4,11 +4,11 @@ Atualizado em 25/10/2026. Documentação em `/home/cams7/Dev/Cripto/docs/estrate
 
 ## Estado do catálogo
 
-A Sprint 04 entregou a base modular e trend_sma em fixture offline; os demais módulos abaixo continuam planejados, sem implementação/validação. A base e o simulador sintético das Sprints 01–03 não constituem implementação dessas estratégias. Todos permanecem desabilitados por padrão; implementação, documentação e elegibilidade operacional são estados distintos. Nenhum documento ou flag autoriza negociação real.
+A Sprint 04 entregou a base modular e trend_sma em fixture offline; a 05 acrescenta o caminho histórico, com resultados e limites no [guia 05](../testes/sprint-05-validacao.md); os demais módulos abaixo continuam planejados, sem implementação/validação. A base e o simulador sintético das Sprints 01–03 não constituem implementação dessas estratégias. Todos permanecem desabilitados por padrão; implementação, documentação e elegibilidade operacional são estados distintos. Nenhum documento ou flag autoriza negociação real.
 
 | ID | Categoria | Sprint prevista | Arquivo a criar na implementação | Implementação / documentação individual | Elegibilidade |
 |---|---|---|---|---|---|
-| trend_sma | Estratégia: tendência | 04 | [trend_sma.md](trend_sma.md) | Versão 1 implementada / documentada | Fixture local/PAPER/BTCUSDT/15m validada conforme guia 04; default desabilitado; backtest/contínuo/privado inelegíveis |
+| trend_sma | Estratégia: tendência | 04 | [trend_sma.md](trend_sma.md) | Versão 1 implementada / documentada | Fixture validada no guia 04; caminho histórico local/PAPER/BTCUSDT/15m validado na 05, conforme guia 05; default desabilitado; contínuo/privado inelegíveis |
 | mean_reversion | Estratégia: reversão à média | 12 | `mean_reversion.md` | Planejada / pendente | Não validada; desabilitada |
 | breakout | Estratégia: rompimento | 13 | `breakout.md` | Planejada / pendente | Não validada; desabilitada |
 | dca | Gestão de carteira: compras periódicas | 14A | `dca.md` | Planejada / pendente | Não validada; desabilitada |

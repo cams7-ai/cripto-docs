@@ -1,0 +1,329 @@
+{
+  "archive": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0",
+  "config": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml",
+  "checks": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-prepare",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml"
+      ],
+      "segment": null,
+      "exit_code": 0,
+      "elapsed_seconds": 7.0664490569979534,
+      "result": {
+        "run_id": "c585c7b1-f28c-41e4-bd98-615bc4431216",
+        "timestamp": "2026-10-25T22:11:15.912114+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 0,
+        "status": "BACKTEST_PREPARED",
+        "dataset": {
+          "schema": 1,
+          "dataset_id": "BTCUSDT-15m-historical-v1",
+          "source": "binance_public",
+          "symbol": "BTCUSDT",
+          "interval": "15m",
+          "start": 1729769400000,
+          "end": 1792886400000,
+          "score_start": 1729814400000,
+          "score_end": 1792886400000,
+          "warmup": 50,
+          "count": 70130,
+          "score_count": 70080,
+          "data_sha256": "2827f105f2317415bea64fd91dfbfc6aa228029c421282433cf424a5b4fcbd55",
+          "duplicates": 0,
+          "gaps": 0,
+          "availability": "bar_close_plus_1ms",
+          "files": {
+            "candles.jsonl": "2827f105f2317415bea64fd91dfbfc6aa228029c421282433cf424a5b4fcbd55"
+          },
+          "sources": [
+            {
+              "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/bb35311a-308e-4906-ad2b-1935080db85f/manifest.json",
+              "sha256": "e815ac5e47b4ab94d429a45b0776f6611f9072f95f865c005faf1d176d6ef312",
+              "source": "binance_public",
+              "dataset": "binance_public:https://data-api.binance.vision:v1",
+              "exported_at": "2026-10-25T20:13:33.917830+00:00"
+            },
+            {
+              "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/af4a9ccf-8641-4ca3-81e8-0649ed30cf8d/manifest.json",
+              "sha256": "886db9450d5e13eba6bdfb41a2d4f096f92dc564e3749b90b33890e8d085c270",
+              "source": "binance_public",
+              "dataset": "binance_public:https://data-api.binance.vision:v1",
+              "exported_at": "2026-10-25T20:20:38.124801+00:00"
+            },
+            {
+              "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/ea79ecae-b3c1-45b6-a5b9-8f0aba0be67b/manifest.json",
+              "sha256": "ed04dc14a47889422f7e88c0484bc814d3d5106e762f0ab8de6539c972c1433f",
+              "source": "binance_public",
+              "dataset": "binance_public:https://data-api.binance.vision:v1",
+              "exported_at": "2026-10-25T20:21:21.714228+00:00"
+            },
+            {
+              "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/77e7a621-ec25-4cf3-9cdc-dd9b915eead3/manifest.json",
+              "sha256": "7dc4c0242faff65c61e6f1925fe59426c20bf61f6ddeb4225a0d92c00db89568",
+              "source": "binance_public",
+              "dataset": "binance_public:https://data-api.binance.vision:v1",
+              "exported_at": "2026-10-25T20:22:05.352977+00:00"
+            },
+            {
+              "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/5bd0c117-86a2-40d0-aaa1-8999d54c6849/manifest.json",
+              "sha256": "136631ca8411a8da45dde487f55d7420601924c886d30dac6a9249cf28cc6872",
+              "source": "binance_public",
+              "dataset": "binance_public:https://data-api.binance.vision:v1",
+              "exported_at": "2026-10-25T20:22:49.307004+00:00"
+            },
+            {
+              "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/8063135c-770f-48f8-8d31-a69a9ae4c9db/manifest.json",
+              "sha256": "d29ee16bbc67e88e7f5d310ca17bf94439a1baa082f5d874e33aba952452d97e",
+              "source": "binance_public",
+              "dataset": "binance_public:https://data-api.binance.vision:v1",
+              "exported_at": "2026-10-25T20:23:33.224007+00:00"
+            },
+            {
+              "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/e478885b-9059-4ebc-ab13-ff166ca3134c/manifest.json",
+              "sha256": "e9eeb9685a9d2eddc39b080944383d08796a95fbe7cc266f14bed4497cbd6a28",
+              "source": "binance_public",
+              "dataset": "binance_public:https://data-api.binance.vision:v1",
+              "exported_at": "2026-10-25T20:24:17.273620+00:00"
+            },
+            {
+              "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/7b90a379-0ecc-4d8c-8ff1-67fb62bfa801/manifest.json",
+              "sha256": "09024215669ba2eb1daf38d783c8cf1797583b60148136c8a248186663846820",
+              "source": "binance_public",
+              "dataset": "binance_public:https://data-api.binance.vision:v1",
+              "exported_at": "2026-10-25T20:25:02.824353+00:00"
+            },
+            {
+              "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/f5aa74a5-cbc9-4938-9a16-8b353a5e2548/manifest.json",
+              "sha256": "4ef106c6594bce82fed150106bd8f791fead75d847ed6e739c7ffe2cd353cb5c",
+              "source": "binance_public",
+              "dataset": "binance_public:https://data-api.binance.vision:v1",
+              "exported_at": "2026-10-25T20:25:48.078924+00:00"
+            },
+            {
+              "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/a49008cd-7e80-48be-908e-907500bbd1b6/manifest.json",
+              "sha256": "033dead690fca656d83a4d42827387aadf4fb562823d8bb312af586df6531d46",
+              "source": "binance_public",
+              "dataset": "binance_public:https://data-api.binance.vision:v1",
+              "exported_at": "2026-10-25T20:26:23.391476+00:00"
+            }
+          ],
+          "filters": "synthetic proxy declared in frozen protocol; not historical exchangeInfo",
+          "terms": "Public data origin recorded; no claim of redistribution rights; synthetic fixtures marked"
+        }
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-freeze",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml"
+      ],
+      "segment": null,
+      "exit_code": 0,
+      "elapsed_seconds": 5.014694050001708,
+      "result": {
+        "run_id": "d78dc228-c033-4f4c-9c97-2b36b0aea420",
+        "timestamp": "2026-10-25T22:11:22.975162+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 0,
+        "protocol_hash": "8bc553e60fea776f3528564c2c93c1a1879fd4860436d55f61282415126e2e14",
+        "status": "BACKTEST_FROZEN"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-run",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml",
+        "--segment",
+        "development",
+        "--variant",
+        "all"
+      ],
+      "segment": "development",
+      "exit_code": 0,
+      "elapsed_seconds": 2397.9674339170015,
+      "result": {
+        "run_id": "b33e4e79-4932-49ab-9056-b06aded97f1a",
+        "timestamp": "2026-10-25T22:11:27.992912+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 796,
+        "segment": "development",
+        "curves": 16,
+        "final_window_consumed": false,
+        "reproduction": false,
+        "status": "BACKTEST_COMPLETED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/b33e4e79-4932-49ab-9056-b06aded97f1a/manifest.json",
+        "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/b33e4e79-4932-49ab-9056-b06aded97f1a/report.html",
+        "result_sha256": "5421dacad1e5ac50f758ae615c4362bac179d5968918866220f3811f1ef4ef4d"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-run",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml",
+        "--segment",
+        "validation",
+        "--variant",
+        "all"
+      ],
+      "segment": "validation",
+      "exit_code": 0,
+      "elapsed_seconds": 2148.9889708450028,
+      "result": {
+        "run_id": "641bd976-2ca7-4335-83d2-a5934d35960a",
+        "timestamp": "2026-10-25T22:51:25.970973+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 532,
+        "segment": "validation",
+        "curves": 16,
+        "final_window_consumed": false,
+        "reproduction": false,
+        "status": "BACKTEST_COMPLETED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/641bd976-2ca7-4335-83d2-a5934d35960a/manifest.json",
+        "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/641bd976-2ca7-4335-83d2-a5934d35960a/report.html",
+        "result_sha256": "6758fe6701b266a7d6c237cc7fb60c910085113e551c5887b8f9cf96f9d82b16"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-run",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml",
+        "--segment",
+        "test",
+        "--variant",
+        "all"
+      ],
+      "segment": "test",
+      "exit_code": 0,
+      "elapsed_seconds": 2497.2807654850003,
+      "result": {
+        "run_id": "38ea2bb3-921b-4eda-babc-5824371fdaaa",
+        "timestamp": "2026-10-25T23:27:15.022335+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 883,
+        "segment": "test",
+        "curves": 16,
+        "final_window_consumed": true,
+        "reproduction": false,
+        "status": "BACKTEST_COMPLETED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/38ea2bb3-921b-4eda-babc-5824371fdaaa/manifest.json",
+        "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/38ea2bb3-921b-4eda-babc-5824371fdaaa/report.html",
+        "result_sha256": "a12de079b7ebded9037c86b1f76b7b9a9edcb37ef68603a36cd7f79b50cc2f47"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-reconcile",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml"
+      ],
+      "segment": null,
+      "exit_code": 0,
+      "elapsed_seconds": 970.0627429359993,
+      "result": {
+        "run_id": "ae830316-1920-4157-b708-34aa7f4e0db7",
+        "timestamp": "2026-10-26T00:08:52.312166+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 0,
+        "status": "BACKTEST_RECONCILED",
+        "curves": 48,
+        "reconciled": true
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-report",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml"
+      ],
+      "segment": null,
+      "exit_code": 0,
+      "elapsed_seconds": 1136.3004648399983,
+      "result": {
+        "run_id": "30cae329-9a9a-45b4-b47f-0a63dcabb033",
+        "timestamp": "2026-10-26T00:25:02.366856+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 0,
+        "status": "BACKTEST_REPORTED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/30cae329-9a9a-45b4-b47f-0a63dcabb033/manifest.json",
+        "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/30cae329-9a9a-45b4-b47f-0a63dcabb033/report.html",
+        "result_sha256": "a12de079b7ebded9037c86b1f76b7b9a9edcb37ef68603a36cd7f79b50cc2f47"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-run",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml",
+        "--segment",
+        "test",
+        "--variant",
+        "all"
+      ],
+      "segment": "test",
+      "exit_code": 0,
+      "elapsed_seconds": 2155.6293327219973,
+      "result": {
+        "run_id": "2423b43c-ead9-4937-8b93-f41e423a9cd1",
+        "timestamp": "2026-10-26T00:43:58.640885+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 0,
+        "segment": "test",
+        "curves": 16,
+        "final_window_consumed": true,
+        "reproduction": true,
+        "status": "BACKTEST_COMPLETED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/2423b43c-ead9-4937-8b93-f41e423a9cd1/manifest.json",
+        "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/2423b43c-ead9-4937-8b93-f41e423a9cd1/report.html",
+        "result_sha256": "a12de079b7ebded9037c86b1f76b7b9a9edcb37ef68603a36cd7f79b50cc2f47"
+      }
+    }
+  ],
+  "elapsed_seconds": 11318.362715246003,
+  "peak_child_rss_kib": 111616
+}

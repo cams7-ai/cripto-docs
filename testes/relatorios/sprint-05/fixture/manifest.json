@@ -1,0 +1,17 @@
+{
+  "kind": "fixture",
+  "source_manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/d0cdad08-0fd8-4d78-a1a2-39b7360a110f/manifest.json",
+  "source_manifest_sha256": "42f6c85959ee48876766a0299eedba76968a09c763a8cad1df9007d4ce76078c",
+  "protocol_sha256": "344187a90d0dbeb90e99b09fd212e4a5323cdfe166022288bf18cb3299239260",
+  "result_sha256": "0aa39cd9f9206e1b9be016c10b8e1bf56152293ce97c5331140a1d2cf208b8bf",
+  "files": {
+    "execucao.json": "c258c7c04092195b9ebd874b9a4a27b9b371b5cefac71c02a7fb1f5da2ef7e39",
+    "report.html": "d313d634a8c2c00c7c50bc0ec1c9d912987807815d3faeb6e50f367ece022418",
+    "resultados.json": "1692230bd5a176bc070745b2990a5c96fbfb34dcfd95c19eb94eda8b592a5c92"
+  },
+  "pdf": {
+    "path": "output/pdf/sprint-05-ensaio-tecnico.pdf",
+    "sha256": "317f753f2a7991ac596a548bd1870249d7541139103becbf852ad561e67b779d"
+  },
+  "note": "Selected documentation bundle. Full CSV/JSON remain in the original local export; links are relative within the workspace. HTML metric/chart content is unchanged."
+}

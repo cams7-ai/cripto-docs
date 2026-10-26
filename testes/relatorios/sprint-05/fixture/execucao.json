@@ -1,0 +1,266 @@
+{
+  "archive": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt",
+  "config": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml",
+  "checks": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-prepare",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml"
+      ],
+      "segment": null,
+      "exit_code": 0,
+      "elapsed_seconds": 0.3751146200011135,
+      "result": {
+        "run_id": "cd3fb24d-ff73-42fa-85da-45dcba831067",
+        "timestamp": "2026-10-25T22:09:45.452140+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 0,
+        "status": "BACKTEST_PREPARED",
+        "dataset": {
+          "schema": 1,
+          "dataset_id": "BTCUSDT-15m-historical-v1",
+          "source": "fixture",
+          "symbol": "BTCUSDT",
+          "interval": "15m",
+          "start": 1790767800000,
+          "end": 1791676800000,
+          "score_start": 1790812800000,
+          "score_end": 1791676800000,
+          "warmup": 50,
+          "count": 1010,
+          "score_count": 960,
+          "data_sha256": "d7cd31c86d678a02e1bb69bd33160b670ab5abd45456002919ca466c5c85e9dd",
+          "duplicates": 0,
+          "gaps": 0,
+          "availability": "bar_close_plus_1ms",
+          "files": {
+            "candles.jsonl": "d7cd31c86d678a02e1bb69bd33160b670ab5abd45456002919ca466c5c85e9dd"
+          },
+          "sources": [
+            {
+              "path": "/home/cams7/Dev/Cripto/cripto-bot/config/fixtures/backtest-sma/manifest.json",
+              "sha256": "94bbcc7f2899525367da51602bda1766378aa6448d7cf7bd42b0ffb46b0a1b8c",
+              "source": "fixture",
+              "dataset": "synthetic-sma-1010",
+              "exported_at": null
+            }
+          ],
+          "filters": "synthetic proxy declared in frozen protocol; not historical exchangeInfo",
+          "terms": "Public data origin recorded; no claim of redistribution rights; synthetic fixtures marked"
+        }
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-freeze",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml"
+      ],
+      "segment": null,
+      "exit_code": 0,
+      "elapsed_seconds": 0.37468717099909554,
+      "result": {
+        "run_id": "7a8140fb-dd25-497f-9179-106fd2cbde2f",
+        "timestamp": "2026-10-25T22:09:45.828041+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 0,
+        "protocol_hash": "344187a90d0dbeb90e99b09fd212e4a5323cdfe166022288bf18cb3299239260",
+        "status": "BACKTEST_FROZEN"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-run",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml",
+        "--segment",
+        "development",
+        "--variant",
+        "all"
+      ],
+      "segment": "development",
+      "exit_code": 0,
+      "elapsed_seconds": 33.50573254000119,
+      "result": {
+        "run_id": "6dbcc6bb-9ba5-41ed-863a-4ff7886aa323",
+        "timestamp": "2026-10-25T22:09:46.202157+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 56,
+        "segment": "development",
+        "curves": 16,
+        "final_window_consumed": false,
+        "reproduction": false,
+        "status": "BACKTEST_COMPLETED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/6dbcc6bb-9ba5-41ed-863a-4ff7886aa323/manifest.json",
+        "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/6dbcc6bb-9ba5-41ed-863a-4ff7886aa323/report.html",
+        "result_sha256": "1d2f9f6342e4b7dcc832dec5566c0327247af6685c4af7163a558e573ccc1fa6"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-run",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml",
+        "--segment",
+        "validation",
+        "--variant",
+        "all"
+      ],
+      "segment": "validation",
+      "exit_code": 0,
+      "elapsed_seconds": 29.281970826999896,
+      "result": {
+        "run_id": "f037696a-c1bf-4ba3-8656-9cc49decf7e1",
+        "timestamp": "2026-10-25T22:10:19.704011+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 24,
+        "segment": "validation",
+        "curves": 16,
+        "final_window_consumed": false,
+        "reproduction": false,
+        "status": "BACKTEST_COMPLETED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/f037696a-c1bf-4ba3-8656-9cc49decf7e1/manifest.json",
+        "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/f037696a-c1bf-4ba3-8656-9cc49decf7e1/report.html",
+        "result_sha256": "803adf1304ae4cf92ec547d6814724cd610500087f7d941831db0f5e42c81b0a"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-run",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml",
+        "--segment",
+        "test",
+        "--variant",
+        "all"
+      ],
+      "segment": "test",
+      "exit_code": 0,
+      "elapsed_seconds": 36.70114980300059,
+      "result": {
+        "run_id": "f7954d41-9095-4779-928e-4bcd71ffab06",
+        "timestamp": "2026-10-25T22:10:48.983882+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 24,
+        "segment": "test",
+        "curves": 16,
+        "final_window_consumed": true,
+        "reproduction": false,
+        "status": "BACKTEST_COMPLETED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/f7954d41-9095-4779-928e-4bcd71ffab06/manifest.json",
+        "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/f7954d41-9095-4779-928e-4bcd71ffab06/report.html",
+        "result_sha256": "0aa39cd9f9206e1b9be016c10b8e1bf56152293ce97c5331140a1d2cf208b8bf"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-reconcile",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml"
+      ],
+      "segment": null,
+      "exit_code": 0,
+      "elapsed_seconds": 14.385061389999464,
+      "result": {
+        "run_id": "ddb4db4c-7756-4ff8-a5e6-c84a0439eef5",
+        "timestamp": "2026-10-25T22:11:25.694301+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 0,
+        "status": "BACKTEST_RECONCILED",
+        "curves": 48,
+        "reconciled": true
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-report",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml"
+      ],
+      "segment": null,
+      "exit_code": 0,
+      "elapsed_seconds": 17.07848285,
+      "result": {
+        "run_id": "e71185ba-29a0-4627-9006-5e3bf4575676",
+        "timestamp": "2026-10-25T22:11:40.080314+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 0,
+        "status": "BACKTEST_REPORTED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/e71185ba-29a0-4627-9006-5e3bf4575676/manifest.json",
+        "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/e71185ba-29a0-4627-9006-5e3bf4575676/report.html",
+        "result_sha256": "0aa39cd9f9206e1b9be016c10b8e1bf56152293ce97c5331140a1d2cf208b8bf"
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "cripto-bot",
+        "backtest-run",
+        "--config",
+        "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml",
+        "--segment",
+        "test",
+        "--variant",
+        "all"
+      ],
+      "segment": "test",
+      "exit_code": 0,
+      "elapsed_seconds": 33.29402396399746,
+      "result": {
+        "run_id": "d0cdad08-0fd8-4d78-a1a2-39b7360a110f",
+        "timestamp": "2026-10-25T22:11:57.231588+00:00",
+        "mode": "PAPER",
+        "orders_sent": 0,
+        "simulated_fills": 0,
+        "segment": "test",
+        "curves": 16,
+        "final_window_consumed": true,
+        "reproduction": true,
+        "status": "BACKTEST_COMPLETED",
+        "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/d0cdad08-0fd8-4d78-a1a2-39b7360a110f/manifest.json",
+        "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/d0cdad08-0fd8-4d78-a1a2-39b7360a110f/report.html",
+        "result_sha256": "0aa39cd9f9206e1b9be016c10b8e1bf56152293ce97c5331140a1d2cf208b8bf"
+      }
+    }
+  ],
+  "elapsed_seconds": 165.00230535899755,
+  "peak_child_rss_kib": 79052
+}

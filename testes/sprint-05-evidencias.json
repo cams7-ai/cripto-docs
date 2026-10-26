@@ -1,0 +1,1451 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-26T01:22:05.443153+00:00",
+  "status": "APPROVED_SCOPED",
+  "scope": "local/PAPER/backtest/BTCUSDT/15m; trend_sma only; no LIVE/continuous/AWS approval",
+  "repositories": {
+    "application": {
+      "head": "23545df1dcad76cf90dfefd29e8134558bee3f50",
+      "dirty": [
+        "M .gitignore",
+        " M README.md",
+        " M modules/trading/src/cripto_bot/adapters/config.py",
+        " M modules/trading/src/cripto_bot/adapters/strategy_config.py",
+        " M modules/trading/src/cripto_bot/domain/models.py",
+        " M modules/trading/src/cripto_bot/domain/modules/models.py",
+        " M modules/trading/src/cripto_bot/domain/risk/execution.py",
+        " M modules/trading/src/cripto_bot/entrypoints/cli.py",
+        " M tests/wheel_smoke.py",
+        "?? config/backtest.sma.example.toml",
+        "?? config/backtest.sma.fixture.toml",
+        "?? config/fixtures/backtest-sma/",
+        "?? config/market.backtest.example.toml",
+        "?? modules/trading/src/cripto_bot/adapters/backtest_config.py",
+        "?? modules/trading/src/cripto_bot/adapters/backtest_dataset.py",
+        "?? modules/trading/src/cripto_bot/adapters/storage/backtest_report.py",
+        "?? modules/trading/src/cripto_bot/adapters/storage/backtest_sqlite.py",
+        "?? modules/trading/src/cripto_bot/application/backtest_run.py",
+        "?? modules/trading/src/cripto_bot/domain/backtest/",
+        "?? modules/trading/src/cripto_bot/entrypoints/backtest.py",
+        "?? tests/integration/test_backtest_commands.py",
+        "?? tests/integration/test_backtest_publication.py",
+        "?? tests/integration/test_backtest_recovery.py",
+        "?? tests/integration/test_backtest_scale.py",
+        "?? tests/unit/test_backtest.py",
+        "?? tests/unit/test_backtest_additional.py"
+      ]
+    },
+    "documentation": {
+      "head": "c9db28c8521e47b722808bc980fe086821a7e653",
+      "dirty": [
+        " M arquitetura-modular.md",
+        " M bancos/README.md",
+        " M estrategias/README.md",
+        " M estrategias/trend_sma.md",
+        " M planejamento.md",
+        " M sprints/sprint-05.md",
+        " M testes/estrategias-modulares-validacao.md",
+        " M testes/sprint-05-validacao.md",
+        "?? bancos/backtest-sqlite.md",
+        "?? decisoes/0006-backtest-historico-e-protocolo.md",
+        "?? output/pdf/sprint-05-avaliacao-historica.pdf",
+        "?? output/pdf/sprint-05-ensaio-tecnico.pdf",
+        "?? testes/ferramentas/",
+        "?? testes/relatorios/",
+        "?? testes/sprint-05-evidencias.json"
+      ]
+    }
+  },
+  "baseline": {
+    "sprint04_source_hashes_verified_before_changes": 87,
+    "regression_tests_before_changes": 428
+  },
+  "versions": {
+    "python": "3.13.15 (main, Sep 24 2026, 17:55:50) [Clang 22.1.3 ]",
+    "sqlite": "3.53.1",
+    "source_sha256": "d5a26f60e8f839d4c2008b52b8e67ec4678142bb0d61db236176cca29fdf54ac",
+    "build_backend_pin": "setuptools==84.2.0 (isolated build)",
+    "packages": {
+      "pydantic": "2.14.1",
+      "httpx": "0.28.1",
+      "pytest": "9.1.1",
+      "pytest-cov": "7.1.0",
+      "ruff": "0.17.2",
+      "mypy": "1.20.2"
+    }
+  },
+  "quality": {
+    "runtime_platform": {
+      "platform": "Linux-5.11.0-40-generic-x86_64-with-glibc2.35",
+      "logical_cpus": 8,
+      "cpu_affinity_count": 8,
+      "cgroup_cpu_max": null
+    },
+    "pytest": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "521",
+      "time": "582.158",
+      "timestamp": "2026-10-25T19:09:38.932751-03:00",
+      "hostname": "qbex"
+    },
+    "coverage": {
+      "covered_lines": 3516,
+      "num_statements": 3670,
+      "percent_covered": 93.91642769356821,
+      "percent_covered_display": "94",
+      "missing_lines": 154,
+      "excluded_lines": 53,
+      "percent_statements_covered": 95.80381471389646,
+      "percent_statements_covered_display": "96",
+      "num_branches": 1212,
+      "num_partial_branches": 137,
+      "covered_branches": 1069,
+      "missing_branches": 143,
+      "percent_branches_covered": 88.20132013201321,
+      "percent_branches_covered_display": "88"
+    },
+    "ruff": "passed",
+    "format": "passed",
+    "mypy_strict": "passed",
+    "wheel": {
+      "filename": "cripto_bot-0.1.0-py3-none-any.whl",
+      "sha256": "bb433043d7be6493e4ed39757c793c4f39ded87f8e33fe552d7523be97dc11ca",
+      "origin": "/home/cams7/Dev/Cripto/cripto-bot/.venv-wheel/lib/python3.13/site-packages/cripto_bot/__init__.py",
+      "socket_probe_blocked": true,
+      "commands": [
+        {
+          "command": "check-config",
+          "segment": null,
+          "exit_code": 0,
+          "status": "VALID"
+        },
+        {
+          "command": "run-once",
+          "segment": null,
+          "exit_code": 0,
+          "status": "NOOP"
+        },
+        {
+          "command": "collect-market",
+          "segment": null,
+          "exit_code": 0,
+          "status": "COLLECTED"
+        },
+        {
+          "command": "collect-market",
+          "segment": null,
+          "exit_code": 0,
+          "status": "COLLECTED"
+        },
+        {
+          "command": "paper-run",
+          "segment": null,
+          "exit_code": 0,
+          "status": "PAPER_COMPLETED"
+        },
+        {
+          "command": "paper-reconcile",
+          "segment": null,
+          "exit_code": 0,
+          "status": "PAPER_RECONCILED"
+        },
+        {
+          "command": "paper-report",
+          "segment": null,
+          "exit_code": 0,
+          "status": "PAPER_REPORT"
+        },
+        {
+          "command": "paper-run",
+          "segment": null,
+          "exit_code": 0,
+          "status": "PAPER_COMPLETED"
+        },
+        {
+          "command": "strategy-run",
+          "segment": null,
+          "exit_code": 0,
+          "status": "STRATEGY_NOOP"
+        },
+        {
+          "command": "strategy-run",
+          "segment": null,
+          "exit_code": 0,
+          "status": "STRATEGY_COMPLETED"
+        },
+        {
+          "command": "strategy-reconcile",
+          "segment": null,
+          "exit_code": 0,
+          "status": "STRATEGY_RECONCILED"
+        },
+        {
+          "command": "strategy-report",
+          "segment": null,
+          "exit_code": 0,
+          "status": "STRATEGY_REPORTED"
+        },
+        {
+          "command": "strategy-run",
+          "segment": null,
+          "exit_code": 0,
+          "status": "STRATEGY_COMPLETED"
+        },
+        {
+          "command": "backtest-run",
+          "segment": "development",
+          "exit_code": 0,
+          "status": "BACKTEST_NOOP"
+        },
+        {
+          "command": "backtest-prepare",
+          "segment": null,
+          "exit_code": 0,
+          "status": "BACKTEST_PREPARED"
+        },
+        {
+          "command": "backtest-freeze",
+          "segment": null,
+          "exit_code": 0,
+          "status": "BACKTEST_FROZEN"
+        },
+        {
+          "command": "backtest-run",
+          "segment": "development",
+          "exit_code": 0,
+          "status": "BACKTEST_COMPLETED"
+        },
+        {
+          "command": "backtest-run",
+          "segment": "validation",
+          "exit_code": 0,
+          "status": "BACKTEST_COMPLETED"
+        },
+        {
+          "command": "backtest-run",
+          "segment": "test",
+          "exit_code": 0,
+          "status": "BACKTEST_COMPLETED"
+        },
+        {
+          "command": "backtest-reconcile",
+          "segment": null,
+          "exit_code": 0,
+          "status": "BACKTEST_RECONCILED"
+        },
+        {
+          "command": "backtest-report",
+          "segment": null,
+          "exit_code": 0,
+          "status": "BACKTEST_REPORTED"
+        },
+        {
+          "command": "backtest-run",
+          "segment": "test",
+          "exit_code": 0,
+          "status": "BACKTEST_COMPLETED"
+        }
+      ]
+    }
+  },
+  "dataset": {
+    "availability": "bar_close_plus_1ms",
+    "count": 70130,
+    "data_sha256": "2827f105f2317415bea64fd91dfbfc6aa228029c421282433cf424a5b4fcbd55",
+    "dataset_id": "BTCUSDT-15m-historical-v1",
+    "duplicates": 0,
+    "end": 1792886400000,
+    "files": {
+      "candles.jsonl": "2827f105f2317415bea64fd91dfbfc6aa228029c421282433cf424a5b4fcbd55"
+    },
+    "filters": "synthetic proxy declared in frozen protocol; not historical exchangeInfo",
+    "gaps": 0,
+    "interval": "15m",
+    "schema": 1,
+    "score_count": 70080,
+    "score_end": 1792886400000,
+    "score_start": 1729814400000,
+    "source": "binance_public",
+    "sources": [
+      {
+        "dataset": "binance_public:https://data-api.binance.vision:v1",
+        "exported_at": "2026-10-25T20:13:33.917830+00:00",
+        "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/bb35311a-308e-4906-ad2b-1935080db85f/manifest.json",
+        "sha256": "e815ac5e47b4ab94d429a45b0776f6611f9072f95f865c005faf1d176d6ef312",
+        "source": "binance_public"
+      },
+      {
+        "dataset": "binance_public:https://data-api.binance.vision:v1",
+        "exported_at": "2026-10-25T20:20:38.124801+00:00",
+        "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/af4a9ccf-8641-4ca3-81e8-0649ed30cf8d/manifest.json",
+        "sha256": "886db9450d5e13eba6bdfb41a2d4f096f92dc564e3749b90b33890e8d085c270",
+        "source": "binance_public"
+      },
+      {
+        "dataset": "binance_public:https://data-api.binance.vision:v1",
+        "exported_at": "2026-10-25T20:21:21.714228+00:00",
+        "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/ea79ecae-b3c1-45b6-a5b9-8f0aba0be67b/manifest.json",
+        "sha256": "ed04dc14a47889422f7e88c0484bc814d3d5106e762f0ab8de6539c972c1433f",
+        "source": "binance_public"
+      },
+      {
+        "dataset": "binance_public:https://data-api.binance.vision:v1",
+        "exported_at": "2026-10-25T20:22:05.352977+00:00",
+        "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/77e7a621-ec25-4cf3-9cdc-dd9b915eead3/manifest.json",
+        "sha256": "7dc4c0242faff65c61e6f1925fe59426c20bf61f6ddeb4225a0d92c00db89568",
+        "source": "binance_public"
+      },
+      {
+        "dataset": "binance_public:https://data-api.binance.vision:v1",
+        "exported_at": "2026-10-25T20:22:49.307004+00:00",
+        "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/5bd0c117-86a2-40d0-aaa1-8999d54c6849/manifest.json",
+        "sha256": "136631ca8411a8da45dde487f55d7420601924c886d30dac6a9249cf28cc6872",
+        "source": "binance_public"
+      },
+      {
+        "dataset": "binance_public:https://data-api.binance.vision:v1",
+        "exported_at": "2026-10-25T20:23:33.224007+00:00",
+        "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/8063135c-770f-48f8-8d31-a69a9ae4c9db/manifest.json",
+        "sha256": "d29ee16bbc67e88e7f5d310ca17bf94439a1baa082f5d874e33aba952452d97e",
+        "source": "binance_public"
+      },
+      {
+        "dataset": "binance_public:https://data-api.binance.vision:v1",
+        "exported_at": "2026-10-25T20:24:17.273620+00:00",
+        "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/e478885b-9059-4ebc-ab13-ff166ca3134c/manifest.json",
+        "sha256": "e9eeb9685a9d2eddc39b080944383d08796a95fbe7cc266f14bed4497cbd6a28",
+        "source": "binance_public"
+      },
+      {
+        "dataset": "binance_public:https://data-api.binance.vision:v1",
+        "exported_at": "2026-10-25T20:25:02.824353+00:00",
+        "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/7b90a379-0ecc-4d8c-8ff1-67fb62bfa801/manifest.json",
+        "sha256": "09024215669ba2eb1daf38d783c8cf1797583b60148136c8a248186663846820",
+        "source": "binance_public"
+      },
+      {
+        "dataset": "binance_public:https://data-api.binance.vision:v1",
+        "exported_at": "2026-10-25T20:25:48.078924+00:00",
+        "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/f5aa74a5-cbc9-4938-9a16-8b353a5e2548/manifest.json",
+        "sha256": "4ef106c6594bce82fed150106bd8f791fead75d847ed6e739c7ffe2cd353cb5c",
+        "source": "binance_public"
+      },
+      {
+        "dataset": "binance_public:https://data-api.binance.vision:v1",
+        "exported_at": "2026-10-25T20:26:23.391476+00:00",
+        "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/a49008cd-7e80-48be-908e-907500bbd1b6/manifest.json",
+        "sha256": "033dead690fca656d83a4d42827387aadf4fb562823d8bb312af586df6531d46",
+        "source": "binance_public"
+      }
+    ],
+    "start": 1729769400000,
+    "symbol": "BTCUSDT",
+    "terms": "Public data origin recorded; no claim of redistribution rights; synthetic fixtures marked",
+    "warmup": 50
+  },
+  "protocol": "8bc553e60fea776f3528564c2c93c1a1879fd4860436d55f61282415126e2e14",
+  "result_sha256": "a12de079b7ebded9037c86b1f76b7b9a9edcb37ef68603a36cd7f79b50cc2f47",
+  "scale": {
+    "candles": 70130,
+    "score_candles": 70080,
+    "elapsed_seconds": 192.72645262199876,
+    "peak_rss_kib": 76312,
+    "database_bytes": 282570752,
+    "max_checkpoint_bytes": 1308,
+    "max_window": 51,
+    "profiles": "SMA/base all three independent segments; synthetic constant prices"
+  },
+  "acceptance": {
+    "AC01": {
+      "status": "approved_within_scope",
+      "topic": "Protocolo/split/consumo final",
+      "observed": "3 segmentos, mesmo hash; dev/val completos antes do teste; reprodução sem novos efeitos"
+    },
+    "AC02": {
+      "status": "approved_within_scope",
+      "topic": "Causalidade e relógio",
+      "observed": "Prefixo independente do futuro; referência posterior +1ms e fill +2ms; atraso de um candle"
+    },
+    "AC03": {
+      "status": "approved_within_scope",
+      "topic": "Precisão/custos/ledger",
+      "observed": "Oráculos exatos negativos/positivos; núcleo financeiro e BID_ASK compartilhados; quatro variantes"
+    },
+    "AC04": {
+      "status": "approved_within_scope",
+      "topic": "Integridade/idempotência",
+      "observed": "Hashes/CRC/gaps/duplicatas/limites/tipos; resultado canônico estável no replay"
+    },
+    "AC05": {
+      "status": "approved_within_scope",
+      "topic": "OOS/benchmarks",
+      "observed": "48 curvas reais e 48 técnicas, capital independente, quatro variantes e três referências"
+    },
+    "AC06": {
+      "status": "approved_within_scope",
+      "topic": "Isolamento",
+      "observed": "Guards em pytest/filhos/wheel; transporte público não construído pelo backtest"
+    },
+    "AC07": {
+      "status": "approved_within_scope",
+      "topic": "Propriedade/risco",
+      "observed": "Opt-in exclusivo; contexto financeiro derivado do protocolo; benchmarks sem bypass da SMA"
+    },
+    "AC08": {
+      "status": "approved_within_scope",
+      "topic": "Regressão/defaults",
+      "observed": "428 históricos preservados; NOOP sem carteira; configuração estrita e diretórios separados"
+    },
+    "AC09": {
+      "status": "approved_within_scope",
+      "topic": "Fronteiras",
+      "observed": "Aquecimento sem posição herdada; END_OF_WINDOW; terminal marcado sem venda implícita"
+    },
+    "AC10": {
+      "status": "approved_within_scope",
+      "topic": "Pendência/admissão",
+      "observed": "Slot lógico sem reserva; prioridade, orçamento/filtros/risco revalidados; A e B separados"
+    },
+    "AC11": {
+      "status": "approved_within_scope",
+      "topic": "UTC/métricas",
+      "observed": "Baseline causal antes do novo open; MDD integral e exposição/posição ponderadas em ms"
+    },
+    "AC12": {
+      "status": "approved_within_scope",
+      "topic": "Recuperação",
+      "observed": "Mortes reais no agendamento, A/B, início/fim e publicação; retry equivale à execução íntegra"
+    },
+    "AC13": {
+      "status": "approved_within_scope",
+      "topic": "Concorrência/corrupção",
+      "observed": "Flock/CAS/PK/FK/triggers; divergência duravelmente bloqueada, sem reparo por diferença"
+    },
+    "AC14": {
+      "status": "approved_within_scope",
+      "topic": "Escala/compatibilidade",
+      "observed": "70130 candles; estado51; medições preservadas; bancos anteriores rejeitados sem migração"
+    },
+    "AC15": {
+      "status": "approved_within_scope",
+      "topic": "Relatórios",
+      "observed": "HTML/JSON/CSV/manifestos conferidos; risco/recusas/parciais/N/A; PDFs revisados; exportação em leitura"
+    },
+    "AC16": {
+      "status": "approved_within_scope",
+      "topic": "Qualidade/pacote",
+      "observed": "Ruff/format/mypy strict/pytest branches/build/wheel site-packages/guard aprovados"
+    },
+    "AC17": {
+      "status": "approved_within_scope",
+      "topic": "Documentação",
+      "observed": "SMA/catálogos, banco/DDL/ER/ADRs, arquitetura/planejamento e evidências alinhados"
+    },
+    "AC18": {
+      "status": "approved_within_scope",
+      "topic": "Gate da avaliação",
+      "observed": "Histórico real verificado e teste separado; sem liberação LIVE ou início da06"
+    }
+  },
+  "artifacts": {
+    "public": {
+      "kind": "public",
+      "source_manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/2423b43c-ead9-4937-8b93-f41e423a9cd1/manifest.json",
+      "source_manifest_sha256": "f88657052398eba7388fc20e3e384d38092b654e9f6a2a700b3f081e0a54d9e5",
+      "protocol_sha256": "8bc553e60fea776f3528564c2c93c1a1879fd4860436d55f61282415126e2e14",
+      "result_sha256": "a12de079b7ebded9037c86b1f76b7b9a9edcb37ef68603a36cd7f79b50cc2f47",
+      "files": {
+        "execucao.json": "b3909e83f1070dcc5a1dd8aad9bc4b890f766259039b3a5cc70f86b1cbf97619",
+        "report.html": "a8ed1b81ea16f452b0b52f13adea521e879bb5198557872d8556cdeba4a0e63a",
+        "resultados.json": "02d284cc8a9c05b493630c5c4a555a69c9e1dd6893b4310dfa9bcf2f1f83934e"
+      },
+      "pdf": {
+        "path": "output/pdf/sprint-05-avaliacao-historica.pdf",
+        "sha256": "9fd758f8198b7e2ae76b33ae4728f9192353ef009ec071de3fa819b9c6121be3"
+      },
+      "note": "Selected documentation bundle. Full CSV/JSON remain in the original local export; links are relative within the workspace. HTML metric/chart content is unchanged."
+    },
+    "fixture": {
+      "kind": "fixture",
+      "source_manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/d0cdad08-0fd8-4d78-a1a2-39b7360a110f/manifest.json",
+      "source_manifest_sha256": "42f6c85959ee48876766a0299eedba76968a09c763a8cad1df9007d4ce76078c",
+      "protocol_sha256": "344187a90d0dbeb90e99b09fd212e4a5323cdfe166022288bf18cb3299239260",
+      "result_sha256": "0aa39cd9f9206e1b9be016c10b8e1bf56152293ce97c5331140a1d2cf208b8bf",
+      "files": {
+        "execucao.json": "c258c7c04092195b9ebd874b9a4a27b9b371b5cefac71c02a7fb1f5da2ef7e39",
+        "report.html": "d313d634a8c2c00c7c50bc0ec1c9d912987807815d3faeb6e50f367ece022418",
+        "resultados.json": "1692230bd5a176bc070745b2990a5c96fbfb34dcfd95c19eb94eda8b592a5c92"
+      },
+      "pdf": {
+        "path": "output/pdf/sprint-05-ensaio-tecnico.pdf",
+        "sha256": "317f753f2a7991ac596a548bd1870249d7541139103becbf852ad561e67b779d"
+      },
+      "note": "Selected documentation bundle. Full CSV/JSON remain in the original local export; links are relative within the workspace. HTML metric/chart content is unchanged."
+    }
+  },
+  "runs": {
+    "public": {
+      "archive": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0",
+      "config": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml",
+      "checks": [
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-prepare",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml"
+          ],
+          "segment": null,
+          "exit_code": 0,
+          "elapsed_seconds": 7.0664490569979534,
+          "result": {
+            "run_id": "c585c7b1-f28c-41e4-bd98-615bc4431216",
+            "timestamp": "2026-10-25T22:11:15.912114+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 0,
+            "status": "BACKTEST_PREPARED",
+            "dataset": {
+              "schema": 1,
+              "dataset_id": "BTCUSDT-15m-historical-v1",
+              "source": "binance_public",
+              "symbol": "BTCUSDT",
+              "interval": "15m",
+              "start": 1729769400000,
+              "end": 1792886400000,
+              "score_start": 1729814400000,
+              "score_end": 1792886400000,
+              "warmup": 50,
+              "count": 70130,
+              "score_count": 70080,
+              "data_sha256": "2827f105f2317415bea64fd91dfbfc6aa228029c421282433cf424a5b4fcbd55",
+              "duplicates": 0,
+              "gaps": 0,
+              "availability": "bar_close_plus_1ms",
+              "files": {
+                "candles.jsonl": "2827f105f2317415bea64fd91dfbfc6aa228029c421282433cf424a5b4fcbd55"
+              },
+              "sources": [
+                {
+                  "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/bb35311a-308e-4906-ad2b-1935080db85f/manifest.json",
+                  "sha256": "e815ac5e47b4ab94d429a45b0776f6611f9072f95f865c005faf1d176d6ef312",
+                  "source": "binance_public",
+                  "dataset": "binance_public:https://data-api.binance.vision:v1",
+                  "exported_at": "2026-10-25T20:13:33.917830+00:00"
+                },
+                {
+                  "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/af4a9ccf-8641-4ca3-81e8-0649ed30cf8d/manifest.json",
+                  "sha256": "886db9450d5e13eba6bdfb41a2d4f096f92dc564e3749b90b33890e8d085c270",
+                  "source": "binance_public",
+                  "dataset": "binance_public:https://data-api.binance.vision:v1",
+                  "exported_at": "2026-10-25T20:20:38.124801+00:00"
+                },
+                {
+                  "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/ea79ecae-b3c1-45b6-a5b9-8f0aba0be67b/manifest.json",
+                  "sha256": "ed04dc14a47889422f7e88c0484bc814d3d5106e762f0ab8de6539c972c1433f",
+                  "source": "binance_public",
+                  "dataset": "binance_public:https://data-api.binance.vision:v1",
+                  "exported_at": "2026-10-25T20:21:21.714228+00:00"
+                },
+                {
+                  "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/77e7a621-ec25-4cf3-9cdc-dd9b915eead3/manifest.json",
+                  "sha256": "7dc4c0242faff65c61e6f1925fe59426c20bf61f6ddeb4225a0d92c00db89568",
+                  "source": "binance_public",
+                  "dataset": "binance_public:https://data-api.binance.vision:v1",
+                  "exported_at": "2026-10-25T20:22:05.352977+00:00"
+                },
+                {
+                  "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/5bd0c117-86a2-40d0-aaa1-8999d54c6849/manifest.json",
+                  "sha256": "136631ca8411a8da45dde487f55d7420601924c886d30dac6a9249cf28cc6872",
+                  "source": "binance_public",
+                  "dataset": "binance_public:https://data-api.binance.vision:v1",
+                  "exported_at": "2026-10-25T20:22:49.307004+00:00"
+                },
+                {
+                  "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/8063135c-770f-48f8-8d31-a69a9ae4c9db/manifest.json",
+                  "sha256": "d29ee16bbc67e88e7f5d310ca17bf94439a1baa082f5d874e33aba952452d97e",
+                  "source": "binance_public",
+                  "dataset": "binance_public:https://data-api.binance.vision:v1",
+                  "exported_at": "2026-10-25T20:23:33.224007+00:00"
+                },
+                {
+                  "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/e478885b-9059-4ebc-ab13-ff166ca3134c/manifest.json",
+                  "sha256": "e9eeb9685a9d2eddc39b080944383d08796a95fbe7cc266f14bed4497cbd6a28",
+                  "source": "binance_public",
+                  "dataset": "binance_public:https://data-api.binance.vision:v1",
+                  "exported_at": "2026-10-25T20:24:17.273620+00:00"
+                },
+                {
+                  "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/7b90a379-0ecc-4d8c-8ff1-67fb62bfa801/manifest.json",
+                  "sha256": "09024215669ba2eb1daf38d783c8cf1797583b60148136c8a248186663846820",
+                  "source": "binance_public",
+                  "dataset": "binance_public:https://data-api.binance.vision:v1",
+                  "exported_at": "2026-10-25T20:25:02.824353+00:00"
+                },
+                {
+                  "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/f5aa74a5-cbc9-4938-9a16-8b353a5e2548/manifest.json",
+                  "sha256": "4ef106c6594bce82fed150106bd8f791fead75d847ed6e739c7ffe2cd353cb5c",
+                  "source": "binance_public",
+                  "dataset": "binance_public:https://data-api.binance.vision:v1",
+                  "exported_at": "2026-10-25T20:25:48.078924+00:00"
+                },
+                {
+                  "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-public/exports/a49008cd-7e80-48be-908e-907500bbd1b6/manifest.json",
+                  "sha256": "033dead690fca656d83a4d42827387aadf4fb562823d8bb312af586df6531d46",
+                  "source": "binance_public",
+                  "dataset": "binance_public:https://data-api.binance.vision:v1",
+                  "exported_at": "2026-10-25T20:26:23.391476+00:00"
+                }
+              ],
+              "filters": "synthetic proxy declared in frozen protocol; not historical exchangeInfo",
+              "terms": "Public data origin recorded; no claim of redistribution rights; synthetic fixtures marked"
+            }
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-freeze",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml"
+          ],
+          "segment": null,
+          "exit_code": 0,
+          "elapsed_seconds": 5.014694050001708,
+          "result": {
+            "run_id": "d78dc228-c033-4f4c-9c97-2b36b0aea420",
+            "timestamp": "2026-10-25T22:11:22.975162+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 0,
+            "protocol_hash": "8bc553e60fea776f3528564c2c93c1a1879fd4860436d55f61282415126e2e14",
+            "status": "BACKTEST_FROZEN"
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-run",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml",
+            "--segment",
+            "development",
+            "--variant",
+            "all"
+          ],
+          "segment": "development",
+          "exit_code": 0,
+          "elapsed_seconds": 2397.9674339170015,
+          "result": {
+            "run_id": "b33e4e79-4932-49ab-9056-b06aded97f1a",
+            "timestamp": "2026-10-25T22:11:27.992912+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 796,
+            "segment": "development",
+            "curves": 16,
+            "final_window_consumed": false,
+            "reproduction": false,
+            "status": "BACKTEST_COMPLETED",
+            "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/b33e4e79-4932-49ab-9056-b06aded97f1a/manifest.json",
+            "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/b33e4e79-4932-49ab-9056-b06aded97f1a/report.html",
+            "result_sha256": "5421dacad1e5ac50f758ae615c4362bac179d5968918866220f3811f1ef4ef4d"
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-run",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml",
+            "--segment",
+            "validation",
+            "--variant",
+            "all"
+          ],
+          "segment": "validation",
+          "exit_code": 0,
+          "elapsed_seconds": 2148.9889708450028,
+          "result": {
+            "run_id": "641bd976-2ca7-4335-83d2-a5934d35960a",
+            "timestamp": "2026-10-25T22:51:25.970973+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 532,
+            "segment": "validation",
+            "curves": 16,
+            "final_window_consumed": false,
+            "reproduction": false,
+            "status": "BACKTEST_COMPLETED",
+            "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/641bd976-2ca7-4335-83d2-a5934d35960a/manifest.json",
+            "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/641bd976-2ca7-4335-83d2-a5934d35960a/report.html",
+            "result_sha256": "6758fe6701b266a7d6c237cc7fb60c910085113e551c5887b8f9cf96f9d82b16"
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-run",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml",
+            "--segment",
+            "test",
+            "--variant",
+            "all"
+          ],
+          "segment": "test",
+          "exit_code": 0,
+          "elapsed_seconds": 2497.2807654850003,
+          "result": {
+            "run_id": "38ea2bb3-921b-4eda-babc-5824371fdaaa",
+            "timestamp": "2026-10-25T23:27:15.022335+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 883,
+            "segment": "test",
+            "curves": 16,
+            "final_window_consumed": true,
+            "reproduction": false,
+            "status": "BACKTEST_COMPLETED",
+            "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/38ea2bb3-921b-4eda-babc-5824371fdaaa/manifest.json",
+            "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/38ea2bb3-921b-4eda-babc-5824371fdaaa/report.html",
+            "result_sha256": "a12de079b7ebded9037c86b1f76b7b9a9edcb37ef68603a36cd7f79b50cc2f47"
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-reconcile",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml"
+          ],
+          "segment": null,
+          "exit_code": 0,
+          "elapsed_seconds": 970.0627429359993,
+          "result": {
+            "run_id": "ae830316-1920-4157-b708-34aa7f4e0db7",
+            "timestamp": "2026-10-26T00:08:52.312166+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 0,
+            "status": "BACKTEST_RECONCILED",
+            "curves": 48,
+            "reconciled": true
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-report",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml"
+          ],
+          "segment": null,
+          "exit_code": 0,
+          "elapsed_seconds": 1136.3004648399983,
+          "result": {
+            "run_id": "30cae329-9a9a-45b4-b47f-0a63dcabb033",
+            "timestamp": "2026-10-26T00:25:02.366856+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 0,
+            "status": "BACKTEST_REPORTED",
+            "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/30cae329-9a9a-45b4-b47f-0a63dcabb033/manifest.json",
+            "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/30cae329-9a9a-45b4-b47f-0a63dcabb033/report.html",
+            "result_sha256": "a12de079b7ebded9037c86b1f76b7b9a9edcb37ef68603a36cd7f79b50cc2f47"
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-run",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-public-k65d2lo0/config.toml",
+            "--segment",
+            "test",
+            "--variant",
+            "all"
+          ],
+          "segment": "test",
+          "exit_code": 0,
+          "elapsed_seconds": 2155.6293327219973,
+          "result": {
+            "run_id": "2423b43c-ead9-4937-8b93-f41e423a9cd1",
+            "timestamp": "2026-10-26T00:43:58.640885+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 0,
+            "segment": "test",
+            "curves": 16,
+            "final_window_consumed": true,
+            "reproduction": true,
+            "status": "BACKTEST_COMPLETED",
+            "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/2423b43c-ead9-4937-8b93-f41e423a9cd1/manifest.json",
+            "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/2423b43c-ead9-4937-8b93-f41e423a9cd1/report.html",
+            "result_sha256": "a12de079b7ebded9037c86b1f76b7b9a9edcb37ef68603a36cd7f79b50cc2f47"
+          }
+        }
+      ],
+      "elapsed_seconds": 11318.362715246003,
+      "peak_child_rss_kib": 111616
+    },
+    "fixture": {
+      "archive": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt",
+      "config": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml",
+      "checks": [
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-prepare",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml"
+          ],
+          "segment": null,
+          "exit_code": 0,
+          "elapsed_seconds": 0.3751146200011135,
+          "result": {
+            "run_id": "cd3fb24d-ff73-42fa-85da-45dcba831067",
+            "timestamp": "2026-10-25T22:09:45.452140+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 0,
+            "status": "BACKTEST_PREPARED",
+            "dataset": {
+              "schema": 1,
+              "dataset_id": "BTCUSDT-15m-historical-v1",
+              "source": "fixture",
+              "symbol": "BTCUSDT",
+              "interval": "15m",
+              "start": 1790767800000,
+              "end": 1791676800000,
+              "score_start": 1790812800000,
+              "score_end": 1791676800000,
+              "warmup": 50,
+              "count": 1010,
+              "score_count": 960,
+              "data_sha256": "d7cd31c86d678a02e1bb69bd33160b670ab5abd45456002919ca466c5c85e9dd",
+              "duplicates": 0,
+              "gaps": 0,
+              "availability": "bar_close_plus_1ms",
+              "files": {
+                "candles.jsonl": "d7cd31c86d678a02e1bb69bd33160b670ab5abd45456002919ca466c5c85e9dd"
+              },
+              "sources": [
+                {
+                  "path": "/home/cams7/Dev/Cripto/cripto-bot/config/fixtures/backtest-sma/manifest.json",
+                  "sha256": "94bbcc7f2899525367da51602bda1766378aa6448d7cf7bd42b0ffb46b0a1b8c",
+                  "source": "fixture",
+                  "dataset": "synthetic-sma-1010",
+                  "exported_at": null
+                }
+              ],
+              "filters": "synthetic proxy declared in frozen protocol; not historical exchangeInfo",
+              "terms": "Public data origin recorded; no claim of redistribution rights; synthetic fixtures marked"
+            }
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-freeze",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml"
+          ],
+          "segment": null,
+          "exit_code": 0,
+          "elapsed_seconds": 0.37468717099909554,
+          "result": {
+            "run_id": "7a8140fb-dd25-497f-9179-106fd2cbde2f",
+            "timestamp": "2026-10-25T22:09:45.828041+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 0,
+            "protocol_hash": "344187a90d0dbeb90e99b09fd212e4a5323cdfe166022288bf18cb3299239260",
+            "status": "BACKTEST_FROZEN"
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-run",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml",
+            "--segment",
+            "development",
+            "--variant",
+            "all"
+          ],
+          "segment": "development",
+          "exit_code": 0,
+          "elapsed_seconds": 33.50573254000119,
+          "result": {
+            "run_id": "6dbcc6bb-9ba5-41ed-863a-4ff7886aa323",
+            "timestamp": "2026-10-25T22:09:46.202157+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 56,
+            "segment": "development",
+            "curves": 16,
+            "final_window_consumed": false,
+            "reproduction": false,
+            "status": "BACKTEST_COMPLETED",
+            "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/6dbcc6bb-9ba5-41ed-863a-4ff7886aa323/manifest.json",
+            "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/6dbcc6bb-9ba5-41ed-863a-4ff7886aa323/report.html",
+            "result_sha256": "1d2f9f6342e4b7dcc832dec5566c0327247af6685c4af7163a558e573ccc1fa6"
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-run",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml",
+            "--segment",
+            "validation",
+            "--variant",
+            "all"
+          ],
+          "segment": "validation",
+          "exit_code": 0,
+          "elapsed_seconds": 29.281970826999896,
+          "result": {
+            "run_id": "f037696a-c1bf-4ba3-8656-9cc49decf7e1",
+            "timestamp": "2026-10-25T22:10:19.704011+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 24,
+            "segment": "validation",
+            "curves": 16,
+            "final_window_consumed": false,
+            "reproduction": false,
+            "status": "BACKTEST_COMPLETED",
+            "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/f037696a-c1bf-4ba3-8656-9cc49decf7e1/manifest.json",
+            "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/f037696a-c1bf-4ba3-8656-9cc49decf7e1/report.html",
+            "result_sha256": "803adf1304ae4cf92ec547d6814724cd610500087f7d941831db0f5e42c81b0a"
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-run",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml",
+            "--segment",
+            "test",
+            "--variant",
+            "all"
+          ],
+          "segment": "test",
+          "exit_code": 0,
+          "elapsed_seconds": 36.70114980300059,
+          "result": {
+            "run_id": "f7954d41-9095-4779-928e-4bcd71ffab06",
+            "timestamp": "2026-10-25T22:10:48.983882+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 24,
+            "segment": "test",
+            "curves": 16,
+            "final_window_consumed": true,
+            "reproduction": false,
+            "status": "BACKTEST_COMPLETED",
+            "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/f7954d41-9095-4779-928e-4bcd71ffab06/manifest.json",
+            "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/f7954d41-9095-4779-928e-4bcd71ffab06/report.html",
+            "result_sha256": "0aa39cd9f9206e1b9be016c10b8e1bf56152293ce97c5331140a1d2cf208b8bf"
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-reconcile",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml"
+          ],
+          "segment": null,
+          "exit_code": 0,
+          "elapsed_seconds": 14.385061389999464,
+          "result": {
+            "run_id": "ddb4db4c-7756-4ff8-a5e6-c84a0439eef5",
+            "timestamp": "2026-10-25T22:11:25.694301+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 0,
+            "status": "BACKTEST_RECONCILED",
+            "curves": 48,
+            "reconciled": true
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-report",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml"
+          ],
+          "segment": null,
+          "exit_code": 0,
+          "elapsed_seconds": 17.07848285,
+          "result": {
+            "run_id": "e71185ba-29a0-4627-9006-5e3bf4575676",
+            "timestamp": "2026-10-25T22:11:40.080314+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 0,
+            "status": "BACKTEST_REPORTED",
+            "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/e71185ba-29a0-4627-9006-5e3bf4575676/manifest.json",
+            "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/e71185ba-29a0-4627-9006-5e3bf4575676/report.html",
+            "result_sha256": "0aa39cd9f9206e1b9be016c10b8e1bf56152293ce97c5331140a1d2cf208b8bf"
+          }
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "cripto-bot",
+            "backtest-run",
+            "--config",
+            "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-fixture-6bo2oabt/config.toml",
+            "--segment",
+            "test",
+            "--variant",
+            "all"
+          ],
+          "segment": "test",
+          "exit_code": 0,
+          "elapsed_seconds": 33.29402396399746,
+          "result": {
+            "run_id": "d0cdad08-0fd8-4d78-a1a2-39b7360a110f",
+            "timestamp": "2026-10-25T22:11:57.231588+00:00",
+            "mode": "PAPER",
+            "orders_sent": 0,
+            "simulated_fills": 0,
+            "segment": "test",
+            "curves": 16,
+            "final_window_consumed": true,
+            "reproduction": true,
+            "status": "BACKTEST_COMPLETED",
+            "manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/d0cdad08-0fd8-4d78-a1a2-39b7360a110f/manifest.json",
+            "html_report": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/exports/d0cdad08-0fd8-4d78-a1a2-39b7360a110f/report.html",
+            "result_sha256": "0aa39cd9f9206e1b9be016c10b8e1bf56152293ce97c5331140a1d2cf208b8bf"
+          }
+        }
+      ],
+      "elapsed_seconds": 165.00230535899755,
+      "peak_child_rss_kib": 79052
+    }
+  },
+  "csv_verification": {
+    "public": {
+      "equity.csv": {
+        "rows": 2244867,
+        "sha256": "7017ea652193f9b6bb2722405911d0575009f1363b2068c5d8ce1ed8e67b2520"
+      },
+      "trades.csv": {
+        "rows": 2211,
+        "sha256": "fd4b2fa50377cee3055c88247f607c42f329f7f56886a3253009f48e5efcd563"
+      },
+      "decisions.csv": {
+        "rows": 1121268,
+        "sha256": "106e68047518bf2945c09bf9e5b13a7d305981487626aebaf452b6a5b19bf395"
+      }
+    },
+    "fixture": {
+      "equity.csv": {
+        "rows": 30920,
+        "sha256": "148985540ce081f3df0977de724b117c5f22a3e9d64039778bdcb374c9f6e620"
+      },
+      "trades.csv": {
+        "rows": 104,
+        "sha256": "fafba1462a1b4904dbc77590dc106b87ce083f5a9846aaa22b58ac2a94d5ef83"
+      },
+      "decisions.csv": {
+        "rows": 15348,
+        "sha256": "9d436e81cd1e51e7fb532aace2a47ac5bfce20831477c902d0d12c94b7905a71"
+      }
+    }
+  },
+  "storage": {
+    "public": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/backtest.sqlite3",
+      "bytes": 4590788608,
+      "user_version": 1,
+      "journal_mode": "wal",
+      "foreign_keys": 1,
+      "quick_check": "ok",
+      "foreign_key_violations": 0,
+      "counts": {
+        "attributions": 2211,
+        "decisions": 1121268,
+        "equity": 2244867,
+        "fills": 2211,
+        "intents": 4383,
+        "journal": 2244867,
+        "outcomes": 4383,
+        "postings": 17784,
+        "protocol": 1,
+        "runs": 48
+      }
+    },
+    "fixture": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-sma-audit-v1/backtest.sqlite3",
+      "bytes": 65855488,
+      "user_version": 1,
+      "journal_mode": "wal",
+      "foreign_keys": 1,
+      "quick_check": "ok",
+      "foreign_key_violations": 0,
+      "counts": {
+        "attributions": 104,
+        "decisions": 15348,
+        "equity": 30920,
+        "fills": 104,
+        "intents": 104,
+        "journal": 30920,
+        "outcomes": 104,
+        "postings": 928,
+        "protocol": 1,
+        "runs": 48
+      }
+    }
+  },
+  "source_sha256": {
+    "pyproject.toml": "2d0ed77262a2c2173120bef51851beef12c4115844ea2fe785aa255fd5c09778",
+    "uv.lock": "44dad0af709c00de1f24061077b938eb47fa1a55dc39d43991c3bab66b80bd23",
+    ".python-version": "861b3dd8083d28f336ef70f6755bc399538ddad627b1d095820ca34cb953cf14",
+    "README.md": "18248f12e7800785ca9e81b854bef3eab0bdf4aff774c5b5c2f056678bfb6181",
+    ".gitignore": "72fc232ea794cd115b84fb5e0a6e053e6f13ef5ee7d61528b27460c18d8efc7d",
+    "modules/trading/src/cripto_bot/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/adapters/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/adapters/backtest_config.py": "bff72e63341ef88e7b80afbd45f2339d0224d6d93ae1be6429db2533415455a2",
+    "modules/trading/src/cripto_bot/adapters/backtest_dataset.py": "27bf13f978ae6432014e323eb1d5608222955c536ef0357e3d50185958b9ed65",
+    "modules/trading/src/cripto_bot/adapters/binance/__init__.py": "b5366ac9c27365f9a5091a5bfa99fccf0bfe00d6c025660633cac40557591fe8",
+    "modules/trading/src/cripto_bot/adapters/binance/fixture.py": "dc0df195320f8da6350e364359d600990128df3a7a15c0e41340681c5a306667",
+    "modules/trading/src/cripto_bot/adapters/binance/public.py": "dc56ca3e9df5945e7e4cc9688e5f9274161979558523ec29dd0604ad22781dfa",
+    "modules/trading/src/cripto_bot/adapters/config.py": "fc7f5b1701d9d0db783d4db8a8cd236f209fbd34e9811d73209277c9117e40ec",
+    "modules/trading/src/cripto_bot/adapters/execution/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "modules/trading/src/cripto_bot/adapters/execution/paper.py": "d905e866903f376dc26ed9280769f74bfc62aeb7fdedf871f64da68f11fb3951",
+    "modules/trading/src/cripto_bot/adapters/paper_scenario.py": "0b398aeb2f50f8d4acf3f5f95abd95463316fcae710da9f4ce5617de0c3e3eea",
+    "modules/trading/src/cripto_bot/adapters/storage/__init__.py": "b5366ac9c27365f9a5091a5bfa99fccf0bfe00d6c025660633cac40557591fe8",
+    "modules/trading/src/cripto_bot/adapters/storage/backtest_report.py": "649b8ee20497cb92d20d2603d3ed1cb8d2dce55e8b2b38abd9e8f626f19da4c1",
+    "modules/trading/src/cripto_bot/adapters/storage/backtest_sqlite.py": "e57f464659af0f56d0e61c337ca0892806cadef9bc963d26f7952bc98140e7a4",
+    "modules/trading/src/cripto_bot/adapters/storage/market_export.py": "12a62ccc8450d35598e943f5657aff54a24bc20d0120211b2fee07100a802afb",
+    "modules/trading/src/cripto_bot/adapters/storage/market_sqlite.py": "6ec43ee9658e1cfe91234ced17061deae9f8668e00322c4b1126b7dd325651dc",
+    "modules/trading/src/cripto_bot/adapters/storage/paper_report.py": "73d52804cf8e6fc3ca4380e8c880d981149fd02113f030360c5c195878eae053",
+    "modules/trading/src/cripto_bot/adapters/storage/paper_sqlite.py": "25154d175f5cb67032a13a12608fac1f5da33eda1b786a8707142cd4e5ef02d6",
+    "modules/trading/src/cripto_bot/adapters/storage/strategy_report.py": "8c8ba6f11d1f8da6bca54d2246cb6c748ec6231a2332a353c30c67f992ca9a63",
+    "modules/trading/src/cripto_bot/adapters/storage/strategy_sqlite.py": "d0791ef1e10b1c67b7bf34264bfd1f02fc7ffd7e611b54851e8fc9af79c87a18",
+    "modules/trading/src/cripto_bot/adapters/strategy_config.py": "ce31c397d1e5848606d44d6c831643432d350af93bd1ba400f10a7fb86588473",
+    "modules/trading/src/cripto_bot/adapters/strategy_fixture.py": "10d3ea6f51c616353e5c2a714a1642eb8f9eabfda9388df23f555bf1b64d2324",
+    "modules/trading/src/cripto_bot/application/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/application/backtest_run.py": "c458b770b9c06c688e67c0c9ae33d19ad5bb37f9180d90c5937139259bd3a5a6",
+    "modules/trading/src/cripto_bot/application/collect_market.py": "cc07cd220186b5f9f2db3e291c7bac3bb3230ad38d40d56ebb7a5db153663e0a",
+    "modules/trading/src/cripto_bot/application/paper_reconcile.py": "5dd4692317ae7c7f1c3f776072e98f966fae695f75913d550b14f24fc6641155",
+    "modules/trading/src/cripto_bot/application/paper_run.py": "e602191e2a0717a589e0fa1de402dec54ad3791c0eef99bc0f86a45416e6c525",
+    "modules/trading/src/cripto_bot/application/ports.py": "b3a2de31d1a06e8d3409e97c80f04a8e951dee0e4a836e078c39a32318627c81",
+    "modules/trading/src/cripto_bot/application/run_once.py": "1bf8d8f55c5e4090a31306668161d1d12a505332b5f8bfa6b5a14bd1377028fa",
+    "modules/trading/src/cripto_bot/application/strategy_reconcile.py": "baad5ea4c11bdb1a8a7ca3d8aa4d6d90272fa40b7dc590dadf7d97d59f30f942",
+    "modules/trading/src/cripto_bot/application/strategy_run.py": "55e5d55a50d78ec412d60628721ef58ca50b9f4c454870f04b938c658cbe3620",
+    "modules/trading/src/cripto_bot/domain/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/domain/backtest/__init__.py": "6ed4fe2569513d4e19a1b7fd1b57ee76213ebc4eec8df6068b0709b7fb62d4da",
+    "modules/trading/src/cripto_bot/domain/backtest/engine.py": "1a27a42aa71fa1e4b57ee4c5c7b75d6a4a4a11c087b4cfa0d59aaa69c0bc9f65",
+    "modules/trading/src/cripto_bot/domain/backtest/metrics.py": "e5c52b7aaa2ff8bef8c4c542f379cb910f49f3ecb1a4727b94e65b45d746438e",
+    "modules/trading/src/cripto_bot/domain/backtest/models.py": "ec45ea0e9ffea5535a8c9a6b84a1c18c81c5d5ca35afc12d6394e2079a68e244",
+    "modules/trading/src/cripto_bot/domain/market.py": "cec39de702989fb1a753f095d53af86b2a3312d08b37a54bf4c0f5260ef07bc4",
+    "modules/trading/src/cripto_bot/domain/models.py": "9851f4558e024a544c0c5f1bee5db96156281b93570401ff2f5c86b96d9ab234",
+    "modules/trading/src/cripto_bot/domain/modules/__init__.py": "3534394d01e224fe8d4083dc8056f8b023e9845ac89e189ec08f809ea72612ae",
+    "modules/trading/src/cripto_bot/domain/modules/models.py": "e1bb92f9684c790f6da2a97f3b7da7978aae4faba6430b75522b87ad5a6970cb",
+    "modules/trading/src/cripto_bot/domain/portfolio/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "modules/trading/src/cripto_bot/domain/portfolio/engine.py": "ef9279b41bd9801e867b62882de4e16ca570ef6169f0c833298d575a34b55d04",
+    "modules/trading/src/cripto_bot/domain/portfolio/models.py": "00a7f044596bbf03454ffc0333d6e13c334b468e1405766c6b8cb21c93cee0d5",
+    "modules/trading/src/cripto_bot/domain/risk/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "modules/trading/src/cripto_bot/domain/risk/execution.py": "a2c6c1d666c098cabc4f88783c788484f66a3d737abafe691a50891ae934ca71",
+    "modules/trading/src/cripto_bot/domain/risk/limits.py": "a082b62be0b08634a301572d1ca32177271635bbd14b922b417851384a614cef",
+    "modules/trading/src/cripto_bot/domain/strategy/__init__.py": "50f6e221de2f541c7dad8f2a524a098343a8ff1a4d0b4092bb56c242c65832dd",
+    "modules/trading/src/cripto_bot/domain/strategy/engine.py": "5eea97cb79e05c26c16e4aa42981f221d3c84c4c42131f62d6aa2908ccbcaa06",
+    "modules/trading/src/cripto_bot/domain/strategy/sma.py": "d1f5448aebcebb87d48e3f6ca805cdf88dd18f27b834e02e387cec9f57310155",
+    "modules/trading/src/cripto_bot/entrypoints/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/entrypoints/backtest.py": "e266bf6689752c97cea2fef65b296f6aba8b7f62adc6a65c38ea8e65cc98922d",
+    "modules/trading/src/cripto_bot/entrypoints/cli.py": "e4f59ebb7b60af45e84913560d3997fe5ec8168cade67294f03e638f418d428a",
+    "modules/trading/src/cripto_bot/entrypoints/market.py": "1fdcc40f44c235c910f5348ed17d428f3c4ee19ab391c40a9bf72b0db3426bb6",
+    "modules/trading/src/cripto_bot/entrypoints/paper.py": "41a8cd2d3ac0b4ec383461a5f22a4747f4885422fda728f92a4a339dbaa4bb71",
+    "modules/trading/src/cripto_bot/entrypoints/strategy.py": "9a5fb300d19888fbed8a2e4f0402bfa1d1a5c707b2866aed4e8a564ee422d5ee",
+    "modules/trading/src/cripto_bot/observability/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "modules/trading/src/cripto_bot/observability/logging.py": "8924b981bab5af5ffaa07600043fdf85ac66f2278db9359b63d1c283ae228a7a",
+    "tests/__init__.py": "0f14037db8fe8b365fdfee0a713e22e3bf8713f93ed479e237c38bea2e642be2",
+    "tests/conftest.py": "f0390ef95a05276ce1f8c5758ae373903d391f5f44fa6eb2e694c5bacf230528",
+    "tests/factories.py": "d00cb989f7a13980b7e33336a75500cac61dcd198f012167d2682930fb52cf2c",
+    "tests/integration/test_backtest_commands.py": "c553cf4005b92567290f5f05337bb38fe85aba0184fed3a29c93e6ad6985b0a6",
+    "tests/integration/test_backtest_publication.py": "5bcb8eb1f8b0e207f64d9e90f3ae515434b6131b17f4464b4602f7c45907bf94",
+    "tests/integration/test_backtest_recovery.py": "dc7495df6410a693626ee4fefdcb618d9ab298501492feb75eca9c027238d68a",
+    "tests/integration/test_backtest_scale.py": "0132d0456733c27395643ae6fa9489a0e81a606faacf49b760d3f505bdd60918",
+    "tests/integration/test_cli.py": "3f244efd91b0a3b6ecde9b00c7d03e19721a254cff82c0751061fff99e9ea055",
+    "tests/integration/test_collect_cli.py": "941ac5bf6fc6c8ef7fa181fa9f5a26dbc2d56e6d86dceef810f01dd466fc4ecc",
+    "tests/integration/test_market_storage.py": "464c4005bf60bc2572439291f885fcfc4755d5d920d0bb81cc07e30280b07ad7",
+    "tests/integration/test_paper_cli.py": "948fdee0cc8a81543960aa749370a3ce18b52f3926be1a86d74d8958fe511c3c",
+    "tests/integration/test_paper_storage.py": "df0c6fcb8cbd300f33bb4a8b3db4ef43594958a36ca53ad178325dd7b6829ead",
+    "tests/integration/test_strategy_cli.py": "1d54e90f20d67fea49b07849b1e8907337102fb55c6f1b332ba6470719bb5912",
+    "tests/integration/test_strategy_storage.py": "aa18977c9ee0ddd2052ae1df9ce50691b727809cce87019433d73d70664dd03a",
+    "tests/offline_runner.py": "1325daaade9ea96d5be57522eb20f57303e66f99a4d3482340b2b8407b3ea8d8",
+    "tests/paper_factories.py": "e06eb066b65631ee255e9cfc75f69aee489bc4f24b1a30e2b20a0fcda5fce5cb",
+    "tests/strategy_factories.py": "2b890b79711848f25f9e367b640b7c1856fbff547d1addcbd38d5093739e3b3f",
+    "tests/unit/test_backtest.py": "4d3b434dbdeaea2d7b91b73686b7c5d4a4712ea3340818a6bbf1a07e37d81a97",
+    "tests/unit/test_backtest_additional.py": "d2e796a30d7b681259151f2e2113c93da16a0fbf4342ae48e210b741713ceed3",
+    "tests/unit/test_binance_public.py": "b708842876fe6d3603b7c2ab447b9cc6179416dae9c2ad1a94feac5d653c3916",
+    "tests/unit/test_cli.py": "c47269020eee5adbab950582e611d918060d2b029aac6cf43c8d0a6597099c9a",
+    "tests/unit/test_collect_market.py": "82f966c20c53fd92fe2cbadafc8fbf21b16de28f2008b95b0b6879b289b62612",
+    "tests/unit/test_collection_entrypoint.py": "801d2a6a27b63f1ca20c2836779f8fe2dd297b0c16e3a831efc7d37d659e662c",
+    "tests/unit/test_config.py": "5b0913b41f59617dd9c79cbda7334a885c76797e5a97b29c3fcca16aaf1bfdeb",
+    "tests/unit/test_coordinator.py": "88332c7485d898a2ded74fabc0df413f7c96aa3b43bf8ac069665238e5afc31e",
+    "tests/unit/test_decimal.py": "1b30af17b6c2c0dc5afa470af28fe5dcd616d85dc13472671f3cfe1a3d0ce3fd",
+    "tests/unit/test_logging.py": "2d5ec43b73270ff3e19a28a95ad06df4130e3631517fa7612e76914ad00700ef",
+    "tests/unit/test_market.py": "d641467b4e64a03a141bef2e2ea7308f3e53193173d199db1dd31714dfee091b",
+    "tests/unit/test_market_config.py": "b17407c6bc50b6352471aec089800ae3a29b59cb5ffac1f0897851a5164595b8",
+    "tests/unit/test_module_config.py": "ca33cf60888282f733bcf2ae1c5b6bbf6998e54b3f2326de04d0f2709e9b1fab",
+    "tests/unit/test_paper_config.py": "698a3a760c1d60e0fd5a03c3c63bee75a91f75ffdfda5867adfc3012bb85dc31",
+    "tests/unit/test_paper_execution.py": "600656bdd8e933006122a57bc36e5d5520e25741a1bafca4271e273814d66024",
+    "tests/unit/test_paper_failures.py": "ce65bd7a7d079b592c3733ab135b18f7e2762c0efcb74146958e2b4609aa438b",
+    "tests/unit/test_paper_scenario.py": "a82ee43ede95681f274c8be6e10962bbbdcec16ec5e05eb3e3d1d4301a2c338c",
+    "tests/unit/test_portfolio.py": "2cdc99a364b25c0d0654966d43923cb84c0cb2d0931841fcfe5c2ffe504bdb83",
+    "tests/unit/test_risk.py": "536cbd950534ca11f51ba88cc6e4abbc18a71b7dc037aceb974606616f2fe74a",
+    "tests/unit/test_run_once.py": "87c2ea6766c9977915a46d986b67131e5ebd2e7d39aec8666c38ac28dc041b98",
+    "tests/unit/test_strategy_sma.py": "e2244683add487ae20358b97171b37eb83f83c6b0cd9cd6c582444a6496f1726",
+    "tests/wheel_smoke.py": "6dbd30bb4bb83a1b37ec90f04cf2ca7ff11b87b73fd830443ee8392b2b7ffaf5",
+    "config/backtest.sma.example.toml": "2d81fdcb005ef237a9146e5ebfb852d0d47d8f775c63b7da979efa567e5259dc",
+    "config/backtest.sma.fixture.toml": "6cfb774987ea1ceb6d7f572e1ea5bc30ffff1094fab0ab6791994440278ccc2e",
+    "config/backtest.sma.public.local.toml": "5f6561564d025b27e753cf42d5b9c9468fb7c188a47346b502eab712e6c04ec9",
+    "config/market.backtest.example.toml": "834e3d08b736435ca4c6ecc99acdf1c45f670a039b5d3cef21a8db06d85c99df",
+    "config/market.fixture.example.toml": "14f3e3abd6a2efdcff1f8d6e9e39a7d2d78943ed6181c7a7ff2e18e1e03ec4cc",
+    "config/market.public.example.toml": "4182292c05b584400b54affd008fca5844ebc3ec07ff8dbcd8bcfa5732d3d892",
+    "config/paper.example.toml": "9e6830201869f7681d9d7332a34068c1aae55386dc3644a901cfc023ba56ae47",
+    "config/paper.execution.example.toml": "b09e2f16b6b5dcbf74aff0fd29d471940777084efac0e01b0ba3ad5c4cd65ae0",
+    "config/strategy.sma.example.toml": "d08ac6ac100017a5cb22392b37b4ebbf858338918926ba86f9f971e6760755a5",
+    "config/strategy.sma.fixture.toml": "b09d71da0795782d96bcb407cc20e8f66a9f42169afb21a4c84782cdd5b0645e",
+    "config/fixtures/backtest-sma/candles.jsonl.gz": "8ced43e21d5aabb4bb7a7e15f0ffae27e19048d0e068e1388ae910bffad84a7b",
+    "config/fixtures/backtest-sma/manifest.json": "94bbcc7f2899525367da51602bda1766378aa6448d7cf7bd42b0ffb46b0a1b8c",
+    "config/fixtures/backtest-sma/provenance.json": "19ff24da1cd54a2450cc84e106293c3d83b941f3ca9c737186f438a2f59a18a6",
+    "config/fixtures/backtest-sma/raw.jsonl.gz": "b048713d3f4241c68f86fc92bf32595f4f5994ce5c94f4dd9abe5a23e0d649a5",
+    "config/fixtures/backtest-sma/snapshots.json": "19ff24da1cd54a2450cc84e106293c3d83b941f3ca9c737186f438a2f59a18a6"
+  },
+  "checks": {
+    "pytest-audit.log": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh/pytest-audit.log",
+      "sha256": "f31835aa6564b8488bb522eae69271d26516d33d2a012dada1021d29255239e9"
+    },
+    "pytest-audit.xml": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh/pytest-audit.xml",
+      "sha256": "ac1a56e43742d0210d4a13c80947911504ee6e9b1f8996b5bbff0d3f7d5adae6"
+    },
+    "wheel-audit.json": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh/wheel-audit.json",
+      "sha256": "28351d6e0e5d8922b1ddd25cedea25520ec7217ba57e7c73f426febbf9e05299"
+    },
+    "build-audit.log": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh/build-audit.log",
+      "sha256": "08f265e87007c51b17a275c739d0d962da9a3c68c67bfe78ebd988e3b68ff8e5"
+    },
+    "ruff-check.log": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh/ruff-check.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "ruff-format.log": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh/ruff-format.log",
+      "sha256": "c0e5e25bab31b3d55ca20587ad32a798a72f9d0cca80c542239bf4d1472695fc"
+    },
+    "mypy-delivery.log": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh/mypy-delivery.log",
+      "sha256": "caf4cb276b1b834b69b4a51aa776668a80ee64e1a2fd04bb890970c67d4fd7e7"
+    },
+    "versions-delivery.json": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh/versions-delivery.json",
+      "sha256": "92982236cdd9cef7849b7d20f20e858f4aff2ec498884379a6c8cb8b62b25b85"
+    },
+    "scale-result.json": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh/scale-result.json",
+      "sha256": "6734ae2d2a175312493563565ef8d1535234b9c694414f32ac88db28805f1ef6"
+    },
+    "schema-introspection.json": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh/schema-introspection.json",
+      "sha256": "30c41fbdbf5f4e91d8207b8e8d9a0168bb22bc5db6e6562ef57a569fc7f8c322"
+    },
+    "csv-verification.json": {
+      "path": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh/csv-verification.json",
+      "sha256": "29599d1a2032bc4c436c12e0f7548864d46fb127a72b87930cc4acaeface8cc7"
+    }
+  },
+  "archive": "/home/cams7/Dev/Cripto/cripto-bot/reports/sprint05-delivery-xbna6gyh",
+  "costs": {
+    "aws": "0",
+    "real_capital_or_fees": "0",
+    "local_cpu_disk_and_public_collection": true
+  },
+  "limits": [
+    "Proxy filters and integral OHLC-open fills; no historical liquidity guarantee.",
+    "No proof of absence of human foreknowledge.",
+    "No parameter optimization or final-sample reopening.",
+    "Coverage below100%; resource/time measurements are local, not SLA.",
+    "Earlier development experiments are preserved; only the stated final protocol is accepted."
+  ],
+  "actions_not_performed": [
+    "commit",
+    "staging",
+    "remote publication",
+    "deploy",
+    "private orders",
+    "notifications",
+    "Sprint06 implementation"
+  ],
+  "documentation_sha256": {
+    "planejamento.md": "74d95fee7de2c691a093678c7778512e14cfded8a499d2d0e16b5052176abfee",
+    "arquitetura-modular.md": "7b5cd125c396b6d0d496f612f981364f4077ca08c0b194df55c091cedfe86b03",
+    "bancos/README.md": "d470354790f4982d1791c677755f68da41138c897a7504994d8173bc07c9d306",
+    "bancos/backtest-sqlite.md": "6cb92df31d3314f0906f687f56cf212ee32c2f83108ff6503039c43dc8852f84",
+    "estrategias/README.md": "63e65cb4d296d37da739e0c198490eeeaed7963505aa14e5bbc81ee2adffe727",
+    "estrategias/trend_sma.md": "04edfd5e8a0ecfb976cd0d3bdba91506b53c465bb2342498279f9e13125e4c88",
+    "decisoes/0006-backtest-historico-e-protocolo.md": "d846af1a40e2690bf4ec6c57c8f3f478128c15132a07b481c4f012c7d34570bf",
+    "sprints/sprint-05.md": "9fe8d840546a205aa5916a59049d379cac190a288b133e6df0f36b6e1e393c7f",
+    "testes/sprint-05-validacao.md": "1c68fb2d1195bd294d51ff3de7b6fd41292daa3aa13e0e90b363262bde010e65",
+    "testes/estrategias-modulares-validacao.md": "da556afcb1e115a83034545de8c2135bcd89ca377d946521017de798c96758a4",
+    "testes/ferramentas/sprint-05-relatorio-pdf.py": "2aaca062729e5553d8f555b669579810b0c71bb24ecb6cacbe5ba56211ab6455",
+    "testes/relatorios/sprint-05/README.md": "e2ddf0c8ea6940964461ff1190ac240adf5ead141ccfe1d80dab1367e8183a21"
+  },
+  "qa": {
+    "fixture_pdf_sha256": "317f753f2a7991ac596a548bd1870249d7541139103becbf852ad561e67b779d",
+    "pages": [
+      {
+        "page": 1,
+        "width": "595.275600",
+        "height": "841.889800",
+        "header_yMin": "30.921875",
+        "header_xMin": "42.000000",
+        "words": 212
+      },
+      {
+        "page": 2,
+        "width": "595.275600",
+        "height": "841.889800",
+        "header_yMin": "30.921875",
+        "header_xMin": "42.000000",
+        "words": 93
+      },
+      {
+        "page": 3,
+        "width": "595.275600",
+        "height": "841.889800",
+        "header_yMin": "30.921875",
+        "header_xMin": "42.000000",
+        "words": 306
+      },
+      {
+        "page": 4,
+        "width": "595.275600",
+        "height": "841.889800",
+        "header_yMin": "30.921875",
+        "header_xMin": "42.000000",
+        "words": 309
+      }
+    ],
+    "visual_review": "All four pages reviewed; no overlap, clipping or missing glyphs; headers and footers checked",
+    "html_review": "Tables, costs, windows, per-curve risk, reasons, PnL and graphs reviewed with isolated headless Chrome",
+    "pdf_generator": "ReportLab via system Python; bot runtime dependencies unchanged",
+    "public_pdf_sha256": "9fd758f8198b7e2ae76b33ae4728f9192353ef009ec071de3fa819b9c6121be3",
+    "public_pdf_result_sha256": "a12de079b7ebded9037c86b1f76b7b9a9edcb37ef68603a36cd7f79b50cc2f47",
+    "public_pages": [
+      {
+        "page": 1,
+        "width": "595.275600",
+        "height": "841.889800",
+        "header_yMin": "30.921875",
+        "header_xMin": "42.000000",
+        "words": 205
+      },
+      {
+        "page": 2,
+        "width": "595.275600",
+        "height": "841.889800",
+        "header_yMin": "30.921875",
+        "header_xMin": "42.000000",
+        "words": 93
+      },
+      {
+        "page": 3,
+        "width": "595.275600",
+        "height": "841.889800",
+        "header_yMin": "30.921875",
+        "header_xMin": "42.000000",
+        "words": 306
+      },
+      {
+        "page": 4,
+        "width": "595.275600",
+        "height": "841.889800",
+        "header_yMin": "30.921875",
+        "header_xMin": "42.000000",
+        "words": 309
+      }
+    ],
+    "public_visual_review": "All four pages reviewed; no overlap, clipping or missing glyphs; charts, tables, headers, footers and page numbers checked",
+    "public_html_review": "Original local HTML rendered in isolated Chrome without network; windows/costs/full 48-row summary and representative curve/risk cards reviewed; values cross-checked against original report JSON",
+    "public_html_result_sha256": "a12de079b7ebded9037c86b1f76b7b9a9edcb37ef68603a36cd7f79b50cc2f47"
+  },
+  "final_documentation_checked_at": "2026-10-26T01:22:58.179563+00:00",
+  "final_checks": {
+    "local_links_checked": 181,
+    "missing_links": 0,
+    "git_diff_check_application": "passed",
+    "git_diff_check_documentation": "passed",
+    "sprint01_04_guides_and_evidence": "byte-identical to HEAD",
+    "document_hashes_verified": 12,
+    "public_commands_completed": 8,
+    "replay_new_fills": 0,
+    "replay_result_sha256_matches": true
+  }
+}

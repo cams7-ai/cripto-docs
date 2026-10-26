@@ -1,6 +1,6 @@
 # trend_sma — Tendência por cruzamento de médias simples
 
-Sprint de origem: 04. Revisão: 25/10/2026. Implementação Python versão `1`, schema de parâmetros/estado `1`, modelo financeiro modular `paper-modular-v1`. Estado de aceite e resultados efetivos: [guia 04](../testes/sprint-04-validacao.md). **Desabilitada por padrão; suporte somente local/PAPER/fixture/BTCUSDT/15m.** Backtest, operação contínua e execução privada permanecem inelegíveis até seus gates.
+Sprint de origem: 04. Revisão: 25/10/2026. Implementação Python versão `1`, schema de parâmetros/estado `1`, modelos `paper-modular-v1` (fixture) e `paper-backtest-v1` (histórico). Estado de aceite e resultados: [guia 04](../testes/sprint-04-validacao.md) e [guia 05](../testes/sprint-05-validacao.md). **Desabilitada por padrão; escopos local/PAPER/BTCUSDT/15m em fixture ou backtest, cada um com sua configuração e gate.** Operação contínua e execução privada permanecem inelegíveis.
 
 ## 1. Objetivo, papel e conceitos
 
@@ -32,7 +32,7 @@ Candles fechados, contíguos, ordenados e com OHLC/volume válidos. `15m` signif
 
 Médias usam Decimal em contexto local de precisão 80, sem arredondamento de apresentação antes da comparação. Representações das médias podem ter mais de oito casas; valores contábeis mantêm o quantum BTC/USDT `0.00000001`. Preço e quantidade obedecem tick/step das regras sintéticas. Nenhum float participa da aritmética financeira.
 
-O sinal expira em `as_of + max_quote_age_ms` neste ensaio; observação e fill precisam ser posteriores à decisão e respeitar essa validade e a idade da cotação. Falta de observação válida registra NOT_EXECUTED, sem preço inventado. Custo/execução e preço de fechamento têm papéis distintos.
+Na fixture da 04, o sinal expira em `as_of + max_quote_age_ms`; observação e fill precisam ser posteriores à decisão e respeitar essa validade e a idade da cotação. Falta de observação válida registra NOT_EXECUTED, sem preço inventado. Custo/execução e preço de fechamento têm papéis distintos.
 
 O relógio é de replay. DAY_START explícito inicializa cada dia UTC antes das decisões daquele dia, inclusive quando o candle abriu no dia anterior e fecha à meia-noite. Marcas posteriores não alteram baselines passados. Adicionar dados futuros preserva identidade, médias e motivos do prefixo já processado; modificar candle, cotação de execução ou baseline confirmado é conflito.
 
@@ -43,11 +43,11 @@ O relógio é de replay. DAY_START explícito inicializa cada dia UTC antes das 
 | `fast_window` | 20 | Inteiro estrito ≥1 e menor que slow; bool rejeitado |
 | `slow_window` | 50 | Inteiro estrito ≤500; warm-up derivado slow+1 |
 | `interval` | 15m | Único intervalo suportado |
-| `capital_weight` | `"0.10"` | Fração positiva até 1; teto adicional de capital, sem aporte |
+| `capital_weight` | `"0.10"` | Fixture: fração positiva até 1; histórico: até 0.10; teto adicional, sem aporte |
 | `execution` | immediate | Único caminho disponível; fill integral PAPER |
 | `on_disable` | hold_and_monitor | Não liquida posição nem abandona pendências |
 | `enabled` | false | Opt-in explícito; ausência/lista vazia não ativa |
-| Escopos | Listas explícitas | local/PAPER/fixture/BTCUSDT; wildcard e capacidades futuras habilitadas rejeitados |
+| Escopos | Listas explícitas | local/PAPER/BTCUSDT, selecionando fixture ou backtest no fluxo próprio; wildcard/contínuo/privado rejeitados |
 
 Arquivos completos: [default desabilitado](../../cripto-bot/config/strategy.sma.example.toml) e [opt-in sintético](../../cripto-bot/config/strategy.sma.fixture.toml). `depends_on` permite declarar IDs de instância para validação de dependência; a SMA isolada não possui dependências modulares. Dependência ausente/desabilitada/cíclica falha antes de efeitos. O registro é estático; listar um módulo ausente com flag false não importa bibliotecas nem implementa seu runtime.
 
@@ -59,7 +59,7 @@ Limites opcionais mais restritivos: `[modules.trend_btc.limits]` e `[coordinatio
 
 O envelope adiciona carteira/instância/versão/geração/época, par/intervalo, candle, as_of/valid_until, dataset lógico/hash do prefixo, hash da observação de execução e limites efetivos. Identidade do ciclo deriva desse contexto, sem run_id ou hash de dados futuros. Gerar relatório não gera uma nova decisão.
 
-Um único journal do [SQLite financeiro v2](../bancos/paper-sqlite.md) reconstrói carteira, gerações, ciclos e atribuições. HOLD confirma estado/cursor sem postings. A transação A une ciclo/decisão/reserva/atribuição; B confirma fill/custos/posição/estado. Morte entre A/B deixa plano RESERVED recuperável; retomada usa o plano persistido antes de avaliar novos candles. Lock/CAS impedem dois escritores cooperantes. Projeções e atribuições são confrontadas com a reconstrução, sem correção automática.
+No fluxo fixture da 04, um único journal do [SQLite financeiro v2](../bancos/paper-sqlite.md) reconstrói carteira, gerações, ciclos e atribuições. HOLD confirma estado/cursor sem postings. A transação A une ciclo/decisão/reserva/atribuição; B confirma fill/custos/posição/estado. Morte entre A/B deixa plano RESERVED recuperável; retomada usa o plano persistido antes de avaliar novos candles. Lock/CAS impedem dois escritores cooperantes. Projeções e atribuições são confrontadas com a reconstrução, sem correção automática.
 
 ## 6. Coordenação, capital e risco
 
@@ -70,6 +70,8 @@ Antes de BUY, orçamento é limitado por caixa, peso e limites globais/instânci
 Limites didáticos globais: entrada/exposição 10%, uma posição/pendência; perda diária 1% e drawdown 5% bloqueiam entradas, incluindo taxas e marcação não realizada. Overrides somente restringem; flag não desliga risco. Reserva é transferência interna, não gasto nem resultado. Trava não dispara venda automática. Os valores não são limites aprovados para capital real.
 
 ## 7. Desativação, geração e falhas
+
+Os mecanismos de geração/DRAINING desta seção pertencem ao fluxo fixture da 04. O backtest usa protocolo imutável, conforme a extensão histórica abaixo.
 
 Snapshot inteiro validado e aplicado por CAS em fronteira de ciclo. Configuração idêntica não cria geração; mudança material com posição/pendência é recusada enquanto incompatível. Alterações invalidam evidências de elegibilidade afetadas, sem apagar custos, pico, baseline ou deduplicação.
 
@@ -120,3 +122,34 @@ Operação contínua, parcial/atraso/sem fill, backtest econômico, benchmark de
 | Revisão | Mudança | Evidências afetadas |
 |---|---|---|
 | 25/10/2026 / Sprint 04 | Primeira implementação, fixtures/flags, ciclos atômicos, monitoramento e relatório legível | Aceite restrito ao ensaio offline registrado no guia 04; nenhuma liberação operacional herdada |
+
+## Extensão histórica da Sprint 05
+
+A implementação acrescenta o escopo local/PAPER/backtest/BTCUSDT/15m à versão 1 da SMA pura. A regra de cruzamento e as igualdades da 04 permanecem iguais. `ModuleConfig.active` continua significando fixture; `active_for("backtest")` seleciona o novo fluxo. Não herda capacidade contínua, privada ou LIVE. Exemplos: `config/backtest.sma.example.toml` desabilitado e `config/backtest.sma.fixture.toml` opt-in. Indicadores continuam sem rede/I/O.
+
+O histórico prepara exportações locais verificadas em streaming e congela datas/dataset/código/parâmetros/risco/custos/métricas antes de calcular resultados. Split 60/20/20 por candles de score; slow_window anteriores apenas aquecem. Cada segmento/variante/perfil inicia 10000 USDT em caixa. A SMA aceita somente limites até 10% de entrada/exposição/peso, 1% de perda diária e 5% de drawdown, com overrides mais restritivos. Filtros proxy não representam exchangeInfo histórico.
+
+Na fronteira, disponibiliza o close anterior e DAY_START quando muda o dia UTC, marca a carteira e avalia o sinal. SCHEDULED guarda alvo/teto de orçamento sem reservar saldo. A referência é open posterior observado +1 ms, com fill +2 ms; na variante com atraso, a referência fica um candle adiante. O slot pendente bloqueia outro compromisso e não substitui silenciosamente um sinal. Freshness continua até cinco segundos, separada da espera agendada. Admissão A recalcula quantidade pelo menor orçamento conhecido/atual, step/custos/filtros/risco; B confirma o plano persistido. No fim exclusivo não há nova decisão nem fill: marca o último close e expira pendência END_OF_WINDOW, mantendo BTC residual.
+
+Quatro variantes fixas: 10/10/5 bps, 20/20/10 bps, atraso de um candle com custos base e combinado. Caixa/BH100/BH10 são políticas de referência, não novos módulos; BH100 possui orçamento/limites próprios e não aumenta os limites da SMA. Curvas independentes não são somadas. Retorno inclui taxas e posição marcada; MDD considera todos os eventos e o capital inicial; exposição média e tempo em posição são ponderados por milissegundos, sem aquecimento ou anualização.
+
+`backtest-run` gera HTML/JSON/CSV/manifesto ao concluir o segmento. `backtest-report` exporta o snapshot reconciliado em leitura e não cria sinais/fills. `backtest-reconcile` confere journal/projeções/checkpoint e bloqueia divergência. Repetição exata não duplica efeitos. Mudança de protocolo não torna a mesma janela final real intocada. Ver [banco histórico](../bancos/backtest-sqlite.md), [ADR 0006](../decisoes/0006-backtest-historico-e-protocolo.md) e [guia/evidências 05](../testes/sprint-05-validacao.md) para validação, hashes, resultados e limitações efetivas.
+
+
+### Configuração histórica e limites de entrada
+
+| Campo global em `[backtest]` | Contrato efetivo |
+|---|---|
+| `source_manifests` | Lista obrigatória de 1 a 128 manifestos locais; origem única fixture ou binance_public; quatro arquivos verificados por export |
+| `start`, `end` | UTC com timezone e alinhamento 15m; fim exclusivo; cada segmento com pelo menos slow+2 candles de score |
+| `dataset_dir`, `data_dir` | Caminhos contidos na aplicação e distintos; financeiro não compartilha diretório com paper/strategy/market |
+| `initial_usdt` | 10000, string decimal; capital independente por curva |
+| `fee_bps`, `spread_bps`, `slippage_bps` | Base fixa 10/10/5; matriz inclui 20/20/10 e atraso de um candle, sem seleção automática |
+| `max_quote_age_ms` | Inteiro estrito de 1 a 5000; freshness da referência; validade do sinal histórico é abertura agendada+5000ms |
+| `split_percentages` | Exatamente `[60,20,20]`; últimas frações recebem o restante inteiro |
+| `variants`, `benchmarks` | Listas fechadas e ordenadas do protocolo; não aceitam combinações ausentes |
+| `terminal_policy` | Somente mark_to_market; sem venda implícita |
+
+Não há hot reload/reativação do experimento histórico. Mudança de dados/código/configuração é incompatível com o protocolo congelado; preservar a versão anterior e repetir as fases aplicáveis. Uma janela final real consumida não se torna intocada em outro ID/diretório. Desativar não apaga nem liquida carteira; para auditar o histórico, usar a configuração congelada e o comando report.
+
+Estado limitado a slow+1 fechamentos, carteira/risco/pendência e acumuladores. A carteira histórica especializa somente a cópia de escalares imutáveis; árvores mutáveis são isoladas e a redução financeira compartilhada permanece a mesma. Ledger, decisões e terminais completos ficam no store, não no checkpoint. Backtest-run publica HTML/JSON/CSV/manifesto após cada segmento, e snapshots parciais são explicitamente identificados.

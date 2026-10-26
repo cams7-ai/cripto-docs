@@ -1,0 +1,17 @@
+{
+  "kind": "public",
+  "source_manifest": "/home/cams7/Dev/Cripto/cripto-bot/data/backtest-btc-audit-v1/exports/2423b43c-ead9-4937-8b93-f41e423a9cd1/manifest.json",
+  "source_manifest_sha256": "f88657052398eba7388fc20e3e384d38092b654e9f6a2a700b3f081e0a54d9e5",
+  "protocol_sha256": "8bc553e60fea776f3528564c2c93c1a1879fd4860436d55f61282415126e2e14",
+  "result_sha256": "a12de079b7ebded9037c86b1f76b7b9a9edcb37ef68603a36cd7f79b50cc2f47",
+  "files": {
+    "execucao.json": "b3909e83f1070dcc5a1dd8aad9bc4b890f766259039b3a5cc70f86b1cbf97619",
+    "report.html": "a8ed1b81ea16f452b0b52f13adea521e879bb5198557872d8556cdeba4a0e63a",
+    "resultados.json": "02d284cc8a9c05b493630c5c4a555a69c9e1dd6893b4310dfa9bcf2f1f83934e"
+  },
+  "pdf": {
+    "path": "output/pdf/sprint-05-avaliacao-historica.pdf",
+    "sha256": "9fd758f8198b7e2ae76b33ae4728f9192353ef009ec071de3fa819b9c6121be3"
+  },
+  "note": "Selected documentation bundle. Full CSV/JSON remain in the original local export; links are relative within the workspace. HTML metric/chart content is unchanged."
+}

@@ -1,6 +1,6 @@
 # Arquitetura modular de estratégias, carteira, sinais e execução
 
-Revisão: 25/10/2026. **Estado: base mínima e trend_sma implementadas na Sprint 04 para fixture local/PAPER; demais capacidades continuam propostas, sem implementação/validação.** Complementa o [planejamento](planejamento.md). Aplicação Python em `/home/cams7/Dev/Cripto/cripto-bot`; documentos em `/home/cams7/Dev/Cripto/docs`. Binance Spot sem margem, empréstimos, short ou alavancagem é o escopo inicial. As Sprints 01–03 continuam com seu contrato histórico.
+Revisão: 25/10/2026. **Estado: base mínima/trend_sma em fixture (04) e caminho histórico isolado (05) implementados para local/PAPER. Aceite por fluxo nos guias 04/05; demais capacidades continuam propostas.** Complementa o [planejamento](planejamento.md). Aplicação Python em `/home/cams7/Dev/Cripto/cripto-bot`; documentos em `/home/cams7/Dev/Cripto/docs`. Binance Spot sem margem, empréstimos, short ou alavancagem é o escopo inicial. As Sprints 01–03 continuam com seu contrato histórico.
 
 ## Papéis e componentes compartilhados
 
@@ -36,7 +36,7 @@ Envelope obrigatório: `decision_id`, `module_id`, `instance_id`, versão da imp
 
 ## Catálogo: contratos específicos e compatibilidade Spot
 
-Todos os itens começam desabilitados. trend_sma possui implementação para fixture local/PAPER; os demais continuam não implementados. Dependências listadas são capacidades necessárias, não obrigação de implementar outros itens do catálogo. Métricas comuns de custo/risco são adicionais às específicas abaixo.
+Todos os itens começam desabilitados. trend_sma possui implementação para fixture e backtest local/PAPER, com configuração e estado separados; os demais continuam não implementados. Dependências listadas são capacidades necessárias, não obrigação de implementar outros itens do catálogo. Métricas comuns de custo/risco são adicionais às específicas abaixo.
 
 | ID / papel / Sprint | Entradas → saída | Parâmetros e estado | Dependências / métricas específicas | Compatibilidade inicial e restrições |
 |---|---|---|---|---|
@@ -57,7 +57,7 @@ Todos os itens começam desabilitados. trend_sma possui implementação para fix
 
 ## Flags e configuração externa validada
 
-Exemplo arquitetural **desabilitado**, com capacidades futuras backtest/continuous ainda inelegíveis. O TOML executável da Sprint 04 inclui a tabela strategy e escopo fixture; consulte [configuração completa](../cripto-bot/config/strategy.sma.example.toml). O fragmento abaixo não deve ser tratado como arquivo executável completo:
+Exemplo arquitetural **desabilitado**. O caminho backtest da 05 tem configuração própria; continuous permanece inelegível. O TOML executável da Sprint 04 inclui a tabela strategy e escopo fixture; consulte [configuração completa](../cripto-bot/config/strategy.sma.example.toml). Para backtest, consulte também [exemplo 05](../cripto-bot/config/backtest.sma.example.toml). O fragmento abaixo não é arquivo executável completo:
 
 ```toml
 [modules.trend_btc]
@@ -66,7 +66,7 @@ version = "1"
 enabled = false
 environments = ["local"]
 modes = ["PAPER"]
-evaluation_types = ["backtest", "continuous"]
+evaluation_types = ["backtest"]
 symbols = ["BTCUSDT"]
 capital_weight = "0.10"
 execution = "immediate"
@@ -118,3 +118,13 @@ Módulo novo ou combinação alterada volta aos gates aplicáveis de backtest �
 ## Documentação técnica vinculada ao módulo
 
 Cada implementação/modificação mantém `docs/estrategias/<module_id>.md` e o [catálogo](estrategias/README.md) na própria Sprint. O documento acompanha comportamento entregue, contratos/estado, dados/parâmetros/defaults/validações, flags, combinações, risco/desativação, ciclo fictício e testes/evidências/versionamento, adaptado ao papel. Não atribuir ordens a fontes de sinal nem decisões de investimento a algoritmos de execução. Critério M16 e seção 4.7 do planejamento bloqueiam conclusão se faltar atualização; exemplos propostos e recursos pendentes devem ser explícitos. A documentação de todos os opcionais ausentes não é dependência do módulo escolhido.
+
+## Extensão histórica — Sprint 05
+
+A SMA pura e a redução financeira/risco são compartilhadas; o caso de uso histórico tem configuração, relógio de eventos e store próprios. `domain/backtest` mantém apenas janela slow+1, pendência, carteira ativa, acumuladores e prefixo SHA incremental. Terminais e séries completas ficam no journal/projeções SQL. A fixture/schema v2 da 04 não é convertida ou ampliada para comportar meses de dados.
+
+`backtest-prepare/freeze/run/report/reconcile` separam preparo sem PnL, protocolo imutável, execução causal, exportação em leitura e auditoria. `.active` preserva fixture e `active_for("backtest")` exige opt-in histórico. Não há dependência de módulos opcionais, rede dentro do motor ou coordenação com private/AWS. O snapshot completo vincula fonte/código/configuração/split/custos/benchmarks/métricas. Development/validation precedem test; registro local impede outra alegação de amostra intocada em janela real sobreposta.
+
+Decision no close disponível; referência open observada +1 ms; plano/reserva A; fill B +2 ms. SCHEDULED não é reserva; pendência única impede gasto duplicado. Variantes não alteram a validade da fixture. Terminal mark_to_market não inventa liquidação. Benchmark 100% tem carteira e limites explícitos independentes, sem bypass da SMA.
+
+Persistência: [schema histórico 1](bancos/backtest-sqlite.md), FULL/WAL, lock/CAS, eventos e projeções encadeados, reconstrução streaming inicial/final e validação incremental entre commits conhecidos. Documentação e escolha de transações em [ADR 0006](decisoes/0006-backtest-historico-e-protocolo.md). Resultados/escala/limites e gates no [guia 05](testes/sprint-05-validacao.md); nenhum incremento autoriza execução contínua ou LIVE automaticamente.

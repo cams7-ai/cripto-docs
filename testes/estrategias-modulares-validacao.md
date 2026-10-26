@@ -91,3 +91,7 @@ Aplicar o [conteúdo obrigatório e as adaptações por papel](../estrategias/RE
 | M16 | trend_sma.md, catálogos, banco v1/v2 e ADR conferidos contra fonte/config/testes/schema e exemplos | Novos módulos continuam sem documentos antecipados |
 
 Aceite de engenharia em fixture não é elegibilidade econômica/operacional. Default continua false e toda evolução/composição material exige novas evidências/gates. Próxima etapa depende da revisão da 04, sem início automático.
+
+## Resultado aplicável da Sprint 05 — 25/10/2026
+
+Capacidade histórica acrescentada somente a `trend_sma` local/PAPER/BTCUSDT/15m. M01–M16 foram revistos no alcance descrito no [guia 05](sprint-05-validacao.md). A Sprint 05 apresenta evidências de OOS, custos, atraso, benchmarks, atribuição e isolamento. Execução contínua, parcial/UNKNOWN operacional, filhos, composições e modos privados permanecem pendentes. Nenhuma linha geral da matriz ou evidência da Sprint 04 é promovida retroativamente.

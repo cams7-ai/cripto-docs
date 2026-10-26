@@ -842,3 +842,11 @@ Validação final: 428 testes aprovados sem avisos, cobertura 2432/2490 linhas e
 Testes cobriram falhas de processo/transação, corrupção/lock/CAS, gerações/desativação, causalidade/prefixo/execução, limites e virada UTC. Relatório HTML automático foi conferido/revisado visualmente, além dos JSONs e manifestos. Documentos de estratégia, bancos e ADR 0005/catálogos mantidos junto da entrega, conforme seções 4.7–4.9.
 
 [Especificação/registro 04](sprints/sprint-04.md), [guia](testes/sprint-04-validacao.md), [evidências](testes/sprint-04-evidencias.json), [trend_sma](estrategias/trend_sma.md) e [relatório HTML](output/html/relatorio-sprint-04.html). Sem dependências novas, coleta externa, notificações, AWS, ordens reais, commits ou publicação. Outros módulos permanecem planejados/desabilitados; backtest completo fica na 05 e PAPER contínuo na 06. Revisar evidências antes do próximo detalhamento, sem início automático.
+
+## 21. Execução da Sprint 05 — 25/10/2026
+
+Execução autorizada posteriormente ao detalhamento, usando o prompt 13 da [Sprint 05](sprints/sprint-05.md). O caminho histórico acrescenta preparo limitado de exportações, protocolo congelado, split causal e carteiras independentes para SMA/caixa/BH100/BH10 nas quatro variantes. Novos comandos backtest-* e store schema1/modelo paper-backtest-v1, sem migração dos bancos anteriores. Defaults permanecem desabilitados.
+
+Coleta pública separada obteve os 70080 candles da janela de 25/10/2024 a 25/10/2026 UTC, mais 50 de aquecimento, em dez exportações verificáveis. Coleta não equivale a avaliação. O protocolo final processou test após desenvolvimento, validação e checks técnicos da mesma versão. Ensaios preliminares e seus bancos são preservados; alterações de desempenho exigem repetir fases com novo protocolo antes de consumir o teste.
+
+Estado final: Sprint 05 implementada e validada no alcance histórico local/PAPER, com dataset real de 24 meses, teste final separado, relatórios profissionais e critérios aplicáveis aprovados. Resultados finais, métricas, custos, cobertura, relatórios e decisão do gate estão registrados no [guia 05](testes/sprint-05-validacao.md), nas evidências 05 e na seção 15 da especificação. Nenhum resultado autoriza LIVE, commit, publicação ou início automático da Sprint 06.
