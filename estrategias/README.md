@@ -59,3 +59,6 @@ O documento individual e este catálogo devem ser criados/atualizados **na mesma
 Na revisão, confrontar texto e exemplos com schemas, código, testes e artefato/versionamento efetivos. Verificar links, contas do exemplo, defaults desabilitados, comandos reproduzíveis e estado das evidências. Registrar documentação APROVADA ou PENDENTE no guia da Sprint; pendência documental bloqueia sua conclusão, sem reescrever resultados históricos. Não criar documentos individuais dos demais módulos opcionais antes de sua implementação.
 
 A projeção [DuckDB + Parquet](../bancos/backtest-analytics.md) acrescentada após a Sprint 05 afeta somente a exportação histórica de `trend_sma`. Não muda algoritmo, configuração, versão, elegibilidade ou risco da estratégia. A validação da alteração está no [guia complementar](../testes/duckdb-parquet-validacao.md); resultados históricos originais permanecem preservados.
+
+
+Revisão 06A (26/10/2026): `trend_sma` passa a ser fornecida pelo core com fachada de compatibilidade no bot, sem mudança de versão da estratégia/regras/flags ou autorização de continuous. A composição instalada e sua identidade são verificadas separadamente no [guia 06A](../testes/sprint-06a-validacao.md); bibliotecas não recebem documentos fictícios de estratégia.

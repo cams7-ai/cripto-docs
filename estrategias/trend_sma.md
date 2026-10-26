@@ -8,7 +8,7 @@ Estratégia de negociação que tenta acompanhar movimentos de tendência, alter
 
 Este módulo produz alvo e motivo. Não lê arquivos, não acessa rede/banco, não reserva saldo nem envia ordens. Coordenador, dimensionamento, risco e executor local decidem se o alvo pode virar um compromisso financeiro.
 
-Código: [SMA pura](../../cripto-bot/modules/trading/src/cripto_bot/domain/strategy/sma.py), [contratos e registro](../../cripto-bot/modules/trading/src/cripto_bot/domain/modules/models.py), [transições modulares](../../cripto-bot/modules/trading/src/cripto_bot/domain/strategy/engine.py) e [caso de uso](../../cripto-bot/modules/trading/src/cripto_bot/application/strategy_run.py).
+Código: [SMA pura no core](../../cripto-core/src/cripto_core/strategy/sma.py) e [fachada compatível](../../cripto-bot/src/cripto_bot/domain/strategy/sma.py), [contratos e registro](../../cripto-bot/src/cripto_bot/domain/modules/models.py), [transições modulares](../../cripto-bot/src/cripto_bot/domain/strategy/engine.py) e [caso de uso](../../cripto-bot/src/cripto_bot/application/strategy_run.py).
 
 ## 2. Regimes, entradas, saídas e inatividade
 
@@ -153,3 +153,10 @@ Quatro variantes fixas: 10/10/5 bps, 20/20/10 bps, atraso de um candle com custo
 Não há hot reload/reativação do experimento histórico. Mudança de dados/código/configuração é incompatível com o protocolo congelado; preservar a versão anterior e repetir as fases aplicáveis. Uma janela final real consumida não se torna intocada em outro ID/diretório. Desativar não apaga nem liquida carteira; para auditar o histórico, usar a configuração congelada e o comando report.
 
 Estado limitado a slow+1 fechamentos, carteira/risco/pendência e acumuladores. A carteira histórica especializa somente a cópia de escalares imutáveis; árvores mutáveis são isoladas e a redução financeira compartilhada permanece a mesma. Ledger, decisões e terminais completos ficam no store, não no checkpoint. Backtest-run publica HTML/JSON/CSV/manifesto após cada segmento, e snapshots parciais são explicitamente identificados.
+
+
+## Sprint 06A — implementação pura compartilhada
+
+A SMA foi movida para `cripto_core.strategy.sma`, com os mesmos DTOs/Protocol, assinatura, regras 20/50, igualdade, warm-up, inventário e contexto Decimal local 80. O módulo do bot reexporta os mesmos objetos, sem segunda implementação. Sizing recebe saldos/equity explícitos no core; acesso ao Wallet, risco, reservas e coordenação permanecem no bot. Nenhuma alteração de parâmetros, flags, modelo financeiro, dados ou elegibilidade para continuous/modos privados.
+
+O consumidor passa a declarar `cripto-core==0.1.0` por wheel identificado. Mudança em seu código invalida a identidade experimental para retomada; reexportação de relatório selado antigo continua somente leitura. As evidências 04/05 permanecem históricas; regressões e limites da nova composição estão no [guia 06A](../testes/sprint-06a-validacao.md).

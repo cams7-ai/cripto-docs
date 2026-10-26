@@ -155,3 +155,14 @@ não é operação financeira. Ver [ADR 0005](decisoes/0005-estrategia-modular-e
 [SMA](estrategias/trend_sma.md), [banco v1/v2](bancos/paper-sqlite.md) e
 [guia/evidências 04](testes/sprint-04-validacao.md). Outros módulos e modelos de
 execução permanecem não implementados e desabilitados.
+
+
+## Composição entregue na Sprint 06A — 26/10/2026
+
+Fontes do bot em `cripto-bot/src/cripto_bot`. `cripto-core/src/cripto_core` é biblioteca e Git independente, distribuição 0.1.0, sem dependências de runtime além da biblioteca padrão. Números/serialização/validação compartilhada, DTO Plan, preço/plano/sizing sintéticos e SMA pura foram extraídos; fachadas explícitas conservam imports e identidades no bot. Carteira/ledger, risco operacional, coordenação/flags, estado modular, backtest e todos os adapters continuam no bot. Dados e análise ainda não foram extraídos; 06B/C permanecem pendentes.
+
+O bot exige o wheel local `../cripto-core/dist/06a-final/cripto_core-0.1.0-py3-none-any.whl`, com versão exata e hash no lock; não importa o checkout irmão. Cada projeto tem manifest/lock/build/testes próprios. O smoke instala wheels em ambientes separados por marco e usa raiz sintética, Python isolado e sockets bloqueados. Sem estratégia nova, mudança de parâmetros ou habilitação de continuous.
+
+`adapters/provenance.py` identifica arquivos realmente carregados do bot/core, versão/modo de instalação e controles do consumidor. Core wheel precisa conferir com RECORD; core editable não é aceito pela identidade do consumidor. Bot editable exige origem correspondente a seu `src/cripto_bot`. Código ausente/inconsistente falha; mudar core altera fingerprint e bloqueia retomada de protocolo congelado. `backtest-report` mantém leitura/reexportação da identidade selada anterior. SQLite, schemas e registro final não foram migrados.
+
+A validação corrente e as limitações de cache estão no [guia 06A](testes/sprint-06a-validacao.md). [ADR 0008](decisoes/0008-core-e-identidade-da-composicao.md) documenta fronteiras e identificação. Esta entrega não executa 06D, AWS, mensagens ou trading privado.

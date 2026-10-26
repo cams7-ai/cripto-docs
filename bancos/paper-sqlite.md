@@ -2,7 +2,7 @@
 
 Revisão documental: 25/10/2026. **V1: origem na Sprint 03, preservada. V2 modular: implementada na Sprint 04, validada em fixtures e na demonstração local.** A inspeção v2 não audita instalações externas.  Arquivo operacional: `paper.sqlite3` dentro do diretório configurado/validado pela aplicação; não é um arquivo a versionar junto desta documentação.
 
-Fonte do DDL: [adapter paper_sqlite.py](../../cripto-bot/modules/trading/src/cripto_bot/adapters/storage/paper_sqlite.py). SHA-256 do arquivo consultado: `25154d175f5cb67032a13a12608fac1f5da33eda1b786a8707142cd4e5ef02d6`. Essa identificação vincula o documento ao conteúdo, sem presumir checkout sem alterações ou versão instalada. Diagrama resume atributos; o DDL abaixo é a referência completa dos tipos, defaults, nulabilidade e constraints declarados.
+Fonte do DDL: [adapter paper_sqlite.py](../../cripto-bot/src/cripto_bot/adapters/storage/paper_sqlite.py). SHA-256 do arquivo consultado: `25154d175f5cb67032a13a12608fac1f5da33eda1b786a8707142cd4e5ef02d6`. Essa identificação vincula o documento ao conteúdo, sem presumir checkout sem alterações ou versão instalada. Diagrama resume atributos; o DDL abaixo é a referência completa dos tipos, defaults, nulabilidade e constraints declarados.
 
 ## Schema v1 — diagrama relacional físico
 
@@ -71,7 +71,7 @@ Defaults, índices adicionais e nulabilidade não devem ser inferidos pelo diagr
 
 `metadata` e `projection` possuem `CHECK(id=1)`, mas não há FK entre esses singletons. Vínculos de journal com intenções/fills/projeções além das duas FKs desenhadas são mantidos pela aplicação/reconciliação. A cardinalidade física permite um journal sem postings; a regra financeira do evento é mais específica e verificada no domínio. Não representar associação JSON como tabela/constraint SQL.
 
-Campos `context`, `data` e `payload` persistem JSON canônico; decimais financeiros são strings. Valores contábeis, ativos, timestamps do replay e estados estão nos modelos/payloads, sem validação JSON SQL. Consultar [modelos financeiros](../../cripto-bot/modules/trading/src/cripto_bot/domain/portfolio/models.py) e [motor de transições](../../cripto-bot/modules/trading/src/cripto_bot/domain/portfolio/engine.py).
+Campos `context`, `data` e `payload` persistem JSON canônico; decimais financeiros são strings. Valores contábeis, ativos, timestamps do replay e estados estão nos modelos/payloads, sem validação JSON SQL. Consultar [modelos financeiros](../../cripto-bot/src/cripto_bot/domain/portfolio/models.py) e [motor de transições](../../cripto-bot/src/cripto_bot/domain/portfolio/engine.py).
 
 O código cria seis triggers `immutable_{journal|postings|fills}_{UPDATE|DELETE}`: cada um aborta a mutação correspondente com `immutable paper history`. Não há trigger equivalente em metadata/projection/intents. Restrições e UNIQUE não substituem validação contábil. As projeções são reconstruídas/comparadas com journal/postings para reconciliação; divergência bloqueia novos efeitos quando possível, sem ajuste por diferença.
 
@@ -97,7 +97,7 @@ Na Sprint que alterar o schema, comparar DDL/diagrama com fixture via sqlite_sch
 
 Arquivo `paper.sqlite3` em diretório próprio configurado por `strategy.data_dir`; modelo `paper-modular-v1`. Não é o banco de mercado e não é upgrade de carteira v1. `strategy-*` rejeita v1 e `paper-*` rejeita v2, inclusive se o operador apontar o comando ao diretório errado. Não há migração automática/manual implementada entre versões; criação v2 somente em diretório novo/vazio.
 
-Fonte: [strategy_sqlite.py](../../cripto-bot/modules/trading/src/cripto_bot/adapters/storage/strategy_sqlite.py), que herda o mecanismo financeiro v1 com hooks explícitos de schema/modelo/redução/serialização. O DDL de seis tabelas financeiras permanece o da seção v1, acrescido dos objetos abaixo. Os testes de regressão preservam saldos/hash histórico de v1. As novas tabelas são projeções de um único journal, sem commits financeiros em outro banco.
+Fonte: [strategy_sqlite.py](../../cripto-bot/src/cripto_bot/adapters/storage/strategy_sqlite.py), que herda o mecanismo financeiro v1 com hooks explícitos de schema/modelo/redução/serialização. O DDL de seis tabelas financeiras permanece o da seção v1, acrescido dos objetos abaixo. Os testes de regressão preservam saldos/hash histórico de v1. As novas tabelas são projeções de um único journal, sem commits financeiros em outro banco.
 
 ```mermaid
 erDiagram
@@ -174,3 +174,8 @@ Testes: [persistência modular](../../cripto-bot/tests/integration/test_strategy
 | Sprint/data | Mudança | Migração / evidência |
 |---|---|---|
 | 04 / 25/10/2026 | Schema v2 modular em diretório novo, DDL v1 preservado nos comandos históricos | Sem migração; regressão, crash/replay, constraints e introspecção documentados no guia 04 |
+
+
+## Revisão de compatibilidade — Sprint 06A
+
+Fontes do bot em `src/cripto_bot`; helpers financeiros puros compartilhados vêm de `cripto_core`. DDL, tabelas/constraints/triggers, versão, transações e ownership deste store foram preservados; nenhuma migração/reset foi introduzida. Alteração da identidade do código não regrava journal/contexto selado ou concede nova amostra independente. O protocolo histórico rejeita retomada sob composição diferente; reexportação somente leitura permanece disponível. Regressões/limitações: [guia 06A](../testes/sprint-06a-validacao.md) e [ADR 0008](../decisoes/0008-core-e-identidade-da-composicao.md).

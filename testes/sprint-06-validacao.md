@@ -1,10 +1,10 @@
-# Sprint 06 — Guia de validação: PAPER contínuo com dados reais e execução interna
+# Sprint 06 — Consolidação da validação 06A–06D
 
-Data: 25/10/2026. **Estado: NÃO EXECUTADO / gate PENDENTE.** Roteiro planejado; nenhuma aprovação funcional ou externa decorre da criação deste arquivo.
+Revisão: 26/10/2026. **Estado: PARCIAL — 06A aprovada; 06B–06D e gate global pendentes.** O roteiro operacional abaixo corresponde a 06D e ainda não foi executado. A implementação 06A tem [guia próprio](sprint-06a-validacao.md) e [evidências](sprint-06a-evidencias.json).
 
 ## Preparação e execução futura
 
-Consultar [especificação 06](../sprints/sprint-06.md) e [roteiro comum](validacao-pre-live.md). Dependências: Sprint 05 aprovada, relatório fora da amostra revisado e configuração congelada.
+Consultar [especificação 06](../sprints/sprint-06.md) e [roteiro comum](validacao-pre-live.md). Dependências de 06D: 06A–06C aprovadas, Sprint 05/ajuste analítico revistos e composição/configuração congeladas. 06A foi concluída; 06B/06C permanecem pendentes.
 
 Modo permitido: PAPER; somente dados públicos reais; nenhuma ordem enviada à Binance. Comandos futuros executam em `/home/cams7/Dev/Cripto/cripto-bot`; evidências permanecem em `/home/cams7/Dev/Cripto/docs/testes`. Ao detalhar a implementação, preencher comandos reais, versões e resultados; não executar CLI fictícia deste planejamento.
 
@@ -14,7 +14,7 @@ Modo permitido: PAPER; somente dados públicos reais; nenhuma ordem enviada à B
 4. Cobrir: Integral/parcial/sem fill, atraso, cancelamento restante, reinício antes/depois de persistir, duplicação, cotação inválida e falha de notificação.
 5. Registrar evidência por critério, distinguir fake/injeção/API, comparar ledger/saldos e submeter a revisão do responsável.
 
-## Matriz de resultados
+## Matriz operacional 06D — pendente
 
 | Critério da especificação | Resultado | Evidência |
 |---|---|---|
@@ -33,7 +33,7 @@ Todos os critérios e a revisão das evidências permitem a Sprint 07. Piloto AW
 
 Dados de mercado são reais; carteira e execução são internas. Não mede fila, impacto próprio ou fills da corretora. Evidências de cenários injetados devem ser distinguidas da observação contínua.
 
-Nenhum comando, teste funcional, chamada de API, autenticação, provisionamento ou ordem foi executado nesta revisão documental. Não alterar arquivos de evidência das Sprints 01–03 para representar validações novas. Custos e recursos efetivos: não aferidos; nenhum criado nesta revisão. Preservar dados/ledger e identificar ambiente/época antes de qualquer limpeza futura.
+**Registro da revisão documental original de 25/10/2026:** nenhum comando, teste funcional, chamada de API, autenticação, provisionamento ou ordem foi executado naquela revisão. Não alterar arquivos de evidência das Sprints 01–03 para representar validações novas. Custos e recursos efetivos: não aferidos; nenhum criado nesta revisão. Preservar dados/ledger e identificar ambiente/época antes de qualquer limpeza futura.
 
 ## Validação modular adicional — pendente
 
@@ -46,3 +46,8 @@ Na execução futura, identificar os módulos afetados e revisar seus arquivos e
 ## Estrutura dos bancos e aceite documental
 
 Se esta Sprint criar/alterar estrutura, relações, constraints/índices/triggers, formato persistido, versão ou migração de banco, atualizar na mesma entrega o documento correspondente em `docs/bancos/` e o [catálogo](../bancos/README.md): diagrama/modelo real, dicionário/DDL, operação, compatibilidade/migração ou rejeição, recuperação e referências/evidências. Confrontar com schema em fixture e testes aplicáveis; registrar a revisão no guia da Sprint. Documento ausente/desatualizado bloqueia conclusão, conforme seção 4.8 do planejamento. Sem mudança de banco, registrar ausência de impacto e justificativa. Esta revisão não executou teste ou migração.
+
+
+## Consolidação 06A em 26/10/2026
+
+M1/M2 aprovados: layout src antes do core, 533 testes bot + 54 core, qualidade/build/wheels, 22 fluxos por smoke e equivalência de 48 curvas sintéticas. AC09/10 concluídos; guards/AC14–17 verificados somente no alcance core/consumidor, a repetir nas próximas etapas. Relatório técnico e limitações de cache no [guia 06A](sprint-06a-validacao.md). Isso não executa o piloto, seus sete dias ou os casos de parcial/contínuo/notificações. AC18 e a transição para 07 permanecem pendentes; próxima ação é detalhar 06B.

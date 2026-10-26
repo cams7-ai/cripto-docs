@@ -2,7 +2,7 @@
 
 Revisão documental: 25/10/2026. **Schema implementado no código; instalação/banco de dados não inspecionados nesta revisão.** Origem: Sprint 02. Arquivo operacional: `market.sqlite3` dentro do diretório configurado/validado pela aplicação; não é um arquivo a versionar junto desta documentação.
 
-Fonte do DDL: [adapter market_sqlite.py](../../cripto-bot/modules/trading/src/cripto_bot/adapters/storage/market_sqlite.py). SHA-256 do arquivo consultado: `6ec43ee9658e1cfe91234ced17061deae9f8668e00322c4b1126b7dd325651dc`. Essa identificação vincula o documento ao conteúdo, sem presumir checkout sem alterações ou versão instalada. Diagrama resume atributos; o DDL abaixo é a referência completa dos tipos, defaults, nulabilidade e constraints declarados.
+Fonte do DDL: [adapter market_sqlite.py](../../cripto-bot/src/cripto_bot/adapters/storage/market_sqlite.py). SHA-256 do arquivo consultado: `6ec43ee9658e1cfe91234ced17061deae9f8668e00322c4b1126b7dd325651dc`. Essa identificação vincula o documento ao conteúdo, sem presumir checkout sem alterações ou versão instalada. Diagrama resume atributos; o DDL abaixo é a referência completa dos tipos, defaults, nulabilidade e constraints declarados.
 
 ## Diagrama relacional físico
 
@@ -61,7 +61,7 @@ Defaults, índices adicionais e nulabilidade não devem ser inferidos pelo diagr
 
 ## Representação e operação
 
-Não há FK por `dataset` entre candles, checkpoints e snapshots; associação é lógica da aplicação. `open_time`, `start` e `next_open` usam milissegundos de época; horários de recebimento/processamento são texto UTC. `data`, `params` e `headers` têm formato JSON produzido pelo código, sem constraint JSON SQL. Dados decimais normalizados usam strings; `raw.body` preserva bytes da resposta. [Modelos/parser](../../cripto-bot/modules/trading/src/cripto_bot/domain/market.py) definem os campos internos.
+Não há FK por `dataset` entre candles, checkpoints e snapshots; associação é lógica da aplicação. `open_time`, `start` e `next_open` usam milissegundos de época; horários de recebimento/processamento são texto UTC. `data`, `params` e `headers` têm formato JSON produzido pelo código, sem constraint JSON SQL. Dados decimais normalizados usam strings; `raw.body` preserva bytes da resposta. [Modelos/parser](../../cripto-bot/src/cripto_bot/domain/market.py) definem os campos internos.
 
 A transação `BEGIN IMMEDIATE` grava cada página válida (bruto, candles e checkpoint); snapshots têm transação própria. `flock` em `.writer.lock` protege o diretório de um escritor cooperante. `foreign_keys=ON` e `synchronous=FULL` são definidos pela conexão. Código não configura WAL explicitamente; não presumir essa política. Abertura valida versão, conjunto de tabelas e `quick_check`; isso não substitui validação de todos os objetos/constraints em uma instalação arbitrária.
 
@@ -81,3 +81,8 @@ O adapter cria a base vazia com `PRAGMA user_version=1` e exige versão 1/conjun
 Testes relacionados: [integração de persistência](../../cripto-bot/tests/integration/test_market_storage.py). Comando planejado para revalidar em fixtures, a partir de `/home/cams7/Dev/Cripto/cripto-bot`: `uv run --locked pytest tests/integration/test_market_storage.py -q`. **Não executado nesta revisão.** Conferir versões/dependências antes da execução; resultados históricos estão no guia da Sprint.
 
 Na Sprint que alterar o schema, comparar DDL/diagrama com fixture via sqlite_schema e pragmas de tabelas/FKs/índices; testar constraints e fluxos alterados, compatibilidade e migração somente se implementada, além de integridade/reconciliação. Procedimento e critérios: [catálogo dos bancos](README.md). Não abrir banco operacional de escrita só para gerar diagrama. Não foram lidos dados de carteira, credenciais ou registros pessoais.
+
+
+## Revisão de compatibilidade — Sprint 06A
+
+Fontes do bot em `src/cripto_bot`; helpers financeiros puros compartilhados vêm de `cripto_core`. DDL, tabelas/constraints/triggers, versão, transações e ownership deste store foram preservados; nenhuma migração/reset foi introduzida. Alteração da identidade do código não regrava journal/contexto selado ou concede nova amostra independente. O protocolo histórico rejeita retomada sob composição diferente; reexportação somente leitura permanece disponível. Regressões/limitações: [guia 06A](../testes/sprint-06a-validacao.md) e [ADR 0008](../decisoes/0008-core-e-identidade-da-composicao.md).

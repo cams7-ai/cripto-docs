@@ -115,7 +115,7 @@ Até a Sprint 05, a aplicação possui um único pacote instalável, `cripto_bot
 | Escolha | Justificativa e momento |
 |---|---|
 | Python 3.13, patch fixado na implementação | Runtime estável suportado no Lambda/AL2023; conserva proximidade com referências 3.12 sem exigir versão preview. Validar wheels no Linux e reconsultar suporte antes do deploy. [Runtimes AWS](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). |
-| `pyproject.toml`, setuptools e wheel | Empacotamento padrão, já utilizado nas referências; o pacote atual tem origem em `modules/trading/src`; cada projeto extraído terá manifest, versão, testes e wheel próprios, com `src/<pacote>/` na raiz de cada projeto, conforme seção 5. [Setuptools](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html). |
+| `pyproject.toml`, setuptools e wheel | Empacotamento padrão, já utilizado nas referências; o pacote usa `src` desde a 06A (antes `modules/trading/src`); cada projeto extraído terá manifest, versão, testes e wheel próprios, com `src/<pacote>/` na raiz de cada projeto, conforme seção 5. [Setuptools](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html). |
 | uv com `uv.lock` versionado | Ambiente e resolução reproduzíveis; `uv sync --locked` no CI. Exportação de requirements para SAM deriva do lock, nunca é mantida separadamente. Fixar também a versão da ferramenta. [Lock e sincronização](https://docs.astral.sh/uv/concepts/projects/sync/). |
 | dataclasses/Protocol/Decimal da biblioteca padrão | Objetos de domínio simples, portas testáveis e precisão sem dependências financeiras externas. |
 | Pydantic nas entradas | Validar configuração, payloads e DTOs; parsers explícitos para strings decimais e UTC, evitando coerções permissivas. Não aplicar strict mode cegamente a strings de ambiente. [Validação estrita](https://docs.pydantic.dev/latest/concepts/strict_mode/). |
@@ -263,6 +263,8 @@ Gerar a apresentação a partir dos artefatos ou snapshots consistentes já prod
 
 ### 4.10 Projetos executáveis e biblioteca compartilhada — organização planejada
 
+Atualização de execução 06A: `cripto-core` foi extraído e integrado ao bot; dados e análise continuam planejados para 06B/06C. Resultados e limitações na seção 26.
+
 Distinguir três conceitos: projeto/repositório independente, biblioteca Python consumida por outro projeto e módulo de estratégia com feature flag. `trend_sma` continua sendo o módulo de estratégia implementado; uma extração de pacote não habilita outra estratégia ou modo financeiro.
 
 | Projeto | Tipo e responsabilidade planejada | Fronteira de estado e dependências |
@@ -331,7 +333,7 @@ O módulo da aplicação da Sprint 01 está em `/home/cams7/Dev/Cripto/cripto-bo
 
 O diagrama acima registra a estrutura atual até a Sprint 05. Os subpacotes internos de `cripto_bot` continuam pertencendo ao mesmo módulo e repositório até sua extração validada; não recebem Git aninhado. Um novo módulo independente, quando necessário, será irmão de `cripto-bot` e `docs`, nunca um repositório aninhado dentro deles. Criar diretórios apenas quando usados; não criar módulos futuros vazios.
 
-Estrutura-alvo após concluir 06A–06C, ainda não criada por esta revisão:
+Estrutura-alvo após concluir 06A–06C: bot/core foram entregues na 06A; projetos de dados/análise permanecem planejados:
 
 ```text
 /home/cams7/Dev/Cripto/
@@ -356,11 +358,11 @@ Estrutura-alvo após concluir 06A–06C, ainda não criada por esta revisão:
 
 **Convenção proposta para os próximos incrementos:** cada projeto Python independente terá `src/` diretamente na raiz do seu repositório, ao lado de `pyproject.toml` e `tests/`, com o pacote importável dentro de `src/<pacote>/`. O próprio repositório delimita o projeto; não reproduzir `modules/<nome>/src` nos novos projetos. Estratégias e outros componentes internos continuam como subpacotes, sem exigir outro repositório ou outra árvore `src`.
 
-Na 06A, incluir a reorganização de `cripto-bot/modules/trading/src/cripto_bot` para `cripto-bot/src/cripto_bot`, preservando o nome importável `cripto_bot` e o console script `cripto-bot`. Executar e verificar essa mudança antes da extração do core, para distinguir falhas de layout de falhas nos contratos extraídos. Até sua validação, o caminho atual continua vigente. A alteração é de organização dos fontes; dados, bancos, configurações e relatórios conservam seus locais e identidade.
+Na 06A foi executada a reorganização de `cripto-bot/modules/trading/src/cripto_bot` para `cripto-bot/src/cripto_bot`, preservando o nome importável `cripto_bot` e o console script `cripto-bot`. Essa mudança foi validada antes da extração do core, com registros separados dos marcos. O caminho antigo permanece somente nas referências históricas. A alteração é de organização dos fontes; dados, bancos, configurações e relatórios conservam seus locais e identidade.
 
 Cada novo projeto inclui testes, README, versão de pacote, lock e build próprios. Criar somente o projeto da etapa autorizada, com consumidor funcional demonstrado. Não copiar algoritmos financeiros para manter duas implementações: o consumidor passa a usar a biblioteca, podendo existir uma fachada temporária de compatibilidade que apenas delegue à fonte única. Alterar os paths de imports não concede autorização para mover bancos, apagar artefatos ou refazer a avaliação financeira.
 
-Convenção de caminhos: `docs/...` é relativo à raiz do workspace. Caminhos da aplicação como `pyproject.toml`, `uv.lock`, `config/`, `modules/trading/src` (atual), `src/` (alvo da 06A), `tests/` e seus artefatos são relativos a `cripto-bot/`. Para comandos Python/uv do bot, usar `/home/cams7/Dev/Cripto/cripto-bot` como diretório de execução; comandos de cada projeto extraído executam na respectiva raiz, identificada em sua especificação e README. Exemplos e prompts antigos que usavam diretamente a raiz do workspace ficam atualizados por esta convenção. Novos componentes de infraestrutura terão sua organização definida na Sprint pertinente, observando a regra de repositório independente quando constituírem um novo módulo.
+Convenção de caminhos: `docs/...` é relativo à raiz do workspace. Caminhos da aplicação como `pyproject.toml`, `uv.lock`, `config/`, `modules/trading/src` (histórico até a 05), `src/` (vigente após 06A), `tests/` e seus artefatos são relativos a `cripto-bot/`. Para comandos Python/uv do bot, usar `/home/cams7/Dev/Cripto/cripto-bot` como diretório de execução; comandos de cada projeto extraído executam na respectiva raiz, identificada em sua especificação e README. Exemplos e prompts antigos que usavam diretamente a raiz do workspace ficam atualizados por esta convenção. Novos componentes de infraestrutura terão sua organização definida na Sprint pertinente, observando a regra de repositório independente quando constituírem um novo módulo.
 
 Os commits de documentação e aplicação são feitos separadamente. Evidências centrais devem identificar o módulo e, quando houver commits, a revisão validada de cada repositório. Remotos e publicação serão configurados apenas quando definidos pelo responsável.
 
@@ -581,7 +583,7 @@ Cada linha tem contrato e critérios específicos nas [Sprints opcionais](sprint
 
 ### 9.2 Etapas da Sprint 06 — extração antes de PAPER contínuo
 
-Esta distribuição é a decisão vigente de planejamento de 26/10/2026. Não renumera as Sprints 07–21 nem altera os aceites históricos 01–05. O documento [sprint-06.md](sprints/sprint-06.md) ainda contém o escopo original de PAPER contínuo e deve ser revisado antes de qualquer execução: passa a funcionar como documento agregador de 06A–06D, com o piloto concentrado em 06D. A [Sprint 07](sprints/sprint-07.md) também deverá incorporar as novas dependências no seu detalhamento. Os documentos específicos de cada etapa, por exemplo `sprint-06a.md` e seu guia, surgem somente quando essa etapa for detalhada; não criar placeholders ou tratar o texto antigo como autorização para pular as extrações.
+Esta distribuição é a decisão vigente de planejamento de 26/10/2026. Não renumera as Sprints 07–21 nem altera os aceites históricos 01–05. O documento [sprint-06.md](sprints/sprint-06.md) foi atualizado como agregador de 06A–06D, com o piloto concentrado em 06D. A [Sprint 06A](sprints/sprint-06a.md) foi implementada/validada; 06B está elegível para detalhamento/revisão, e 06C–06D continuam dependentes. A [Sprint 07](sprints/sprint-07.md) também deverá incorporar as novas dependências no seu detalhamento. Os documentos específicos de cada etapa, por exemplo `sprint-06a.md` e seu guia, surgem somente quando essa etapa for detalhada; não criar placeholders ou tratar o texto antigo como autorização para pular as extrações.
 
 | Etapa | Incremento demonstrável e propriedade | Dependência | Critérios obrigatórios antes de avançar |
 |---|---|---|---|
@@ -1037,3 +1039,21 @@ Nesta revisão foi alterado somente o planejamento. Nenhum repositório foi cria
 Para os próximos incrementos, recomenda-se `src/<pacote>/` na raiz de cada repositório Python independente. A seção 5 apresenta a estrutura-alvo; a seção 9.2 inclui a reorganização do bot na 06A, antes da extração do core, a criação de dados/análises nesse padrão em 06B–06C e a conferência do empacotamento na 07. O detalhamento futuro deve incorporar essas tarefas e seus critérios de validação.
 
 Esta atualização é somente documental. O bot ainda usa `modules/trading/src/cripto_bot`; nenhum fonte foi movido e nenhum teste de aplicação foi executado nesta revisão. Evidências e caminhos históricos permanecem como registro das versões efetivamente validadas.
+
+
+## 25. Sprint 06A especificada — 26/10/2026
+
+Executado somente o prompt de detalhamento do agregador 06. A [especificação 06A](sprints/sprint-06a.md) prevê dois marcos: reorganizar o bot para `src/cripto_bot` e validar antes de extrair; depois entregar `cripto-core` puro e bot consumidor por wheels. Define inventário de extração, versões/locks, identidade experimental incluindo dependências, compatibilidade de reexportação, critérios A01–A16 e prompt autossuficiente de implementação futura.
+
+Na inspeção, o bot estava limpo no HEAD `81ec74611845950116e705c5310c19070234b1ad`; os 120 hashes da evidência analítica conferiram. As sete diferenças frente aos 116 hashes originais da 05 estão cobertas pelo ajuste posterior. Esses resultados permitem detalhar/revisar 06A, sem comprovar nova execução de testes. O agregador local previamente modificado foi preservado. Não foram criados core/dados/análise, movidos fontes ou dados, executados builds/regressões, reaberta janela final, enviada mensagem ou iniciada operação. Próxima ação: revisar a especificação 06A; implementação e etapas dependentes permanecem pendentes.
+
+
+## 26. Execução da Sprint 06A — 26/10/2026
+
+Prompt de implementação da [06A](sprints/sprint-06a.md) executado por solicitação posterior do responsável. M1 reorganizou o bot para `src/cripto_bot`, corrigiu discovery/paths/fingerprint/harness e passou em 528 testes antes de criar core. M2 entregou `cripto-core/src/cripto_core` puro, Git/manifest/lock/build próprios, bot consumidor por wheel exato e identidade experimental da composição efetivamente instalada. Carteira/ledger, risco/admissão, coordenação, flags e backtest continuam no bot; fontes de dados e análise ainda não foram extraídas.
+
+Validação final: 533 testes do bot e 54 do core, Ruff/formatação/mypy/build/wheels aprovados, 22 fluxos por smoke em cada marco e 48 curvas sintéticas equivalentes. As 26 versões anteriores do lock foram preservadas; somente core 0.1.0 foi adicionado. Banco sintético anterior reexportado em leitura com hash/resultado selado preservados; retomada sob composição nova rejeitada. DDL/AST dos stores e registro final real preservados, sem migração ou avaliação econômica repetida.
+
+A01–A16 aprovados no alcance local/PAPER/Spot/BTCUSDT/15m. [Guia](testes/sprint-06a-validacao.md), [evidências](testes/sprint-06a-evidencias.json), [relatório técnico HTML revisado](testes/relatorios/sprint-06a/report.html) e [ADR 0008](decisoes/0008-core-e-identidade-da-composicao.md). Cache frio completo não demonstrado: dependências externas da baseline instalada foram reutilizadas após conferir versões/RECORD, sem downloads; os wheels bot/core foram construídos e instalados separadamente. O wheel core local precisa estar disponível para sync locked.
+
+Sem commit/remoto/publicação, coleta real nova, notificações, AWS, ordens privadas ou implementação de 06B–06D/BT-A–BT-F. Próxima ação: detalhar/revisar 06B com as evidências da 06A; a Sprint 06 permanece parcial e a 07 não é liberada por essa entrega isolada.

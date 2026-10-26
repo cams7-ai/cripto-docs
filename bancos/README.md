@@ -35,3 +35,6 @@ Mermaid pode resumir atributos para legibilidade; o dicionário/DDL deve preserv
 Revisão documental confronta o diagrama/dicionário/DDL com schema efetivo criado em fixture pela suíte da Sprint ou introspecção read-only de cópia autorizada: `sqlite_schema`, `PRAGMA table_info`, `foreign_key_list`, `index_list`/`index_info` e triggers quando aplicáveis. Registrar discrepâncias e decisão no guia; não executar inspeção mutável em carteira real. Para migrações implementadas, testar base nova e upgrade de versões suportadas, falha/recuperação, integridade e reconciliação; rollback só quando suportado e ensaiado.
 
 Backup de SQLite ativo exige mecanismo consistente ou pausa controlada; copiar apenas o arquivo principal sem considerar journal/WAL não é procedimento de backup aprovado. Documentar a política concreta ao implementá-la. Histórico/ledger não é apagado para resolver conflito de schema. Nenhuma revisão de banco ou documento libera negociação LIVE.
+
+
+Sprint 06A: layout e origem de helpers atualizados nos documentos técnicos. Nenhum DDL/schema/constraint/transação foi alterado ou banco migrado; identidade do código agora inclui o core instalado. [Compatibilidade e evidências](../testes/sprint-06a-validacao.md).

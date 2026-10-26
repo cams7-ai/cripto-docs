@@ -1,6 +1,6 @@
 # Banco histórico PAPER — SQLite
 
-Implementação da Sprint 05, 25/10/2026. Código: `cripto-bot/modules/trading/src/cripto_bot/adapters/storage/backtest_sqlite.py`; domínio em `domain/backtest`. Arquivo `backtest.data_dir/backtest.sqlite3`, `user_version=1`, modelo `paper-backtest-v1`. Este banco é independente dos schemas v1/v2 de `paper.sqlite3` e do mercado. Não há migração ou transferência de capital. Resultados funcionais e hashes ficam no [guia 05](../testes/sprint-05-validacao.md).
+Implementação da Sprint 05, 25/10/2026. Código: `cripto-bot/src/cripto_bot/adapters/storage/backtest_sqlite.py`; domínio em `domain/backtest`. Arquivo `backtest.data_dir/backtest.sqlite3`, `user_version=1`, modelo `paper-backtest-v1`. Este banco é independente dos schemas v1/v2 de `paper.sqlite3` e do mercado. Não há migração ou transferência de capital. Resultados funcionais e hashes ficam no [guia 05](../testes/sprint-05-validacao.md).
 
 O protocolo singleton precede qualquer carteira. Há até 48 curvas: três segmentos, quatro variantes e quatro perfis independentes, cada um com 10000 USDT iniciais. `run_key` deriva do hash do protocolo, segmento, variante e perfil. O run_id da CLI identifica tentativa/exportação; não concede outra identidade financeira.
 
@@ -85,3 +85,8 @@ Histórico: Sprint 05 cria schema1, sem converter bases anteriores. As identidad
 ## Projeção analítica posterior à Sprint 05
 
 A publicação de relatórios acrescenta [DuckDB + Parquet](backtest-analytics.md), com catálogo de resumos SQL e séries completas comprimidas. O schema SQLite, suas transações, locks, CAS, triggers, ledger e reconciliação permanecem iguais. A conversão ocorre fora das transações financeiras e é publicada com o mesmo manifesto/rename dos relatórios. Falha analítica pode ser repetida por `backtest-report`, sem novos fills. Não há migração de carteira nem substituição da fonte financeira autoritativa. [ADR 0007](../decisoes/0007-duckdb-parquet-analitico.md).
+
+
+## Revisão de compatibilidade — Sprint 06A
+
+Fontes do bot em `src/cripto_bot`; helpers financeiros puros compartilhados vêm de `cripto_core`. DDL, tabelas/constraints/triggers, versão, transações e ownership deste store foram preservados; nenhuma migração/reset foi introduzida. Alteração da identidade do código não regrava journal/contexto selado ou concede nova amostra independente. O protocolo histórico rejeita retomada sob composição diferente; reexportação somente leitura permanece disponível. Regressões/limitações: [guia 06A](../testes/sprint-06a-validacao.md) e [ADR 0008](../decisoes/0008-core-e-identidade-da-composicao.md).

@@ -25,3 +25,8 @@ A raiz Git encontrada em `docs` não cobre a aplicação no diretório pai. Essa
 ## Atualização autorizada em 24/10/2026 — repositórios independentes
 
 O responsável definiu um repositório Git por módulo independente, cada qual em diretório diretamente na raiz `/home/cams7/Dev/Cripto`. A aplicação agora reside em `cripto-bot/`, com Git inicializado na branch main; a documentação permanece em `docs/`, preservando seu histórico. Manifest, lock, fontes e testes foram movidos para o novo repositório. Isso resolve a pendência descrita acima, sem mudar a decisão de um pacote único para a aplicação. Não houve commit ou remoto.
+
+
+## Adendo — Sprint 06A, 26/10/2026
+
+O planejamento multiprojeto foi aplicado à biblioteca pura `cripto-core`; o bot passa a usar layout `src/cripto_bot` e a biblioteca `src/cripto_core` em repositório irmão. Chamadas continuam síncronas no mesmo processo, sem microsserviços/DI/plugins. O histórico acima descreve a estrutura anterior. Manifest/lock e wheel de cada projeto são independentes; não houve commit/remoto automático. Fronteiras e identidade: [ADR 0008](0008-core-e-identidade-da-composicao.md).

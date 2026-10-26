@@ -107,3 +107,8 @@ Exportações antigas continuam legíveis e não são modificadas automaticament
 Esta integração disponibiliza um caminho colunar para consultas analíticas repetidas; não elimina a reconciliação financeira em Python. A primeira publicação inclui o custo adicional de conversão dos CSVs. Ganhos efetivos, tamanhos e validações desta alteração são registrados no [guia complementar](../testes/duckdb-parquet-validacao.md), sem substituir as [evidências originais da Sprint 05](../testes/sprint-05-evidencias.json).
 
 Fontes oficiais: [Python DB API](https://duckdb.org/docs/1.5/clients/python/dbapi), [Parquet](https://duckdb.org/docs/1.5/data/parquet/overview.html), [restrição de acesso](https://duckdb.org/docs/1.5/operations_manual/securing_duckdb/overview). Implementação: `adapters/storage/backtest_analytics.py` e `backtest_report.py`.
+
+
+## Revisão de compatibilidade — Sprint 06A
+
+Fontes do bot em `src/cripto_bot`; helpers financeiros puros compartilhados vêm de `cripto_core`. DDL, tabelas/constraints/triggers, versão, transações e ownership deste store foram preservados; nenhuma migração/reset foi introduzida. Alteração da identidade do código não regrava journal/contexto selado ou concede nova amostra independente. O protocolo histórico rejeita retomada sob composição diferente; reexportação somente leitura permanece disponível. Regressões/limitações: [guia 06A](../testes/sprint-06a-validacao.md) e [ADR 0008](../decisoes/0008-core-e-identidade-da-composicao.md).

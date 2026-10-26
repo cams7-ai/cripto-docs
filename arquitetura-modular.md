@@ -133,3 +133,10 @@ Persistência: [schema histórico 1](bancos/backtest-sqlite.md), FULL/WAL, lock/
 ## Projeção analítica DuckDB + Parquet
 
 Após a entrega da Sprint 05, a exportação histórica passa a produzir séries Parquet ZSTD e catálogo DuckDB, conforme [ADR 0007](decisoes/0007-duckdb-parquet-analitico.md). O DuckDB embutido consulta os Parquets para gerar resumos e confere as contagens com o snapshot SQLite. Métricas oficiais e regras financeiras continuam no domínio Decimal existente. A camada não participa da admissão/reserva/fill, não migra o ledger e não altera o protocolo já consumido. Os arquivos são projeções derivadas publicadas atomicamente; uma falha impede a publicação e permite reexportação em leitura. Schema e restrições em [banco analítico](bancos/backtest-analytics.md); resultados novos no [guia complementar](testes/duckdb-parquet-validacao.md), separados das evidências originais.
+
+
+## Extração pura na Sprint 06A
+
+A implementação de `TrendSMA`, `Snapshot`, `Decision` e `Strategy` está em `cripto-core/src/cripto_core/strategy/sma.py`; o bot reexporta os mesmos objetos. DTO Plan, erros e cálculos financeiros compartilhados também têm fonte única no core. O coordenador, risco/admissão, Wallet/journal, registro e feature flags permanecem no bot. Instalar a biblioteca obrigatória não é habilitar estratégia; escopos e defaults anteriores permanecem. A 06A não amplia composições, pares ou tipos de avaliação.
+
+A identidade dos protocolos inclui conteúdo realmente instalado do core e controles do consumidor; aprovação de composição antiga não cobre alteração desse conteúdo. Não converter janela conhecida em teste independente. Ver [ADR 0008](decisoes/0008-core-e-identidade-da-composicao.md) e [guia 06A](testes/sprint-06a-validacao.md).
