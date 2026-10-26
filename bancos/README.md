@@ -38,3 +38,6 @@ Backup de SQLite ativo exige mecanismo consistente ou pausa controlada; copiar a
 
 
 Sprint 06A: layout e origem de helpers atualizados nos documentos técnicos. Nenhum DDL/schema/constraint/transação foi alterado ou banco migrado; identidade do código agora inclui o core instalado. [Compatibilidade e evidências](../testes/sprint-06a-validacao.md).
+
+
+Sprint 06B: implementação do mercado SQLite v1 extraída para `cripto-market-data`; classe/DDL e dados físicos preservados, sem migração. Store antigo sintético e lock entre consumidores verificados. Leitor histórico mantém o contrato de quatro arquivos do manifesto. [Guia 06B](../testes/sprint-06b-validacao.md).

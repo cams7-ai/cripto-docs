@@ -23,6 +23,8 @@ Data da análise: 24/10/2026. Atualização das integrações de mensagens e das
 
 **Decisão de planejamento em 26/10/2026:** preparar três novos projetos irmãos de `cripto-bot`: `cripto-core` (biblioteca compartilhada), `cripto-market-data` (coleta pública e dados) e `cripto-analytics` (análises e relatórios). A implementação continua concentrada em `cripto-bot` até a extração ser executada e validada. A Sprint 06 passa a ter etapas 06A–06D, descritas na seção 9.2; o PAPER contínuo sucede as três extrações. `cripto-backtest` e bibliotecas menores ficam adiados. Esta revisão altera somente o planejamento, sem criar repositórios, mover código/dados ou executar Sprints. Os registros anteriores conservam seu contexto histórico; a entrega 05 e o ajuste DuckDB/Parquet estão documentados nas seções 21–22.
 
+**Estado atual após 06B (26/10/2026):** core e dados extraídos/integrados e validados offline; 06A/06B aprovadas, 06C elegível para detalhamento/revisão. Piloto 06D e Sprint 07 pendentes. Resultados/limites na seção 28.
+
 ## 1. Visão do produto e premissas
 
 Construir um sistema pessoal e modular que colete dados, avalie estratégias explicáveis e módulos de carteira/sinais/execução independentes, simule carteira e execução, controle risco e produza evidências para decidir se uma operação real limitada é justificável. Consistência operacional e resultados líquidos ajustados ao risco serão avaliados separadamente. Não existe promessa de rentabilidade; desempenho histórico não garante desempenho futuro.
@@ -263,7 +265,7 @@ Gerar a apresentação a partir dos artefatos ou snapshots consistentes já prod
 
 ### 4.10 Projetos executáveis e biblioteca compartilhada — organização planejada
 
-Atualização de execução 06A: `cripto-core` foi extraído e integrado ao bot; dados e análise continuam planejados para 06B/06C. Resultados e limitações na seção 26.
+Atualização de execução 06A/06B: `cripto-core` e `cripto-market-data` foram extraídos e integrados ao bot por wheels; análise continua planejada para 06C. Resultados e limitações nas seções 26 e 28.
 
 Distinguir três conceitos: projeto/repositório independente, biblioteca Python consumida por outro projeto e módulo de estratégia com feature flag. `trend_sma` continua sendo o módulo de estratégia implementado; uma extração de pacote não habilita outra estratégia ou modo financeiro.
 
@@ -583,7 +585,9 @@ Cada linha tem contrato e critérios específicos nas [Sprints opcionais](sprint
 
 ### 9.2 Etapas da Sprint 06 — extração antes de PAPER contínuo
 
-Esta distribuição é a decisão vigente de planejamento de 26/10/2026. Não renumera as Sprints 07–21 nem altera os aceites históricos 01–05. O documento [sprint-06.md](sprints/sprint-06.md) foi atualizado como agregador de 06A–06D, com o piloto concentrado em 06D. A [Sprint 06A](sprints/sprint-06a.md) foi implementada/validada; 06B está elegível para detalhamento/revisão, e 06C–06D continuam dependentes. A [Sprint 07](sprints/sprint-07.md) também deverá incorporar as novas dependências no seu detalhamento. Os documentos específicos de cada etapa, por exemplo `sprint-06a.md` e seu guia, surgem somente quando essa etapa for detalhada; não criar placeholders ou tratar o texto antigo como autorização para pular as extrações.
+**Estado em 26/10/2026 após a execução 06B:** 06A e 06B aprovadas no escopo offline; próxima etapa elegível é detalhar/revisar 06C. 06D/gate global/07 pendentes. Ver seção 28 e evidências; a tabela conserva o contrato dos incrementos.
+
+Esta distribuição é a decisão vigente de planejamento de 26/10/2026. Não renumera as Sprints 07–21 nem altera os aceites históricos 01–05. O documento [sprint-06.md](sprints/sprint-06.md) foi atualizado como agregador de 06A–06D, com o piloto concentrado em 06D. A [Sprint 06A](sprints/sprint-06a.md) foi implementada/validada; a [Sprint 06B](sprints/sprint-06b.md) está especificada e aguarda revisão antes de eventual implementação; 06C–06D continuam dependentes. A [Sprint 07](sprints/sprint-07.md) também deverá incorporar as novas dependências no seu detalhamento. Os documentos específicos de cada etapa, por exemplo `sprint-06a.md` e seu guia, surgem somente quando essa etapa for detalhada; não criar placeholders ou tratar o texto antigo como autorização para pular as extrações.
 
 | Etapa | Incremento demonstrável e propriedade | Dependência | Critérios obrigatórios antes de avançar |
 |---|---|---|---|
@@ -1057,3 +1061,21 @@ Validação final: 533 testes do bot e 54 do core, Ruff/formatação/mypy/build/
 A01–A16 aprovados no alcance local/PAPER/Spot/BTCUSDT/15m. [Guia](testes/sprint-06a-validacao.md), [evidências](testes/sprint-06a-evidencias.json), [relatório técnico HTML revisado](testes/relatorios/sprint-06a/report.html) e [ADR 0008](decisoes/0008-core-e-identidade-da-composicao.md). Cache frio completo não demonstrado: dependências externas da baseline instalada foram reutilizadas após conferir versões/RECORD, sem downloads; os wheels bot/core foram construídos e instalados separadamente. O wheel core local precisa estar disponível para sync locked.
 
 Sem commit/remoto/publicação, coleta real nova, notificações, AWS, ordens privadas ou implementação de 06B–06D/BT-A–BT-F. Próxima ação: detalhar/revisar 06B com as evidências da 06A; a Sprint 06 permanece parcial e a 07 não é liberada por essa entrega isolada.
+
+
+## 27. Sprint 06B especificada — 26/10/2026
+
+A [especificação 06B](sprints/sprint-06b.md) detalha a extração de `cripto-market-data`, com biblioteca/CLI independente, `src` na raiz, bot consumidor por delegação, compatibilidade do store/manifestos e identidade da composição ampliada. Define fronteiras para separar exportação de mercado da proveniência usada pelos fluxos financeiros, raiz explícita da CLI, B01–B18 e prompt autossuficiente de implementação futura.
+
+Elegibilidade conferida: 127/127 hashes de fontes/controles e seis artefatos da 06A compatíveis com os projetos atuais; bot/core/docs limpos no início, revisões registradas na especificação. Nenhuma suíte foi reexecutada nesta revisão. Criada somente documentação, sem projeto de dados, coleta, movimento de código/dados ou implementação de 06C/06D. Próxima ação: revisar a especificação 06B; implementação permanece pendente.
+
+
+## 28. Sprint 06B implementada e validada — 26/10/2026
+
+Extraídos biblioteca/CLI/Git independentes `cripto-market-data/src/cripto_market_data`: domínio/DTOs/portas de mercado, paginação/workflow, HTTPX público/fixture, store/checkpoint/exportação e schema de mercado. Bot conserva configuração financeira, carteira/risco/flags/backtest/análise e delega coleta por fachadas compatíveis. Não há estratégia/flag nova ou movimento físico de banco; root explícito na CLI de dados e mesmo lock para os dois consumidores.
+
+B-M1 baseline 533 testes/22 comandos; B-M2 standalone 120 testes, sem bot/DuckDB; B-M3 bot 537 testes, qualidade/build e 22 comandos instalados por três wheels. B01–B18/documentação/relatório aprovados. DDL/store/IDs/checkpoints/parser/hash dos candles e leitor histórico compatíveis; 48 curvas sintéticas e oito respostas financeiras equivalentes. Identidade inclui market-data e bloqueia retomada incompatível; reexportação do protocolo antigo preserva SQLite/identidade selada. Registro final real, core e artefatos 06A inalterados. Ver [especificação](sprints/sprint-06b.md#14-registro-da-implementação-em-26102026), [guia](testes/sprint-06b-validacao.md), [evidências](testes/sprint-06b-evidencias.json), [relatório](testes/relatorios/sprint-06b/report.html) e [ADR 0009](decisoes/0009-market-data-e-proveniencia-do-produtor.md).
+
+Instalação completa com cache frio não comprovada: dependências externas reutilizadas da baseline após lock/versão/RECORD/hash conferidos; wheels próprios novos offline. Resultado técnico retrospectivo sintético não é nova evidência econômica fora da amostra. Custos CPU/disco e limitações/rollback documentados. Sem commits/remotos/publicação, rede de mercado, mensagens, AWS ou operações privadas.
+
+Próxima ação elegível: detalhar/revisar 06C usando composição/evidências atuais. `cripto-analytics`, 06D/07 e BT-A–BT-F não iniciados por esta entrega. A Sprint 06 permanece parcial e não autoriza o piloto contínuo nem operações reais. A seção 27 preserva o estado da especificação antes desta execução.

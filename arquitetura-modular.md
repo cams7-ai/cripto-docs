@@ -140,3 +140,10 @@ Após a entrega da Sprint 05, a exportação histórica passa a produzir séries
 A implementação de `TrendSMA`, `Snapshot`, `Decision` e `Strategy` está em `cripto-core/src/cripto_core/strategy/sma.py`; o bot reexporta os mesmos objetos. DTO Plan, erros e cálculos financeiros compartilhados também têm fonte única no core. O coordenador, risco/admissão, Wallet/journal, registro e feature flags permanecem no bot. Instalar a biblioteca obrigatória não é habilitar estratégia; escopos e defaults anteriores permanecem. A 06A não amplia composições, pares ou tipos de avaliação.
 
 A identidade dos protocolos inclui conteúdo realmente instalado do core e controles do consumidor; aprovação de composição antiga não cobre alteração desse conteúdo. Não converter janela conhecida em teste independente. Ver [ADR 0008](decisoes/0008-core-e-identidade-da-composicao.md) e [guia 06A](testes/sprint-06a-validacao.md).
+
+
+## Dependência de dados na Sprint 06B
+
+Candle/MarketSettings/RawResponse, parsers e coleta/store/export de mercado são fornecidos por `cripto_market_data`, com reexports de identidade no bot. Isso é biblioteca obrigatória de dados, não módulo de estratégia ou feature flag. SMA continua pura no core; Wallet/risco/coordenador e flags permanecem no bot, com defaults/escopos existentes. A nova CLI de dados não interpreta tabelas financeiras/estratégicas nem herda sua ativação.
+
+Composição instalada passa a identificar bot/core/market-data. Alterar dados/parsers/código de mercado invalida a identidade experimental para retomada, sem reabrir teste final. Nenhum novo par, módulo, algoritmo de execução ou modo foi habilitado. [Guia 06B](testes/sprint-06b-validacao.md).

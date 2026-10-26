@@ -90,3 +90,8 @@ A publicação de relatórios acrescenta [DuckDB + Parquet](backtest-analytics.m
 ## Revisão de compatibilidade — Sprint 06A
 
 Fontes do bot em `src/cripto_bot`; helpers financeiros puros compartilhados vêm de `cripto_core`. DDL, tabelas/constraints/triggers, versão, transações e ownership deste store foram preservados; nenhuma migração/reset foi introduzida. Alteração da identidade do código não regrava journal/contexto selado ou concede nova amostra independente. O protocolo histórico rejeita retomada sob composição diferente; reexportação somente leitura permanece disponível. Regressões/limitações: [guia 06A](../testes/sprint-06a-validacao.md) e [ADR 0008](../decisoes/0008-core-e-identidade-da-composicao.md).
+
+
+## Compatibilidade na Sprint 06B
+
+O preparo histórico passa a obter parsers de mercado via fachada para `cripto_market_data`. Um manifesto novo de coleta fixture, com aquecimento e janela de score corretos, é aceito pelo mesmo leitor sem alterar o motor. O campo files conserva os quatro arquivos exigidos. A identidade do bot inclui market-data instalado: retomada sob composição diferente falha, enquanto report continua reexportando identidade selada em leitura. DDL/schema/modelo, diário, ledger e registro final permanecem no bot. [Guia 06B](../testes/sprint-06b-validacao.md).

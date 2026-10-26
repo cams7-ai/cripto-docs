@@ -62,3 +62,6 @@ A projeção [DuckDB + Parquet](../bancos/backtest-analytics.md) acrescentada ap
 
 
 Revisão 06A (26/10/2026): `trend_sma` passa a ser fornecida pelo core com fachada de compatibilidade no bot, sem mudança de versão da estratégia/regras/flags ou autorização de continuous. A composição instalada e sua identidade são verificadas separadamente no [guia 06A](../testes/sprint-06a-validacao.md); bibliotecas não recebem documentos fictícios de estratégia.
+
+
+Revisão 06B (26/10/2026): dependências/contratos de mercado de trend_sma foram atualizados por extração para market-data, sem nova estratégia, versão de regras ou habilitação. Biblioteca de dados não recebe documento fictício de estratégia. [Evidências da composição](../testes/sprint-06b-validacao.md).

@@ -160,3 +160,8 @@ Estado limitado a slow+1 fechamentos, carteira/risco/pendência e acumuladores. 
 A SMA foi movida para `cripto_core.strategy.sma`, com os mesmos DTOs/Protocol, assinatura, regras 20/50, igualdade, warm-up, inventário e contexto Decimal local 80. O módulo do bot reexporta os mesmos objetos, sem segunda implementação. Sizing recebe saldos/equity explícitos no core; acesso ao Wallet, risco, reservas e coordenação permanecem no bot. Nenhuma alteração de parâmetros, flags, modelo financeiro, dados ou elegibilidade para continuous/modos privados.
 
 O consumidor passa a declarar `cripto-core==0.1.0` por wheel identificado. Mudança em seu código invalida a identidade experimental para retomada; reexportação de relatório selado antigo continua somente leitura. As evidências 04/05 permanecem históricas; regressões e limites da nova composição estão no [guia 06A](../testes/sprint-06a-validacao.md).
+
+
+## Sprint 06B — contratos de dados extraídos
+
+O consumidor do snapshot passa a usar Candle/validação/configuração de mercado de `cripto_market_data` por fachadas compatíveis no bot. A SMA/DTOs de decisão continuam no core; não mudaram regras, parâmetros, contexto Decimal, disponibilidade temporal, flags ou inventário. A identidade da composição inclui a biblioteca de dados instalada, exigindo nova evidência daquela composição, sem converter resultado conhecido em amostra independente. Backtest e execução permanecem no bot. [Validação 06B](../testes/sprint-06b-validacao.md).

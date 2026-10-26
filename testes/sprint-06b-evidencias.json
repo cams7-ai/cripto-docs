@@ -1,0 +1,737 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-26T14:10:18.756662+00:00",
+  "status": "APPROVED_OFFLINE_06B",
+  "scope": "Python/local/PAPER/Spot/BTCUSDT/15m; synthetic fixtures; socket guard",
+  "repositories": {
+    "cripto-bot": {
+      "head": "a9dde2e93043be3aa11c603a2b46c60a59e4a174",
+      "committed_by_this_task": false
+    },
+    "cripto-core": {
+      "head": "e666e7e23dcb421177c80838a28c230d4433bdf2",
+      "committed_by_this_task": false
+    },
+    "docs": {
+      "head": "edfa405aa7558d1efa3493f2f0e5f557c6999eaf",
+      "committed_by_this_task": false
+    },
+    "cripto-market-data": {
+      "head": null,
+      "committed_by_this_task": false
+    }
+  },
+  "baseline_verified": {
+    "source_control_hashes": 127,
+    "artifacts": 6,
+    "bot_archive": "cripto-bot/reports/sprint06b/baseline/tracked-baseline.tar",
+    "docs_preexisting_changes_preserved": true
+  },
+  "verification": {
+    "baseline_bot": {
+      "pytest": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "533",
+        "time": "565.318",
+        "timestamp": "2026-10-26T10:23:29.953965-03:00",
+        "hostname": "qbex"
+      },
+      "coverage": {
+        "covered_lines": 3388,
+        "num_statements": 3549,
+        "percent_covered": 93.42413279421153,
+        "percent_covered_display": "93",
+        "missing_lines": 161,
+        "excluded_lines": 54,
+        "percent_statements_covered": 95.46351084812623,
+        "percent_statements_covered_display": "95",
+        "num_branches": 1150,
+        "num_partial_branches": 142,
+        "covered_branches": 1002,
+        "missing_branches": 148,
+        "percent_branches_covered": 87.1304347826087,
+        "percent_branches_covered_display": "87"
+      },
+      "logs": "cripto-bot/reports/sprint06b/baseline"
+    },
+    "standalone_data": {
+      "pytest": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "120",
+        "time": "3.887",
+        "timestamp": "2026-10-26T10:39:21.039525-03:00",
+        "hostname": "qbex"
+      },
+      "coverage": {
+        "covered_lines": 721,
+        "num_statements": 745,
+        "percent_covered": 95.79390115667718,
+        "percent_covered_display": "96",
+        "missing_lines": 24,
+        "excluded_lines": 14,
+        "percent_statements_covered": 96.77852348993288,
+        "percent_statements_covered_display": "97",
+        "num_branches": 206,
+        "num_partial_branches": 16,
+        "covered_branches": 190,
+        "missing_branches": 16,
+        "percent_branches_covered": 92.23300970873787,
+        "percent_branches_covered_display": "92"
+      },
+      "logs": "cripto-market-data/reports/sprint06b/standalone"
+    },
+    "final_bot": {
+      "pytest": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "537",
+        "time": "561.849",
+        "timestamp": "2026-10-26T10:52:12.544879-03:00",
+        "hostname": "qbex"
+      },
+      "coverage": {
+        "covered_lines": 2857,
+        "num_statements": 3010,
+        "percent_covered": 92.6307847082495,
+        "percent_covered_display": "93",
+        "missing_lines": 153,
+        "excluded_lines": 40,
+        "percent_statements_covered": 94.91694352159469,
+        "percent_statements_covered_display": "95",
+        "num_branches": 966,
+        "num_partial_branches": 134,
+        "covered_branches": 826,
+        "missing_branches": 140,
+        "percent_branches_covered": 85.5072463768116,
+        "percent_branches_covered_display": "86"
+      },
+      "logs": "cripto-bot/reports/sprint06b/final"
+    }
+  },
+  "milestones": {
+    "B-M1": {
+      "status": "APPROVED_B_M1",
+      "completed_at": "2026-10-26T13:33:52.015206+00:00",
+      "pytest": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "533",
+        "time": "565.318",
+        "timestamp": "2026-10-26T10:23:29.953965-03:00",
+        "hostname": "qbex"
+      },
+      "smoke_commands": 22
+    },
+    "B-M2": {
+      "status": "APPROVED_B_M2",
+      "completed_at": "2026-10-26T13:44:18.611154+00:00",
+      "pytest": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "120",
+        "time": "3.887",
+        "timestamp": "2026-10-26T10:39:21.039525-03:00",
+        "hostname": "qbex"
+      },
+      "wheel_smoke": true,
+      "old_store_compatibility": {
+        "old_store": "/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06a-final/market-2u954hax/data/market.sqlite3",
+        "old_schema_candles_checkpoint_unchanged": true,
+        "new_cli_inserted": 0,
+        "data_sha256": "fec39ffcbf53d685fcd5606a51585e364c6dbecd06b991d0dabc4722e04aa74d",
+        "same_dataset": true,
+        "old_bot_lock_blocks_new_cli": true,
+        "locked_exit": 3
+      }
+    },
+    "B-M3": {
+      "technical_checks": "PASSED",
+      "status": "APPROVED",
+      "smoke_commands": 22
+    }
+  },
+  "wheel_smokes": {
+    "baseline_commands": 22,
+    "standalone_commands": 5,
+    "final_commands": 22,
+    "socket_probes_blocked": true,
+    "origins": {
+      "bot": "/home/cams7/Dev/Cripto/cripto-bot/.venv-wheel-06b/lib/python3.13/site-packages/cripto_bot/__init__.py",
+      "market": "/home/cams7/Dev/Cripto/cripto-bot/.venv-wheel-06b/lib/python3.13/site-packages/cripto_market_data/__init__.py",
+      "core": "/home/cams7/Dev/Cripto/cripto-bot/.venv-wheel-06b/lib/python3.13/site-packages/cripto_core/__init__.py"
+    },
+    "standalone_without_bot_or_duckdb": true
+  },
+  "compatibility": {
+    "financial_commands_equal": [
+      "paper-run",
+      "paper-reconcile",
+      "paper-report",
+      "paper-run",
+      "strategy-run",
+      "strategy-reconcile",
+      "strategy-report",
+      "strategy-run"
+    ],
+    "curves_equal": 48,
+    "excluded_curve_fields": [
+      "run_key",
+      "checkpoint_bytes"
+    ],
+    "prior_lock_packages_preserved": 27,
+    "only_added_dependency": "cripto-market-data==0.1.0",
+    "ddl_class_ast_identical": true,
+    "source_matches_wheels": true,
+    "artifacts": {
+      "cripto-bot/dist/06b-final/.gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+      "cripto-bot/dist/06b-final/cripto_bot-0.1.0-py3-none-any.whl": "a5651e35118f2586649bd56ced9509713ec7ae46a38a18d1dfc84fbf4897e67e",
+      "cripto-bot/dist/06b-final/cripto_bot-0.1.0.tar.gz": "997a5da742c6b0749d5c5c26bd2e46d3f16deb46fc8f5c373619d5d61eb77cb3",
+      "cripto-market-data/dist/06b-final/.gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+      "cripto-market-data/dist/06b-final/cripto_market_data-0.1.0-py3-none-any.whl": "acc74aea5805d786ddf0e3422d872bd6a25ba13fc6e3c3b3276c02abcb55e20f",
+      "cripto-market-data/dist/06b-final/cripto_market_data-0.1.0.tar.gz": "97eb4a4f72b58ac66456de618720b0bbe4a860b1f0b6a32c21931e89406fa9dc"
+    },
+    "registry_sha256": "af7ee92659cb1be9c4e322daeba997755430a040faec4b1342c1cabf082810bd",
+    "old_report": {
+      "exit_code": 0,
+      "stdout": "{\"run_id\": \"6248fb41-4aa4-46ec-b3a5-22d8687fe7d9\", \"timestamp\": \"2026-10-26T14:01:25.738723+00:00\", \"mode\": \"PAPER\", \"orders_sent\": 0, \"simulated_fills\": 0, \"status\": \"BACKTEST_REPORTED\", \"manifest\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06a-final/market-2u954hax/backtest-wallet/exports/6248fb41-4aa4-46ec-b3a5-22d8687fe7d9/manifest.json\", \"html_report\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06a-final/market-2u954hax/backtest-wallet/exports/6248fb41-4aa4-46ec-b3a5-22d8687fe7d9/report.html\", \"result_sha256\": \"06ad3b9742fbea8796e824bcacc0d74787d49a406f9b9081f0c3e600c9688e7a\", \"analytics_database\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06a-final/market-2u954hax/backtest-wallet/exports/6248fb41-4aa4-46ec-b3a5-22d8687fe7d9/analytics.duckdb\", \"analytics_manifest\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06a-final/market-2u954hax/backtest-wallet/exports/6248fb41-4aa4-46ec-b3a5-22d8687fe7d9/analytics.json\"}\n",
+      "stderr": "{\"run_id\": \"6248fb41-4aa4-46ec-b3a5-22d8687fe7d9\", \"timestamp\": \"2026-10-26T14:01:25.738723+00:00\", \"mode\": \"PAPER\", \"level\": \"INFO\", \"event\": \"backtest-report\"}\n"
+    },
+    "old_resume_rejected": {
+      "exit_code": 3,
+      "stdout": "{\"run_id\": \"ca56820a-fc4d-4a6f-a9a7-eb16282c42ce\", \"timestamp\": \"2026-10-26T14:01:43.411791+00:00\", \"mode\": \"PAPER\", \"orders_sent\": 0, \"simulated_fills\": 0, \"status\": \"BACKTEST_FAILED\", \"error_code\": \"FROZEN_PROTOCOL_CHANGED\"}\n",
+      "stderr": "{\"run_id\": \"ca56820a-fc4d-4a6f-a9a7-eb16282c42ce\", \"timestamp\": \"2026-10-26T14:01:43.411791+00:00\", \"mode\": \"PAPER\", \"level\": \"ERROR\", \"event\": \"backtest-run\"}\n"
+    },
+    "old_sqlite_unchanged": true
+  },
+  "cross_cli": {
+    "checks": [
+      {
+        "producer": "cripto-bot",
+        "exit": 0,
+        "stdout": "{\"run_id\": \"a6bc1159-9e46-4ebf-a558-335ca29ae0dd\", \"timestamp\": \"2026-10-26T14:02:20.654501+00:00\", \"mode\": \"PAPER\", \"dataset\": \"fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1\", \"source\": \"fixture\", \"symbol\": \"BTCUSDT\", \"interval\": \"15m\", \"start\": 1790812800000, \"end\": 1790814600000, \"orders_sent\": 0, \"status\": \"COLLECTED\", \"complete\": true, \"manifest\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06a-final/market-2u954hax/data/exports/a6bc1159-9e46-4ebf-a558-335ca29ae0dd/manifest.json\", \"next_open_time\": 1790814600000, \"inserted\": 0, \"duplicated\": 0, \"ignored\": 0}\n",
+        "stderr": "{\"run_id\": \"a6bc1159-9e46-4ebf-a558-335ca29ae0dd\", \"timestamp\": \"2026-10-26T14:02:20.654501+00:00\", \"mode\": \"PAPER\", \"level\": \"INFO\", \"event\": \"collect-market\"}\n"
+      },
+      {
+        "producer": "cripto-market-data",
+        "exit": 0,
+        "stdout": "{\"run_id\": \"77f26bf7-c1eb-492d-bac1-cfe257371634\", \"timestamp\": \"2026-10-26T14:02:20.993006+00:00\", \"mode\": \"PAPER\", \"dataset\": \"fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1\", \"source\": \"fixture\", \"symbol\": \"BTCUSDT\", \"interval\": \"15m\", \"start\": 1790812800000, \"end\": 1790814600000, \"orders_sent\": 0, \"status\": \"COLLECTED\", \"complete\": true, \"manifest\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06a-final/market-2u954hax/data/exports/77f26bf7-c1eb-492d-bac1-cfe257371634/manifest.json\", \"next_open_time\": 1790814600000, \"inserted\": 0, \"duplicated\": 0, \"ignored\": 0}\n",
+        "stderr": "{\"run_id\": \"77f26bf7-c1eb-492d-bac1-cfe257371634\", \"timestamp\": \"2026-10-26T14:02:20.993006+00:00\", \"mode\": \"PAPER\", \"level\": \"INFO\", \"event\": \"collect-market\"}\n"
+      },
+      {
+        "producer": "cripto-bot",
+        "exit": 0,
+        "stdout": "{\"run_id\": \"1be1c10e-483b-4cae-aa7b-1e1ab419a990\", \"timestamp\": \"2026-10-26T14:02:21.294658+00:00\", \"mode\": \"PAPER\", \"dataset\": \"fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1\", \"source\": \"fixture\", \"symbol\": \"BTCUSDT\", \"interval\": \"15m\", \"start\": 1790812800000, \"end\": 1790814600000, \"orders_sent\": 0, \"status\": \"COLLECTED\", \"complete\": true, \"manifest\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06a-final/market-2u954hax/data/exports/1be1c10e-483b-4cae-aa7b-1e1ab419a990/manifest.json\", \"next_open_time\": 1790814600000, \"inserted\": 0, \"duplicated\": 0, \"ignored\": 0}\n",
+        "stderr": "{\"run_id\": \"1be1c10e-483b-4cae-aa7b-1e1ab419a990\", \"timestamp\": \"2026-10-26T14:02:21.294658+00:00\", \"mode\": \"PAPER\", \"level\": \"INFO\", \"event\": \"collect-market\"}\n"
+      },
+      {
+        "producer": "cripto-bot",
+        "exit": 3,
+        "stdout": "{\"run_id\": \"66387a19-bf79-4569-b5cc-dbc5a3057391\", \"timestamp\": \"2026-10-26T14:02:21.634458+00:00\", \"mode\": \"PAPER\", \"dataset\": \"fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1\", \"source\": \"fixture\", \"symbol\": \"BTCUSDT\", \"interval\": \"15m\", \"start\": 1790812800000, \"end\": 1790814600000, \"orders_sent\": 0, \"status\": \"COLLECTION_FAILED\", \"complete\": false, \"error_code\": \"WRITER_BUSY\", \"next_open_time\": 1790812800000, \"inserted\": 0, \"duplicated\": 0, \"ignored\": 0}\n",
+        "stderr": "{\"run_id\": \"66387a19-bf79-4569-b5cc-dbc5a3057391\", \"timestamp\": \"2026-10-26T14:02:21.634458+00:00\", \"mode\": \"PAPER\", \"level\": \"ERROR\", \"event\": \"collect-market\"}\n"
+      },
+      {
+        "producer": "cripto-market-data",
+        "exit": 3,
+        "stdout": "{\"run_id\": \"ea56fca5-5074-41b4-ba84-3c88be0de233\", \"timestamp\": \"2026-10-26T14:02:21.874511+00:00\", \"mode\": \"PAPER\", \"dataset\": \"fixture:15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426:v1\", \"source\": \"fixture\", \"symbol\": \"BTCUSDT\", \"interval\": \"15m\", \"start\": 1790812800000, \"end\": 1790814600000, \"orders_sent\": 0, \"status\": \"COLLECTION_FAILED\", \"complete\": false, \"error_code\": \"WRITER_BUSY\", \"next_open_time\": 1790812800000, \"inserted\": 0, \"duplicated\": 0, \"ignored\": 0}\n",
+        "stderr": "{\"run_id\": \"ea56fca5-5074-41b4-ba84-3c88be0de233\", \"timestamp\": \"2026-10-26T14:02:21.874511+00:00\", \"mode\": \"PAPER\", \"level\": \"ERROR\", \"event\": \"collect-market\"}\n"
+      }
+    ],
+    "replay_inserted": 0,
+    "same_dataset_hash": true,
+    "same_lock": true
+  },
+  "previous_store": {
+    "old_store": "/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06a-final/market-2u954hax/data/market.sqlite3",
+    "old_schema_candles_checkpoint_unchanged": true,
+    "new_cli_inserted": 0,
+    "data_sha256": "fec39ffcbf53d685fcd5606a51585e364c6dbecd06b991d0dabc4722e04aa74d",
+    "same_dataset": true,
+    "old_bot_lock_blocks_new_cli": true,
+    "locked_exit": 3
+  },
+  "negative_missing_dependency": {
+    "exit": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"/home/cams7/Dev/Cripto/cripto-bot/tests/offline_runner.py\", line 17, in <module>\n    exec(compile(sys.argv[2], \"offline-test\", \"exec\"))\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"offline-test\", line 1, in <module>\n    \"\"\"Harness de teste: executa console script sem permitir eventos de socket.\"\"\"\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06b-missing-data/lib/python3.13/site-packages/cripto_bot/domain/market.py\", line 4, in <module>\n    from cripto_market_data.domain.market import (\n        EPOCH as EPOCH,\n    )\nModuleNotFoundError: No module named 'cripto_market_data'\n",
+    "explicit_missing_dependency": true
+  },
+  "protected_storage_sha256": {
+    "cripto-bot/src/cripto_bot/adapters/storage/paper_sqlite.py": "25154d175f5cb67032a13a12608fac1f5da33eda1b786a8707142cd4e5ef02d6",
+    "cripto-bot/src/cripto_bot/adapters/storage/strategy_sqlite.py": "d0791ef1e10b1c67b7bf34264bfd1f02fc7ffd7e611b54851e8fc9af79c87a18",
+    "cripto-bot/src/cripto_bot/adapters/storage/backtest_sqlite.py": "e57f464659af0f56d0e61c337ca0892806cadef9bc963d26f7952bc98140e7a4"
+  },
+  "artifact_sha256": {
+    "cripto-bot/dist/06b-final/.gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+    "cripto-bot/dist/06b-final/cripto_bot-0.1.0-py3-none-any.whl": "a5651e35118f2586649bd56ced9509713ec7ae46a38a18d1dfc84fbf4897e67e",
+    "cripto-bot/dist/06b-final/cripto_bot-0.1.0.tar.gz": "997a5da742c6b0749d5c5c26bd2e46d3f16deb46fc8f5c373619d5d61eb77cb3",
+    "cripto-market-data/dist/06b-final/.gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+    "cripto-market-data/dist/06b-final/cripto_market_data-0.1.0-py3-none-any.whl": "acc74aea5805d786ddf0e3422d872bd6a25ba13fc6e3c3b3276c02abcb55e20f",
+    "cripto-market-data/dist/06b-final/cripto_market_data-0.1.0.tar.gz": "97eb4a4f72b58ac66456de618720b0bbe4a860b1f0b6a32c21931e89406fa9dc",
+    "cripto-bot/dist/06a-layout/cripto_bot-0.1.0-py3-none-any.whl": "824a96920a0eb31e8475058ac9a9984049e8c10f26e9f1315013c9a5fc01748a",
+    "cripto-bot/dist/06a-layout/cripto_bot-0.1.0.tar.gz": "cb8eb6228fc79c86578b29c0ae896195bc3be2a396b5fd66054d3adffa17307f",
+    "cripto-bot/dist/06a-final/cripto_bot-0.1.0-py3-none-any.whl": "cdb3eb50a69de82089a012846c5eabaaf784114be99e38ccf006686988f38f16",
+    "cripto-bot/dist/06a-final/cripto_bot-0.1.0.tar.gz": "d54590a321ca0c53988a0d962aca0116b28eca8245e0a47edeba3f6d20c4027e",
+    "cripto-core/dist/06a-final/cripto_core-0.1.0-py3-none-any.whl": "4163f60d14f8cb1ede373ca40914d63ca3279ca1773e1f69407dbd8561024e2f",
+    "cripto-core/dist/06a-final/cripto_core-0.1.0.tar.gz": "ffe37f129df779d048e5bad4390e38cad691b5271b9675521adec1737d0d9276"
+  },
+  "source_files_sha256": {
+    "cripto-bot/.gitignore": "58ba18a2a7a75b8e77cd923a9f825ce85cad5c56226099cdf0d1a4084b378b0f",
+    "cripto-bot/.python-version": "861b3dd8083d28f336ef70f6755bc399538ddad627b1d095820ca34cb953cf14",
+    "cripto-bot/README.md": "90432761093fb759f237d825aebce78948c916e13ad8736a3bc4f961b438a753",
+    "cripto-bot/config/backtest.sma.example.toml": "2d81fdcb005ef237a9146e5ebfb852d0d47d8f775c63b7da979efa567e5259dc",
+    "cripto-bot/config/backtest.sma.fixture.toml": "6cfb774987ea1ceb6d7f572e1ea5bc30ffff1094fab0ab6791994440278ccc2e",
+    "cripto-bot/config/backtest.sma.public.local.toml": "5f6561564d025b27e753cf42d5b9c9468fb7c188a47346b502eab712e6c04ec9",
+    "cripto-bot/config/fixtures/backtest-sma/candles.jsonl.gz": "8ced43e21d5aabb4bb7a7e15f0ffae27e19048d0e068e1388ae910bffad84a7b",
+    "cripto-bot/config/fixtures/backtest-sma/manifest.json": "94bbcc7f2899525367da51602bda1766378aa6448d7cf7bd42b0ffb46b0a1b8c",
+    "cripto-bot/config/fixtures/backtest-sma/provenance.json": "19ff24da1cd54a2450cc84e106293c3d83b941f3ca9c737186f438a2f59a18a6",
+    "cripto-bot/config/fixtures/backtest-sma/raw.jsonl.gz": "b048713d3f4241c68f86fc92bf32595f4f5994ce5c94f4dd9abe5a23e0d649a5",
+    "cripto-bot/config/fixtures/backtest-sma/snapshots.json": "19ff24da1cd54a2450cc84e106293c3d83b941f3ca9c737186f438a2f59a18a6",
+    "cripto-bot/config/fixtures/market-sample.json": "15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426",
+    "cripto-bot/config/fixtures/paper-roundtrip.json": "dc3c4d0f5fb90fb66ccbc295e85dac59921e94e50d1eff65911e97ae51ac4e04",
+    "cripto-bot/config/fixtures/strategy-sma-crossings.json": "d8eab5e0ea3f139656b5a4742b9abd565efb424a1cb9f7ae87e275dcbbc5beaf",
+    "cripto-bot/config/market.backtest.example.toml": "834e3d08b736435ca4c6ecc99acdf1c45f670a039b5d3cef21a8db06d85c99df",
+    "cripto-bot/config/market.fixture.example.toml": "14f3e3abd6a2efdcff1f8d6e9e39a7d2d78943ed6181c7a7ff2e18e1e03ec4cc",
+    "cripto-bot/config/market.public.example.toml": "4182292c05b584400b54affd008fca5844ebc3ec07ff8dbcd8bcfa5732d3d892",
+    "cripto-bot/config/paper.example.toml": "9e6830201869f7681d9d7332a34068c1aae55386dc3644a901cfc023ba56ae47",
+    "cripto-bot/config/paper.execution.example.toml": "b09e2f16b6b5dcbf74aff0fd29d471940777084efac0e01b0ba3ad5c4cd65ae0",
+    "cripto-bot/config/strategy.sma.example.toml": "d08ac6ac100017a5cb22392b37b4ebbf858338918926ba86f9f971e6760755a5",
+    "cripto-bot/config/strategy.sma.fixture.toml": "b09d71da0795782d96bcb407cc20e8f66a9f42169afb21a4c84782cdd5b0645e",
+    "cripto-bot/pyproject.toml": "f1d0ffb224a53a93f510929d2caa2f4541c27c20aab76b0d7f46f846fdf6e44b",
+    "cripto-bot/src/cripto_bot/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/adapters/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/adapters/backtest_config.py": "bff72e63341ef88e7b80afbd45f2339d0224d6d93ae1be6429db2533415455a2",
+    "cripto-bot/src/cripto_bot/adapters/backtest_dataset.py": "27bf13f978ae6432014e323eb1d5608222955c536ef0357e3d50185958b9ed65",
+    "cripto-bot/src/cripto_bot/adapters/binance/__init__.py": "b5366ac9c27365f9a5091a5bfa99fccf0bfe00d6c025660633cac40557591fe8",
+    "cripto-bot/src/cripto_bot/adapters/binance/fixture.py": "d415b9cf29d1f38db1eca27d1b7c400813c250f18e6c78753c1467f67013062a",
+    "cripto-bot/src/cripto_bot/adapters/binance/public.py": "6f55fb9180deafe0be7fd9564cc634e416b04ec91443b089a22c83d1352058ba",
+    "cripto-bot/src/cripto_bot/adapters/config.py": "a6bd547d7287d4384a9caf08f1b9c958bca1500cd2609bc272a63cec582a8424",
+    "cripto-bot/src/cripto_bot/adapters/execution/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "cripto-bot/src/cripto_bot/adapters/execution/paper.py": "d905e866903f376dc26ed9280769f74bfc62aeb7fdedf871f64da68f11fb3951",
+    "cripto-bot/src/cripto_bot/adapters/paper_scenario.py": "0b398aeb2f50f8d4acf3f5f95abd95463316fcae710da9f4ce5617de0c3e3eea",
+    "cripto-bot/src/cripto_bot/adapters/provenance.py": "b0b7f250d98d075f402323c0907e7be6fe10da134f458a1d91abc7276f0602ff",
+    "cripto-bot/src/cripto_bot/adapters/storage/__init__.py": "b5366ac9c27365f9a5091a5bfa99fccf0bfe00d6c025660633cac40557591fe8",
+    "cripto-bot/src/cripto_bot/adapters/storage/backtest_analytics.py": "d7cbdc0641747d4a438dbe4488eb442be39a0b1e67a2e95a23503327cff26b90",
+    "cripto-bot/src/cripto_bot/adapters/storage/backtest_report.py": "aee4d2a6a8a51a079df82472699ca5146fe626542c0017badc1444c57141c8b7",
+    "cripto-bot/src/cripto_bot/adapters/storage/backtest_sqlite.py": "e57f464659af0f56d0e61c337ca0892806cadef9bc963d26f7952bc98140e7a4",
+    "cripto-bot/src/cripto_bot/adapters/storage/market_export.py": "08e71988f0e9979c727c72355db6bfd411b9282a74677d48b785f04292868dfc",
+    "cripto-bot/src/cripto_bot/adapters/storage/market_sqlite.py": "5ad7c98bd7eaa9388b9a4e5513a0be893e2a0581a5e392a6cbd055eb996c0aba",
+    "cripto-bot/src/cripto_bot/adapters/storage/paper_report.py": "73d52804cf8e6fc3ca4380e8c880d981149fd02113f030360c5c195878eae053",
+    "cripto-bot/src/cripto_bot/adapters/storage/paper_sqlite.py": "25154d175f5cb67032a13a12608fac1f5da33eda1b786a8707142cd4e5ef02d6",
+    "cripto-bot/src/cripto_bot/adapters/storage/strategy_report.py": "8c8ba6f11d1f8da6bca54d2246cb6c748ec6231a2332a353c30c67f992ca9a63",
+    "cripto-bot/src/cripto_bot/adapters/storage/strategy_sqlite.py": "d0791ef1e10b1c67b7bf34264bfd1f02fc7ffd7e611b54851e8fc9af79c87a18",
+    "cripto-bot/src/cripto_bot/adapters/strategy_config.py": "ce31c397d1e5848606d44d6c831643432d350af93bd1ba400f10a7fb86588473",
+    "cripto-bot/src/cripto_bot/adapters/strategy_fixture.py": "10d3ea6f51c616353e5c2a714a1642eb8f9eabfda9388df23f555bf1b64d2324",
+    "cripto-bot/src/cripto_bot/application/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/application/backtest_run.py": "c458b770b9c06c688e67c0c9ae33d19ad5bb37f9180d90c5937139259bd3a5a6",
+    "cripto-bot/src/cripto_bot/application/collect_market.py": "3a2429c37127d12978446232c5cf8f10ddfd94425e580dfb83d256bc3433a0b2",
+    "cripto-bot/src/cripto_bot/application/paper_reconcile.py": "5dd4692317ae7c7f1c3f776072e98f966fae695f75913d550b14f24fc6641155",
+    "cripto-bot/src/cripto_bot/application/paper_run.py": "e602191e2a0717a589e0fa1de402dec54ad3791c0eef99bc0f86a45416e6c525",
+    "cripto-bot/src/cripto_bot/application/ports.py": "643a53ba0480df51b82cab3174a948eaa608ab93429530c99cdb8b00c2675250",
+    "cripto-bot/src/cripto_bot/application/run_once.py": "1bf8d8f55c5e4090a31306668161d1d12a505332b5f8bfa6b5a14bd1377028fa",
+    "cripto-bot/src/cripto_bot/application/strategy_reconcile.py": "baad5ea4c11bdb1a8a7ca3d8aa4d6d90272fa40b7dc590dadf7d97d59f30f942",
+    "cripto-bot/src/cripto_bot/application/strategy_run.py": "55e5d55a50d78ec412d60628721ef58ca50b9f4c454870f04b938c658cbe3620",
+    "cripto-bot/src/cripto_bot/domain/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/domain/backtest/__init__.py": "6ed4fe2569513d4e19a1b7fd1b57ee76213ebc4eec8df6068b0709b7fb62d4da",
+    "cripto-bot/src/cripto_bot/domain/backtest/engine.py": "1a27a42aa71fa1e4b57ee4c5c7b75d6a4a4a11c087b4cfa0d59aaa69c0bc9f65",
+    "cripto-bot/src/cripto_bot/domain/backtest/metrics.py": "e5c52b7aaa2ff8bef8c4c542f379cb910f49f3ecb1a4727b94e65b45d746438e",
+    "cripto-bot/src/cripto_bot/domain/backtest/models.py": "ec45ea0e9ffea5535a8c9a6b84a1c18c81c5d5ca35afc12d6394e2079a68e244",
+    "cripto-bot/src/cripto_bot/domain/market.py": "2c70cf18edfc3291589e116357280f347d42babd158684c2318a13b80a93392a",
+    "cripto-bot/src/cripto_bot/domain/models.py": "0df491f99c75cc655980c65ceb21d38ccae21167d996ce38c548fffd10fa9bab",
+    "cripto-bot/src/cripto_bot/domain/modules/__init__.py": "3534394d01e224fe8d4083dc8056f8b023e9845ac89e189ec08f809ea72612ae",
+    "cripto-bot/src/cripto_bot/domain/modules/models.py": "e1bb92f9684c790f6da2a97f3b7da7978aae4faba6430b75522b87ad5a6970cb",
+    "cripto-bot/src/cripto_bot/domain/portfolio/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "cripto-bot/src/cripto_bot/domain/portfolio/engine.py": "ef9279b41bd9801e867b62882de4e16ca570ef6169f0c833298d575a34b55d04",
+    "cripto-bot/src/cripto_bot/domain/portfolio/models.py": "04674c1f412c5c3fd1a6da853118665e0f6cfe2a1413b09cac8ce68c6a7beffb",
+    "cripto-bot/src/cripto_bot/domain/risk/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "cripto-bot/src/cripto_bot/domain/risk/execution.py": "1053dfcaa464c788f89aa45402837307e84de7507bd89ea2b3ffc97c478d3fe0",
+    "cripto-bot/src/cripto_bot/domain/risk/limits.py": "a082b62be0b08634a301572d1ca32177271635bbd14b922b417851384a614cef",
+    "cripto-bot/src/cripto_bot/domain/strategy/__init__.py": "50f6e221de2f541c7dad8f2a524a098343a8ff1a4d0b4092bb56c242c65832dd",
+    "cripto-bot/src/cripto_bot/domain/strategy/engine.py": "00c12b263b88a2241bfd79a9c042f013abe990795323f9b358061a5796c7977f",
+    "cripto-bot/src/cripto_bot/domain/strategy/sma.py": "3bf2f0257de55b5894912dcbb2af649d084fb8dc542d411d140bfba25da26db7",
+    "cripto-bot/src/cripto_bot/entrypoints/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/entrypoints/backtest.py": "2fb97298aadb01981260b8cf148b05547b8727a7641dc03730bdb32432f3e67d",
+    "cripto-bot/src/cripto_bot/entrypoints/cli.py": "e4f59ebb7b60af45e84913560d3997fe5ec8168cade67294f03e638f418d428a",
+    "cripto-bot/src/cripto_bot/entrypoints/market.py": "3ade53de4b72f6e683d16a6aafd5fdb7f440f47c48bc6e192321e21e62f03190",
+    "cripto-bot/src/cripto_bot/entrypoints/paper.py": "41a8cd2d3ac0b4ec383461a5f22a4747f4885422fda728f92a4a339dbaa4bb71",
+    "cripto-bot/src/cripto_bot/entrypoints/strategy.py": "9a5fb300d19888fbed8a2e4f0402bfa1d1a5c707b2866aed4e8a564ee422d5ee",
+    "cripto-bot/src/cripto_bot/observability/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/observability/logging.py": "8924b981bab5af5ffaa07600043fdf85ac66f2278db9359b63d1c283ae228a7a",
+    "cripto-bot/tests/__init__.py": "0f14037db8fe8b365fdfee0a713e22e3bf8713f93ed479e237c38bea2e642be2",
+    "cripto-bot/tests/conftest.py": "f0390ef95a05276ce1f8c5758ae373903d391f5f44fa6eb2e694c5bacf230528",
+    "cripto-bot/tests/factories.py": "d00cb989f7a13980b7e33336a75500cac61dcd198f012167d2682930fb52cf2c",
+    "cripto-bot/tests/integration/test_backtest_analytics.py": "833cf0e1b7a8c2c48776a0af509c0a6488aad98c25c194a0e1be4e29e49451b4",
+    "cripto-bot/tests/integration/test_backtest_commands.py": "6411fdfeb59fee36f9958c94d1d2b33e5f9f38c4f9c8b6b89574c113ab091192",
+    "cripto-bot/tests/integration/test_backtest_publication.py": "b9a62ec8194f1732576fca4ba5d3b117bd51eb766bda36c922dc232271af35f9",
+    "cripto-bot/tests/integration/test_backtest_recovery.py": "36ef7d422731963b8398d20c2985f6d5341fc46bf6bc46a504007cfb9de91a6e",
+    "cripto-bot/tests/integration/test_backtest_scale.py": "0132d0456733c27395643ae6fa9489a0e81a606faacf49b760d3f505bdd60918",
+    "cripto-bot/tests/integration/test_cli.py": "3f244efd91b0a3b6ecde9b00c7d03e19721a254cff82c0751061fff99e9ea055",
+    "cripto-bot/tests/integration/test_collect_cli.py": "941ac5bf6fc6c8ef7fa181fa9f5a26dbc2d56e6d86dceef810f01dd466fc4ecc",
+    "cripto-bot/tests/integration/test_market_storage.py": "2854d8db93e68086161b3800e1c2f7c89e9bac9d6ee0ef5255c6b37278944bb0",
+    "cripto-bot/tests/integration/test_paper_cli.py": "2d935e77e27d6968d766640c622e3643db369a15fd465088068fd82b1e760d09",
+    "cripto-bot/tests/integration/test_paper_storage.py": "18663d905049c08873f2f6ea6514efaae383e173901218ab89a530b436e708f0",
+    "cripto-bot/tests/integration/test_strategy_cli.py": "95b6fa413c01ee3809af17bc882dc67cf9f1f37cc94b53e9475e65a33323fe6f",
+    "cripto-bot/tests/integration/test_strategy_storage.py": "225174725185572813b36b2cae97c9a46527907bd6f7957fe115e5269e3f5acc",
+    "cripto-bot/tests/offline_runner.py": "1325daaade9ea96d5be57522eb20f57303e66f99a4d3482340b2b8407b3ea8d8",
+    "cripto-bot/tests/paper_factories.py": "487de4f1250eed6975313fea48bb2a6c6b55cc8f0045555abf433e0685773dfa",
+    "cripto-bot/tests/strategy_factories.py": "26c0e80dca8b6bfafb1a91fb5fb15e051038ad30fb18ca85ef98df36b450b4db",
+    "cripto-bot/tests/unit/test_backtest.py": "daea264b6905d7dd906d37bb4a68e35468ed5bd9d32773476a6b343e3482b4ba",
+    "cripto-bot/tests/unit/test_backtest_additional.py": "1d2f0a55122b907a981326804d25bd31355913f2653b8b672cee6b564cd29fd3",
+    "cripto-bot/tests/unit/test_binance_public.py": "a2630ba57eb576aae999260a19cf815e78ae935d60b88b6b3be298614bdf90a4",
+    "cripto-bot/tests/unit/test_cli.py": "26d731a02604eb43454c650f80a3f17b5dc876633933a159b06132c824493493",
+    "cripto-bot/tests/unit/test_collect_market.py": "44894b968d88ae3c91b6ca3663f1330e752bd6f7aa43e7beec06af8eff60dc8a",
+    "cripto-bot/tests/unit/test_collection_entrypoint.py": "58681ea4ead757f56654e302653d9f65a11fd1004d1d003926bbc976913a877c",
+    "cripto-bot/tests/unit/test_config.py": "c772cbde23bd3e8e6586046ed7337406bbf5c7c112bdf714f785b7f846a06576",
+    "cripto-bot/tests/unit/test_coordinator.py": "4bcae66895de9d42cf24a0ca0bb45d900ffada97ac1365063c56f23d353eed12",
+    "cripto-bot/tests/unit/test_core_composition.py": "1b430a50a69d55272c1f0a11064f99c2f30c4f7e07c682a3cbf36f8e9cea2e10",
+    "cripto-bot/tests/unit/test_decimal.py": "6989eb7f2461bfdc97a81f0984224188b9c6a672c280d9b6a563db04ccb8381d",
+    "cripto-bot/tests/unit/test_logging.py": "c655c726fac2f493b3813d5ef8968a5bece6a8a770fff8c6955279e09d14775a",
+    "cripto-bot/tests/unit/test_market.py": "8702a49022e0b217e491d0ee980c59205aaaf8631f11d4f9a53323189bc08bb9",
+    "cripto-bot/tests/unit/test_market_composition.py": "e5d22648d187b9f4951e5e3ac1b4b5ce0696fe5b0b4c81a77833007f5199722b",
+    "cripto-bot/tests/unit/test_market_config.py": "9faa45bb42a7e319061c447245d90100ba67c9f8aedda5183dfc6218b78a26fc",
+    "cripto-bot/tests/unit/test_module_config.py": "4c6d20bdde63c043be0187594c85c8b931db14730aca2465e9345fc6c1797696",
+    "cripto-bot/tests/unit/test_paper_config.py": "1dfdcdb35226dcf38a6e3a66345fed3d9b04433ac720658f9cc7e4dd429697e6",
+    "cripto-bot/tests/unit/test_paper_execution.py": "7e058f7d99651028b31af4cfb5d99f46e7438e91e70b4a007500070825e2e364",
+    "cripto-bot/tests/unit/test_paper_failures.py": "e2474648cc7749245f7174cfee264aa985262b4a6b0745127e2192256211bf5e",
+    "cripto-bot/tests/unit/test_paper_scenario.py": "d0d97ed815f4067f985d4d712b33668a7be4d3bb12aee2b116822e2fad452f3b",
+    "cripto-bot/tests/unit/test_portfolio.py": "ff5e784cf19da2ec394c36115ed03ef8077f477f09bb750c6d48c0b0bce405c4",
+    "cripto-bot/tests/unit/test_risk.py": "cd61ebfc247644d833d821dc65b33688997e564515fe4c369307f88ebfeff0c1",
+    "cripto-bot/tests/unit/test_run_once.py": "87c2ea6766c9977915a46d986b67131e5ebd2e7d39aec8666c38ac28dc041b98",
+    "cripto-bot/tests/unit/test_strategy_sma.py": "a17114c70828e084733821b05895076d38efae2ed388e742b3d27d752b4a620b",
+    "cripto-bot/tests/wheel_smoke.py": "2af394dd966927b2ec0ff1887438233f37b95597d9d2edda5f2b4319c25b0651",
+    "cripto-bot/uv.lock": "5f8d01fd2410fa00bc12ff5c6b75aeabe6e9d20738d8ffd582d455dbf31484ba",
+    "cripto-market-data/.gitignore": "3169cfdfd4c8983d3fdb9132538094d0eb41cc9f1ae61d636f17c935bb8a7411",
+    "cripto-market-data/.python-version": "861b3dd8083d28f336ef70f6755bc399538ddad627b1d095820ca34cb953cf14",
+    "cripto-market-data/README.md": "1371c9cb9fe12d75f0a71096e8c56d061f75c0bc92a41994f184ddd60ad66393",
+    "cripto-market-data/config/fixtures/market-sample.json": "15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426",
+    "cripto-market-data/config/market.fixture.example.toml": "e13e195d9240f96139d1ac6c53c6e49383894a185e7b5ea8e4272a115e0c0e59",
+    "cripto-market-data/pyproject.toml": "81226b0524b7c68dedac2c5c0c49a8d095cfcbe3f8628e5546d56d622ca0ff6d",
+    "cripto-market-data/src/cripto_market_data/__init__.py": "9fc76d2d3bf9660546f60ef9736cc851188dcdbefccc4d18fa5be5300b243b8c",
+    "cripto-market-data/src/cripto_market_data/adapters/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/adapters/binance/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/adapters/binance/fixture.py": "e6d5ec0874d6a1825912a6f9225cd72139181dff876b2d8fd6ff60b0c997b914",
+    "cripto-market-data/src/cripto_market_data/adapters/binance/public.py": "94a69fd1fbe3ee6d8d0eb0ff7af81248e9713e079b44da8cc00b3f68162ba2a5",
+    "cripto-market-data/src/cripto_market_data/adapters/clock.py": "ea6a4cd045eb7398b7577531ece16ad180fabeb22a62b0df5e26e1f1de8b8670",
+    "cripto-market-data/src/cripto_market_data/adapters/config.py": "930ac13fad5e8f07b980a970bbab9bc2dc342d5a159b1858053458d4b596b948",
+    "cripto-market-data/src/cripto_market_data/adapters/inspection.py": "122ae03812fef193d24eeccbd96a1deaf42fe5e41b009fd8912a9615dfd24394",
+    "cripto-market-data/src/cripto_market_data/adapters/provenance.py": "80bb0915d2ab201b8f7905e7399367a2fb94d0c9250f7a9c4e23cd02b886d46a",
+    "cripto-market-data/src/cripto_market_data/adapters/storage/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/adapters/storage/export.py": "69173d0e71224d7989a310570d661ebc7453af045c811c9550d13fff1b3bda1e",
+    "cripto-market-data/src/cripto_market_data/adapters/storage/sqlite.py": "98a60f3097e20701204bf85be12bb9a5c1187b375ce71f767a4cdf0d7e678a6d",
+    "cripto-market-data/src/cripto_market_data/application/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/application/collect.py": "8436760c3c5f1cab59ca8372a2ffe4c4c05b4c8e1fbf1cc4c40abf6092e569d9",
+    "cripto-market-data/src/cripto_market_data/application/collection.py": "78685ee1f96a556e87b6679656bf08eb13174da514fda6cdc3b8482cb27c6f70",
+    "cripto-market-data/src/cripto_market_data/application/ports.py": "364de6b5c4c33c6cb9947ffe4d28093ae646cad91e74bc3cd5b3c3e6f225cf2f",
+    "cripto-market-data/src/cripto_market_data/domain/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/domain/market.py": "eb721c48f246a6dd56ac34322d1487b418d48af0521d33e03d449b8acc0eb64a",
+    "cripto-market-data/src/cripto_market_data/domain/settings.py": "75d0f296d8f6d3419dd96b1fe468f0c1e9f9dc0bd4abaa8da57a522e5604adb0",
+    "cripto-market-data/src/cripto_market_data/entrypoints/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/entrypoints/cli.py": "52576787103a42498e4ae218db423edfc48d8c1b53886a1c48e3b512ed05179b",
+    "cripto-market-data/src/cripto_market_data/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cripto-market-data/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cripto-market-data/tests/conftest.py": "f0390ef95a05276ce1f8c5758ae373903d391f5f44fa6eb2e694c5bacf230528",
+    "cripto-market-data/tests/factories.py": "f9c4db797ae9b7ff78a5d7c6fca2b908b1dbfe542b69a21e8c7a91cfbbcb9004",
+    "cripto-market-data/tests/offline_runner.py": "1325daaade9ea96d5be57522eb20f57303e66f99a4d3482340b2b8407b3ea8d8",
+    "cripto-market-data/tests/test_binance_public.py": "66aed29f2fa2dacea519c7327530d781c07ed8b90dcede79a511b35f147759c3",
+    "cripto-market-data/tests/test_cli_collection.py": "bdb309ae97db3c24046d57cc8417cf90c6f20e9424721b48c71c8b0e05aec7f7",
+    "cripto-market-data/tests/test_collect_market.py": "7a3fd6decc5c391da44d5fe35f75d0ea394811f7537eca57a5ba4e77f8fe477d",
+    "cripto-market-data/tests/test_market.py": "113029d459e56023d0365b3b7974f9374ffa962cb8368c2ee74e7b98a5b15b11",
+    "cripto-market-data/tests/test_market_storage.py": "d02fd2b1443bc73f6b8d531046cc659925e1ca279c06bb8097a56c03bcd58dc7",
+    "cripto-market-data/tests/wheel_smoke.py": "3cfaa1a50cda348292e648f890c39914fc0114741d146095a2e83b9334c0a138",
+    "cripto-market-data/uv.lock": "0bd997c4ee2e3a96227a7364e37f62da362e5b53f1e6288d3da460f7bebe23f3",
+    "cripto-core/.gitignore": "97d90487f7a86d7d0a1e329b83286a1bc510921f1236965e7b564185647df8f2",
+    "cripto-core/.python-version": "861b3dd8083d28f336ef70f6755bc399538ddad627b1d095820ca34cb953cf14",
+    "cripto-core/README.md": "a13a834281c9e57fd580cb89b1bf73d149dca4374b260aa931a54648698913c7",
+    "cripto-core/pyproject.toml": "103293358e99a88d993b9f89725e8393cb7b12a04e4b2d86244fbb058cc07bf7",
+    "cripto-core/src/cripto_core/__init__.py": "83b1cd8fece1d19ef4f0b9e2143662f62900c4c301f5f8c56e423b6c74a8dd48",
+    "cripto-core/src/cripto_core/contracts.py": "5187bf92bb02953332074a68ebf213421f27a442dc7315ab34579b18becd97f1",
+    "cripto-core/src/cripto_core/errors.py": "3320ab57cf90e7e27f2cc815e1c6148b811facc7f5dc2c43eda90add720cdcba",
+    "cripto-core/src/cripto_core/execution.py": "99d70744e295166a05a9bd56059adaa9961c2685059523656c60185dacdd4bbe",
+    "cripto-core/src/cripto_core/numeric.py": "19bf9b9e4fd07bdba468fa7b5cad3e6328aeeb9fa70593c6f033c80813b195bd",
+    "cripto-core/src/cripto_core/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cripto-core/src/cripto_core/serialization.py": "8519923299bced9f37845c6b2c6a313ad09fa87e555a1c87c9ff92e3703c52bb",
+    "cripto-core/src/cripto_core/sizing.py": "01f972012bca97ec1655cfbd76195d4004939118b229a9d87a074a34b7cc96db",
+    "cripto-core/src/cripto_core/strategy/__init__.py": "7c12ea66765e1c8c0e6f41ea4d1d358b3a135ec5558868fe927aa29ba5cd5939",
+    "cripto-core/src/cripto_core/strategy/sma.py": "9c4ef5c451d24c67ca21ba83bd28e569826e2be6b40a0d76eab86323e4f94579",
+    "cripto-core/src/cripto_core/validation.py": "96c0c6f4c2a89ea246b369d7466bfb67a58012196ec14f2967c276411db3bd81",
+    "cripto-core/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cripto-core/tests/conftest.py": "f0390ef95a05276ce1f8c5758ae373903d391f5f44fa6eb2e694c5bacf230528",
+    "cripto-core/tests/helpers.py": "c2bafaf39bd4ab62982cb90559b131b5ef0b205a2534ac3e3d01043e9d923e30",
+    "cripto-core/tests/test_contracts.py": "4cf2f6d4efe0a0ce9f9d682a19ce400d11e65e31b062dee8e4fc0e14b83ce6fd",
+    "cripto-core/tests/test_paper_execution.py": "b4f9af8e4df3975bc711e29183586f70730de5b54f58074a18341d5b546cf9c7",
+    "cripto-core/tests/test_strategy_sma.py": "78fef61a0406fbf5c182bded1540c74775230ecce56bb9c6915e48d607ab3a15",
+    "cripto-core/uv.lock": "c78fa9534b7abb919e6074d49fc20132145f91bdacccc6f2437acd3c6a54b38e"
+  },
+  "acceptance": {
+    "B01": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-bot/reports/sprint06b/baseline/acceptance.json",
+        "cripto-market-data/reports/sprint06b/standalone/acceptance.json"
+      ]
+    },
+    "B02": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-bot/tests/unit/test_market_composition.py",
+        "cripto-market-data/tests/test_cli_collection.py"
+      ]
+    },
+    "B03": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-market-data/tests/test_cli_collection.py",
+        "cripto-bot/tests/unit/test_config.py"
+      ]
+    },
+    "B04": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-market-data/tests/test_binance_public.py",
+        "cripto-market-data/tests/test_cli_collection.py"
+      ]
+    },
+    "B05": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-market-data/tests/test_market.py",
+        "cripto-market-data/tests/test_collect_market.py"
+      ]
+    },
+    "B06": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-bot/reports/sprint06b/cross-cli.json",
+        "cripto-bot/reports/sprint06b/standalone-previous-store.json"
+      ]
+    },
+    "B07": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-bot/reports/sprint06b/cross-cli.json",
+        "cripto-market-data/tests/test_market_storage.py"
+      ]
+    },
+    "B08": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-market-data/tests/test_binance_public.py",
+        "cripto-market-data/tests/test_collect_market.py"
+      ]
+    },
+    "B09": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-market-data/reports/sprint06b/standalone/wheel-smoke.json",
+        "cripto-bot/reports/sprint06b/final/wheel-smoke.json"
+      ]
+    },
+    "B10": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-market-data/tests/test_market_storage.py",
+        "cripto-bot/tests/unit/test_collection_entrypoint.py"
+      ]
+    },
+    "B11": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-bot/reports/sprint06b/standalone-previous-store.json",
+        "cripto-bot/reports/sprint06b/compatibility.json"
+      ]
+    },
+    "B12": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-bot/tests/unit/test_market_composition.py",
+        "cripto-bot/reports/sprint06b/compatibility.json"
+      ]
+    },
+    "B13": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-bot/tests/unit/test_market_composition.py",
+        "cripto-bot/tests/unit/test_core_composition.py"
+      ]
+    },
+    "B14": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-bot/reports/sprint06b/compatibility.json"
+      ]
+    },
+    "B15": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-market-data/reports/sprint06b/standalone/wheel-smoke.json",
+        "cripto-bot/reports/sprint06b/final/wheel-smoke.json",
+        "cripto-bot/reports/sprint06b/final/missing-data.json"
+      ]
+    },
+    "B16": {
+      "status": "APPROVED",
+      "proof": [
+        "cripto-bot/reports/sprint06b/final/pytest.xml",
+        "cripto-bot/reports/sprint06b/compatibility.json"
+      ]
+    },
+    "B17": {
+      "status": "APPROVED",
+      "proof": [
+        "docs/testes/sprint-06b-validacao.md",
+        "docs/testes/relatorios/sprint-06b/report.html"
+      ]
+    },
+    "B18": {
+      "status": "APPROVED",
+      "proof": [
+        "docs/sprints/sprint-06b.md",
+        "docs/planejamento.md"
+      ]
+    }
+  },
+  "visual_review": {
+    "status": "APPROVED",
+    "reviewed_at": "2026-10-26T14:09:11.188389+00:00",
+    "method": "Chrome headless local render, 1280x3300, image inspected",
+    "checks": [
+      "Full report fits viewport without clipping or overlap",
+      "Metrics, costs, fixture hash and artifact hashes checked against JSON",
+      "Cache limitation and synthetic retrospective scope visible",
+      "Final rerender updates accepted count to 18/18; same layout"
+    ],
+    "preview": "testes/relatorios/sprint-06b/preview.png"
+  },
+  "limitations": [
+    "Cold-cache installation not demonstrated; third-party distributions copied from baseline only after lock version and RECORD/hash verification; own wheels installed offline with --no-deps.",
+    "Coverage measures each package separately; 06B extraction changes bot denominator. Core suite historical: 54 tests from 06A, not rerun; core sources/controls/artifacts remain unchanged.",
+    "Synthetic replay establishes technical equivalence, not out-of-sample economic performance. Only run_key and checkpoint_bytes excluded when comparing 48 complete curves.",
+    "Memory peak not instrumented; local smoke fixture is not a throughput benchmark."
+  ],
+  "costs": {
+    "baseline_pytest_seconds": "565.318",
+    "final_bot_pytest_seconds": "561.849",
+    "standalone_pytest_seconds": "3.887",
+    "measured_before_documentation": {
+      "bot_reports_KiB": 3056,
+      "data_reports_KiB": 344,
+      "bot_artifacts_KiB": 180,
+      "data_artifacts_KiB": 68
+    },
+    "external_spend": 0,
+    "memory_peak": "NOT_MEASURED"
+  },
+  "actions_not_performed": [
+    "market network",
+    "credentials/private/orders",
+    "real final-window evaluation",
+    "AWS/messages",
+    "commits/remotes/publication",
+    "06C/06D/07 or BT-A–BT-F implementation"
+  ],
+  "documentation_sha256": {
+    "planejamento.md": "84441d1b15839c4ee53e82eec77013e7c3e13202e07ba1c2ff505addaa391390",
+    "sprints/sprint-06.md": "7a87d4c49d1b70f72f2d584bc2248fda2a3fb67206a566714bab56bf69d8fbbe",
+    "sprints/sprint-06b.md": "dfa23c0637fbc53887b5f9800d956248ba1a77527155c5242a7fb9547205970a",
+    "testes/sprint-06-validacao.md": "d24d9077a24888bbaacf5d8311ce09e598b6ee4a3e32f322ca9bc3758a99c1af",
+    "testes/sprint-06b-validacao.md": "2b24dc42dbfc3fcf652754e14e8304d7216baf42d029b846e255bea4efe25396",
+    "arquitetura.md": "9eac5909c11e9905db4e03f5ead817c9e5719fc00024a2bc8199f1f87e9303bd",
+    "arquitetura-modular.md": "9689b91fb2f3843fb40888a527c9740a6a74a767563e7c7fe6547f9e367d82c1",
+    "bancos/README.md": "738e2dcdc5f234a09e7ab03f7358e8259e275c4080befd3ee978003327dcd54c",
+    "bancos/market-sqlite.md": "a7eea2e12e7db3d233dea317a644a49d660bb335554e2dd1333fb5e9db24927a",
+    "bancos/backtest-sqlite.md": "e80cb334c85a48c062dd2c1dc2d55880a6fc634bab91af65b3f55eee4e660384",
+    "estrategias/README.md": "0f45967387fe66a9ac765fcf298c90f87383242c4291d42adfd27103396c0f1f",
+    "estrategias/trend_sma.md": "ade517ee88f6fe0047984a2dbad44ad09d83ef407d659ad36636901df46b1f7b",
+    "decisoes/0003-coleta-publica-e-persistencia-local.md": "b05c7d1aa28d22804034d0a04f4c28362159eeea9c7d515e02d9e1e81be2b128",
+    "decisoes/0008-core-e-identidade-da-composicao.md": "7375e859ec5a338d3429c5eb02855de1a842b00be92946e086e810d1156c0a8b",
+    "decisoes/0009-market-data-e-proveniencia-do-produtor.md": "68264ff3bb22f6a31539a395273fc42a0bef7bf372ee0b28237efcd950122f72"
+  },
+  "raw_evidence_sha256": {
+    "cripto-bot/reports/sprint06b/integration-mypy.log": "960745a059df2e6bf5556b518f6404c7707247bf3da084d48c3008145eb95a5d",
+    "cripto-bot/reports/sprint06b/composition-contracts.log": "83bf7b82df8bcedfe63fbd5542ac5f29889931154f0b072fd5a81768af959cdb",
+    "cripto-bot/reports/sprint06b/standalone-previous-store.json": "90dd3726f81944c48b86fc997cd4b534390a1357766dfa256abe854d26c882c6",
+    "cripto-bot/reports/sprint06b/integration-contracts.xml": "a40b20d06095044decb0995e00fd990544ba74f64ae8f7515ae38a8db41c9153",
+    "cripto-bot/reports/sprint06b/integration-format.log": "0236c0d4a4fa30cca217e10632dd313d432f152c352b8c164750080df51adc00",
+    "cripto-bot/reports/sprint06b/integration-ruff-fix.log": "c9a1e3ee72b26bf77d97f2eafef7f2427bb1ae5b0899ed3fb506f645f815d45b",
+    "cripto-bot/reports/sprint06b/market-test-format.log": "d807f3580f2470a7fe15ad89e1a6c08e4166ffe1e33d94152d605f0c46d21bfa",
+    "cripto-bot/reports/sprint06b/compatibility.json": "8e6db0a5ae7f06fe7ab393828057bb5b2807a7f129fa71d2e5d97d123155ade7",
+    "cripto-bot/reports/sprint06b/market-ruff-fix.log": "ad2bf0ad42c8e38670780b6c6d24dfae33e062b8e70d749383e52c8c4473dbc4",
+    "cripto-bot/reports/sprint06b/cross-cli.json": "4f14f127b931610ed22627dc80c72d02e8c7ef6f7c90c6a003a86c4af29b2505",
+    "cripto-bot/reports/sprint06b/composition-contracts.xml": "1f0e4be1d2fe90293beb1ed50551b6a4d0574065d361b1255fae54005ce6c2a9",
+    "cripto-bot/reports/sprint06b/integration-lock.log": "6405f14ca224143c304ea81a18cbfbc03c0ad98dd633f69d1a9b28d0a6df0cf0",
+    "cripto-bot/reports/sprint06b/integration-ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "cripto-bot/reports/sprint06b/integration-sync.log": "d61fb7cf13f34140136e3e2adf715b4ec2ec2b2494787d8737e8aff627f98baa",
+    "cripto-bot/reports/sprint06b/chrome-render.log": "58eb2e1e0c72fc6f051d74d6bb0929ccca07d588f6a5de70f8042b0858f70b31",
+    "cripto-bot/reports/sprint06b/market-format.log": "d6d38d687e7232489bd2089a922e94dff4bacca79e4533234c51f902e712e9ac",
+    "cripto-bot/reports/sprint06b/integration-contracts.log": "ccbf8d156604f70e53a4338cae836e806b276c2525239f9962117f5cd094c1e3",
+    "cripto-bot/reports/sprint06b/integration-format-check.log": "2ff9e7ae91c8f8bc1a0bd395f0e104f77b5149d39843f72f4f5ea7f69ff3d15a",
+    "cripto-bot/reports/sprint06b/baseline/format.log": "4f67f0574bfc78b48a9a812b1229f0c979703e7bf895c82d2d8eb79817aab6f9",
+    "cripto-bot/reports/sprint06b/baseline/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "cripto-bot/reports/sprint06b/baseline/sync.log": "f0fce4fbb78ca8de5f91232e3b759872b1058e90f876fecb88b9c65ebc3e9589",
+    "cripto-bot/reports/sprint06b/baseline/acceptance.json": "8947b6a574ce69ebd00bc35b1037746e9eef67f107ceceb2981f6442d5489cd8",
+    "cripto-bot/reports/sprint06b/baseline/mypy.log": "960745a059df2e6bf5556b518f6404c7707247bf3da084d48c3008145eb95a5d",
+    "cripto-bot/reports/sprint06b/baseline/pytest.xml": "ac58ea3b2e3ff12373700487f34c19841e35ee20375e2e9d2dcc3962d7c927e0",
+    "cripto-bot/reports/sprint06b/baseline/pytest.log": "ae704646cface08b58af2aed3ee1b6c7d72de2942a28e3000d42f98f8c577010",
+    "cripto-bot/reports/sprint06b/baseline/coverage.json": "48e156881040708ec1d6ad5cba8f59fd4711bc079a0017c45b3672e78b40e3ec",
+    "cripto-bot/reports/sprint06b/baseline/preserved.json": "dee0315693f142269066a7f21cde4e599e9d768764c63013cbdf3d4cb25bec82",
+    "cripto-bot/reports/sprint06b/final/format.log": "2ff9e7ae91c8f8bc1a0bd395f0e104f77b5149d39843f72f4f5ea7f69ff3d15a",
+    "cripto-bot/reports/sprint06b/final/missing-data-install.log": "f0fafe018c5ba975ac06658c8fafe9ce5ae725360bb6afcf424e0c1f783272a6",
+    "cripto-bot/reports/sprint06b/final/build.log": "59f67ae57584eee5d75da987aa65bcfcbe9e3a7272f4577345ab1339a29ed965",
+    "cripto-bot/reports/sprint06b/final/install.log": "1faac0fdb72a3e0b3ee9eb02de04ddd43242921be76c3b26d87ce18c62506d0e",
+    "cripto-bot/reports/sprint06b/final/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "cripto-bot/reports/sprint06b/final/runtime-reuse.json": "d78cbc202d8390b2d2ab585e30ad4e495056a38f4233399993aaddf89fb3c353",
+    "cripto-bot/reports/sprint06b/final/mypy.log": "960745a059df2e6bf5556b518f6404c7707247bf3da084d48c3008145eb95a5d",
+    "cripto-bot/reports/sprint06b/final/missing-data-venv.log": "a6d9cf1154efa8ece38bfd1c0f3961d9bc5948f50107104995126fa2571d180a",
+    "cripto-bot/reports/sprint06b/final/pytest.xml": "1959850358f6c02dd2ef3cddf9d91d04fc647533963def363a5f9747d0edc4e5",
+    "cripto-bot/reports/sprint06b/final/pytest.log": "e255b6bfa285236b28990033d8ae253b76bfb2fbe1455759f902ad2c5f774f58",
+    "cripto-bot/reports/sprint06b/final/coverage.json": "975ce64afb8e0371beab7ec9d0bc8ec601bfa8bbf7dae6455e3ec9b832b9d509",
+    "cripto-bot/reports/sprint06b/final/missing-data.json": "b6f3836c02e17f0b834906d0a11826f96430d8679033f070eed1d0e43cb98863",
+    "cripto-bot/reports/sprint06b/final/export.log": "7c9c01e22b1ff074cfee80e7221c9c1d54bcb3697513622080ee04298da418d6",
+    "cripto-bot/reports/sprint06b/final/venv.log": "b55329e74bd6c7dee5f9e2c95e4f472477b3ba7ada77356fc4917ef9f171c5e1",
+    "cripto-market-data/reports/sprint06b/standalone/format.log": "f43412978e399f2781a01a83559b71c04990cf88196462c9a282d94a69f415cb",
+    "cripto-market-data/reports/sprint06b/standalone/format-fix.log": "264b27d53144165f2e3004d4e9093c77f152ad0de4e68b2d319ae438d6a24c67",
+    "cripto-market-data/reports/sprint06b/standalone/lock.log": "fbc5454cde6490b054aabe00742033376fcc361d50f66339a391fa006f271508",
+    "cripto-market-data/reports/sprint06b/standalone/build.log": "c2b99d707116ccd2c153939007115e812804f6f82ed2c0e3b6117c28eaa44bd8",
+    "cripto-market-data/reports/sprint06b/standalone/install.log": "dc62b1b990c4dfd01149649c8ae2006f05b23f049358b3f102b5aaba4a24094c",
+    "cripto-market-data/reports/sprint06b/standalone/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "cripto-market-data/reports/sprint06b/standalone/sync.log": "e05e7f5f06dccd0ec02974f2903b77d02489bfd328c3e47da32c00edee87a8b7",
+    "cripto-market-data/reports/sprint06b/standalone/harness-format.log": "d807f3580f2470a7fe15ad89e1a6c08e4166ffe1e33d94152d605f0c46d21bfa",
+    "cripto-market-data/reports/sprint06b/standalone/runtime-reuse.json": "b6cad443853b7754e5b9bc68e9c6ef0340d5e64236ff472d46639b9539e6ff9d",
+    "cripto-market-data/reports/sprint06b/standalone/acceptance.json": "24ac133271e2bd616f0b25b8506adfa4a163b52c9ba1faafc55b41af14f38c28",
+    "cripto-market-data/reports/sprint06b/standalone/mypy.log": "3253c7a5a8535995ce0dc8b25611174b1763d2c9ff1bbb0a29e2e90cca3ca91e",
+    "cripto-market-data/reports/sprint06b/standalone/pytest.xml": "f3844665f17eb5e13cbc6baab257c627d3a101832bfe820433d1ab8edf65eb32",
+    "cripto-market-data/reports/sprint06b/standalone/pytest.log": "efc7936be6f5cc451105d4ecc8015d43fd1069b4af828277af72bbedb9e07a9d",
+    "cripto-market-data/reports/sprint06b/standalone/coverage.json": "be7fcad8cac3a3fb85bcb81e7b244c7558b09a6782e360c7a3774c75c918a89d",
+    "cripto-market-data/reports/sprint06b/standalone/harness-ruff.log": "fc5959039736a1107cac627094e26e6642bf5d56637dacaaa284479fd1a2d570",
+    "cripto-market-data/reports/sprint06b/standalone/export.log": "bd1a63b9a010b8cc824609ce52b79f5b894d5f2d5bb9f35b0caa5a774223b770",
+    "cripto-market-data/reports/sprint06b/standalone/venv.log": "77129e4d1efa4c6ca19a7b26c130adce3ef788037dec73fa3d2f42d8079dcfac",
+    "cripto-market-data/reports/sprint06b/standalone/reused-dependencies.json": "705571021dbe2999b2098cd77f4f3802f3c7eb70d9e410f423e98a70c7d27e09",
+    "cripto-market-data/reports/sprint06b/standalone/runtime-export.log": "86cf512e720b793fe049103d336dd696db8cbb15095b8b443196cd213d1882d7"
+  },
+  "rendered_report_sha256": {
+    "testes/relatorios/sprint-06b/report.html": "617c25b190b24290a8b52ca1f3795e5b0e5b58f3b995637b38dd9ac5e5be31d6",
+    "testes/relatorios/sprint-06b/preview.png": "c6ff31c2d6b5695fdf5905218cb06e8ab58b2574247b38327055afab4e823f83"
+  },
+  "evidence_tools_sha256": {
+    "testes/ferramentas/sprint-06b-compatibilidade.py": "17c5788608b27e1fc5aa307f51dfd7b61ecb6a1cf09ed458bf02021faf1c538a",
+    "testes/ferramentas/sprint-06b-clis.py": "66afc4d9cad0be89bdcdeaff5a02b0ebdc76076eb0f842cd33d7c59ec7e6fc6b",
+    "testes/ferramentas/sprint-06b-evidencias.py": "b5689604ac5253c9539f4dc2f3bb60b4dc3faa159c14efca66dfbf5cdc33b946",
+    "testes/ferramentas/sprint-06b-relatorio.py": "624b9b1f3572e3a411119fc0bf06535a7178a600e21193497a9d6ebc5edcc1e7"
+  },
+  "final_documentation_checks": {
+    "markdown_fences_and_local_link_targets": "15 files checked; no missing local target",
+    "acceptance_proof_paths": "all exist",
+    "report": "self-contained HTML, values derived from JSON",
+    "pending_pilot_criteria": "not executed"
+  }
+}

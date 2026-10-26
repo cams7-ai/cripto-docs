@@ -166,3 +166,14 @@ O bot exige o wheel local `../cripto-core/dist/06a-final/cripto_core-0.1.0-py3-n
 `adapters/provenance.py` identifica arquivos realmente carregados do bot/core, versão/modo de instalação e controles do consumidor. Core wheel precisa conferir com RECORD; core editable não é aceito pela identidade do consumidor. Bot editable exige origem correspondente a seu `src/cripto_bot`. Código ausente/inconsistente falha; mudar core altera fingerprint e bloqueia retomada de protocolo congelado. `backtest-report` mantém leitura/reexportação da identidade selada anterior. SQLite, schemas e registro final não foram migrados.
 
 A validação corrente e as limitações de cache estão no [guia 06A](testes/sprint-06a-validacao.md). [ADR 0008](decisoes/0008-core-e-identidade-da-composicao.md) documenta fronteiras e identificação. Esta entrega não executa 06D, AWS, mensagens ou trading privado.
+
+
+## Composição da Sprint 06B — dados públicos independentes
+
+`cripto-market-data/src/cripto_market_data` contém domínio/DTOs/parsers de mercado, portas, paginação, cliente público/fixture, store v1, exportações e schema de mercado compartilhado. Biblioteca/CLI/Git/manifest/lock próprios. O bot delega a coleta e reexporta os mesmos objetos; não mantém segunda implementação. Mercado depende de core/HTTPX/Pydantic, sem importar bot, DuckDB ou AWS. Core e seu wheel 06A permanecem inalterados. Carteira, risco, flags, coordenação, backtest e análise continuam no bot; 06C/06D não foram implementadas.
+
+`cripto-market-data check-config/collect-market` exige --root absoluto existente dentro do workspace e config mínimo PAPER/market. Paths resolvidos pelo cwd precisam permanecer dentro de root, inclusive symlinks; root não vem da instalação. A API recebe MarketSettings explícito. Bot conserva seu envelope/configuração global e o mesmo opt-in de coleta. Nenhuma estratégia/execução é habilitada por instalar o pacote.
+
+O exportador recebe contexto e package_version do produtor. O bot mantém code_revision/source_fingerprint em adapters/provenance e fachadas compatíveis; standalone identifica apenas market-data/core, sem consultar Git do root dos dados. A inspeção genérica de distribuição/RECORD fica em market-data, mas a política de composição e controles do consumidor permanece no bot. Seu fingerprint inclui os três pacotes efetivos; core e dados editables são rejeitados pelo consumidor.
+
+Datasets, parser/schema v1, quatro arquivos de dados e normalização/hash de candles permanecem compatíveis. Store não é movido: as duas CLIs usam o mesmo lock/checkpoint quando configuradas para o mesmo diretório. Detalhes, evidências e limitação de cache no [guia 06B](testes/sprint-06b-validacao.md) e [ADR 0009](decisoes/0009-market-data-e-proveniencia-do-produtor.md).

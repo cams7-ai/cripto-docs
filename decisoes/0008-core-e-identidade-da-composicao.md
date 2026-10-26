@@ -21,3 +21,8 @@ O valor `code_sha256` dos protocolos passa a refletir essa composição; o campo
 O wheel local precisa existir no caminho documentado para sync locked; a release ainda não está publicada em índice. Atualização do conteúdo exige nova identidade, atualização deliberada do lock e revalidação. O cache offline local não cobriu todos os binários de terceiros; ambientes da entrega reutilizaram dependências da baseline instalada após verificar versões e RECORD, com evidências e helper de reprodução. Isso não demonstra instalação completa com cache frio. Bot/core foram construídos e instalados por wheels; testes não importam o checkout irmão.
 
 Sem mudança de regras financeiras, schemas, capital, flags ou modos. Extrações de dados/análise e piloto ficam em 06B–06D. Referências: [especificação](../sprints/sprint-06a.md), [planejamento](../planejamento.md), [ADR 0006](0006-backtest-historico-e-protocolo.md) e [ADR 0007](0007-duckdb-parquet-analitico.md).
+
+
+## Adendo 06B
+
+Core/wheel 06A permaneceram inalterados. A identidade do consumidor acrescenta market-data 0.1.0 efetivamente instalado; a inspeção genérica de pacotes foi compartilhada com a biblioteca de dados, enquanto runtime_identity, controles do bot e política de instalações aceitas continuam no bot. As regras de RECORD/origem/versão e rejeição de core/dados editables permanecem. Não se altera identidade selada anterior para aceitar código novo. [ADR 0009](0009-market-data-e-proveniencia-do-produtor.md).

@@ -2,7 +2,7 @@
 
 Revisão documental: 25/10/2026. **Schema implementado no código; instalação/banco de dados não inspecionados nesta revisão.** Origem: Sprint 02. Arquivo operacional: `market.sqlite3` dentro do diretório configurado/validado pela aplicação; não é um arquivo a versionar junto desta documentação.
 
-Fonte do DDL: [adapter market_sqlite.py](../../cripto-bot/src/cripto_bot/adapters/storage/market_sqlite.py). SHA-256 do arquivo consultado: `6ec43ee9658e1cfe91234ced17061deae9f8668e00322c4b1126b7dd325651dc`. Essa identificação vincula o documento ao conteúdo, sem presumir checkout sem alterações ou versão instalada. Diagrama resume atributos; o DDL abaixo é a referência completa dos tipos, defaults, nulabilidade e constraints declarados.
+Fonte do DDL: [adapter market_sqlite.py](../../cripto-market-data/src/cripto_market_data/adapters/storage/sqlite.py). SHA-256 histórico do arquivo consultado em 25/10/2026 (antes da extração): `6ec43ee9658e1cfe91234ced17061deae9f8668e00322c4b1126b7dd325651dc`. Essa identificação vincula o documento ao conteúdo, sem presumir checkout sem alterações ou versão instalada. Diagrama resume atributos; o DDL abaixo é a referência completa dos tipos, defaults, nulabilidade e constraints declarados.
 
 ## Diagrama relacional físico
 
@@ -86,3 +86,10 @@ Na Sprint que alterar o schema, comparar DDL/diagrama com fixture via sqlite_sch
 ## Revisão de compatibilidade — Sprint 06A
 
 Fontes do bot em `src/cripto_bot`; helpers financeiros puros compartilhados vêm de `cripto_core`. DDL, tabelas/constraints/triggers, versão, transações e ownership deste store foram preservados; nenhuma migração/reset foi introduzida. Alteração da identidade do código não regrava journal/contexto selado ou concede nova amostra independente. O protocolo histórico rejeita retomada sob composição diferente; reexportação somente leitura permanece disponível. Regressões/limitações: [guia 06A](../testes/sprint-06a-validacao.md) e [ADR 0008](../decisoes/0008-core-e-identidade-da-composicao.md).
+
+
+## Extração do store na Sprint 06B
+
+A implementação está em `cripto-market-data/src/cripto_market_data/adapters/storage/sqlite.py`; o caminho antigo no bot reexporta a mesma classe e DDL. A extração preserva os cinco CREATE TABLE, a implementação dos métodos/transações e o user_version=1; somente a origem dos imports mudou. Nenhum banco foi movido, convertido, reiniciado ou copiado para o novo projeto como estado operacional.
+
+A CLI standalone recebe root absoluto de contenção e data_dir configurado; o bot mantém a descoberta de raiz anterior. Apontar ambas ao mesmo diretório conserva dataset/checkpoint/not_before e disputa o mesmo `.writer.lock`. Proveniência do exportador é recebida do consumidor: bot identificado como bot, standalone como market-data/core; parser/schema e conjunto de quatro arquivos de dados no manifesto permanecem iguais. Metadata extra não altera o hash canônico dos candles. Compatibilidade e limites no [guia 06B](../testes/sprint-06b-validacao.md) e [ADR 0009](../decisoes/0009-market-data-e-proveniencia-do-produtor.md).

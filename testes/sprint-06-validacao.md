@@ -1,10 +1,10 @@
 # Sprint 06 — Consolidação da validação 06A–06D
 
-Revisão: 26/10/2026. **Estado: PARCIAL — 06A aprovada; 06B–06D e gate global pendentes.** O roteiro operacional abaixo corresponde a 06D e ainda não foi executado. A implementação 06A tem [guia próprio](sprint-06a-validacao.md) e [evidências](sprint-06a-evidencias.json).
+Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B aprovadas; 06C/06D e gate global pendentes.** O roteiro operacional abaixo corresponde a 06D e ainda não foi executado. A implementação 06A tem [guia próprio](sprint-06a-validacao.md) e [evidências](sprint-06a-evidencias.json).
 
 ## Preparação e execução futura
 
-Consultar [especificação 06](../sprints/sprint-06.md) e [roteiro comum](validacao-pre-live.md). Dependências de 06D: 06A–06C aprovadas, Sprint 05/ajuste analítico revistos e composição/configuração congeladas. 06A foi concluída; 06B/06C permanecem pendentes.
+Consultar [especificação 06](../sprints/sprint-06.md) e [roteiro comum](validacao-pre-live.md). Dependências de 06D: 06A–06C aprovadas, Sprint 05/ajuste analítico revistos e composição/configuração congeladas. 06A/06B foram concluídas no escopo offline; 06C permanece pendente.
 
 Modo permitido: PAPER; somente dados públicos reais; nenhuma ordem enviada à Binance. Comandos futuros executam em `/home/cams7/Dev/Cripto/cripto-bot`; evidências permanecem em `/home/cams7/Dev/Cripto/docs/testes`. Ao detalhar a implementação, preencher comandos reais, versões e resultados; não executar CLI fictícia deste planejamento.
 
@@ -51,3 +51,8 @@ Se esta Sprint criar/alterar estrutura, relações, constraints/índices/trigger
 ## Consolidação 06A em 26/10/2026
 
 M1/M2 aprovados: layout src antes do core, 533 testes bot + 54 core, qualidade/build/wheels, 22 fluxos por smoke e equivalência de 48 curvas sintéticas. AC09/10 concluídos; guards/AC14–17 verificados somente no alcance core/consumidor, a repetir nas próximas etapas. Relatório técnico e limitações de cache no [guia 06A](sprint-06a-validacao.md). Isso não executa o piloto, seus sete dias ou os casos de parcial/contínuo/notificações. AC18 e a transição para 07 permanecem pendentes; próxima ação é detalhar 06B.
+
+
+## Consolidação 06B — 26/10/2026
+
+B01–B18 aprovados offline conforme [guia 06B](sprint-06b-validacao.md), [evidências](sprint-06b-evidencias.json) e [relatório](relatorios/sprint-06b/report.html). Baseline bot 533 testes, biblioteca standalone 120, bot integrado 537; qualidade/build/wheels e regressões sintéticas/locks/manifestos/identidade aprovados. Cache frio completo não demonstrado. AC11 cumprido; critérios comuns verificados somente para composição 06B e deverão acompanhar 06C/06D. Nenhum critério do piloto operacional acima foi executado por essa extração. Próxima etapa elegível: detalhar/revisar 06C; 06D/gate global/07 pendentes.

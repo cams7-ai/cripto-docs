@@ -1,6 +1,6 @@
 # Sprint 06 — Extração multiprojeto e PAPER contínuo local
 
-Revisão: 26/10/2026. **Estado: PARCIAL — 06A implementada/validada; 06B–06D pendentes.** Documento agregador alinhado ao planejamento vigente. Substitui a organização anterior, de 25/10/2026, que concentrava a Sprint no piloto contínuo; seus critérios operacionais são preservados em 06D.
+Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B implementadas/validadas; 06C/06D pendentes.** Documento agregador alinhado ao planejamento vigente. Substitui a organização anterior, de 25/10/2026, que concentrava a Sprint no piloto contínuo; seus critérios operacionais são preservados em 06D.
 
 Registro da revisão documental original: esta entrega atualizava somente a documentação. Não cria projetos, move fontes/dados, executa testes, coleta, envia mensagens, inicia o piloto ou autoriza operações externas. O detalhamento executável de cada etapa deve preceder sua implementação e usar o estado real dos repositórios.
 
@@ -262,3 +262,15 @@ Nenhuma etapa foi implementada ou validada nesta revisão. Os resultados da Spri
 06A implementada e validada em 26/10/2026: M1 aprovado antes de extrair o core; M2 com 533 testes do bot, 54 do core, qualidade/build/wheels, 22 fluxos por smoke e 48 curvas sintéticas equivalentes. Identidade inclui o core efetivamente carregado; dados/DDL/registro final preservados. Cache frio completo não comprovado; reutilização de dependências verificadas da baseline documentada. Ver [especificação 06A](sprint-06a.md#14-registro-da-implementação-em-26102026), [guia](../testes/sprint-06a-validacao.md) e [evidências](../testes/sprint-06a-evidencias.json).
 
 A próxima etapa elegível é o detalhamento/revisão de 06B. 06B/06C/06D não foram iniciadas; a Sprint 06 como um todo continua parcial, sem liberação automática da 07 ou do piloto. O registro da seção 13 descreve a entrega documental anterior, não o estado final da 06A.
+
+
+## 15. Detalhamento da próxima etapa — 06B
+
+Em 26/10/2026, a [Sprint 06B](sprint-06b.md) foi especificada após conferir os 127 hashes e seis artefatos da 06A e os repositórios limpos. Biblioteca/CLI, fronteiras de proveniência, compatibilidade de store/manifestos, B01–B18 e prompt de implementação futura estão definidos. Estado: especificada, aguardando revisão; implementação/testes ainda não executados. Não foram criados market-data/analytics nem iniciados 06C/06D; o gate global da 06 e a 07 continuam pendentes.
+
+
+## 16. Consolidação da etapa 06B
+
+06B implementada e validada offline em 26/10/2026: B-M1 baseline 533 testes; B-M2 standalone 120 testes/CLI sem bot; B-M3 integração 537 testes/22 comandos por três wheels. B01–B18, qualidade, builds, compatibilidade/locks/store/manifestos, proveniência/relatório anterior e equivalência financeira estão no [guia 06B](../testes/sprint-06b-validacao.md), nas [evidências](../testes/sprint-06b-evidencias.json) e no [relatório](../testes/relatorios/sprint-06b/report.html). Cache frio completo não demonstrado; reutilização verificada da baseline, sem rede de mercado. Core/artefatos anteriores e registro final preservados.
+
+AC11 cumprido; AC06/AC14/AC15/AC16 foram verificados no recorte da composição 06B, devendo ser repetidos conforme as etapas seguintes. AC12/AC13 e critérios operacionais 06D continuam pendentes. Os registros das seções 13–15 são históricos. Próxima etapa elegível: detalhar/revisar 06C, sem criá-la/implementá-la nesta execução. Sprint 06 continua parcial; 07 não é liberada.
