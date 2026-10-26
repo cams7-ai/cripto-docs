@@ -95,3 +95,8 @@ Aceite de engenharia em fixture não é elegibilidade econômica/operacional. De
 ## Resultado aplicável da Sprint 05 — 25/10/2026
 
 Capacidade histórica acrescentada somente a `trend_sma` local/PAPER/BTCUSDT/15m. M01–M16 foram revistos no alcance descrito no [guia 05](sprint-05-validacao.md). A Sprint 05 apresenta evidências de OOS, custos, atraso, benchmarks, atribuição e isolamento. Execução contínua, parcial/UNKNOWN operacional, filhos, composições e modos privados permanecem pendentes. Nenhuma linha geral da matriz ou evidência da Sprint 04 é promovida retroativamente.
+
+
+## Incremento 06D — matriz continuous
+
+Matriz adicional no [guia06D](sprint-06d-validacao.md): defaults/dupla flag/escopo/capacidades, exclusive_owner, sinal fechado, reservas/fills/caps/TTL/risco, controles/custódia/UNKNOWN, journal/replay/crash, quatro GETs e clientes locais mockados, outbox/lease/fallback e relatório por snapshot. Bancos integrais/modulares/backtest mantêm reducers/DDL anteriores. Suíte sintética não preenche D14/D16/D17 ou aprovação global; dados públicos e entregas só após autorização separada.

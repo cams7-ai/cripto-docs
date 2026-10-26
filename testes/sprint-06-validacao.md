@@ -1,6 +1,6 @@
 # Sprint 06 — Consolidação da validação 06A–06D
 
-Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B aprovadas; 06C aprovada; 06D e gate global pendentes.** O roteiro operacional abaixo corresponde a 06D e ainda não foi executado. A implementação 06A tem [guia próprio](sprint-06a-validacao.md) e [evidências](sprint-06a-evidencias.json).
+Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B aprovadas; 06C aprovada; software06D validado offline; piloto/gate global pendentes.** O roteiro operacional abaixo corresponde a 06D e ainda não foi executado. A implementação 06A tem [guia próprio](sprint-06a-validacao.md) e [evidências](sprint-06a-evidencias.json).
 
 ## Preparação e execução futura
 
@@ -66,3 +66,8 @@ Bot 542 testes e analytics 28, qualidade/build/quatro wheels/22 comandos e compa
 ## Consolidação final 06C
 
 Reconstrução externa confirmada e verificada por conteúdo/inventário/locks; composição já testada permanece igual. C01–C18 aprovados offline conforme [prova complementar](sprint-06c-reconstrucao-externa.json), [guia](sprint-06c-validacao.md), [evidências](sprint-06c-evidencias.json) e [relatório](relatorios/sprint-06c/report.html). Hashes históricos e atuais distintos, com limitação de rollback exato registrada; evidências anteriores e arquivos externos preservados. AC12/AC13 cumpridos. 06D somente elegível para detalhamento/revisão; nenhum critério operacional do piloto executado e gate global/07 pendentes.
+
+
+## Consolidação offline 06D
+
+D-M1–D-M3 aprovados no recorte offline, SOFTWARE_VALIDATED/PILOT_PENDING. [Guia06D](sprint-06d-validacao.md), [evidências](sprint-06d-evidencias.json), [relatório](relatorios/sprint-06d/report.html), [pré-protocolo não armado](sprint-06d-pre-protocolo.json).642 testes na suíte completa e108 na revisão focada sobreposta; analytics30 e31 comandos por wheels. Critérios de operação do roteiro acima continuam NÃO EXECUTADOS; nenhuma suíte acelerada equivale a sete dias/canais reais. D-M4/D-M5/gate global/07 pendentes.

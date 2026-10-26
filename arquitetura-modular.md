@@ -152,3 +152,8 @@ Composição instalada passa a identificar bot/core/market-data. Alterar dados/p
 ## Relatórios extraídos — Sprint 06C
 
 `cripto-analytics` consome snapshots/portas somente leitura, sem importar bot/market-data/SQLite. Bot é proprietário de risco, métricas, coordenação/flags e reconciliação. Cálculos oficiais não passam ao SQL/renderer; schemas/valores exatos e publicação permanecem compatíveis. Perfil local padrão inclui analytics por wheel, sem extra/flag de estratégia nova. Identidade instalada inclui esse conteúdo; relatórios antigos preservam identidade selada. [ADR 0010](decisoes/0010-analytics-por-snapshots-somente-leitura.md).
+
+
+## Capacidade continuous da 06D
+
+`trend_sma` passa a declarar continuous; somente neste escopo o executor permitido é paper_bounded. Os escopos fixture/backtest e paper_immediate mantêm contratos existentes. Dupla habilitação ([continuous].enabled e módulo ativo em local/PAPER/continuous), owner exclusivo, BTCUSDT/15m/20–50 e capital≤10%. Configurações de frequência, risco, qualidade de dados e liquidez pertencem ao avaliador/executor e não criam estratégias ou flags adicionais. Composição ausente/incompatível falha; sem módulo e sem store há NOOP. Com store existe custódia pausada e reconciliação; não liquidar por disable. [ADR0011](decisoes/0011-paper-continuous-e-entrega-local.md) e [API](api/continuous.md). Nenhuma carteira multiestratégia ou seleção automática implementada.

@@ -1,0 +1,850 @@
+{
+  "continuous": {
+    "schema_version": 1,
+    "quick_check": "ok",
+    "foreign_key_check": [],
+    "ddl": {
+      "journal": "CREATE TABLE journal (seq INTEGER PRIMARY KEY,event_key TEXT NOT NULL UNIQUE,kind TEXT NOT NULL,at INTEGER NOT NULL,payload TEXT NOT NULL,payload_hash TEXT NOT NULL,previous_hash TEXT NOT NULL,chain_hash TEXT NOT NULL,state_hash TEXT NOT NULL)",
+      "postings": "CREATE TABLE postings (seq INTEGER NOT NULL REFERENCES journal(seq),idx INTEGER NOT NULL,asset TEXT NOT NULL CHECK(asset IN ('USDT','BTC')),account TEXT NOT NULL,quantity TEXT NOT NULL,PRIMARY KEY(seq,idx))",
+      "projection": "CREATE TABLE projection (id INTEGER PRIMARY KEY CHECK(id=1),version INTEGER NOT NULL,data TEXT NOT NULL)",
+      "orders": "CREATE TABLE orders (order_id TEXT PRIMARY KEY,data TEXT NOT NULL)",
+      "fills": "CREATE TABLE fills (fill_id TEXT PRIMARY KEY,order_id TEXT NOT NULL REFERENCES orders(order_id),seq INTEGER NOT NULL REFERENCES journal(seq),data TEXT NOT NULL)",
+      "cycles": "CREATE TABLE cycles (close_time INTEGER PRIMARY KEY,decision_id TEXT NOT NULL UNIQUE,seq INTEGER NOT NULL REFERENCES journal(seq),data TEXT NOT NULL)",
+      "configurations": "CREATE TABLE configurations (generation INTEGER PRIMARY KEY,seq INTEGER NOT NULL REFERENCES journal(seq),data TEXT NOT NULL)",
+      "controls": "CREATE TABLE controls (request_id TEXT PRIMARY KEY,seq INTEGER NOT NULL REFERENCES journal(seq),data TEXT NOT NULL)",
+      "notification_events": "CREATE TABLE notification_events (event_id TEXT PRIMARY KEY,seq INTEGER NOT NULL REFERENCES journal(seq),source_hash TEXT NOT NULL,data TEXT NOT NULL)",
+      "notification_seq": "CREATE INDEX notification_seq ON notification_events(seq)",
+      "immutable_journal_UPDATE": "CREATE TRIGGER immutable_journal_UPDATE BEFORE UPDATE ON journal BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_journal_DELETE": "CREATE TRIGGER immutable_journal_DELETE BEFORE DELETE ON journal BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_postings_UPDATE": "CREATE TRIGGER immutable_postings_UPDATE BEFORE UPDATE ON postings BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_postings_DELETE": "CREATE TRIGGER immutable_postings_DELETE BEFORE DELETE ON postings BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_fills_UPDATE": "CREATE TRIGGER immutable_fills_UPDATE BEFORE UPDATE ON fills BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_fills_DELETE": "CREATE TRIGGER immutable_fills_DELETE BEFORE DELETE ON fills BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_cycles_UPDATE": "CREATE TRIGGER immutable_cycles_UPDATE BEFORE UPDATE ON cycles BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_cycles_DELETE": "CREATE TRIGGER immutable_cycles_DELETE BEFORE DELETE ON cycles BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_configurations_UPDATE": "CREATE TRIGGER immutable_configurations_UPDATE BEFORE UPDATE ON configurations BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_configurations_DELETE": "CREATE TRIGGER immutable_configurations_DELETE BEFORE DELETE ON configurations BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_controls_UPDATE": "CREATE TRIGGER immutable_controls_UPDATE BEFORE UPDATE ON controls BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_controls_DELETE": "CREATE TRIGGER immutable_controls_DELETE BEFORE DELETE ON controls BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_notification_events_UPDATE": "CREATE TRIGGER immutable_notification_events_UPDATE BEFORE UPDATE ON notification_events BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END",
+      "immutable_notification_events_DELETE": "CREATE TRIGGER immutable_notification_events_DELETE BEFORE DELETE ON notification_events BEGIN SELECT RAISE(ABORT,'immutable continuous history'); END"
+    },
+    "tables": {
+      "journal": {
+        "columns": [
+          [
+            0,
+            "seq",
+            "INTEGER",
+            0,
+            null,
+            1
+          ],
+          [
+            1,
+            "event_key",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            2,
+            "kind",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            3,
+            "at",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            4,
+            "payload",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            5,
+            "payload_hash",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            6,
+            "previous_hash",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            7,
+            "chain_hash",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            8,
+            "state_hash",
+            "TEXT",
+            1,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [],
+        "indexes": {
+          "sqlite_autoindex_journal_1": {
+            "list": [
+              0,
+              "sqlite_autoindex_journal_1",
+              1,
+              "u",
+              0
+            ],
+            "columns": [
+              [
+                0,
+                1,
+                "event_key"
+              ]
+            ]
+          }
+        }
+      },
+      "postings": {
+        "columns": [
+          [
+            0,
+            "seq",
+            "INTEGER",
+            1,
+            null,
+            1
+          ],
+          [
+            1,
+            "idx",
+            "INTEGER",
+            1,
+            null,
+            2
+          ],
+          [
+            2,
+            "asset",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            3,
+            "account",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            4,
+            "quantity",
+            "TEXT",
+            1,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [
+          [
+            0,
+            0,
+            "journal",
+            "seq",
+            "seq",
+            "NO ACTION",
+            "NO ACTION",
+            "NONE"
+          ]
+        ],
+        "indexes": {
+          "sqlite_autoindex_postings_1": {
+            "list": [
+              0,
+              "sqlite_autoindex_postings_1",
+              1,
+              "pk",
+              0
+            ],
+            "columns": [
+              [
+                0,
+                0,
+                "seq"
+              ],
+              [
+                1,
+                1,
+                "idx"
+              ]
+            ]
+          }
+        }
+      },
+      "projection": {
+        "columns": [
+          [
+            0,
+            "id",
+            "INTEGER",
+            0,
+            null,
+            1
+          ],
+          [
+            1,
+            "version",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            2,
+            "data",
+            "TEXT",
+            1,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [],
+        "indexes": {}
+      },
+      "orders": {
+        "columns": [
+          [
+            0,
+            "order_id",
+            "TEXT",
+            0,
+            null,
+            1
+          ],
+          [
+            1,
+            "data",
+            "TEXT",
+            1,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [],
+        "indexes": {
+          "sqlite_autoindex_orders_1": {
+            "list": [
+              0,
+              "sqlite_autoindex_orders_1",
+              1,
+              "pk",
+              0
+            ],
+            "columns": [
+              [
+                0,
+                0,
+                "order_id"
+              ]
+            ]
+          }
+        }
+      },
+      "fills": {
+        "columns": [
+          [
+            0,
+            "fill_id",
+            "TEXT",
+            0,
+            null,
+            1
+          ],
+          [
+            1,
+            "order_id",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            2,
+            "seq",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            3,
+            "data",
+            "TEXT",
+            1,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [
+          [
+            0,
+            0,
+            "journal",
+            "seq",
+            "seq",
+            "NO ACTION",
+            "NO ACTION",
+            "NONE"
+          ],
+          [
+            1,
+            0,
+            "orders",
+            "order_id",
+            "order_id",
+            "NO ACTION",
+            "NO ACTION",
+            "NONE"
+          ]
+        ],
+        "indexes": {
+          "sqlite_autoindex_fills_1": {
+            "list": [
+              0,
+              "sqlite_autoindex_fills_1",
+              1,
+              "pk",
+              0
+            ],
+            "columns": [
+              [
+                0,
+                0,
+                "fill_id"
+              ]
+            ]
+          }
+        }
+      },
+      "cycles": {
+        "columns": [
+          [
+            0,
+            "close_time",
+            "INTEGER",
+            0,
+            null,
+            1
+          ],
+          [
+            1,
+            "decision_id",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            2,
+            "seq",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            3,
+            "data",
+            "TEXT",
+            1,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [
+          [
+            0,
+            0,
+            "journal",
+            "seq",
+            "seq",
+            "NO ACTION",
+            "NO ACTION",
+            "NONE"
+          ]
+        ],
+        "indexes": {
+          "sqlite_autoindex_cycles_1": {
+            "list": [
+              0,
+              "sqlite_autoindex_cycles_1",
+              1,
+              "u",
+              0
+            ],
+            "columns": [
+              [
+                0,
+                1,
+                "decision_id"
+              ]
+            ]
+          }
+        }
+      },
+      "configurations": {
+        "columns": [
+          [
+            0,
+            "generation",
+            "INTEGER",
+            0,
+            null,
+            1
+          ],
+          [
+            1,
+            "seq",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            2,
+            "data",
+            "TEXT",
+            1,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [
+          [
+            0,
+            0,
+            "journal",
+            "seq",
+            "seq",
+            "NO ACTION",
+            "NO ACTION",
+            "NONE"
+          ]
+        ],
+        "indexes": {}
+      },
+      "controls": {
+        "columns": [
+          [
+            0,
+            "request_id",
+            "TEXT",
+            0,
+            null,
+            1
+          ],
+          [
+            1,
+            "seq",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            2,
+            "data",
+            "TEXT",
+            1,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [
+          [
+            0,
+            0,
+            "journal",
+            "seq",
+            "seq",
+            "NO ACTION",
+            "NO ACTION",
+            "NONE"
+          ]
+        ],
+        "indexes": {
+          "sqlite_autoindex_controls_1": {
+            "list": [
+              0,
+              "sqlite_autoindex_controls_1",
+              1,
+              "pk",
+              0
+            ],
+            "columns": [
+              [
+                0,
+                0,
+                "request_id"
+              ]
+            ]
+          }
+        }
+      },
+      "notification_events": {
+        "columns": [
+          [
+            0,
+            "event_id",
+            "TEXT",
+            0,
+            null,
+            1
+          ],
+          [
+            1,
+            "seq",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            2,
+            "source_hash",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            3,
+            "data",
+            "TEXT",
+            1,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [
+          [
+            0,
+            0,
+            "journal",
+            "seq",
+            "seq",
+            "NO ACTION",
+            "NO ACTION",
+            "NONE"
+          ]
+        ],
+        "indexes": {
+          "notification_seq": {
+            "list": [
+              0,
+              "notification_seq",
+              0,
+              "c",
+              0
+            ],
+            "columns": [
+              [
+                0,
+                1,
+                "seq"
+              ]
+            ]
+          },
+          "sqlite_autoindex_notification_events_1": {
+            "list": [
+              1,
+              "sqlite_autoindex_notification_events_1",
+              1,
+              "pk",
+              0
+            ],
+            "columns": [
+              [
+                0,
+                0,
+                "event_id"
+              ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "notification": {
+    "schema_version": 1,
+    "quick_check": "ok",
+    "foreign_key_check": [],
+    "ddl": {
+      "events": "CREATE TABLE events (event_id TEXT PRIMARY KEY,source_hash TEXT NOT NULL,data TEXT NOT NULL,status TEXT NOT NULL,preferred TEXT NOT NULL,retry_at INTEGER NOT NULL,coalesced_into TEXT REFERENCES events(event_id))",
+      "attempts": "CREATE TABLE attempts (event_id TEXT NOT NULL REFERENCES events(event_id),channel TEXT NOT NULL,attempt_no INTEGER NOT NULL,started_at INTEGER NOT NULL,lease_until INTEGER NOT NULL,finished_at INTEGER,outcome TEXT NOT NULL,PRIMARY KEY(event_id,channel,attempt_no))",
+      "clock": "CREATE TABLE clock (id INTEGER PRIMARY KEY CHECK(id=1),last_attempt_at INTEGER NOT NULL)",
+      "queue_ready": "CREATE INDEX queue_ready ON events(status,retry_at)",
+      "immutable_event_payload": "CREATE TRIGGER immutable_event_payload BEFORE UPDATE OF event_id,source_hash,data ON events BEGIN SELECT RAISE(ABORT,'immutable notification event'); END",
+      "immutable_attempt": "CREATE TRIGGER immutable_attempt BEFORE UPDATE ON attempts WHEN OLD.outcome!='IN_FLIGHT' BEGIN SELECT RAISE(ABORT,'immutable completed attempt'); END",
+      "immutable_attempt_delete": "CREATE TRIGGER immutable_attempt_delete BEFORE DELETE ON attempts BEGIN SELECT RAISE(ABORT,'immutable attempt'); END"
+    },
+    "tables": {
+      "events": {
+        "columns": [
+          [
+            0,
+            "event_id",
+            "TEXT",
+            0,
+            null,
+            1
+          ],
+          [
+            1,
+            "source_hash",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            2,
+            "data",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            3,
+            "status",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            4,
+            "preferred",
+            "TEXT",
+            1,
+            null,
+            0
+          ],
+          [
+            5,
+            "retry_at",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            6,
+            "coalesced_into",
+            "TEXT",
+            0,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [
+          [
+            0,
+            0,
+            "events",
+            "coalesced_into",
+            "event_id",
+            "NO ACTION",
+            "NO ACTION",
+            "NONE"
+          ]
+        ],
+        "indexes": {
+          "queue_ready": {
+            "list": [
+              0,
+              "queue_ready",
+              0,
+              "c",
+              0
+            ],
+            "columns": [
+              [
+                0,
+                3,
+                "status"
+              ],
+              [
+                1,
+                5,
+                "retry_at"
+              ]
+            ]
+          },
+          "sqlite_autoindex_events_1": {
+            "list": [
+              1,
+              "sqlite_autoindex_events_1",
+              1,
+              "pk",
+              0
+            ],
+            "columns": [
+              [
+                0,
+                0,
+                "event_id"
+              ]
+            ]
+          }
+        }
+      },
+      "attempts": {
+        "columns": [
+          [
+            0,
+            "event_id",
+            "TEXT",
+            1,
+            null,
+            1
+          ],
+          [
+            1,
+            "channel",
+            "TEXT",
+            1,
+            null,
+            2
+          ],
+          [
+            2,
+            "attempt_no",
+            "INTEGER",
+            1,
+            null,
+            3
+          ],
+          [
+            3,
+            "started_at",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            4,
+            "lease_until",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            5,
+            "finished_at",
+            "INTEGER",
+            0,
+            null,
+            0
+          ],
+          [
+            6,
+            "outcome",
+            "TEXT",
+            1,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [
+          [
+            0,
+            0,
+            "events",
+            "event_id",
+            "event_id",
+            "NO ACTION",
+            "NO ACTION",
+            "NONE"
+          ]
+        ],
+        "indexes": {
+          "sqlite_autoindex_attempts_1": {
+            "list": [
+              0,
+              "sqlite_autoindex_attempts_1",
+              1,
+              "pk",
+              0
+            ],
+            "columns": [
+              [
+                0,
+                0,
+                "event_id"
+              ],
+              [
+                1,
+                1,
+                "channel"
+              ],
+              [
+                2,
+                2,
+                "attempt_no"
+              ]
+            ]
+          }
+        }
+      },
+      "clock": {
+        "columns": [
+          [
+            0,
+            "id",
+            "INTEGER",
+            0,
+            null,
+            1
+          ],
+          [
+            1,
+            "last_attempt_at",
+            "INTEGER",
+            1,
+            null,
+            0
+          ]
+        ],
+        "foreign_keys": [],
+        "indexes": {}
+      }
+    }
+  }
+}

@@ -68,3 +68,6 @@ Revisão 06B (26/10/2026): dependências/contratos de mercado de trend_sma foram
 
 
 Sprint 06C: projeção/apresentação dos relatórios extraída para biblioteca analítica; não constitui nova estratégia ou flag. Regras/métricas/coordenação continuam nos proprietários existentes. [SMA](trend_sma.md) e [guia 06C](../testes/sprint-06c-validacao.md).
+
+
+06D: trend_sma20/50 tem capacidade continuous para BTCUSDT/15m via paper_bounded, com flags desabilitadas e banco separado. O sinal permanece o mesmo; scheduler/OMS/outbox são mecanismos do bot. Evidência sintética e observação real têm aceite separado; nenhum desempenho futuro é garantido. [Detalhes](trend_sma.md), [guia](../testes/sprint-06d-validacao.md).

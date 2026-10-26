@@ -170,3 +170,10 @@ O consumidor do snapshot passa a usar Candle/validação/configuração de merca
 ## Relatórios e composição — Sprint 06C
 
 Renderização/publicação delegadas a cripto-analytics por snapshot pronto. Regras SMA20/50, igualdade, dimensionamento, risco, custos, coordenação, métricas e flags não mudam. Summary/diagnostic/estado continuam no bot; dependência analítica não gera sinal ou fill. Nova identidade do software não renova amostra final; reexportação preserva identidade selada. [Guia 06C](../testes/sprint-06c-validacao.md).
+
+
+## Execução contínua local — 06D
+
+Mesmo sinal puro SMA20/50 do core; novo avaliador continuous só BTCUSDT/15m. Recebe 51 fechamentos consecutivos para cruzamento, incluindo 50 anteriores ao score, sem candle aberto. Configurar evaluation_types=[continuous] e execution=paper_bounded; engine e instância desabilitados por padrão. Não usar retorno retrospectivo para liberar piloto. Entradas têm cap, reserva/fees, risco≤10% entrada/exposição, perda diária≤1%, drawdown≤5%, uma ordem e owner exclusivo. Fills parciais locais com proxy de 10% do lado oposto do book, sem reutilização de capacidade idêntica, TTL60s/poll5s.
+
+Pause/kill/disable mantêm inventário; UNKNOWN bloqueia compromissos e conserva reservas até resolução explícita. Sem composição, qualidade/filtro/saldo/capacidade suficientes pode haver nenhuma entrada. Não há ranking, otimização, novo ativo, troca automática de estratégia ou negociação real. [Runbook](../operacao/continuous-runbook.md), [API](../api/continuous.md), [guia06D](../testes/sprint-06d-validacao.md).

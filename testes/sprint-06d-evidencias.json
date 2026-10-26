@@ -1,0 +1,2293 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-26T20:51:17.556678+00:00",
+  "status": "SOFTWARE_VALIDATED/PILOT_PENDING",
+  "pilot_approved": false,
+  "scope": "Python/local/PAPER/Spot/BTCUSDT/15m; synthetic observations/mock HTTP only",
+  "milestones": {
+    "D-M1": "APPROVED_OFFLINE",
+    "D-M2": "APPROVED_OFFLINE",
+    "D-M3": "APPROVED_OFFLINE",
+    "D-M4": "NOT_EXECUTED",
+    "D-M5": "PENDING"
+  },
+  "verification": {
+    "baseline": {
+      "status": "APPROVED_D_M1",
+      "completed_at": "2026-10-26T17:37:30.911833+00:00",
+      "pytest": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "542",
+        "time": "562.534",
+        "timestamp": "2026-10-26T14:26:52.911718-03:00",
+        "hostname": "qbex"
+      },
+      "smoke_commands": 22,
+      "baseline_hashes_verified": 214,
+      "artifacts_verified": 16,
+      "registry_sha256": "af7ee92659cb1be9c4e322daeba997755430a040faec4b1342c1cabf082810bd"
+    },
+    "baseline_archive_sha256": "57f86b1e3483eddaba4125834768e057a2f95342617529c3da93f9a2b855298a",
+    "bot": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "642",
+      "time": "464.018",
+      "timestamp": "2026-10-26T15:59:36.857535-03:00",
+      "hostname": "qbex"
+    },
+    "earlier_full_with_coverage": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "635",
+      "time": "713.922",
+      "timestamp": "2026-10-26T15:17:28.132252-03:00",
+      "hostname": "qbex"
+    },
+    "release_review": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "108",
+      "time": "46.795",
+      "timestamp": "2026-10-26T17:46:45.984719-03:00",
+      "hostname": "qbex"
+    },
+    "analytics": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "30",
+      "time": "13.234",
+      "timestamp": "2026-10-26T16:02:28.226830-03:00",
+      "hostname": "qbex"
+    },
+    "analytics_standalone": {
+      "version": "0.1.1",
+      "origin": "/home/cams7/Dev/Cripto/cripto-analytics/.venv-standalone-06d/lib/python3.13/site-packages/cripto_analytics/__init__.py",
+      "bot_available": false,
+      "renderer_escaping": true,
+      "daily_context_visible": true,
+      "sockets_blocked": true
+    },
+    "coverage_stage_note": "coverage.json belongs to the 635-test stage before focused final corrections; no claim of final full coverage percentage.",
+    "final_lock_check": "Resolved 29 packages in 2ms\nChecked 28 packages in 0.62ms\nPASS: all local wheel SHA256 match lock; offline sync and pins verified.\n",
+    "quality": {
+      "ruff-final-direct.log": "All checks passed!\n",
+      "format-final-direct.log": "127 files already formatted\n",
+      "mypy-final-direct.log": "Success: no issues found in 78 source files\n"
+    }
+  },
+  "acceptance": {
+    "D01": {
+      "status": "VALIDATED_OFFLINE",
+      "pilot_evidence": false
+    },
+    "D02": {
+      "status": "VALIDATED_OFFLINE",
+      "pilot_evidence": false
+    },
+    "D03": {
+      "status": "VALIDATED_OFFLINE",
+      "pilot_evidence": false
+    },
+    "D04": {
+      "status": "OFFLINE_VALIDATED_OPERATIONAL_PENDING",
+      "pilot_evidence": false
+    },
+    "D05": {
+      "status": "VALIDATED_OFFLINE",
+      "pilot_evidence": false
+    },
+    "D06": {
+      "status": "VALIDATED_OFFLINE",
+      "pilot_evidence": false
+    },
+    "D07": {
+      "status": "VALIDATED_OFFLINE",
+      "pilot_evidence": false
+    },
+    "D08": {
+      "status": "VALIDATED_OFFLINE",
+      "pilot_evidence": false
+    },
+    "D09": {
+      "status": "VALIDATED_OFFLINE",
+      "pilot_evidence": false
+    },
+    "D10": {
+      "status": "VALIDATED_OFFLINE",
+      "pilot_evidence": false
+    },
+    "D11": {
+      "status": "OFFLINE_VALIDATED_OPERATIONAL_PENDING",
+      "pilot_evidence": false
+    },
+    "D12": {
+      "status": "OFFLINE_VALIDATED_OPERATIONAL_PENDING",
+      "pilot_evidence": false
+    },
+    "D13": {
+      "status": "OFFLINE_VALIDATED_OPERATIONAL_PENDING",
+      "pilot_evidence": false
+    },
+    "D14": {
+      "status": "NOT_EXECUTED_AUTHORIZATION_OR_OBSERVATION_REQUIRED",
+      "pilot_evidence": false
+    },
+    "D15": {
+      "status": "VALIDATED_OFFLINE",
+      "pilot_evidence": false
+    },
+    "D16": {
+      "status": "NOT_EXECUTED_AUTHORIZATION_OR_OBSERVATION_REQUIRED",
+      "pilot_evidence": false
+    },
+    "D17": {
+      "status": "NOT_EXECUTED_AUTHORIZATION_OR_OBSERVATION_REQUIRED",
+      "pilot_evidence": false
+    },
+    "D18": {
+      "status": "OFFLINE_VALIDATED_OPERATIONAL_PENDING",
+      "pilot_evidence": false
+    },
+    "D19": {
+      "status": "OFFLINE_VALIDATED_OPERATIONAL_PENDING",
+      "pilot_evidence": false
+    },
+    "D20": {
+      "status": "VALIDATED_OFFLINE",
+      "pilot_evidence": false
+    },
+    "D21": {
+      "status": "OFFLINE_VALIDATED_OPERATIONAL_PENDING",
+      "pilot_evidence": false
+    },
+    "D22": {
+      "status": "PENDING_GLOBAL_ACCEPTANCE",
+      "pilot_evidence": false
+    }
+  },
+  "repositories": {
+    "docs": {
+      "head": "d62a4c3a84dd00edfef404f297c7febac2a6b658",
+      "status": "M arquitetura-modular.md\n M arquitetura.md\n M bancos/README.md\n M estrategias/README.md\n M estrategias/trend_sma.md\nMM planejamento.md\nMM sprints/sprint-06.md\nAM sprints/sprint-06d.md\n M testes/estrategias-modulares-validacao.md\n M testes/sprint-06-validacao.md\n?? api/\n?? bancos/continuous-sqlite.md\n?? bancos/notification-sqlite.md\n?? decisoes/0011-paper-continuous-e-entrega-local.md\n?? modulos/\n?? operacao/\n?? testes/ferramentas/sprint-06d-check-docs.py\n?? testes/ferramentas/sprint-06d-compatibilidade.py\n?? testes/ferramentas/sprint-06d-drill.py\n?? testes/ferramentas/sprint-06d-evidencias.py\n?? testes/ferramentas/sprint-06d-guia.py\n?? testes/ferramentas/sprint-06d-schema.py\n?? testes/ferramentas/sprint-06d-visual.py\n?? testes/ferramentas/sprint-06d-wheel-continuous.py\n?? testes/relatorios/sprint-06d/\n?? testes/sprint-06d-evidencias.json\n?? testes/sprint-06d-pre-protocolo.json\n?? testes/sprint-06d-schema.json\n?? testes/sprint-06d-validacao.md",
+      "committed_by_task": false
+    },
+    "cripto-bot": {
+      "head": "d695e0e383f3316e74c88aaa56ed7b7586d93bb2",
+      "status": "M .gitignore\n M README.md\n M pyproject.toml\n M src/cripto_bot/adapters/config.py\n M src/cripto_bot/adapters/provenance.py\n M src/cripto_bot/domain/models.py\n M src/cripto_bot/domain/modules/models.py\n M src/cripto_bot/entrypoints/cli.py\n M tests/unit/test_analytics_composition.py\n M tests/wheel_smoke.py\n M uv.lock\n?? config/continuous.example.toml\n?? src/cripto_bot/adapters/continuous_config.py\n?? src/cripto_bot/adapters/continuous_market.py\n?? src/cripto_bot/adapters/notifications/\n?? src/cripto_bot/adapters/storage/continuous_report.py\n?? src/cripto_bot/adapters/storage/continuous_sqlite.py\n?? src/cripto_bot/adapters/storage/notification_sqlite.py\n?? src/cripto_bot/application/continuous_control.py\n?? src/cripto_bot/application/continuous_reconcile.py\n?? src/cripto_bot/application/continuous_run.py\n?? src/cripto_bot/application/notifications.py\n?? src/cripto_bot/domain/continuous/\n?? src/cripto_bot/entrypoints/continuous.py\n?? tests/continuous_factories.py\n?? tests/integration/test_continuous_composition.py\n?? tests/integration/test_continuous_storage.py\n?? tests/unit/test_continuous_engine.py\n?? tests/unit/test_continuous_notifications.py",
+      "committed_by_task": false
+    },
+    "cripto-core": {
+      "head": "e666e7e23dcb421177c80838a28c230d4433bdf2",
+      "status": "",
+      "committed_by_task": false
+    },
+    "cripto-market-data": {
+      "head": "1da6f4fe25c6940cc3e96416415ddf6f1ffcb4e9",
+      "status": "",
+      "committed_by_task": false
+    },
+    "cripto-analytics": {
+      "head": "236775dd6ee84375d8dbd11e4c3fc2b11747019a",
+      "status": "M README.md\n M pyproject.toml\n M uv.lock\n?? src/cripto_analytics/presentation/continuous.py\n?? tests/test_continuous.py",
+      "committed_by_task": false
+    }
+  },
+  "compatibility": {
+    "curves_equal": 48,
+    "financial_commands_equal": [
+      "paper-run",
+      "paper-reconcile",
+      "paper-report",
+      "paper-run",
+      "strategy-run",
+      "strategy-reconcile",
+      "strategy-report",
+      "strategy-run"
+    ],
+    "prior_artifacts_preserved": 16,
+    "dependency_version_changes": {
+      "cripto-analytics": [
+        "0.1.0",
+        "0.1.1"
+      ]
+    },
+    "protected_sources_sha256": {
+      "cripto-bot/src/cripto_bot/adapters/storage/paper_sqlite.py": "25154d175f5cb67032a13a12608fac1f5da33eda1b786a8707142cd4e5ef02d6",
+      "cripto-bot/src/cripto_bot/adapters/storage/strategy_sqlite.py": "d0791ef1e10b1c67b7bf34264bfd1f02fc7ffd7e611b54851e8fc9af79c87a18",
+      "cripto-bot/src/cripto_bot/adapters/storage/backtest_sqlite.py": "e57f464659af0f56d0e61c337ca0892806cadef9bc963d26f7952bc98140e7a4",
+      "cripto-bot/src/cripto_bot/domain/portfolio/models.py": "04674c1f412c5c3fd1a6da853118665e0f6cfe2a1413b09cac8ce68c6a7beffb",
+      "cripto-bot/src/cripto_bot/domain/portfolio/engine.py": "ef9279b41bd9801e867b62882de4e16ca570ef6169f0c833298d575a34b55d04",
+      "cripto-bot/src/cripto_bot/domain/backtest/engine.py": "1a27a42aa71fa1e4b57ee4c5c7b75d6a4a4a11c087b4cfa0d59aaa69c0bc9f65"
+    },
+    "old_report": {
+      "exit": 0,
+      "stdout": "{\"run_id\": \"f1e3c08b-8d8e-41fa-a9c9-f00f9fa7a127\", \"timestamp\": \"2026-10-26T20:50:31.740778+00:00\", \"mode\": \"PAPER\", \"orders_sent\": 0, \"simulated_fills\": 0, \"status\": \"BACKTEST_REPORTED\", \"manifest\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06c/market-umxo4nky/backtest-wallet/exports/f1e3c08b-8d8e-41fa-a9c9-f00f9fa7a127/manifest.json\", \"html_report\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06c/market-umxo4nky/backtest-wallet/exports/f1e3c08b-8d8e-41fa-a9c9-f00f9fa7a127/report.html\", \"result_sha256\": \"4a929036114a658ea20a31863f3cbe29e3d4ede75983f7d22bb4632f169cc6a8\", \"analytics_database\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06c/market-umxo4nky/backtest-wallet/exports/f1e3c08b-8d8e-41fa-a9c9-f00f9fa7a127/analytics.duckdb\", \"analytics_manifest\": \"/home/cams7/Dev/Cripto/cripto-bot/.wheel-smoke/06c/market-umxo4nky/backtest-wallet/exports/f1e3c08b-8d8e-41fa-a9c9-f00f9fa7a127/analytics.json\"}\n",
+      "stderr": "{\"run_id\": \"f1e3c08b-8d8e-41fa-a9c9-f00f9fa7a127\", \"timestamp\": \"2026-10-26T20:50:31.740778+00:00\", \"mode\": \"PAPER\", \"level\": \"INFO\", \"event\": \"backtest-report\"}\n"
+    },
+    "old_resume_blocked": {
+      "exit": 3,
+      "stdout": "{\"run_id\": \"9c55d0e3-84da-4ff9-8107-dbe551fd9e10\", \"timestamp\": \"2026-10-26T20:50:49.734450+00:00\", \"mode\": \"PAPER\", \"orders_sent\": 0, \"simulated_fills\": 0, \"status\": \"BACKTEST_FAILED\", \"error_code\": \"FROZEN_PROTOCOL_CHANGED\"}\n",
+      "stderr": "{\"run_id\": \"9c55d0e3-84da-4ff9-8107-dbe551fd9e10\", \"timestamp\": \"2026-10-26T20:50:49.734450+00:00\", \"mode\": \"PAPER\", \"level\": \"ERROR\", \"event\": \"backtest-run\"}\n"
+    },
+    "old_sqlite_sha256": "f73df65083621522f2a49a3603079d61b01224bb94cf0e925b61f49df7e68fd2",
+    "old_sqlite_unchanged": true,
+    "registry_sha256": "af7ee92659cb1be9c4e322daeba997755430a040faec4b1342c1cabf082810bd",
+    "old_export_exact_files": [
+      "report.json",
+      "report.html",
+      "equity.csv",
+      "trades.csv",
+      "decisions.csv",
+      "analytics.json"
+    ],
+    "installed_projection_proof": {
+      "typed_parquet_rows_equal": true,
+      "queries": {
+        "curve-summary": {
+          "view": "curve-summary",
+          "rows": [
+            {
+              "run_key": "8339cb1dc6bd3ad101b17aa86114e2f948a9260063098cc601af21a0d0b81835",
+              "segment": "development",
+              "variant": "base",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9980.02996017",
+              "net_return": "-0.0019970039830000",
+              "maximum_drawdown": "0.0909090904108231",
+              "fees": "9.99000993",
+              "equity_rows": 1155,
+              "decisions": 576,
+              "fills": 1
+            },
+            {
+              "run_key": "74d4c56df65dfe83dadfc34038d3ce43b4bbee131b65b13e131e0308e60308b6",
+              "segment": "development",
+              "variant": "base",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9998.00299619",
+              "net_return": "-0.0001997003810000",
+              "maximum_drawdown": "0.0098833664284676",
+              "fees": "0.99900091",
+              "equity_rows": 1155,
+              "decisions": 576,
+              "fills": 1
+            },
+            {
+              "run_key": "dac348c8e95b146bfe2bd985b4e76734916eb24efa335da0d8e35b5d2c65a617",
+              "segment": "development",
+              "variant": "base",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 1154,
+              "decisions": 576,
+              "fills": 0
+            },
+            {
+              "run_key": "90bd5642d28845397bae6a1d239585e26a469d2f4d14d75b0c6baafea582f492",
+              "segment": "development",
+              "variant": "base",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9976.07182114",
+              "net_return": "-0.0023928178860000",
+              "maximum_drawdown": "0.0023928178860000",
+              "fees": "11.96408946",
+              "equity_rows": 1166,
+              "decisions": 575,
+              "fills": 12
+            },
+            {
+              "run_key": "82a0f0edb4632d61040cd854d17548f821ae3400d1c70995b4926565a045f1e2",
+              "segment": "development",
+              "variant": "delay_1candle",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9980.02996017",
+              "net_return": "-0.0019970039830000",
+              "maximum_drawdown": "0.0909090904108231",
+              "fees": "9.99000993",
+              "equity_rows": 1155,
+              "decisions": 576,
+              "fills": 1
+            },
+            {
+              "run_key": "51fd1bb60f0ea447011c53e511f4d491c926b41c5a71047afe8dd54e80cfd2cb",
+              "segment": "development",
+              "variant": "delay_1candle",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9998.00299619",
+              "net_return": "-0.0001997003810000",
+              "maximum_drawdown": "0.0098833664284676",
+              "fees": "0.99900091",
+              "equity_rows": 1155,
+              "decisions": 576,
+              "fills": 1
+            },
+            {
+              "run_key": "f1666fd34c0d61f61550e6b5cf7f5a54fc933022deeefca7f6270f591aca5d0f",
+              "segment": "development",
+              "variant": "delay_1candle",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 1154,
+              "decisions": 576,
+              "fills": 0
+            },
+            {
+              "run_key": "5a969d2171907c9d62d744dc87dde1504dd72c2b59823415b927b774b7755364",
+              "segment": "development",
+              "variant": "delay_1candle",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9976.07182114",
+              "net_return": "-0.0023928178860000",
+              "maximum_drawdown": "0.0023928178860000",
+              "fees": "11.96408946",
+              "equity_rows": 1166,
+              "decisions": 575,
+              "fills": 12
+            },
+            {
+              "run_key": "271d7a5b03804cc75c41fd3be19d51ab589641e9eb30c578e4e2b540aa35a515",
+              "segment": "development",
+              "variant": "double_costs",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9960.11968112",
+              "net_return": "-0.0039880318880000",
+              "maximum_drawdown": "0.0909090902359934",
+              "fees": "19.96007968",
+              "equity_rows": 1155,
+              "decisions": 576,
+              "fills": 1
+            },
+            {
+              "run_key": "674872c0c5974ba2beb85a08eff67749fdf84d160227e28c874d7264a96e12e6",
+              "segment": "development",
+              "variant": "double_costs",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9996.01196835",
+              "net_return": "-0.0003988031650000",
+              "maximum_drawdown": "0.0098657890746953",
+              "fees": "1.99600785",
+              "equity_rows": 1155,
+              "decisions": 576,
+              "fills": 1
+            },
+            {
+              "run_key": "d56686db9eb75091808fe797752589e976d883d2ca27f4e73d87c96ad3a60f57",
+              "segment": "development",
+              "variant": "double_costs",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 1154,
+              "decisions": 576,
+              "fills": 0
+            },
+            {
+              "run_key": "49eb46228b39a5f457525d6c4eb4862fb34722101dbe29e2c40dabfb7ec4615a",
+              "segment": "development",
+              "variant": "double_costs",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9952.28656234",
+              "net_return": "-0.0047713437660000",
+              "maximum_drawdown": "0.0047713437660000",
+              "fees": "23.85671886",
+              "equity_rows": 1166,
+              "decisions": 575,
+              "fills": 12
+            },
+            {
+              "run_key": "c31e00f767234939e00050845595ce6e9d2427103b5a5b6d5030934a8286bc47",
+              "segment": "development",
+              "variant": "double_costs_delay",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9960.11968112",
+              "net_return": "-0.0039880318880000",
+              "maximum_drawdown": "0.0909090902359934",
+              "fees": "19.96007968",
+              "equity_rows": 1155,
+              "decisions": 576,
+              "fills": 1
+            },
+            {
+              "run_key": "7cb01d24a352f855c4687df193a17fe7a463e7f478f65c83df92e74f95ed60ed",
+              "segment": "development",
+              "variant": "double_costs_delay",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9996.01196835",
+              "net_return": "-0.0003988031650000",
+              "maximum_drawdown": "0.0098657890746953",
+              "fees": "1.99600785",
+              "equity_rows": 1155,
+              "decisions": 576,
+              "fills": 1
+            },
+            {
+              "run_key": "ddd243bb5f29126b41dca77b5e6727d48d3d5ea46bd05d363f9fe4a19a330df2",
+              "segment": "development",
+              "variant": "double_costs_delay",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 1154,
+              "decisions": 576,
+              "fills": 0
+            },
+            {
+              "run_key": "7eb85ca36c400359b5bb6ee3de7d21dbfbe2595634800d52992243b578053828",
+              "segment": "development",
+              "variant": "double_costs_delay",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791331200000,
+              "final_equity": "9952.28656234",
+              "net_return": "-0.0047713437660000",
+              "maximum_drawdown": "0.0047713437660000",
+              "fees": "23.85671886",
+              "equity_rows": 1166,
+              "decisions": 575,
+              "fills": 12
+            },
+            {
+              "run_key": "3181fd4f148326da2c03f5035e109b5d8594f501f1cc09a40fe83fadc0954f9c",
+              "segment": "test",
+              "variant": "base",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9980.02996017",
+              "net_return": "-0.0019970039830000",
+              "maximum_drawdown": "0.0909090904108231",
+              "fees": "9.99000993",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "19b17359da24b71dece1a5e9fa8da37ed8aa721f91c809f4077fdce508a039aa",
+              "segment": "test",
+              "variant": "base",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9998.00299619",
+              "net_return": "-0.0001997003810000",
+              "maximum_drawdown": "0.0098833664284676",
+              "fees": "0.99900091",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "77b151cc9dcba5fd4cab86880744e9231a571c5096d26585c9df42184e77b564",
+              "segment": "test",
+              "variant": "base",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 386,
+              "decisions": 192,
+              "fills": 0
+            },
+            {
+              "run_key": "26b2e9dcd13e7ae431d277363984f17948679d3fbcd0f16a022b5655903a2d7a",
+              "segment": "test",
+              "variant": "base",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9992.01757038",
+              "net_return": "-0.0007982429620000",
+              "maximum_drawdown": "0.0007982429620000",
+              "fees": "3.99121482",
+              "equity_rows": 390,
+              "decisions": 191,
+              "fills": 4
+            },
+            {
+              "run_key": "1cef04114ee4d5b8f158071758ce40fcb53119d6a2cb9d1e183185af5be4f1af",
+              "segment": "test",
+              "variant": "delay_1candle",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9980.02996017",
+              "net_return": "-0.0019970039830000",
+              "maximum_drawdown": "0.0909090904108231",
+              "fees": "9.99000993",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "df293623bb2d04f841608fd6087b49487804f6bed04ac0a0b90fb6811f8b5142",
+              "segment": "test",
+              "variant": "delay_1candle",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9998.00299619",
+              "net_return": "-0.0001997003810000",
+              "maximum_drawdown": "0.0098833664284676",
+              "fees": "0.99900091",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "69f369467a564c265b40dcca741530e3c671aa386154fc25d2c2b6d9b467e4d9",
+              "segment": "test",
+              "variant": "delay_1candle",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 386,
+              "decisions": 192,
+              "fills": 0
+            },
+            {
+              "run_key": "f468df9831d9c5925b9e0e4fd7102d10e88318f0a8e516c4e1de26f5734988d3",
+              "segment": "test",
+              "variant": "delay_1candle",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9992.01757038",
+              "net_return": "-0.0007982429620000",
+              "maximum_drawdown": "0.0007982429620000",
+              "fees": "3.99121482",
+              "equity_rows": 390,
+              "decisions": 191,
+              "fills": 4
+            },
+            {
+              "run_key": "665ba8494d2a4458a0f6521cb75e7bab3f711555fe7859cce83fb557b6f2cced",
+              "segment": "test",
+              "variant": "double_costs",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9960.11968112",
+              "net_return": "-0.0039880318880000",
+              "maximum_drawdown": "0.0909090902359934",
+              "fees": "19.96007968",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "37593e2dc128dadfa626f5fdfe9329aa68660b8e2dae8d908476cc836e4ae10c",
+              "segment": "test",
+              "variant": "double_costs",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9996.01196835",
+              "net_return": "-0.0003988031650000",
+              "maximum_drawdown": "0.0098657890746953",
+              "fees": "1.99600785",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "f0df62a596d21600269ea1705c8b334fc1d993851040ca09b9e749ba623137a8",
+              "segment": "test",
+              "variant": "double_costs",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 386,
+              "decisions": 192,
+              "fills": 0
+            },
+            {
+              "run_key": "83b1ba20e9fe006420deba9fecb6d0432af3dabcd6007bcc60b497d34dc4a0bb",
+              "segment": "test",
+              "variant": "double_costs",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9984.07015838",
+              "net_return": "-0.0015929841620000",
+              "maximum_drawdown": "0.0015929841620000",
+              "fees": "7.96492082",
+              "equity_rows": 390,
+              "decisions": 191,
+              "fills": 4
+            },
+            {
+              "run_key": "d7e6e0f9948afe6d7d656c3817f96dd04b51ade063b572d8e43296f4b0358203",
+              "segment": "test",
+              "variant": "double_costs_delay",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9960.11968112",
+              "net_return": "-0.0039880318880000",
+              "maximum_drawdown": "0.0909090902359934",
+              "fees": "19.96007968",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "95bf06d6a1c95ebb55228d37bfd132ce1e7d1c3cc9e812b28e1e147a1ae3a895",
+              "segment": "test",
+              "variant": "double_costs_delay",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9996.01196835",
+              "net_return": "-0.0003988031650000",
+              "maximum_drawdown": "0.0098657890746953",
+              "fees": "1.99600785",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "46bc6c2a530fab61b046378ff57597b4af0c782affb3af6db8b7873ee382b951",
+              "segment": "test",
+              "variant": "double_costs_delay",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 386,
+              "decisions": 192,
+              "fills": 0
+            },
+            {
+              "run_key": "080688b2b905523462fc3de063b24f1577a53eab9739a03747800e9ae476ffb6",
+              "segment": "test",
+              "variant": "double_costs_delay",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791676800000,
+              "final_equity": "9984.07015838",
+              "net_return": "-0.0015929841620000",
+              "maximum_drawdown": "0.0015929841620000",
+              "fees": "7.96492082",
+              "equity_rows": 390,
+              "decisions": 191,
+              "fills": 4
+            },
+            {
+              "run_key": "7f648c3b303e64b11be8f4a5d12454316bb7d9145f136d7436267f869f789957",
+              "segment": "validation",
+              "variant": "base",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9980.02996017",
+              "net_return": "-0.0019970039830000",
+              "maximum_drawdown": "0.0909090904108231",
+              "fees": "9.99000993",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "2701d4248a1cfae987b9806066aefd52d31939a67546f2796f8b3fdf52467c73",
+              "segment": "validation",
+              "variant": "base",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9998.00299619",
+              "net_return": "-0.0001997003810000",
+              "maximum_drawdown": "0.0098833664284676",
+              "fees": "0.99900091",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "0ac517cbc100494af2e8107681992bec95578a48cde53db2fb82e671e0179025",
+              "segment": "validation",
+              "variant": "base",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 386,
+              "decisions": 192,
+              "fills": 0
+            },
+            {
+              "run_key": "dc159d415a4367bd91344199dae9e850e01db0ac5e0ea2103520b04cea6d1fac",
+              "segment": "validation",
+              "variant": "base",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9992.01757038",
+              "net_return": "-0.0007982429620000",
+              "maximum_drawdown": "0.0007982429620000",
+              "fees": "3.99121482",
+              "equity_rows": 390,
+              "decisions": 191,
+              "fills": 4
+            },
+            {
+              "run_key": "cf5f372e5839e475a789247f4eb8fe2f689ddd2c77721cd55cf8497d114dc61f",
+              "segment": "validation",
+              "variant": "delay_1candle",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9980.02996017",
+              "net_return": "-0.0019970039830000",
+              "maximum_drawdown": "0.0909090904108231",
+              "fees": "9.99000993",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "9be569667b6e70db9360b6f7bc861b6aae989899a58de536b0cf7b3a38bd5c4a",
+              "segment": "validation",
+              "variant": "delay_1candle",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9998.00299619",
+              "net_return": "-0.0001997003810000",
+              "maximum_drawdown": "0.0098833664284676",
+              "fees": "0.99900091",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "656b8f881bf909dedf4f65a01080694fb52331973d18e7f2c570b12b049cbacc",
+              "segment": "validation",
+              "variant": "delay_1candle",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 386,
+              "decisions": 192,
+              "fills": 0
+            },
+            {
+              "run_key": "8e8261b97f0fb35fad926618cd6111e31a5d52c48fc436e141b0e567e6f304bc",
+              "segment": "validation",
+              "variant": "delay_1candle",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9992.01757038",
+              "net_return": "-0.0007982429620000",
+              "maximum_drawdown": "0.0007982429620000",
+              "fees": "3.99121482",
+              "equity_rows": 390,
+              "decisions": 191,
+              "fills": 4
+            },
+            {
+              "run_key": "b8ef968dfa4a941cc4008fed7dc6166cfabd47eb12c8dc9c3ae8dbf223d8c0a3",
+              "segment": "validation",
+              "variant": "double_costs",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9960.11968112",
+              "net_return": "-0.0039880318880000",
+              "maximum_drawdown": "0.0909090902359934",
+              "fees": "19.96007968",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "30db184da82faebf1d9f8c8f420a7e1324b85e808a249bcd8b105dfb352c28ed",
+              "segment": "validation",
+              "variant": "double_costs",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9996.01196835",
+              "net_return": "-0.0003988031650000",
+              "maximum_drawdown": "0.0098657890746953",
+              "fees": "1.99600785",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "bb283600d29cc6e14f6671400bb889d1c8af6837c39a5d2edc56a56a194d7c84",
+              "segment": "validation",
+              "variant": "double_costs",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 386,
+              "decisions": 192,
+              "fills": 0
+            },
+            {
+              "run_key": "71e30f55085d0915893120032f53994db11bc56576d09e87a75b092dece63d2e",
+              "segment": "validation",
+              "variant": "double_costs",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9984.07015838",
+              "net_return": "-0.0015929841620000",
+              "maximum_drawdown": "0.0015929841620000",
+              "fees": "7.96492082",
+              "equity_rows": 390,
+              "decisions": 191,
+              "fills": 4
+            },
+            {
+              "run_key": "4c41cb557cc65531d65f4e24ee63a1345aa4ae1a66323ec130f3b01d16406538",
+              "segment": "validation",
+              "variant": "double_costs_delay",
+              "profile": "buy_hold_100pct",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9960.11968112",
+              "net_return": "-0.0039880318880000",
+              "maximum_drawdown": "0.0909090902359934",
+              "fees": "19.96007968",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "171341d28ecb527f43b535d4d4f8e473c8653caa292d0bf4834097e3310ce776",
+              "segment": "validation",
+              "variant": "double_costs_delay",
+              "profile": "buy_hold_10pct",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9996.01196835",
+              "net_return": "-0.0003988031650000",
+              "maximum_drawdown": "0.0098657890746953",
+              "fees": "1.99600785",
+              "equity_rows": 387,
+              "decisions": 192,
+              "fills": 1
+            },
+            {
+              "run_key": "e3b7d81b8ab2ae0f2ae387e6355ab39b65f2ba598543b13a9beca0627b6f7b31",
+              "segment": "validation",
+              "variant": "double_costs_delay",
+              "profile": "cash",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "10000.00000000",
+              "net_return": "0.0000000000000000",
+              "maximum_drawdown": "0.0000000000000000",
+              "fees": "0.00000000",
+              "equity_rows": 386,
+              "decisions": 192,
+              "fills": 0
+            },
+            {
+              "run_key": "82992232799afe2a5c65893ea9e2e6f949b177438c9aefd83e9d0d47f43ee6d9",
+              "segment": "validation",
+              "variant": "double_costs_delay",
+              "profile": "sma",
+              "completed": true,
+              "measured_until": 1791504000000,
+              "final_equity": "9984.07015838",
+              "net_return": "-0.0015929841620000",
+              "maximum_drawdown": "0.0015929841620000",
+              "fees": "7.96492082",
+              "equity_rows": 390,
+              "decisions": 191,
+              "fills": 4
+            }
+          ],
+          "truncated": false
+        },
+        "decisions-counts": {
+          "view": "decisions-counts",
+          "rows": [
+            {
+              "run_key": "080688b2b905523462fc3de063b24f1577a53eab9739a03747800e9ae476ffb6",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 187
+            },
+            {
+              "run_key": "080688b2b905523462fc3de063b24f1577a53eab9739a03747800e9ae476ffb6",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 2
+            },
+            {
+              "run_key": "080688b2b905523462fc3de063b24f1577a53eab9739a03747800e9ae476ffb6",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 2
+            },
+            {
+              "run_key": "0ac517cbc100494af2e8107681992bec95578a48cde53db2fb82e671e0179025",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 192
+            },
+            {
+              "run_key": "171341d28ecb527f43b535d4d4f8e473c8653caa292d0bf4834097e3310ce776",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "171341d28ecb527f43b535d4d4f8e473c8653caa292d0bf4834097e3310ce776",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "19b17359da24b71dece1a5e9fa8da37ed8aa721f91c809f4077fdce508a039aa",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "19b17359da24b71dece1a5e9fa8da37ed8aa721f91c809f4077fdce508a039aa",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "1cef04114ee4d5b8f158071758ce40fcb53119d6a2cb9d1e183185af5be4f1af",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "1cef04114ee4d5b8f158071758ce40fcb53119d6a2cb9d1e183185af5be4f1af",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "26b2e9dcd13e7ae431d277363984f17948679d3fbcd0f16a022b5655903a2d7a",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 187
+            },
+            {
+              "run_key": "26b2e9dcd13e7ae431d277363984f17948679d3fbcd0f16a022b5655903a2d7a",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 2
+            },
+            {
+              "run_key": "26b2e9dcd13e7ae431d277363984f17948679d3fbcd0f16a022b5655903a2d7a",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 2
+            },
+            {
+              "run_key": "2701d4248a1cfae987b9806066aefd52d31939a67546f2796f8b3fdf52467c73",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "2701d4248a1cfae987b9806066aefd52d31939a67546f2796f8b3fdf52467c73",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "271d7a5b03804cc75c41fd3be19d51ab589641e9eb30c578e4e2b540aa35a515",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 575
+            },
+            {
+              "run_key": "271d7a5b03804cc75c41fd3be19d51ab589641e9eb30c578e4e2b540aa35a515",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "30db184da82faebf1d9f8c8f420a7e1324b85e808a249bcd8b105dfb352c28ed",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "30db184da82faebf1d9f8c8f420a7e1324b85e808a249bcd8b105dfb352c28ed",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "3181fd4f148326da2c03f5035e109b5d8594f501f1cc09a40fe83fadc0954f9c",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "3181fd4f148326da2c03f5035e109b5d8594f501f1cc09a40fe83fadc0954f9c",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "37593e2dc128dadfa626f5fdfe9329aa68660b8e2dae8d908476cc836e4ae10c",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "37593e2dc128dadfa626f5fdfe9329aa68660b8e2dae8d908476cc836e4ae10c",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "46bc6c2a530fab61b046378ff57597b4af0c782affb3af6db8b7873ee382b951",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 192
+            },
+            {
+              "run_key": "49eb46228b39a5f457525d6c4eb4862fb34722101dbe29e2c40dabfb7ec4615a",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 563
+            },
+            {
+              "run_key": "49eb46228b39a5f457525d6c4eb4862fb34722101dbe29e2c40dabfb7ec4615a",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 6
+            },
+            {
+              "run_key": "49eb46228b39a5f457525d6c4eb4862fb34722101dbe29e2c40dabfb7ec4615a",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 6
+            },
+            {
+              "run_key": "4c41cb557cc65531d65f4e24ee63a1345aa4ae1a66323ec130f3b01d16406538",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "4c41cb557cc65531d65f4e24ee63a1345aa4ae1a66323ec130f3b01d16406538",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "51fd1bb60f0ea447011c53e511f4d491c926b41c5a71047afe8dd54e80cfd2cb",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 575
+            },
+            {
+              "run_key": "51fd1bb60f0ea447011c53e511f4d491c926b41c5a71047afe8dd54e80cfd2cb",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "5a969d2171907c9d62d744dc87dde1504dd72c2b59823415b927b774b7755364",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 563
+            },
+            {
+              "run_key": "5a969d2171907c9d62d744dc87dde1504dd72c2b59823415b927b774b7755364",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 6
+            },
+            {
+              "run_key": "5a969d2171907c9d62d744dc87dde1504dd72c2b59823415b927b774b7755364",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 6
+            },
+            {
+              "run_key": "656b8f881bf909dedf4f65a01080694fb52331973d18e7f2c570b12b049cbacc",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 192
+            },
+            {
+              "run_key": "665ba8494d2a4458a0f6521cb75e7bab3f711555fe7859cce83fb557b6f2cced",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "665ba8494d2a4458a0f6521cb75e7bab3f711555fe7859cce83fb557b6f2cced",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "674872c0c5974ba2beb85a08eff67749fdf84d160227e28c874d7264a96e12e6",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 575
+            },
+            {
+              "run_key": "674872c0c5974ba2beb85a08eff67749fdf84d160227e28c874d7264a96e12e6",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "69f369467a564c265b40dcca741530e3c671aa386154fc25d2c2b6d9b467e4d9",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 192
+            },
+            {
+              "run_key": "71e30f55085d0915893120032f53994db11bc56576d09e87a75b092dece63d2e",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 187
+            },
+            {
+              "run_key": "71e30f55085d0915893120032f53994db11bc56576d09e87a75b092dece63d2e",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 2
+            },
+            {
+              "run_key": "71e30f55085d0915893120032f53994db11bc56576d09e87a75b092dece63d2e",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 2
+            },
+            {
+              "run_key": "74d4c56df65dfe83dadfc34038d3ce43b4bbee131b65b13e131e0308e60308b6",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 575
+            },
+            {
+              "run_key": "74d4c56df65dfe83dadfc34038d3ce43b4bbee131b65b13e131e0308e60308b6",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "77b151cc9dcba5fd4cab86880744e9231a571c5096d26585c9df42184e77b564",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 192
+            },
+            {
+              "run_key": "7cb01d24a352f855c4687df193a17fe7a463e7f478f65c83df92e74f95ed60ed",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 575
+            },
+            {
+              "run_key": "7cb01d24a352f855c4687df193a17fe7a463e7f478f65c83df92e74f95ed60ed",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "7eb85ca36c400359b5bb6ee3de7d21dbfbe2595634800d52992243b578053828",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 563
+            },
+            {
+              "run_key": "7eb85ca36c400359b5bb6ee3de7d21dbfbe2595634800d52992243b578053828",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 6
+            },
+            {
+              "run_key": "7eb85ca36c400359b5bb6ee3de7d21dbfbe2595634800d52992243b578053828",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 6
+            },
+            {
+              "run_key": "7f648c3b303e64b11be8f4a5d12454316bb7d9145f136d7436267f869f789957",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "7f648c3b303e64b11be8f4a5d12454316bb7d9145f136d7436267f869f789957",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "82992232799afe2a5c65893ea9e2e6f949b177438c9aefd83e9d0d47f43ee6d9",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 187
+            },
+            {
+              "run_key": "82992232799afe2a5c65893ea9e2e6f949b177438c9aefd83e9d0d47f43ee6d9",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 2
+            },
+            {
+              "run_key": "82992232799afe2a5c65893ea9e2e6f949b177438c9aefd83e9d0d47f43ee6d9",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 2
+            },
+            {
+              "run_key": "82a0f0edb4632d61040cd854d17548f821ae3400d1c70995b4926565a045f1e2",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 575
+            },
+            {
+              "run_key": "82a0f0edb4632d61040cd854d17548f821ae3400d1c70995b4926565a045f1e2",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "8339cb1dc6bd3ad101b17aa86114e2f948a9260063098cc601af21a0d0b81835",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 575
+            },
+            {
+              "run_key": "8339cb1dc6bd3ad101b17aa86114e2f948a9260063098cc601af21a0d0b81835",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "83b1ba20e9fe006420deba9fecb6d0432af3dabcd6007bcc60b497d34dc4a0bb",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 187
+            },
+            {
+              "run_key": "83b1ba20e9fe006420deba9fecb6d0432af3dabcd6007bcc60b497d34dc4a0bb",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 2
+            },
+            {
+              "run_key": "83b1ba20e9fe006420deba9fecb6d0432af3dabcd6007bcc60b497d34dc4a0bb",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 2
+            },
+            {
+              "run_key": "8e8261b97f0fb35fad926618cd6111e31a5d52c48fc436e141b0e567e6f304bc",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 187
+            },
+            {
+              "run_key": "8e8261b97f0fb35fad926618cd6111e31a5d52c48fc436e141b0e567e6f304bc",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 2
+            },
+            {
+              "run_key": "8e8261b97f0fb35fad926618cd6111e31a5d52c48fc436e141b0e567e6f304bc",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 2
+            },
+            {
+              "run_key": "90bd5642d28845397bae6a1d239585e26a469d2f4d14d75b0c6baafea582f492",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 563
+            },
+            {
+              "run_key": "90bd5642d28845397bae6a1d239585e26a469d2f4d14d75b0c6baafea582f492",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 6
+            },
+            {
+              "run_key": "90bd5642d28845397bae6a1d239585e26a469d2f4d14d75b0c6baafea582f492",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 6
+            },
+            {
+              "run_key": "95bf06d6a1c95ebb55228d37bfd132ce1e7d1c3cc9e812b28e1e147a1ae3a895",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "95bf06d6a1c95ebb55228d37bfd132ce1e7d1c3cc9e812b28e1e147a1ae3a895",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "9be569667b6e70db9360b6f7bc861b6aae989899a58de536b0cf7b3a38bd5c4a",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "9be569667b6e70db9360b6f7bc861b6aae989899a58de536b0cf7b3a38bd5c4a",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "b8ef968dfa4a941cc4008fed7dc6166cfabd47eb12c8dc9c3ae8dbf223d8c0a3",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "b8ef968dfa4a941cc4008fed7dc6166cfabd47eb12c8dc9c3ae8dbf223d8c0a3",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "bb283600d29cc6e14f6671400bb889d1c8af6837c39a5d2edc56a56a194d7c84",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 192
+            },
+            {
+              "run_key": "c31e00f767234939e00050845595ce6e9d2427103b5a5b6d5030934a8286bc47",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 575
+            },
+            {
+              "run_key": "c31e00f767234939e00050845595ce6e9d2427103b5a5b6d5030934a8286bc47",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "cf5f372e5839e475a789247f4eb8fe2f689ddd2c77721cd55cf8497d114dc61f",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "cf5f372e5839e475a789247f4eb8fe2f689ddd2c77721cd55cf8497d114dc61f",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "d56686db9eb75091808fe797752589e976d883d2ca27f4e73d87c96ad3a60f57",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 576
+            },
+            {
+              "run_key": "d7e6e0f9948afe6d7d656c3817f96dd04b51ade063b572d8e43296f4b0358203",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "d7e6e0f9948afe6d7d656c3817f96dd04b51ade063b572d8e43296f4b0358203",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "dac348c8e95b146bfe2bd985b4e76734916eb24efa335da0d8e35b5d2c65a617",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 576
+            },
+            {
+              "run_key": "dc159d415a4367bd91344199dae9e850e01db0ac5e0ea2103520b04cea6d1fac",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 187
+            },
+            {
+              "run_key": "dc159d415a4367bd91344199dae9e850e01db0ac5e0ea2103520b04cea6d1fac",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 2
+            },
+            {
+              "run_key": "dc159d415a4367bd91344199dae9e850e01db0ac5e0ea2103520b04cea6d1fac",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 2
+            },
+            {
+              "run_key": "ddd243bb5f29126b41dca77b5e6727d48d3d5ea46bd05d363f9fe4a19a330df2",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 576
+            },
+            {
+              "run_key": "df293623bb2d04f841608fd6087b49487804f6bed04ac0a0b90fb6811f8b5142",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 191
+            },
+            {
+              "run_key": "df293623bb2d04f841608fd6087b49487804f6bed04ac0a0b90fb6811f8b5142",
+              "status": "SCHEDULED",
+              "reason": "BUY_HOLD_ENTRY",
+              "count": 1
+            },
+            {
+              "run_key": "e3b7d81b8ab2ae0f2ae387e6355ab39b65f2ba598543b13a9beca0627b6f7b31",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 192
+            },
+            {
+              "run_key": "f0df62a596d21600269ea1705c8b334fc1d993851040ca09b9e749ba623137a8",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 192
+            },
+            {
+              "run_key": "f1666fd34c0d61f61550e6b5cf7f5a54fc933022deeefca7f6270f591aca5d0f",
+              "status": "HOLD",
+              "reason": "REFERENCE_HOLD",
+              "count": 576
+            },
+            {
+              "run_key": "f468df9831d9c5925b9e0e4fd7102d10e88318f0a8e516c4e1de26f5734988d3",
+              "status": "HOLD",
+              "reason": "NO_CROSS",
+              "count": 187
+            },
+            {
+              "run_key": "f468df9831d9c5925b9e0e4fd7102d10e88318f0a8e516c4e1de26f5734988d3",
+              "status": "SCHEDULED",
+              "reason": "CROSS_DOWN",
+              "count": 2
+            },
+            {
+              "run_key": "f468df9831d9c5925b9e0e4fd7102d10e88318f0a8e516c4e1de26f5734988d3",
+              "status": "SCHEDULED",
+              "reason": "CROSS_UP",
+              "count": 2
+            }
+          ],
+          "truncated": false
+        },
+        "trades-counts": {
+          "view": "trades-counts",
+          "rows": [
+            {
+              "run_key": "080688b2b905523462fc3de063b24f1577a53eab9739a03747800e9ae476ffb6",
+              "side": "BUY",
+              "count": 2
+            },
+            {
+              "run_key": "080688b2b905523462fc3de063b24f1577a53eab9739a03747800e9ae476ffb6",
+              "side": "SELL",
+              "count": 2
+            },
+            {
+              "run_key": "171341d28ecb527f43b535d4d4f8e473c8653caa292d0bf4834097e3310ce776",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "19b17359da24b71dece1a5e9fa8da37ed8aa721f91c809f4077fdce508a039aa",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "1cef04114ee4d5b8f158071758ce40fcb53119d6a2cb9d1e183185af5be4f1af",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "26b2e9dcd13e7ae431d277363984f17948679d3fbcd0f16a022b5655903a2d7a",
+              "side": "BUY",
+              "count": 2
+            },
+            {
+              "run_key": "26b2e9dcd13e7ae431d277363984f17948679d3fbcd0f16a022b5655903a2d7a",
+              "side": "SELL",
+              "count": 2
+            },
+            {
+              "run_key": "2701d4248a1cfae987b9806066aefd52d31939a67546f2796f8b3fdf52467c73",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "271d7a5b03804cc75c41fd3be19d51ab589641e9eb30c578e4e2b540aa35a515",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "30db184da82faebf1d9f8c8f420a7e1324b85e808a249bcd8b105dfb352c28ed",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "3181fd4f148326da2c03f5035e109b5d8594f501f1cc09a40fe83fadc0954f9c",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "37593e2dc128dadfa626f5fdfe9329aa68660b8e2dae8d908476cc836e4ae10c",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "49eb46228b39a5f457525d6c4eb4862fb34722101dbe29e2c40dabfb7ec4615a",
+              "side": "BUY",
+              "count": 6
+            },
+            {
+              "run_key": "49eb46228b39a5f457525d6c4eb4862fb34722101dbe29e2c40dabfb7ec4615a",
+              "side": "SELL",
+              "count": 6
+            },
+            {
+              "run_key": "4c41cb557cc65531d65f4e24ee63a1345aa4ae1a66323ec130f3b01d16406538",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "51fd1bb60f0ea447011c53e511f4d491c926b41c5a71047afe8dd54e80cfd2cb",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "5a969d2171907c9d62d744dc87dde1504dd72c2b59823415b927b774b7755364",
+              "side": "BUY",
+              "count": 6
+            },
+            {
+              "run_key": "5a969d2171907c9d62d744dc87dde1504dd72c2b59823415b927b774b7755364",
+              "side": "SELL",
+              "count": 6
+            },
+            {
+              "run_key": "665ba8494d2a4458a0f6521cb75e7bab3f711555fe7859cce83fb557b6f2cced",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "674872c0c5974ba2beb85a08eff67749fdf84d160227e28c874d7264a96e12e6",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "71e30f55085d0915893120032f53994db11bc56576d09e87a75b092dece63d2e",
+              "side": "BUY",
+              "count": 2
+            },
+            {
+              "run_key": "71e30f55085d0915893120032f53994db11bc56576d09e87a75b092dece63d2e",
+              "side": "SELL",
+              "count": 2
+            },
+            {
+              "run_key": "74d4c56df65dfe83dadfc34038d3ce43b4bbee131b65b13e131e0308e60308b6",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "7cb01d24a352f855c4687df193a17fe7a463e7f478f65c83df92e74f95ed60ed",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "7eb85ca36c400359b5bb6ee3de7d21dbfbe2595634800d52992243b578053828",
+              "side": "BUY",
+              "count": 6
+            },
+            {
+              "run_key": "7eb85ca36c400359b5bb6ee3de7d21dbfbe2595634800d52992243b578053828",
+              "side": "SELL",
+              "count": 6
+            },
+            {
+              "run_key": "7f648c3b303e64b11be8f4a5d12454316bb7d9145f136d7436267f869f789957",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "82992232799afe2a5c65893ea9e2e6f949b177438c9aefd83e9d0d47f43ee6d9",
+              "side": "BUY",
+              "count": 2
+            },
+            {
+              "run_key": "82992232799afe2a5c65893ea9e2e6f949b177438c9aefd83e9d0d47f43ee6d9",
+              "side": "SELL",
+              "count": 2
+            },
+            {
+              "run_key": "82a0f0edb4632d61040cd854d17548f821ae3400d1c70995b4926565a045f1e2",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "8339cb1dc6bd3ad101b17aa86114e2f948a9260063098cc601af21a0d0b81835",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "83b1ba20e9fe006420deba9fecb6d0432af3dabcd6007bcc60b497d34dc4a0bb",
+              "side": "BUY",
+              "count": 2
+            },
+            {
+              "run_key": "83b1ba20e9fe006420deba9fecb6d0432af3dabcd6007bcc60b497d34dc4a0bb",
+              "side": "SELL",
+              "count": 2
+            },
+            {
+              "run_key": "8e8261b97f0fb35fad926618cd6111e31a5d52c48fc436e141b0e567e6f304bc",
+              "side": "BUY",
+              "count": 2
+            },
+            {
+              "run_key": "8e8261b97f0fb35fad926618cd6111e31a5d52c48fc436e141b0e567e6f304bc",
+              "side": "SELL",
+              "count": 2
+            },
+            {
+              "run_key": "90bd5642d28845397bae6a1d239585e26a469d2f4d14d75b0c6baafea582f492",
+              "side": "BUY",
+              "count": 6
+            },
+            {
+              "run_key": "90bd5642d28845397bae6a1d239585e26a469d2f4d14d75b0c6baafea582f492",
+              "side": "SELL",
+              "count": 6
+            },
+            {
+              "run_key": "95bf06d6a1c95ebb55228d37bfd132ce1e7d1c3cc9e812b28e1e147a1ae3a895",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "9be569667b6e70db9360b6f7bc861b6aae989899a58de536b0cf7b3a38bd5c4a",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "b8ef968dfa4a941cc4008fed7dc6166cfabd47eb12c8dc9c3ae8dbf223d8c0a3",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "c31e00f767234939e00050845595ce6e9d2427103b5a5b6d5030934a8286bc47",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "cf5f372e5839e475a789247f4eb8fe2f689ddd2c77721cd55cf8497d114dc61f",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "d7e6e0f9948afe6d7d656c3817f96dd04b51ade063b572d8e43296f4b0358203",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "dc159d415a4367bd91344199dae9e850e01db0ac5e0ea2103520b04cea6d1fac",
+              "side": "BUY",
+              "count": 2
+            },
+            {
+              "run_key": "dc159d415a4367bd91344199dae9e850e01db0ac5e0ea2103520b04cea6d1fac",
+              "side": "SELL",
+              "count": 2
+            },
+            {
+              "run_key": "df293623bb2d04f841608fd6087b49487804f6bed04ac0a0b90fb6811f8b5142",
+              "side": "BUY",
+              "count": 1
+            },
+            {
+              "run_key": "f468df9831d9c5925b9e0e4fd7102d10e88318f0a8e516c4e1de26f5734988d3",
+              "side": "BUY",
+              "count": 2
+            },
+            {
+              "run_key": "f468df9831d9c5925b9e0e4fd7102d10e88318f0a8e516c4e1de26f5734988d3",
+              "side": "SELL",
+              "count": 2
+            }
+          ],
+          "truncated": false
+        }
+      }
+    },
+    "artifact_sha256": {
+      "cripto-bot/dist/06d-final/cripto_bot-0.1.0.tar.gz": "c11a27732b338b45ba6b899d32be6e9b6ee8440aa339ba33482d8248616e4b3a",
+      "cripto-bot/dist/06d-final/cripto_bot-0.1.0-py3-none-any.whl": "1953f57017834489e10a7a2e77d555d31d81d004d95020aa835f4baef7f55e74",
+      "cripto-analytics/dist/06d-final/cripto_analytics-0.1.1-py3-none-any.whl": "d03e6b27eac6f97da63f86eb797045a73642c072796c8434a79469a8d8ef8255",
+      "cripto-analytics/dist/06d-final/cripto_analytics-0.1.1.tar.gz": "a96da7e475981670e41a520f04bcbd45deb3aca158cc04eb59c9bb6c7e987e6c"
+    },
+    "sources_equal_to_final_wheels": true,
+    "rollback_old_release_paper_reconcile": {
+      "exit": 0,
+      "stdout": "{\"run_id\": \"95dec588-b159-489f-bb67-d1311fb74d13\", \"timestamp\": \"2026-10-26T20:50:50.492278+00:00\", \"mode\": \"PAPER\", \"orders_sent\": 0, \"wallet_id\": \"paper-demo\", \"simulated_fills\": 0, \"rejected_intents\": 0, \"replayed_actions\": 0, \"wallet\": {\"usdt_free\": \"10009.58001000\", \"usdt_reserved\": \"0.00000000\", \"btc_free\": \"0.00000000\", \"btc_reserved\": \"0.00000000\", \"cost_basis\": \"0.00000000\", \"fees\": \"0.20999000\", \"realized\": \"9.58001000\", \"mark\": \"110.00000000\", \"peak\": \"10009.79990000\", \"baseline\": \"10000.00000000\", \"day\": \"2026-10-01\", \"daily_blocked\": false, \"drawdown_blocked\": false, \"clock\": 1790814601001, \"version\": 6, \"cursor\": 3, \"intents\": {\"paper-demo:roundtrip-v1:buy\": {\"state\": \"FILLED\", \"payload_hash\": \"85feca4c56f8d53394fcbc3c6803d90663f0132bbce16504695c60e563228457\", \"plan\": {\"action\": \"paper-demo:roundtrip-v1:buy\", \"side\": \"BUY\", \"requested\": \"1.00000000\", \"quantity\": \"1.00000000\", \"price\": \"100.10000000\", \"notional\": \"100.10000000\", \"fee\": \"0.10010000\", \"mark\": \"100.00000000\", \"fill_at\": 1790813701001, \"observed_at\": 1790813701000}, \"reason\": \"\", \"reserved\": \"0.00000000\"}, \"paper-demo:roundtrip-v1:sell\": {\"state\": \"FILLED\", \"payload_hash\": \"2921b74e643667dcdc6e59b8be1ad7ca740b8c53d46ab7aa8fcc829d9fb5f32e\", \"plan\": {\"action\": \"paper-demo:roundtrip-v1:sell\", \"side\": \"SELL\", \"requested\": \"1.00000000\", \"quantity\": \"1.00000000\", \"price\": \"109.89000000\", \"notional\": \"109.89000000\", \"fee\": \"0.10989000\", \"mark\": \"110.00000000\", \"fill_at\": 1790814601001, \"observed_at\": 1790814601000}, \"reason\": \"\", \"reserved\": \"0.00000000\"}}, \"cost_average\": \"0.00000000\", \"unrealized\": \"0.00000000\", \"equity\": \"10009.58001000\", \"exposure_fraction\": \"0.00000000\", \"daily_loss_fraction\": \"0.00000000\", \"drawdown_fraction\": \"0.00002197\"}, \"model\": \"paper-integral-v1\", \"context\": {\"model\": \"paper-integral-v1\", \"parameters\": {\"fee_bps\": \"10\", \"initial_usdt\": \"10000.00\", \"max_daily_loss_fraction\": \"0.01\", \"max_drawdown_fraction\": \"0.05\", \"max_entry_fraction\": \"0.10\", \"max_exposure_fraction\": \"0.10\", \"max_quote_age_ms\": 5000, \"slippage_bps\": \"5\", \"spread_bps\": \"10\", \"wallet_id\": \"paper-demo\"}, \"rules\": {\"baseAsset\": \"BTC\", \"filters\": [{\"filterType\": \"PRICE_FILTER\", \"maxPrice\": \"1000000\", \"minPrice\": \"0.01\", \"tickSize\": \"0.01\"}, {\"filterType\": \"LOT_SIZE\", \"maxQty\": \"1000\", \"minQty\": \"0.000001\", \"stepSize\": \"0.000001\"}, {\"filterType\": \"MARKET_LOT_SIZE\", \"maxQty\": \"1000\", \"minQty\": \"0.000001\", \"stepSize\": \"0.000001\"}, {\"applyToMarket\": true, \"filterType\": \"MIN_NOTIONAL\", \"minNotional\": \"10\"}], \"isSpotTradingAllowed\": true, \"quoteAsset\": \"USDT\", \"rule_version\": \"synthetic-v1\", \"status\": \"TRADING\", \"symbol\": \"BTCUSDT\"}, \"scenario_id\": \"roundtrip-v1\", \"scenario_sha256\": \"e6fd53862c52b1d1fdbbcfaf67619e7f9830827c506e0ebedbd2afecbd675af6\", \"start_time\": \"2026-10-01T00:00:00Z\"}, \"reconciled\": true, \"blocked\": false, \"total_simulated_fills\": 2, \"total_rejected_intents\": 0, \"journal\": [{\"seq\": 1, \"event_key\": \"GENESIS\", \"kind\": \"GENESIS\", \"payload\": {\"timestamp\": \"2026-10-01T00:00:00Z\"}, \"previous_hash\": \"2497a46ee629119ccf7f76687df61469a9dc9fc39645e96bfcb8c6de67c390cf\", \"chain_hash\": \"2b01b09fc4a9490b08dd43cc7469b98ff83ab75c378e0eb6f4a86980688dba0a\"}, {\"seq\": 2, \"event_key\": \"paper-demo:roundtrip-v1:day-1\", \"kind\": \"DAY_START\", \"payload\": {\"event_id\": \"day-1\", \"observation\": {\"kind\": \"REFERENCE\", \"observed_at\": \"2026-10-01T00:00:00Z\", \"price\": \"100\", \"quote_id\": \"day-mark\", \"symbol\": \"BTCUSDT\"}, \"timestamp\": \"2026-10-01T00:00:00Z\", \"type\": \"DAY_START\"}, \"previous_hash\": \"2b01b09fc4a9490b08dd43cc7469b98ff83ab75c378e0eb6f4a86980688dba0a\", \"chain_hash\": \"2f59e7691a36f1e95430979938b9bb6c56349dfb235f87211d6dba79ebd7349a\"}, {\"seq\": 3, \"event_key\": \"paper-demo:roundtrip-v1:buy\", \"kind\": \"ORDER\", \"payload\": {\"action_id\": \"buy\", \"action_key\": \"paper-demo:roundtrip-v1:buy\", \"decision_at\": \"2026-10-01T00:15:00Z\", \"event_id\": \"buy\", \"fill_at\": \"2026-10-01T00:15:01.001Z\", \"observation\": {\"kind\": \"REFERENCE\", \"observed_at\": \"2026-10-01T00:15:01Z\", \"price\": \"100\", \"quote_id\": \"buy-quote\", \"symbol\": \"BTCUSDT\"}, \"quantity\": \"1\", \"side\": \"BUY\", \"timestamp\": \"2026-10-01T00:15:01Z\", \"type\": \"ORDER\"}, \"previous_hash\": \"2f59e7691a36f1e95430979938b9bb6c56349dfb235f87211d6dba79ebd7349a\", \"chain_hash\": \"d208756fdb1e0fba66171de364c319a969882a29c4cfb60d400ef34d2b539868\"}, {\"seq\": 4, \"event_key\": \"paper-demo:roundtrip-v1:buy:FILL\", \"kind\": \"FILL\", \"payload\": {\"action_key\": \"paper-demo:roundtrip-v1:buy\", \"fill_id\": \"017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6\"}, \"previous_hash\": \"d208756fdb1e0fba66171de364c319a969882a29c4cfb60d400ef34d2b539868\", \"chain_hash\": \"c310c0061e2a805c19bc0cf6891038ab6cc9625cb0c30b2a232b63e05ba19cef\"}, {\"seq\": 5, \"event_key\": \"paper-demo:roundtrip-v1:sell\", \"kind\": \"ORDER\", \"payload\": {\"action_id\": \"sell\", \"action_key\": \"paper-demo:roundtrip-v1:sell\", \"decision_at\": \"2026-10-01T00:30:00Z\", \"event_id\": \"sell\", \"fill_at\": \"2026-10-01T00:30:01.001Z\", \"observation\": {\"kind\": \"REFERENCE\", \"observed_at\": \"2026-10-01T00:30:01Z\", \"price\": \"110\", \"quote_id\": \"sell-quote\", \"symbol\": \"BTCUSDT\"}, \"quantity\": \"1\", \"side\": \"SELL\", \"timestamp\": \"2026-10-01T00:30:01Z\", \"type\": \"ORDER\"}, \"previous_hash\": \"c310c0061e2a805c19bc0cf6891038ab6cc9625cb0c30b2a232b63e05ba19cef\", \"chain_hash\": \"b1d0671e817acecc3e728362b7d0869c176314ca92ae86b472ec1e5fc40df66c\"}, {\"seq\": 6, \"event_key\": \"paper-demo:roundtrip-v1:sell:FILL\", \"kind\": \"FILL\", \"payload\": {\"action_key\": \"paper-demo:roundtrip-v1:sell\", \"fill_id\": \"2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632\"}, \"previous_hash\": \"b1d0671e817acecc3e728362b7d0869c176314ca92ae86b472ec1e5fc40df66c\", \"chain_hash\": \"96a0b864fd2c9cb604a7c5eef393c099eba4e4168265f583dce318ce2a74be37\"}], \"ledger\": [{\"seq\": 1, \"index\": 0, \"posting\": {\"account\": \"free\", \"asset\": \"USDT\", \"fill_id\": null, \"quantity\": \"10000.00000000\", \"reference\": \"GENESIS\", \"timestamp\": \"2026-10-01T00:00:00+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 1, \"index\": 1, \"posting\": {\"account\": \"capital\", \"asset\": \"USDT\", \"fill_id\": null, \"quantity\": \"-10000.00000000\", \"reference\": \"GENESIS\", \"timestamp\": \"2026-10-01T00:00:00+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 3, \"index\": 0, \"posting\": {\"account\": \"free\", \"asset\": \"USDT\", \"fill_id\": null, \"quantity\": \"-100.20010000\", \"reference\": \"paper-demo:roundtrip-v1:buy\", \"timestamp\": \"2026-10-01T00:15:01+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 3, \"index\": 1, \"posting\": {\"account\": \"reserved\", \"asset\": \"USDT\", \"fill_id\": null, \"quantity\": \"100.20010000\", \"reference\": \"paper-demo:roundtrip-v1:buy\", \"timestamp\": \"2026-10-01T00:15:01+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 4, \"index\": 0, \"posting\": {\"account\": \"reserved\", \"asset\": \"USDT\", \"fill_id\": \"017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6\", \"quantity\": \"-100.20010000\", \"reference\": \"paper-demo:roundtrip-v1:buy\", \"timestamp\": \"2026-10-01T00:15:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 4, \"index\": 1, \"posting\": {\"account\": \"free\", \"asset\": \"USDT\", \"fill_id\": \"017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6\", \"quantity\": \"0.00000000\", \"reference\": \"paper-demo:roundtrip-v1:buy\", \"timestamp\": \"2026-10-01T00:15:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 4, \"index\": 2, \"posting\": {\"account\": \"market\", \"asset\": \"USDT\", \"fill_id\": \"017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6\", \"quantity\": \"100.10000000\", \"reference\": \"paper-demo:roundtrip-v1:buy\", \"timestamp\": \"2026-10-01T00:15:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 4, \"index\": 3, \"posting\": {\"account\": \"fees\", \"asset\": \"USDT\", \"fill_id\": \"017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6\", \"quantity\": \"0.10010000\", \"reference\": \"paper-demo:roundtrip-v1:buy\", \"timestamp\": \"2026-10-01T00:15:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 4, \"index\": 4, \"posting\": {\"account\": \"free\", \"asset\": \"BTC\", \"fill_id\": \"017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6\", \"quantity\": \"1.00000000\", \"reference\": \"paper-demo:roundtrip-v1:buy\", \"timestamp\": \"2026-10-01T00:15:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 4, \"index\": 5, \"posting\": {\"account\": \"market\", \"asset\": \"BTC\", \"fill_id\": \"017d3300eccff5a4193c41c366aa38458006e7e8070f9724aa0a745fe82babd6\", \"quantity\": \"-1.00000000\", \"reference\": \"paper-demo:roundtrip-v1:buy\", \"timestamp\": \"2026-10-01T00:15:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 5, \"index\": 0, \"posting\": {\"account\": \"free\", \"asset\": \"BTC\", \"fill_id\": null, \"quantity\": \"-1.00000000\", \"reference\": \"paper-demo:roundtrip-v1:sell\", \"timestamp\": \"2026-10-01T00:30:01+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 5, \"index\": 1, \"posting\": {\"account\": \"reserved\", \"asset\": \"BTC\", \"fill_id\": null, \"quantity\": \"1.00000000\", \"reference\": \"paper-demo:roundtrip-v1:sell\", \"timestamp\": \"2026-10-01T00:30:01+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 6, \"index\": 0, \"posting\": {\"account\": \"reserved\", \"asset\": \"BTC\", \"fill_id\": \"2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632\", \"quantity\": \"-1.00000000\", \"reference\": \"paper-demo:roundtrip-v1:sell\", \"timestamp\": \"2026-10-01T00:30:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 6, \"index\": 1, \"posting\": {\"account\": \"free\", \"asset\": \"BTC\", \"fill_id\": \"2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632\", \"quantity\": \"0.00000000\", \"reference\": \"paper-demo:roundtrip-v1:sell\", \"timestamp\": \"2026-10-01T00:30:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 6, \"index\": 2, \"posting\": {\"account\": \"market\", \"asset\": \"BTC\", \"fill_id\": \"2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632\", \"quantity\": \"1.00000000\", \"reference\": \"paper-demo:roundtrip-v1:sell\", \"timestamp\": \"2026-10-01T00:30:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 6, \"index\": 3, \"posting\": {\"account\": \"free\", \"asset\": \"USDT\", \"fill_id\": \"2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632\", \"quantity\": \"109.78011000\", \"reference\": \"paper-demo:roundtrip-v1:sell\", \"timestamp\": \"2026-10-01T00:30:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 6, \"index\": 4, \"posting\": {\"account\": \"market\", \"asset\": \"USDT\", \"fill_id\": \"2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632\", \"quantity\": \"-109.89000000\", \"reference\": \"paper-demo:roundtrip-v1:sell\", \"timestamp\": \"2026-10-01T00:30:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}, {\"seq\": 6, \"index\": 5, \"posting\": {\"account\": \"fees\", \"asset\": \"USDT\", \"fill_id\": \"2ca500d7bbca17028c1d2e585aa1485314685c210412e005eee8aef5fb93d632\", \"quantity\": \"0.10989000\", \"reference\": \"paper-demo:roundtrip-v1:sell\", \"timestamp\": \"2026-10-01T00:30:01.001000+00:00\", \"wallet_id\": \"paper-demo\"}}], \"financial_sha256\": \"d4389da8aff0d298fe2ee1c049f0d0278257fd60627b754a0d2525e528338a37\", \"status\": \"PAPER_RECONCILED\"}\n",
+      "stderr": "{\"run_id\": \"95dec588-b159-489f-bb67-d1311fb74d13\", \"timestamp\": \"2026-10-26T20:50:50.492278+00:00\", \"mode\": \"PAPER\", \"level\": \"INFO\", \"event\": \"paper-reconcile\"}\n"
+    },
+    "rollback_new_configuration_rejected": {
+      "exit": 2,
+      "stdout": "",
+      "stderr": "{\"timestamp\": \"2026-10-26T20:50:50.765276+00:00\", \"level\": \"ERROR\", \"event\": \"configuration_rejected\", \"run_id\": \"cb619286-2220-4060-8bea-ad92c57e9b1b\", \"error_code\": \"INVALID_CONFIG\"}\n"
+    }
+  },
+  "wheel_checks": {
+    "legacy": 22,
+    "continuous": 9,
+    "socket_guard": true,
+    "all_four_packages_wheel": true
+  },
+  "synthetic_oracles": {
+    "buy": {
+      "usdt_free": "9929.93000000",
+      "usdt_reserved": "0.00000000",
+      "btc_free": "0.70000000",
+      "btc_reserved": "0.00000000",
+      "cost_basis": "70.07000000",
+      "fees": "0.07000000",
+      "realized": "0.00000000",
+      "mark": "100.00000000",
+      "peak": "10000.00000000",
+      "baseline": "10000.00000000",
+      "day": "2026-10-01",
+      "daily_blocked": false,
+      "drawdown_blocked": false,
+      "clock": 1790812813000,
+      "version": 6,
+      "cursor": 6,
+      "intents": {}
+    },
+    "after_sell": {
+      "usdt_free": "9951.90800000",
+      "usdt_reserved": "0.00000000",
+      "btc_free": "0.50000000",
+      "btc_reserved": "0.00000000",
+      "cost_basis": "50.05000000",
+      "fees": "0.09200000",
+      "realized": "1.95800000",
+      "mark": "110.00000000",
+      "peak": "10006.93000000",
+      "baseline": "10000.00000000",
+      "day": "2026-10-01",
+      "daily_blocked": false,
+      "drawdown_blocked": false,
+      "clock": 1790812820000,
+      "version": 9,
+      "cursor": 9,
+      "intents": {},
+      "unrealized": "4.95000000",
+      "exposure_fraction": "0.00549620",
+      "daily_loss_fraction": "0.00000000",
+      "drawdown_fraction": "0.00000220"
+    },
+    "pilot_approved": false
+  },
+  "measurements": {
+    "financial_rss_mib": 38.7578125,
+    "worker_rss_mib": 37.7265625,
+    "max_financial_event_ms": 17.403817997546867,
+    "worker_ten_passes_ms": 471.9967089986312,
+    "free_disk_gib": 657.7211608886719,
+    "synthetic_store_bytes": {
+      "continuous.sqlite3": 172032,
+      "notifications.sqlite3": 28672
+    },
+    "observed_real_hours": 0,
+    "real_network_requests": 0,
+    "network_measurement_scope": "Project market/notification HTTP only; official documentation lookups are not pilot data.",
+    "real_delivery_attempts": 0,
+    "real_service_receipts": 0,
+    "growth_per_real_hour": null,
+    "operational_uptime": null
+  },
+  "limitations": [
+    "Seven actual days, eligible preflight and authorized channels remain unexecuted.",
+    "Local book-participation proxy is not execution/queue/liquidity guarantee.",
+    "RSS/latency/storage are small synthetic drills, not seven-day capacity proof.",
+    "Complete cold-cache installation is not demonstrated; reused external RECORD/hash-verified packages.",
+    "No additional economic backtest, tuning, OOS claim or guarantee of future performance."
+  ],
+  "failures_and_corrections": [
+    "Initial risk test used a loss below configured threshold; corrected oracle uses permitted tighter limit.",
+    "Protective controls initially released UNKNOWN reservation; fixed and covered.",
+    "Canonical JSON identity prevents tuple/list restart mismatch.",
+    "Initial broad suite crossed live source edits and rejected frozen protocol; rerun with stable source. Full suite passed; Focused release tests validate the final subsequent corrections.",
+    "Full suite emitted four fork deprecation warnings and one fixture SQLite ResourceWarning; focused release tests passed without warnings. Production delivery uses isolated subprocess, not test fork.",
+    "Final analytics README rebuild changed the new wheel hash; lock and installed composition reverified.",
+    "Auto-review rejected changing module selection; safer custody-only financial limits preserve module=None/active=False.",
+    "Remaining slot budget is enforced; data-library MarketError normalized to bot PaperError and verified in 108-case final review."
+  ],
+  "source_files_sha256": {
+    "cripto-bot/src/cripto_bot/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/observability/logging.py": "8924b981bab5af5ffaa07600043fdf85ac66f2278db9359b63d1c283ae228a7a",
+    "cripto-bot/src/cripto_bot/observability/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/domain/models.py": "623f1a0c347be76031fcb557f89706ed3f643e9c2c2e5fa4f7f76a93ff04f2dd",
+    "cripto-bot/src/cripto_bot/domain/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/domain/market.py": "2c70cf18edfc3291589e116357280f347d42babd158684c2318a13b80a93392a",
+    "cripto-bot/src/cripto_bot/entrypoints/paper.py": "e4b17fe83fb41f8765c194f846f587b3d13d76a0627de49ed9f19a699d6fe289",
+    "cripto-bot/src/cripto_bot/entrypoints/backtest.py": "b9befb9b3262552f421cbd3daa89897667a3c0b002ea1fb0f6d93ead5dc227ad",
+    "cripto-bot/src/cripto_bot/entrypoints/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/entrypoints/cli.py": "8151ea118c34d11c5cd9ae722a61fac32ae526a53f4fa088f529bbf48b62b69b",
+    "cripto-bot/src/cripto_bot/entrypoints/continuous.py": "57417448d973c36ad1626bf59e7af694dc984fb9e0e93462e70348938a361fc5",
+    "cripto-bot/src/cripto_bot/entrypoints/market.py": "3ade53de4b72f6e683d16a6aafd5fdb7f440f47c48bc6e192321e21e62f03190",
+    "cripto-bot/src/cripto_bot/entrypoints/strategy.py": "475a4e32b5b2b779e695fc6567983189c3bce2443edc2edb14302ed101282802",
+    "cripto-bot/src/cripto_bot/application/notifications.py": "22d8d4ced8e26799171235efdae181276d5d94d8175cde57462c947a49dc7f2a",
+    "cripto-bot/src/cripto_bot/application/run_once.py": "1bf8d8f55c5e4090a31306668161d1d12a505332b5f8bfa6b5a14bd1377028fa",
+    "cripto-bot/src/cripto_bot/application/strategy_run.py": "55e5d55a50d78ec412d60628721ef58ca50b9f4c454870f04b938c658cbe3620",
+    "cripto-bot/src/cripto_bot/application/ports.py": "643a53ba0480df51b82cab3174a948eaa608ab93429530c99cdb8b00c2675250",
+    "cripto-bot/src/cripto_bot/application/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/application/strategy_reconcile.py": "baad5ea4c11bdb1a8a7ca3d8aa4d6d90272fa40b7dc590dadf7d97d59f30f942",
+    "cripto-bot/src/cripto_bot/application/backtest_run.py": "c458b770b9c06c688e67c0c9ae33d19ad5bb37f9180d90c5937139259bd3a5a6",
+    "cripto-bot/src/cripto_bot/application/continuous_control.py": "8a28634bf4ec21be72108ff48c4b4be714837fc749addbfc4bc556225157aef4",
+    "cripto-bot/src/cripto_bot/application/continuous_reconcile.py": "5546b6c92fa4a70b6016727c7086587dfa3fb6210d38386179475b0ca051211a",
+    "cripto-bot/src/cripto_bot/application/paper_reconcile.py": "5dd4692317ae7c7f1c3f776072e98f966fae695f75913d550b14f24fc6641155",
+    "cripto-bot/src/cripto_bot/application/collect_market.py": "3a2429c37127d12978446232c5cf8f10ddfd94425e580dfb83d256bc3433a0b2",
+    "cripto-bot/src/cripto_bot/application/continuous_run.py": "92e5f3b7d4dac9513a06d458be09b234b3156579783b8c6d2fcc3296059999b1",
+    "cripto-bot/src/cripto_bot/application/paper_run.py": "e602191e2a0717a589e0fa1de402dec54ad3791c0eef99bc0f86a45416e6c525",
+    "cripto-bot/src/cripto_bot/adapters/config.py": "2e8877a98cd94492d1df7a20039bf61357f5f0017cebb1aec9785b6356da6e3f",
+    "cripto-bot/src/cripto_bot/adapters/provenance.py": "6e371c75809e00b185f4e916eb629f5d3b7aa0b7d3ecd4406a35630dc0a87154",
+    "cripto-bot/src/cripto_bot/adapters/continuous_market.py": "d55e2209b1bc9a12d6017890cf4a085a9b8d7f11c9e68122b8a123fb339fe67e",
+    "cripto-bot/src/cripto_bot/adapters/backtest_dataset.py": "27bf13f978ae6432014e323eb1d5608222955c536ef0357e3d50185958b9ed65",
+    "cripto-bot/src/cripto_bot/adapters/strategy_fixture.py": "10d3ea6f51c616353e5c2a714a1642eb8f9eabfda9388df23f555bf1b64d2324",
+    "cripto-bot/src/cripto_bot/adapters/paper_scenario.py": "0b398aeb2f50f8d4acf3f5f95abd95463316fcae710da9f4ce5617de0c3e3eea",
+    "cripto-bot/src/cripto_bot/adapters/__init__.py": "f04b15437b5c22e623ab6accde58a0a58c2b486297d9e2f03b99e0d868ae8976",
+    "cripto-bot/src/cripto_bot/adapters/analytics_dependency.py": "0163fb277b32e60f8c0a154d190e8b5dcbe2618b3c3634ba460288780fc56ede",
+    "cripto-bot/src/cripto_bot/adapters/backtest_config.py": "bff72e63341ef88e7b80afbd45f2339d0224d6d93ae1be6429db2533415455a2",
+    "cripto-bot/src/cripto_bot/adapters/strategy_config.py": "ce31c397d1e5848606d44d6c831643432d350af93bd1ba400f10a7fb86588473",
+    "cripto-bot/src/cripto_bot/adapters/continuous_config.py": "24221b902d1edb39b3bdc53c130f6d36d78f50b4f37b297294f503c5116c04b1",
+    "cripto-bot/src/cripto_bot/adapters/storage/market_export.py": "08e71988f0e9979c727c72355db6bfd411b9282a74677d48b785f04292868dfc",
+    "cripto-bot/src/cripto_bot/adapters/storage/continuous_report.py": "663556709c6924fc1bb11a98abc1ed4501151140abdf8b7acd8b92b6a1dec710",
+    "cripto-bot/src/cripto_bot/adapters/storage/market_sqlite.py": "5ad7c98bd7eaa9388b9a4e5513a0be893e2a0581a5e392a6cbd055eb996c0aba",
+    "cripto-bot/src/cripto_bot/adapters/storage/continuous_sqlite.py": "a1695a6ea29b54be261e1b24f8282dc3c7733424a4a96119015cc89085e63846",
+    "cripto-bot/src/cripto_bot/adapters/storage/backtest_analytics.py": "5e6c334d58549701ed68a55dad3eb2a973f354ba01655af7d06ddfbc5416256a",
+    "cripto-bot/src/cripto_bot/adapters/storage/__init__.py": "b5366ac9c27365f9a5091a5bfa99fccf0bfe00d6c025660633cac40557591fe8",
+    "cripto-bot/src/cripto_bot/adapters/storage/backtest_report.py": "06cd1635d869e8909fc51333c56e68bd673cb7d5f0620cb2bb176316ef931ee4",
+    "cripto-bot/src/cripto_bot/adapters/storage/strategy_report.py": "aa5dc4874e77671b84bc8be416ce1e592dfec19746236e858033e0c6aec7336c",
+    "cripto-bot/src/cripto_bot/adapters/storage/paper_report.py": "f849d47ffbfe244c8bd6186765ca2ff9eac4648517bd534908e462e01e9e3808",
+    "cripto-bot/src/cripto_bot/adapters/storage/analytics_source.py": "e53255f10b038d9aa449a6b5c311d9869405495967fe7ee726b4367aac24a78a",
+    "cripto-bot/src/cripto_bot/adapters/storage/backtest_sqlite.py": "e57f464659af0f56d0e61c337ca0892806cadef9bc963d26f7952bc98140e7a4",
+    "cripto-bot/src/cripto_bot/adapters/storage/paper_sqlite.py": "25154d175f5cb67032a13a12608fac1f5da33eda1b786a8707142cd4e5ef02d6",
+    "cripto-bot/src/cripto_bot/adapters/storage/strategy_sqlite.py": "d0791ef1e10b1c67b7bf34264bfd1f02fc7ffd7e611b54851e8fc9af79c87a18",
+    "cripto-bot/src/cripto_bot/adapters/storage/notification_sqlite.py": "4fff576bb502e504185eac6bcc495f59bb919fc6d52434050410e8ef7bd80c59",
+    "cripto-bot/src/cripto_bot/adapters/binance/__init__.py": "b5366ac9c27365f9a5091a5bfa99fccf0bfe00d6c025660633cac40557591fe8",
+    "cripto-bot/src/cripto_bot/adapters/binance/fixture.py": "d415b9cf29d1f38db1eca27d1b7c400813c250f18e6c78753c1467f67013062a",
+    "cripto-bot/src/cripto_bot/adapters/binance/public.py": "6f55fb9180deafe0be7fd9564cc634e416b04ec91443b089a22c83d1352058ba",
+    "cripto-bot/src/cripto_bot/adapters/notifications/http.py": "e952ada3923e2b9a27a78f68cd567b79c7ca56fe73df17bdcd0bf6ab44cf8393",
+    "cripto-bot/src/cripto_bot/adapters/notifications/delivery_worker.py": "69b14822420af7429b87f64b0639d5b83e759992c0e730c4df621d48b03eb4c2",
+    "cripto-bot/src/cripto_bot/adapters/notifications/__init__.py": "8e09d0109311397646c1442cbe505c797b5b2320c1d3443f7aff917d29aba9a5",
+    "cripto-bot/src/cripto_bot/adapters/execution/paper.py": "d905e866903f376dc26ed9280769f74bfc62aeb7fdedf871f64da68f11fb3951",
+    "cripto-bot/src/cripto_bot/adapters/execution/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "cripto-bot/src/cripto_bot/domain/modules/models.py": "65c264234e03573445cade94df0faf2d9f5c86080aec04d2f3a27b7c4c259d80",
+    "cripto-bot/src/cripto_bot/domain/modules/__init__.py": "3534394d01e224fe8d4083dc8056f8b023e9845ac89e189ec08f809ea72612ae",
+    "cripto-bot/src/cripto_bot/domain/risk/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "cripto-bot/src/cripto_bot/domain/risk/execution.py": "1053dfcaa464c788f89aa45402837307e84de7507bd89ea2b3ffc97c478d3fe0",
+    "cripto-bot/src/cripto_bot/domain/risk/limits.py": "a082b62be0b08634a301572d1ca32177271635bbd14b922b417851384a614cef",
+    "cripto-bot/src/cripto_bot/domain/strategy/sma.py": "3bf2f0257de55b5894912dcbb2af649d084fb8dc542d411d140bfba25da26db7",
+    "cripto-bot/src/cripto_bot/domain/strategy/__init__.py": "50f6e221de2f541c7dad8f2a524a098343a8ff1a4d0b4092bb56c242c65832dd",
+    "cripto-bot/src/cripto_bot/domain/strategy/engine.py": "00c12b263b88a2241bfd79a9c042f013abe990795323f9b358061a5796c7977f",
+    "cripto-bot/src/cripto_bot/domain/backtest/models.py": "ec45ea0e9ffea5535a8c9a6b84a1c18c81c5d5ca35afc12d6394e2079a68e244",
+    "cripto-bot/src/cripto_bot/domain/backtest/metrics.py": "e5c52b7aaa2ff8bef8c4c542f379cb910f49f3ecb1a4727b94e65b45d746438e",
+    "cripto-bot/src/cripto_bot/domain/backtest/__init__.py": "6ed4fe2569513d4e19a1b7fd1b57ee76213ebc4eec8df6068b0709b7fb62d4da",
+    "cripto-bot/src/cripto_bot/domain/backtest/engine.py": "1a27a42aa71fa1e4b57ee4c5c7b75d6a4a4a11c087b4cfa0d59aaa69c0bc9f65",
+    "cripto-bot/src/cripto_bot/domain/continuous/models.py": "2011c016ec3ab96bd7350365d7ee396f56918c3b267b3e9ffb48449505c3ce7b",
+    "cripto-bot/src/cripto_bot/domain/continuous/__init__.py": "8e09d0109311397646c1442cbe505c797b5b2320c1d3443f7aff917d29aba9a5",
+    "cripto-bot/src/cripto_bot/domain/continuous/execution.py": "d510382bc3b8ad10ac722a66c08f458d58f7203b0e9fad9b9bf06d5ae2a512f4",
+    "cripto-bot/src/cripto_bot/domain/continuous/engine.py": "7a71afab6f42e823cac5759179e04d2d4a3e5d63876ecde1ebaf57d16419d648",
+    "cripto-bot/src/cripto_bot/domain/portfolio/models.py": "04674c1f412c5c3fd1a6da853118665e0f6cfe2a1413b09cac8ce68c6a7beffb",
+    "cripto-bot/src/cripto_bot/domain/portfolio/__init__.py": "38bb61c1fe9be7a1652389f943a739f2a157183c7e4d9d87ff28e6a22fa51d65",
+    "cripto-bot/src/cripto_bot/domain/portfolio/engine.py": "ef9279b41bd9801e867b62882de4e16ca570ef6169f0c833298d575a34b55d04",
+    "cripto-bot/tests/wheel_smoke.py": "60b7f232b7c04ecccd2d373bdd9ee46a05344dd8b71085f13497cd744b46fc90",
+    "cripto-bot/tests/__init__.py": "0f14037db8fe8b365fdfee0a713e22e3bf8713f93ed479e237c38bea2e642be2",
+    "cripto-bot/tests/factories.py": "d00cb989f7a13980b7e33336a75500cac61dcd198f012167d2682930fb52cf2c",
+    "cripto-bot/tests/continuous_factories.py": "61a45bf804843ae2f5844c8394b2d645d31e54d0a3cb16a5475fa8067371a620",
+    "cripto-bot/tests/paper_factories.py": "487de4f1250eed6975313fea48bb2a6c6b55cc8f0045555abf433e0685773dfa",
+    "cripto-bot/tests/strategy_factories.py": "26c0e80dca8b6bfafb1a91fb5fb15e051038ad30fb18ca85ef98df36b450b4db",
+    "cripto-bot/tests/conftest.py": "f0390ef95a05276ce1f8c5758ae373903d391f5f44fa6eb2e694c5bacf230528",
+    "cripto-bot/tests/offline_runner.py": "1325daaade9ea96d5be57522eb20f57303e66f99a4d3482340b2b8407b3ea8d8",
+    "cripto-bot/tests/unit/test_decimal.py": "6989eb7f2461bfdc97a81f0984224188b9c6a672c280d9b6a563db04ccb8381d",
+    "cripto-bot/tests/unit/test_logging.py": "c655c726fac2f493b3813d5ef8968a5bece6a8a770fff8c6955279e09d14775a",
+    "cripto-bot/tests/unit/test_cli.py": "26d731a02604eb43454c650f80a3f17b5dc876633933a159b06132c824493493",
+    "cripto-bot/tests/unit/test_analytics_composition.py": "25f03e3950c9f4d807ec06966b609d3631e7368954b0e4efa5b690d6227d6cc3",
+    "cripto-bot/tests/unit/test_portfolio.py": "ff5e784cf19da2ec394c36115ed03ef8077f477f09bb750c6d48c0b0bce405c4",
+    "cripto-bot/tests/unit/test_strategy_sma.py": "a17114c70828e084733821b05895076d38efae2ed388e742b3d27d752b4a620b",
+    "cripto-bot/tests/unit/test_paper_failures.py": "e2474648cc7749245f7174cfee264aa985262b4a6b0745127e2192256211bf5e",
+    "cripto-bot/tests/unit/test_risk.py": "cd61ebfc247644d833d821dc65b33688997e564515fe4c369307f88ebfeff0c1",
+    "cripto-bot/tests/unit/test_module_config.py": "4c6d20bdde63c043be0187594c85c8b931db14730aca2465e9345fc6c1797696",
+    "cripto-bot/tests/unit/test_continuous_notifications.py": "837eda7afc4c0a48c054db1f68a5bc8e68eaa1f95b6e81b000cc5c8595247b12",
+    "cripto-bot/tests/unit/test_binance_public.py": "a2630ba57eb576aae999260a19cf815e78ae935d60b88b6b3be298614bdf90a4",
+    "cripto-bot/tests/unit/test_continuous_engine.py": "b5a96ce6a594f0f592eb3b37c369fa0ebdfb2ce4eb5d4ea229ac94cdffff45fc",
+    "cripto-bot/tests/unit/test_core_composition.py": "1b430a50a69d55272c1f0a11064f99c2f30c4f7e07c682a3cbf36f8e9cea2e10",
+    "cripto-bot/tests/unit/test_paper_config.py": "1dfdcdb35226dcf38a6e3a66345fed3d9b04433ac720658f9cc7e4dd429697e6",
+    "cripto-bot/tests/unit/test_market_composition.py": "e5d22648d187b9f4951e5e3ac1b4b5ce0696fe5b0b4c81a77833007f5199722b",
+    "cripto-bot/tests/unit/test_paper_execution.py": "7e058f7d99651028b31af4cfb5d99f46e7438e91e70b4a007500070825e2e364",
+    "cripto-bot/tests/unit/test_config.py": "c772cbde23bd3e8e6586046ed7337406bbf5c7c112bdf714f785b7f846a06576",
+    "cripto-bot/tests/unit/test_coordinator.py": "4bcae66895de9d42cf24a0ca0bb45d900ffada97ac1365063c56f23d353eed12",
+    "cripto-bot/tests/unit/test_backtest.py": "daea264b6905d7dd906d37bb4a68e35468ed5bd9d32773476a6b343e3482b4ba",
+    "cripto-bot/tests/unit/test_market.py": "8702a49022e0b217e491d0ee980c59205aaaf8631f11d4f9a53323189bc08bb9",
+    "cripto-bot/tests/unit/test_collect_market.py": "44894b968d88ae3c91b6ca3663f1330e752bd6f7aa43e7beec06af8eff60dc8a",
+    "cripto-bot/tests/unit/test_paper_scenario.py": "d0d97ed815f4067f985d4d712b33668a7be4d3bb12aee2b116822e2fad452f3b",
+    "cripto-bot/tests/unit/test_backtest_additional.py": "1d2f0a55122b907a981326804d25bd31355913f2653b8b672cee6b564cd29fd3",
+    "cripto-bot/tests/unit/test_collection_entrypoint.py": "58681ea4ead757f56654e302653d9f65a11fd1004d1d003926bbc976913a877c",
+    "cripto-bot/tests/unit/test_run_once.py": "87c2ea6766c9977915a46d986b67131e5ebd2e7d39aec8666c38ac28dc041b98",
+    "cripto-bot/tests/unit/test_market_config.py": "9faa45bb42a7e319061c447245d90100ba67c9f8aedda5183dfc6218b78a26fc",
+    "cripto-bot/tests/integration/test_collect_cli.py": "941ac5bf6fc6c8ef7fa181fa9f5a26dbc2d56e6d86dceef810f01dd466fc4ecc",
+    "cripto-bot/tests/integration/test_cli.py": "3f244efd91b0a3b6ecde9b00c7d03e19721a254cff82c0751061fff99e9ea055",
+    "cripto-bot/tests/integration/test_continuous_composition.py": "b8bc056bcbeace736bd4c50b8390ac4d9650efffded1f21bf19e8219124f32ee",
+    "cripto-bot/tests/integration/test_strategy_cli.py": "95b6fa413c01ee3809af17bc882dc67cf9f1f37cc94b53e9475e65a33323fe6f",
+    "cripto-bot/tests/integration/test_continuous_storage.py": "5f4de312c20622cb1dd4d325cf9b23f221b9a6c476f673f9b06f0c35795f0f70",
+    "cripto-bot/tests/integration/test_backtest_publication.py": "b9a62ec8194f1732576fca4ba5d3b117bd51eb766bda36c922dc232271af35f9",
+    "cripto-bot/tests/integration/test_backtest_analytics.py": "833cf0e1b7a8c2c48776a0af509c0a6488aad98c25c194a0e1be4e29e49451b4",
+    "cripto-bot/tests/integration/test_paper_storage.py": "18663d905049c08873f2f6ea6514efaae383e173901218ab89a530b436e708f0",
+    "cripto-bot/tests/integration/test_backtest_scale.py": "0132d0456733c27395643ae6fa9489a0e81a606faacf49b760d3f505bdd60918",
+    "cripto-bot/tests/integration/test_backtest_recovery.py": "36ef7d422731963b8398d20c2985f6d5341fc46bf6bc46a504007cfb9de91a6e",
+    "cripto-bot/tests/integration/test_backtest_commands.py": "6411fdfeb59fee36f9958c94d1d2b33e5f9f38c4f9c8b6b89574c113ab091192",
+    "cripto-bot/tests/integration/test_market_storage.py": "2854d8db93e68086161b3800e1c2f7c89e9bac9d6ee0ef5255c6b37278944bb0",
+    "cripto-bot/tests/integration/test_strategy_storage.py": "225174725185572813b36b2cae97c9a46527907bd6f7957fe115e5269e3f5acc",
+    "cripto-bot/tests/integration/test_paper_cli.py": "2d935e77e27d6968d766640c622e3643db369a15fd465088068fd82b1e760d09",
+    "cripto-bot/pyproject.toml": "c8f5de1ba8d850487d310332c6aa5eb94fc296e4526dc0d48b7f2f27eda6e7bd",
+    "cripto-bot/uv.lock": "9224ec2e67f8d9f1f521413edf0e2bf04a165516188e7b99d9156ff5dd0c7883",
+    "cripto-bot/.python-version": "861b3dd8083d28f336ef70f6755bc399538ddad627b1d095820ca34cb953cf14",
+    "cripto-analytics/src/cripto_analytics/__init__.py": "28bd0ef8b7be7030293dca8b243b4d9a6e01a0f6313d9540f0fc5b2e39b51c4c",
+    "cripto-analytics/src/cripto_analytics/domain/__init__.py": "28bd0ef8b7be7030293dca8b243b4d9a6e01a0f6313d9540f0fc5b2e39b51c4c",
+    "cripto-analytics/src/cripto_analytics/domain/contracts.py": "b2d40842861c01040809863fdec5d8a077c868a5748a38322ed72eb5511cd0d4",
+    "cripto-analytics/src/cripto_analytics/presentation/backtest.py": "e71596d5afcfb47fc15c4ffa3460e8336b147678cac1e7b7f0a3a65a7e9584ef",
+    "cripto-analytics/src/cripto_analytics/presentation/__init__.py": "28bd0ef8b7be7030293dca8b243b4d9a6e01a0f6313d9540f0fc5b2e39b51c4c",
+    "cripto-analytics/src/cripto_analytics/presentation/continuous.py": "9f907254d4eaa8a4b2557ee626ad7c40dd0241d9da5f445ac23bfecf3a22a57e",
+    "cripto-analytics/src/cripto_analytics/presentation/strategy.py": "3e5f18646c23250083355b4c3aebfc01cfe8c80421d84c5e7447abde77b7fa25",
+    "cripto-analytics/src/cripto_analytics/entrypoints/__init__.py": "28bd0ef8b7be7030293dca8b243b4d9a6e01a0f6313d9540f0fc5b2e39b51c4c",
+    "cripto-analytics/src/cripto_analytics/entrypoints/cli.py": "ac257b06234a50d05d0906facea1d5402f5b63d9f02099f2e7298d4abe15e36f",
+    "cripto-analytics/src/cripto_analytics/application/ports.py": "c7a9f0157b12cb2a86e78dae5a821edf4529f5992154b517adfa570d1cf0a2c3",
+    "cripto-analytics/src/cripto_analytics/application/__init__.py": "28bd0ef8b7be7030293dca8b243b4d9a6e01a0f6313d9540f0fc5b2e39b51c4c",
+    "cripto-analytics/src/cripto_analytics/application/publish.py": "8b8dc8a6a10faf8a55ceeab5c996c5d4430bdadd082dbe588da37ec5a914314d",
+    "cripto-analytics/src/cripto_analytics/adapters/reader.py": "8c2a5f17c6a202ddc3c7163c4f3e506dfb1e6a4f8c895a4e0c18e820fcad472f",
+    "cripto-analytics/src/cripto_analytics/adapters/__init__.py": "28bd0ef8b7be7030293dca8b243b4d9a6e01a0f6313d9540f0fc5b2e39b51c4c",
+    "cripto-analytics/src/cripto_analytics/adapters/duckdb_export.py": "783fda5682c9c444a9ece5d817bfa113cf7b31fd0702e8fa5c1322a9ad039cb9",
+    "cripto-analytics/tests/test_conversion.py": "a378b9b539ffc64d2b3def3949ccba67dd47be83e479f7cb23367e257f6aa6a6",
+    "cripto-analytics/tests/wheel_smoke.py": "3ad332443f4dc2d11d99268988c3e5bd326ded4e066949a1938da215c20cc251",
+    "cripto-analytics/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cripto-analytics/tests/test_continuous.py": "d3973e9e3100c66ae6c31111bcf68b5b0b7872dfabcf83e10262bedcd285e476",
+    "cripto-analytics/tests/test_contracts.py": "9621247986495eb0da2aaad9ebe70729edb7265295cf8bf8df86dd9e0deca78a",
+    "cripto-analytics/tests/conftest.py": "f0390ef95a05276ce1f8c5758ae373903d391f5f44fa6eb2e694c5bacf230528",
+    "cripto-analytics/tests/offline_runner.py": "1325daaade9ea96d5be57522eb20f57303e66f99a4d3482340b2b8407b3ea8d8",
+    "cripto-analytics/pyproject.toml": "c8af2f18c9510f0a7192475cf491404e1f43b3c74b3240fc245196be93b7bab0",
+    "cripto-analytics/uv.lock": "529c0bf45b99b2609fa5519a90fe7f8032644ad4c40dc43ec627c83c1db5bd7d",
+    "cripto-analytics/.python-version": "861b3dd8083d28f336ef70f6755bc399538ddad627b1d095820ca34cb953cf14",
+    "cripto-core/src/cripto_core/serialization.py": "8519923299bced9f37845c6b2c6a313ad09fa87e555a1c87c9ff92e3703c52bb",
+    "cripto-core/src/cripto_core/sizing.py": "01f972012bca97ec1655cfbd76195d4004939118b229a9d87a074a34b7cc96db",
+    "cripto-core/src/cripto_core/__init__.py": "83b1cd8fece1d19ef4f0b9e2143662f62900c4c301f5f8c56e423b6c74a8dd48",
+    "cripto-core/src/cripto_core/execution.py": "99d70744e295166a05a9bd56059adaa9961c2685059523656c60185dacdd4bbe",
+    "cripto-core/src/cripto_core/errors.py": "3320ab57cf90e7e27f2cc815e1c6148b811facc7f5dc2c43eda90add720cdcba",
+    "cripto-core/src/cripto_core/numeric.py": "19bf9b9e4fd07bdba468fa7b5cad3e6328aeeb9fa70593c6f033c80813b195bd",
+    "cripto-core/src/cripto_core/validation.py": "96c0c6f4c2a89ea246b369d7466bfb67a58012196ec14f2967c276411db3bd81",
+    "cripto-core/src/cripto_core/contracts.py": "5187bf92bb02953332074a68ebf213421f27a442dc7315ab34579b18becd97f1",
+    "cripto-core/src/cripto_core/strategy/sma.py": "9c4ef5c451d24c67ca21ba83bd28e569826e2be6b40a0d76eab86323e4f94579",
+    "cripto-core/src/cripto_core/strategy/__init__.py": "7c12ea66765e1c8c0e6f41ea4d1d358b3a135ec5558868fe927aa29ba5cd5939",
+    "cripto-core/tests/helpers.py": "c2bafaf39bd4ab62982cb90559b131b5ef0b205a2534ac3e3d01043e9d923e30",
+    "cripto-core/tests/test_strategy_sma.py": "78fef61a0406fbf5c182bded1540c74775230ecce56bb9c6915e48d607ab3a15",
+    "cripto-core/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cripto-core/tests/test_contracts.py": "4cf2f6d4efe0a0ce9f9d682a19ce400d11e65e31b062dee8e4fc0e14b83ce6fd",
+    "cripto-core/tests/test_paper_execution.py": "b4f9af8e4df3975bc711e29183586f70730de5b54f58074a18341d5b546cf9c7",
+    "cripto-core/tests/conftest.py": "f0390ef95a05276ce1f8c5758ae373903d391f5f44fa6eb2e694c5bacf230528",
+    "cripto-core/pyproject.toml": "103293358e99a88d993b9f89725e8393cb7b12a04e4b2d86244fbb058cc07bf7",
+    "cripto-core/uv.lock": "c78fa9534b7abb919e6074d49fc20132145f91bdacccc6f2437acd3c6a54b38e",
+    "cripto-core/.python-version": "861b3dd8083d28f336ef70f6755bc399538ddad627b1d095820ca34cb953cf14",
+    "cripto-market-data/src/cripto_market_data/__init__.py": "9fc76d2d3bf9660546f60ef9736cc851188dcdbefccc4d18fa5be5300b243b8c",
+    "cripto-market-data/src/cripto_market_data/domain/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/domain/settings.py": "75d0f296d8f6d3419dd96b1fe468f0c1e9f9dc0bd4abaa8da57a522e5604adb0",
+    "cripto-market-data/src/cripto_market_data/domain/market.py": "eb721c48f246a6dd56ac34322d1487b418d48af0521d33e03d449b8acc0eb64a",
+    "cripto-market-data/src/cripto_market_data/entrypoints/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/entrypoints/cli.py": "52576787103a42498e4ae218db423edfc48d8c1b53886a1c48e3b512ed05179b",
+    "cripto-market-data/src/cripto_market_data/application/collection.py": "78685ee1f96a556e87b6679656bf08eb13174da514fda6cdc3b8482cb27c6f70",
+    "cripto-market-data/src/cripto_market_data/application/ports.py": "364de6b5c4c33c6cb9947ffe4d28093ae646cad91e74bc3cd5b3c3e6f225cf2f",
+    "cripto-market-data/src/cripto_market_data/application/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/application/collect.py": "8436760c3c5f1cab59ca8372a2ffe4c4c05b4c8e1fbf1cc4c40abf6092e569d9",
+    "cripto-market-data/src/cripto_market_data/adapters/config.py": "930ac13fad5e8f07b980a970bbab9bc2dc342d5a159b1858053458d4b596b948",
+    "cripto-market-data/src/cripto_market_data/adapters/provenance.py": "80bb0915d2ab201b8f7905e7399367a2fb94d0c9250f7a9c4e23cd02b886d46a",
+    "cripto-market-data/src/cripto_market_data/adapters/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/adapters/clock.py": "ea6a4cd045eb7398b7577531ece16ad180fabeb22a62b0df5e26e1f1de8b8670",
+    "cripto-market-data/src/cripto_market_data/adapters/inspection.py": "122ae03812fef193d24eeccbd96a1deaf42fe5e41b009fd8912a9615dfd24394",
+    "cripto-market-data/src/cripto_market_data/adapters/storage/export.py": "69173d0e71224d7989a310570d661ebc7453af045c811c9550d13fff1b3bda1e",
+    "cripto-market-data/src/cripto_market_data/adapters/storage/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/adapters/storage/sqlite.py": "98a60f3097e20701204bf85be12bb9a5c1187b375ce71f767a4cdf0d7e678a6d",
+    "cripto-market-data/src/cripto_market_data/adapters/binance/__init__.py": "a76e234e8fb13f9348817b7e5ed66fdf6f962e4ed7a25815b41a3a8269901f4d",
+    "cripto-market-data/src/cripto_market_data/adapters/binance/fixture.py": "e6d5ec0874d6a1825912a6f9225cd72139181dff876b2d8fd6ff60b0c997b914",
+    "cripto-market-data/src/cripto_market_data/adapters/binance/public.py": "94a69fd1fbe3ee6d8d0eb0ff7af81248e9713e079b44da8cc00b3f68162ba2a5",
+    "cripto-market-data/tests/wheel_smoke.py": "3cfaa1a50cda348292e648f890c39914fc0114741d146095a2e83b9334c0a138",
+    "cripto-market-data/tests/test_binance_public.py": "66aed29f2fa2dacea519c7327530d781c07ed8b90dcede79a511b35f147759c3",
+    "cripto-market-data/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cripto-market-data/tests/factories.py": "f9c4db797ae9b7ff78a5d7c6fca2b908b1dbfe542b69a21e8c7a91cfbbcb9004",
+    "cripto-market-data/tests/test_cli_collection.py": "bdb309ae97db3c24046d57cc8417cf90c6f20e9424721b48c71c8b0e05aec7f7",
+    "cripto-market-data/tests/conftest.py": "f0390ef95a05276ce1f8c5758ae373903d391f5f44fa6eb2e694c5bacf230528",
+    "cripto-market-data/tests/test_market.py": "113029d459e56023d0365b3b7974f9374ffa962cb8368c2ee74e7b98a5b15b11",
+    "cripto-market-data/tests/test_collect_market.py": "7a3fd6decc5c391da44d5fe35f75d0ea394811f7537eca57a5ba4e77f8fe477d",
+    "cripto-market-data/tests/test_market_storage.py": "d02fd2b1443bc73f6b8d531046cc659925e1ca279c06bb8097a56c03bcd58dc7",
+    "cripto-market-data/tests/offline_runner.py": "1325daaade9ea96d5be57522eb20f57303e66f99a4d3482340b2b8407b3ea8d8",
+    "cripto-market-data/pyproject.toml": "81226b0524b7c68dedac2c5c0c49a8d095cfcbe3f8628e5546d56d622ca0ff6d",
+    "cripto-market-data/uv.lock": "0bd997c4ee2e3a96227a7364e37f62da362e5b53f1e6288d3da460f7bebe23f3",
+    "cripto-market-data/.python-version": "861b3dd8083d28f336ef70f6755bc399538ddad627b1d095820ca34cb953cf14",
+    "cripto-bot/config/paper.example.toml": "9e6830201869f7681d9d7332a34068c1aae55386dc3644a901cfc023ba56ae47",
+    "cripto-bot/config/market.fixture.example.toml": "14f3e3abd6a2efdcff1f8d6e9e39a7d2d78943ed6181c7a7ff2e18e1e03ec4cc",
+    "cripto-bot/config/paper.execution.example.toml": "b09e2f16b6b5dcbf74aff0fd29d471940777084efac0e01b0ba3ad5c4cd65ae0",
+    "cripto-bot/config/market.backtest.example.toml": "834e3d08b736435ca4c6ecc99acdf1c45f670a039b5d3cef21a8db06d85c99df",
+    "cripto-bot/config/strategy.sma.fixture.toml": "b09d71da0795782d96bcb407cc20e8f66a9f42169afb21a4c84782cdd5b0645e",
+    "cripto-bot/config/strategy.sma.example.toml": "d08ac6ac100017a5cb22392b37b4ebbf858338918926ba86f9f971e6760755a5",
+    "cripto-bot/config/backtest.sma.example.toml": "2d81fdcb005ef237a9146e5ebfb852d0d47d8f775c63b7da979efa567e5259dc",
+    "cripto-bot/config/backtest.sma.public.local.toml": "5f6561564d025b27e753cf42d5b9c9468fb7c188a47346b502eab712e6c04ec9",
+    "cripto-bot/config/backtest.sma.fixture.toml": "6cfb774987ea1ceb6d7f572e1ea5bc30ffff1094fab0ab6791994440278ccc2e",
+    "cripto-bot/config/market.public.example.toml": "4182292c05b584400b54affd008fca5844ebc3ec07ff8dbcd8bcfa5732d3d892",
+    "cripto-bot/config/fixtures/strategy-sma-crossings.json": "d8eab5e0ea3f139656b5a4742b9abd565efb424a1cb9f7ae87e275dcbbc5beaf",
+    "cripto-bot/config/fixtures/paper-roundtrip.json": "dc3c4d0f5fb90fb66ccbc295e85dac59921e94e50d1eff65911e97ae51ac4e04",
+    "cripto-bot/config/fixtures/market-sample.json": "15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426",
+    "cripto-bot/config/fixtures/backtest-sma/raw.jsonl.gz": "b048713d3f4241c68f86fc92bf32595f4f5994ce5c94f4dd9abe5a23e0d649a5",
+    "cripto-bot/config/fixtures/backtest-sma/candles.jsonl.gz": "8ced43e21d5aabb4bb7a7e15f0ffae27e19048d0e068e1388ae910bffad84a7b",
+    "cripto-bot/config/fixtures/backtest-sma/manifest.json": "94bbcc7f2899525367da51602bda1766378aa6448d7cf7bd42b0ffb46b0a1b8c",
+    "cripto-bot/config/fixtures/backtest-sma/provenance.json": "19ff24da1cd54a2450cc84e106293c3d83b941f3ca9c737186f438a2f59a18a6",
+    "cripto-bot/config/fixtures/backtest-sma/snapshots.json": "19ff24da1cd54a2450cc84e106293c3d83b941f3ca9c737186f438a2f59a18a6",
+    "cripto-bot/README.md": "65a87a998004590b00af4d82f85e2fdb741419a5aa3ca72c28c82c5f289fe1b4",
+    "cripto-bot/.gitignore": "bdf5869fedf501a2d94276380c9afe9330699f119f8030006b00d2746bce8378",
+    "cripto-analytics/src/cripto_analytics/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cripto-analytics/README.md": "a0d7dafd4f88d7486189e545777318ada7a20b05500b9146379dfd20b1792d87",
+    "cripto-analytics/.gitignore": "aacc48f5edd08af514f406df21830a3d77d745db429c9365ff536e14908b3c33",
+    "cripto-core/src/cripto_core/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cripto-core/README.md": "a13a834281c9e57fd580cb89b1bf73d149dca4374b260aa931a54648698913c7",
+    "cripto-core/.gitignore": "97d90487f7a86d7d0a1e329b83286a1bc510921f1236965e7b564185647df8f2",
+    "cripto-market-data/src/cripto_market_data/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cripto-market-data/config/market.fixture.example.toml": "e13e195d9240f96139d1ac6c53c6e49383894a185e7b5ea8e4272a115e0c0e59",
+    "cripto-market-data/config/fixtures/market-sample.json": "15e238d7bac0bd9dd2d004dec2c0e82078aec4f0b30a60e916778f124bf0d426",
+    "cripto-market-data/README.md": "1371c9cb9fe12d75f0a71096e8c56d061f75c0bc92a41994f184ddd60ad66393",
+    "cripto-market-data/.gitignore": "3169cfdfd4c8983d3fdb9132538094d0eb41cc9f1ae61d636f17c935bb8a7411"
+  },
+  "raw_evidence_sha256": {
+    "cripto-bot/reports/sprint06d/offline/oracle.json": "82b3f0ea14c63a1fccfcbcdf1a05956c3f0afa2f945f2a20b40757fdfc6c60cc",
+    "cripto-bot/reports/sprint06d/offline/wheel-smoke.json": "29ff3f5677b6610ab2f45320aedb7aa96c348c68089cb4a46dc3f9b324bfd453",
+    "cripto-bot/reports/sprint06d/offline/compatibility.json": "7f927b69be3d99173ca0a2a7839ca49266ce8c5295840c8a8481a4851ada88b3",
+    "cripto-bot/reports/sprint06d/offline/wheel-smoke-final.json": "aead3ef42acf0e114a619566201dc1204465ac13bd05fdc80ef8344cd17d5866",
+    "cripto-bot/reports/sprint06d/offline/continuous-wheels.json": "06cfe0cf517397661b7d4304f4b130018e7f781201ab605f5eece9d13ac2d06d",
+    "cripto-bot/reports/sprint06d/offline/worker.json": "8aab30f74e5e8fcab1168ef8f3e4449e5a8326c7c64f5fe4eb28cbbc32cd96bf",
+    "cripto-bot/reports/sprint06d/offline/reuse.json": "d78cbc202d8390b2d2ab585e30ad4e495056a38f4233399993aaddf89fb3c353",
+    "cripto-bot/reports/sprint06d/offline/coverage.json": "22fe11231073ed35564cc06cccce44e0a61359a02f8b59754649a3abb833cb34",
+    "cripto-bot/reports/sprint06d/offline/render-preview.log": "d478932d013eda2cf739639d4870f9b517d4332316744d2dda612eaaf1e60d82",
+    "cripto-bot/reports/sprint06d/offline/ruff-after-format.log": "f6736ed4d3f31f7100857e113a1eda979aa343f2ca5935c872840c82c086f677",
+    "cripto-bot/reports/sprint06d/offline/recovery-lint.log": "ae4b285c59fbff9150f9dfdb73a88c16a52a6d3c35c573a2b1dd630c4e94e2ea",
+    "cripto-bot/reports/sprint06d/offline/deadline-lint.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "cripto-bot/reports/sprint06d/offline/render-daily-top.log": "c318b72c5c9872a67e37a924ea2316c9fa203eb2e486daf66f11583aab594c1d",
+    "cripto-bot/reports/sprint06d/offline/lint-draft.log": "f121c8a8bdd38b284d398168c2155d756a2bedee73ba988ce33ed39dffbdcf08",
+    "cripto-bot/reports/sprint06d/offline/fast.log": "e9c6a814fe7a14e04f7838bf7a96bb5a68e6c9d3c35009465fdfc11097e1a1e8",
+    "cripto-bot/reports/sprint06d/offline/build-final.log": "5eaa42c95f57b1f6b1e6d725155b06c11c4649e8d08e4c7d128b719d99fe7a67",
+    "cripto-bot/reports/sprint06d/offline/format-fix.log": "c3d693a93e5204ba832f21e56c8b2438a9646fb7706fb6c532021c49a3369e08",
+    "cripto-bot/reports/sprint06d/offline/format-final-direct.log": "184b6bfbf75ff0afb5735687ad68f56f0140c93fd26fa8c144e3386b4e6c6ab1",
+    "cripto-bot/reports/sprint06d/offline/composition.log": "cb3082ccf65c0b4f6b5fa92e901e3a40295ce68d4eb85b91c2445806cf16c686",
+    "cripto-bot/reports/sprint06d/offline/build.log": "9128bc4246ffd014d94e1915e9977f59088beff3adad8d6198ea36162c140db3",
+    "cripto-bot/reports/sprint06d/offline/ruff-fix.log": "7d935234a68c5d4fdbcd8cdb39ea20d2639f946662518b1853c49cf913b7d306",
+    "cripto-bot/reports/sprint06d/offline/drill-final.log": "a940131ba9c7f31c9cab197444f70b9fc4b8e3e321f606beee0127b30bf92a53",
+    "cripto-bot/reports/sprint06d/offline/install.log": "d075e7618b0489ad3c832a95b3c41be57e1fc35b0b6a99cde3857dadbe9fc465",
+    "cripto-bot/reports/sprint06d/offline/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "cripto-bot/reports/sprint06d/offline/initial-format.log": "a68018e0301d06e8ccd1518cd8a969c43dde8ed9a317509ad15bbc8d7198ea0f",
+    "cripto-bot/reports/sprint06d/offline/full-final.log": "492111aa0685a3fa55999f11fc9bac87b7c9615bbe8bafd8477b87fcd802bfc1",
+    "cripto-bot/reports/sprint06d/offline/analytics-ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "cripto-bot/reports/sprint06d/offline/format-final.log": "7fecdad8df0a9dfb26826b69e652ea220a1493ad89344589552c3e26473a8154",
+    "cripto-bot/reports/sprint06d/offline/final-lock-check.log": "1d85fbf001ae24ead525d9f3a90c55cec641957ea6e8e900cffbbea93ac30aba",
+    "cripto-bot/reports/sprint06d/offline/full-release.log": "633d7c01f135b9992c927111022df80d43fe6ae75ede90cf90d692902f6003c5",
+    "cripto-bot/reports/sprint06d/offline/new-tests.log": "d91b25a601ee364e104034022da4af9ccbcbd939ed4d6173494cf0900e75a3a2",
+    "cripto-bot/reports/sprint06d/offline/compatibility.log": "8a7996f66f3702bffcb0143a498f597c2bade61fa80841a01b002e77ae3196f4",
+    "cripto-bot/reports/sprint06d/offline/final-formatting.log": "9ff3d864f98bbd643330f2d1ec54fa9b9f0568e7ae68675400da986078c190bf",
+    "cripto-bot/reports/sprint06d/offline/review-lint.log": "3c6df857ce175cc21aeb0e999d135541d93c42e37efdd0d41d7faa18c5b58598",
+    "cripto-bot/reports/sprint06d/offline/ruff-final-direct.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "cripto-bot/reports/sprint06d/offline/analytics-build-final.log": "e7399b020e06cf31471a2f253dccef972dd5954fc56d6a7bb911fe6aed7cad24",
+    "cripto-bot/reports/sprint06d/offline/mypy.log": "8707af011cac965901023609ab97de11c08f549edf305f8304cbb0121d700dbd",
+    "cripto-bot/reports/sprint06d/offline/full.log": "523f1a866cce653ac9ac5df81a80db6a5ab5d493f944f9724ce3b1776defe3db",
+    "cripto-bot/reports/sprint06d/offline/continuous-wheels-final.log": "7ac51621a8946c3820ee3c40e9de85a8a3f824a5592639af2c1ba79bef394e12",
+    "cripto-bot/reports/sprint06d/offline/lock-final.log": "ca7c0890f6d590e53142254f2c7826306beaa4a2b669ec536541bdc59fcd79f5",
+    "cripto-bot/reports/sprint06d/offline/engine.log": "30179f362830589fdbbd19de03ddb7f52e88c92ee71896de6e160db74a53729e",
+    "cripto-bot/reports/sprint06d/offline/render-oracle.log": "49ba208dec01e53c2e016c89abcd6d4ceada550b8aadc6223ad04452680ab63c",
+    "cripto-bot/reports/sprint06d/offline/render-validation.log": "8e395e94ff6339e3a9ba4cd309a17a07e9af427fdd4dde42d75178039ecea8f2",
+    "cripto-bot/reports/sprint06d/offline/analytics-mypy.log": "fc409d91e6c781eb25a1ec1310b7fcb0086b74ed3aa2c415bcd73f884f23f07a",
+    "cripto-bot/reports/sprint06d/offline/sync-final.log": "c6d107111c8926b8f92138bb3669573f87ce9d1f6bf1de2a1c4c2a914e583f92",
+    "cripto-bot/reports/sprint06d/offline/disabled-debug.log": "377982a82151f89e44f24e6cfbeddc530fae55a2c1dc07c34a0cd7423a7a4c9c",
+    "cripto-bot/reports/sprint06d/offline/composition-fixed.log": "638bd5001be68ffa71fef634ea5df97ee42d74f4dca4675af239f62f784f17c7",
+    "cripto-bot/reports/sprint06d/offline/render-oracle-preview.log": "23cf4cd6323dabd850a6b2e1dc4ca07e7a895a2117452f94aa2fd2cd1389922f",
+    "cripto-bot/reports/sprint06d/offline/render-daily-preview.log": "3dc214ecc4e7d50510c4e13f87ed596bbabb83aa9b795c7b349d171f1843a007",
+    "cripto-bot/reports/sprint06d/offline/mypy-final-direct.log": "8707af011cac965901023609ab97de11c08f549edf305f8304cbb0121d700dbd",
+    "cripto-bot/reports/sprint06d/offline/ruff-final.log": "7fecdad8df0a9dfb26826b69e652ea220a1493ad89344589552c3e26473a8154",
+    "cripto-bot/reports/sprint06d/offline/export.log": "f70b2d437a3065f947e2e8e45a22b594c7f1ed69dcd7276cb3694700b8c01129",
+    "cripto-bot/reports/sprint06d/offline/flags-before.log": "c5961cb4897ddee644bd57d75df52dcbd2dfa15cd2df67a9f9f672d3fa60a72a",
+    "cripto-bot/reports/sprint06d/offline/venv.log": "c260b6e1fd271e343d2eb55bbf6a96b9f0669f43ed0cfffff5c56b0d0f7a10af",
+    "cripto-bot/reports/sprint06d/offline/install-final.log": "b65de5c98b62df9442257ea9991155b5901441d8e33d3cdd8d0bee7c99a4c23d",
+    "cripto-bot/reports/sprint06d/offline/mypy-final.log": "7fecdad8df0a9dfb26826b69e652ea220a1493ad89344589552c3e26473a8154",
+    "cripto-bot/reports/sprint06d/offline/composition-retry.log": "91a9e6cb3c23178611b69c88263235e5067c927361d13dd3365604e4f0007680",
+    "cripto-bot/reports/sprint06d/offline/flags-after.log": "9943d49537b412fc2526b12e01b6abb03d50ccfc520d802e2c733031de1e4a02",
+    "cripto-bot/reports/sprint06d/offline/release-tests.log": "d4066b6db32c7e52c255ac2144984fcc5df59d41b6988ac17878b9c81c3a14f9",
+    "cripto-bot/reports/sprint06d/offline/new-final.log": "0979d60cdc0f04987d026472b044f3b52851f5aa0984ee4c57a1716bb8bd730c",
+    "cripto-bot/reports/sprint06d/offline/render-oracle-top.log": "15bef6017e1cfb27f0219f80fc48778141668cc11db8c77057392bccbc1bae4b",
+    "cripto-bot/reports/sprint06d/offline/analytics-tests.log": "5c94bae25465fc319807d5e7a514294772f7e0ca626dc360bd5a920873b81e38",
+    "cripto-bot/reports/sprint06d/offline/new-tests.xml": "43a5a6f3842cf4ac130057b94363bb36617fcc4c963b2be10d2d6a12b8cfebdb",
+    "cripto-bot/reports/sprint06d/offline/full.xml": "90e5d2b787ddefc79f07ec9ae45416c1f0681099bf4a52e75f37f6e859a2e538",
+    "cripto-bot/reports/sprint06d/offline/full-final.xml": "ba68f51ce7213ec71f2e959bccad07dd90dee69becadb42ca32a755043df8c7a",
+    "cripto-bot/reports/sprint06d/offline/flags-after.xml": "f606fa9eedac8e5f2917b4666880c04483e16f6e9767f18276e65ea3f3b29591",
+    "cripto-bot/reports/sprint06d/offline/analytics.xml": "5c97b4b1340dddebc956f393d1ee5962cc7d25735e4712395d1de7ac1726c062",
+    "cripto-bot/reports/sprint06d/offline/engine.xml": "aad79eaed0b5e0b133222134e13725d3080bbc5146c7e6890409ac0b33990e0d",
+    "cripto-bot/reports/sprint06d/offline/full-release.xml": "538db54be61ca04705cb6898ceb9297d49f9c69b97ef5c934fbc405b826dac74",
+    "cripto-bot/reports/sprint06d/offline/fast.xml": "87b9c2b6590093c097fe6bed882022b04f847561b3043c9a44d1a2ac1ce363e7",
+    "cripto-bot/reports/sprint06d/offline/release-tests.xml": "323cb9533d943b69f0a3d93452db1ca3c6d718acf7d7c4e684b79ea9b69a6455",
+    "cripto-bot/reports/sprint06d/offline/composition.xml": "cb63284d86be46534739be8ad39bab4f97dcecd92144f9d16b5f4a06b9c2ac6b",
+    "cripto-bot/reports/sprint06d/offline/new-final.xml": "b23a81369f73025bac6265a8814636859366d638a34c9463f861ae37110a497e",
+    "cripto-bot/reports/sprint06d/baseline/wheel-smoke.json": "9e258dea141278cb6b9c3e1281ea1a5bb933182e9a7bb1d2a1a50fe04a9a5d64",
+    "cripto-bot/reports/sprint06d/baseline/acceptance.json": "b25126bd22ad5daaeb0539a4f1b4cc084db2c020e3f7c9d7e81cfe9b6d0bc315",
+    "cripto-bot/reports/sprint06d/baseline/coverage.json": "57f20eccd87b8d2437b5fd2a9db1c6ac99dde80293d5db6e5c17ef5725d5c0e6"
+  },
+  "actions_not_performed": [
+    "market network",
+    "real mail/WhatsApp",
+    "Binance private/order/test",
+    "AWS",
+    "07/BT implementation",
+    "commit",
+    "remote/publication",
+    "historical artifact replacement"
+  ],
+  "visual_review": {
+    "status": "APPROVED_OFFLINE",
+    "reviewed_at": "2026-10-26T20:52:04.564480+00:00",
+    "scope": "Validation report and installed synthetic consolidated/daily snapshots; date, values, stale mark, risk, pending gates and legibility reviewed.",
+    "files": {
+      "docs/testes/relatorios/sprint-06d/oracle-top.png": "0a95d784afd1143c864a5af2922c8f5168ed724ad8acf99e579b3788e3d02969",
+      "docs/testes/relatorios/sprint-06d/report.html": "6af401d431645e4a59a0c32e6cc49b28270df4aff66a45ecb8dab7740b8fd5e8",
+      "docs/testes/relatorios/sprint-06d/daily-preview.png": "5c4bee9345a362a89a4a4ddb87e48280d3bfba0d12b8671492dc8a3bf4e9941e",
+      "docs/testes/relatorios/sprint-06d/preview.png": "7eb4445db6ad2d8eafb082c2349eb9dbeec56bcef4a8956f67465558fba23930",
+      "docs/testes/relatorios/sprint-06d/oracle-preview.png": "959238ca5bfdc4b644ff710b20db4929a03eff65f1f7488d92df353d614ba695",
+      "docs/testes/relatorios/sprint-06d/daily-top.png": "4ce195905ee27cdf29844439ed4f769ff7b7386360c3aa961801a2a7959a5d47"
+    }
+  },
+  "documentation_sha256": {
+    "docs/planejamento.md": "0f05ec3aae291a10174999ff642f49b9d5f5b732b957fd86e385687a2c3b17ec",
+    "docs/sprints/sprint-06.md": "11c9108a87de84e87bb4147e12ab22e06c6ba2989c22a357f7d119b53562d8d6",
+    "docs/sprints/sprint-06d.md": "88002d62cffe703a19f7ee9df809c205dbb587b45db69aa4f290054c3dec044c",
+    "docs/testes/sprint-06d-validacao.md": "a4e85554921c35f304e0e5247b5641680d94056c796097bb8136ce14b4b3488c",
+    "docs/testes/sprint-06d-schema.json": "2a203b0ff207c6f7118c9b84471a43177229b4408a0b35f883b0a45469a3afb2",
+    "docs/testes/sprint-06d-pre-protocolo.json": "fcf81a628b00fe3cea1888d6e3a3c105ce4223bbd4260d0eefdb1af9f0c786de",
+    "docs/api/continuous.md": "3b3b3de74126fd1a91825297d986279a8026ebd5836a24b15722d9da48010fe6",
+    "docs/modulos/paper-continuous.md": "da10267108bcf4f925d520caaa8387fba7d879e42f0ab8674bb69025f00373b5",
+    "docs/operacao/continuous-runbook.md": "8566984a3432543823867fdab8fdbcf18874ea91681a302503789a86c4bb236d",
+    "docs/decisoes/0011-paper-continuous-e-entrega-local.md": "e7192c7d62bfa5cbeb1b5a7f97f6909e875f4ea1c6bd31170728d7471b368ac5",
+    "docs/bancos/continuous-sqlite.md": "28e40e22d22ebd2eced69204815fcc419058f2c2ca38edeb8ebef3eb21ac889c",
+    "docs/bancos/notification-sqlite.md": "b860c65a39304ed73cca717952af76ab08803ca6538c6c2c58c40bee5c618a27"
+  },
+  "evidence_tools_sha256": {
+    "docs/testes/ferramentas/sprint-06d-schema.py": "ee76ffb1f0252d2763ab7baba04ca4cbaa3ecbef372a762eb9cd1ae6aa2579c7",
+    "docs/testes/ferramentas/sprint-06d-drill.py": "0b8368a6960dc0baf5e19f80a286058ad48bed765183ce4d240c1feff8f09df5",
+    "docs/testes/ferramentas/sprint-06d-visual.py": "1dfefd2928c44d616f6ee8dc11587441228a03fae92654446dcf4aa8fd70ef59",
+    "docs/testes/ferramentas/sprint-06d-compatibilidade.py": "862cb839d9429541df3115737557657b10c104a139c7aae893617327215a4d60",
+    "docs/testes/ferramentas/sprint-06d-evidencias.py": "1d51a43fd91e298660ba708062d50a34d310724287c194e95b298ca10a2e134f",
+    "docs/testes/ferramentas/sprint-06d-guia.py": "a157ae943fe0fae52b21a84f337c1584c388d603348fb99ba7d08a0ef472b595",
+    "docs/testes/ferramentas/sprint-06d-wheel-continuous.py": "e53e149f6460431433ed31b47ec493f8106634021a359dea455b89dd7fd366ab",
+    "docs/testes/ferramentas/sprint-06d-check-docs.py": "5057cdd426426b4ad2b16daa22035d7dbbff2ac48ea659cf76028095f3e13afb"
+  },
+  "final_documentation_checks": {
+    "markdown_files": 17,
+    "local_links": 366,
+    "missing_links": 0,
+    "json_documents_valid": 3,
+    "prior_artifacts_preserved": 16,
+    "registry_unchanged": true,
+    "staged_area_not_modified_by_task": true,
+    "no_commit_or_remote": true
+  }
+}

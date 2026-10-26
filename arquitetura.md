@@ -182,3 +182,10 @@ Datasets, parser/schema v1, quatro arquivos de dados e normalização/hash de ca
 ## Composição analítica — Sprint 06C
 
 Apresentação/publicação paper/strategy/backtest e DuckDB/Parquet vivem em `cripto-analytics/src/cripto_analytics`. Bot mantém summary/diagnostic, snapshot/_series, métricas oficiais/Decimal e estado/reconciliação financeira. `adapters/storage/analytics_source.py` implementa ReadonlyRows: linhas/contagens consistentes, sem expor conexão ao pacote. Wrappers preservam assinaturas e comandos. DuckDB é transitivo via analytics e carregado somente quando requerido; check-config/NOOP não importam o motor. CLI analítica consulta exports, sem abrir SQLite ou executar finanças. [ADR 0010](decisoes/0010-analytics-por-snapshots-somente-leitura.md), [guia 06C](testes/sprint-06c-validacao.md).
+
+
+## PAPER contínuo — incremento 06D
+
+O bot acrescenta domínio continuous e adapters de clock/mercado/store/entrega. Core e market-data permanecem dependências puras/standalone; analytics0.1.1 apenas apresenta snapshots. Modelo paper-continuous-v1 em banco novo, com reservas/fills parciais e controle durável. Outbox financeiro e fila de entrega têm transações/locks separados; HTTP não participa do commit financeiro. Engine e estratégia têm flags próprias desabilitadas; configuração de scheduler/execução/risco não é flag de estratégia. Somente Spot BTCUSDT/15m/SMA20/50, sem alavancagem ou modo real. [ADR0011](decisoes/0011-paper-continuous-e-entrega-local.md), [API](api/continuous.md), [bancos](bancos/README.md) e [runbook](operacao/continuous-runbook.md).
+
+Validação offline/instalação por wheels não demonstram sete dias ou mensagens efetivas. T0/Tend são congelados antes de observar; slots inválidos ficam no denominador, sem reexecutar sinais antigos. Relatórios distinguem dados sintéticos, observação pública prospectiva, marca vencida e entrega desconhecida. Piloto/gate07 permanecem pendentes.

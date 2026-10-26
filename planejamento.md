@@ -23,7 +23,7 @@ Data da análise: 24/10/2026. Atualização das integrações de mensagens e das
 
 **Decisão de planejamento em 26/10/2026:** preparar três novos projetos irmãos de `cripto-bot`: `cripto-core` (biblioteca compartilhada), `cripto-market-data` (coleta pública e dados) e `cripto-analytics` (análises e relatórios). A implementação continua concentrada em `cripto-bot` até a extração ser executada e validada. A Sprint 06 passa a ter etapas 06A–06D, descritas na seção 9.2; o PAPER contínuo sucede as três extrações. `cripto-backtest` e bibliotecas menores ficam adiados. Esta revisão altera somente o planejamento, sem criar repositórios, mover código/dados ou executar Sprints. Os registros anteriores conservam seu contexto histórico; a entrega 05 e o ajuste DuckDB/Parquet estão documentados nas seções 21–22.
 
-**Estado atual após 06B (26/10/2026):** core e dados extraídos/integrados e validados offline; 06A/06B aprovadas, 06C implementada/validada, com reconstrução externa esclarecida e verificada. Piloto 06D e Sprint 07 pendentes. Resultados/limites nas seções 28–31.
+**Estado atual após o recorte offline 06D (26/10/2026):** 06A/06B/06C aprovadas; software 06D validado nos marcos D-M1–D-M3, estado SOFTWARE_VALIDATED/PILOT_PENDING. Preflight/canais autorizados, sete dias reais e D-M4/D-M5/gate global/07 permanecem pendentes. Resultados e limites nas seções 28–33.
 
 ## 1. Visão do produto e premissas
 
@@ -585,9 +585,9 @@ Cada linha tem contrato e critérios específicos nas [Sprints opcionais](sprint
 
 ### 9.2 Etapas da Sprint 06 — extração antes de PAPER contínuo
 
-**Estado em 26/10/2026 após a execução 06B:** 06A e 06B aprovadas no escopo offline; [06C implementada/validada](sprints/sprint-06c.md), aceite concluído conforme seção 31. 06D/gate global/07 pendentes. Ver seções 28–29 e evidências; a tabela conserva o contrato dos incrementos.
+**Estado em 26/10/2026 após a execução 06C e detalhamento 06D:** 06A e 06B aprovadas no escopo offline; [06C implementada/validada](sprints/sprint-06c.md), aceite concluído conforme seção 31. [06D especificada](sprints/sprint-06d.md), implementação/observação pendentes; gate global/07 pendentes. Ver seções 31–32 e evidências; a tabela conserva o contrato dos incrementos.
 
-Esta distribuição é a decisão vigente de planejamento de 26/10/2026. Não renumera as Sprints 07–21 nem altera os aceites históricos 01–05. O documento [sprint-06.md](sprints/sprint-06.md) foi atualizado como agregador de 06A–06D, com o piloto concentrado em 06D. A [Sprint 06A](sprints/sprint-06a.md) foi implementada/validada; a [Sprint 06B](sprints/sprint-06b.md) está especificada e aguarda revisão antes de eventual implementação; 06C–06D continuam dependentes. A [Sprint 07](sprints/sprint-07.md) também deverá incorporar as novas dependências no seu detalhamento. Os documentos específicos de cada etapa, por exemplo `sprint-06a.md` e seu guia, surgem somente quando essa etapa for detalhada; não criar placeholders ou tratar o texto antigo como autorização para pular as extrações.
+Esta distribuição é a decisão vigente de planejamento de 26/10/2026. Não renumera as Sprints 07–21 nem altera os aceites históricos 01–05. O documento [sprint-06.md](sprints/sprint-06.md) foi atualizado como agregador de 06A–06D, com o piloto concentrado em 06D. As etapas [06A](sprints/sprint-06a.md), [06B](sprints/sprint-06b.md) e [06C](sprints/sprint-06c.md) foram implementadas/validadas; a [06D](sprints/sprint-06d.md) está especificada e aguarda revisão/implementação, antes da observação operacional. A [Sprint 07](sprints/sprint-07.md) também deverá incorporar as novas dependências no seu detalhamento. Os documentos específicos de cada etapa, por exemplo `sprint-06a.md` e seu guia, surgem somente quando essa etapa for detalhada; não criar placeholders ou tratar o texto antigo como autorização para pular as extrações.
 
 | Etapa | Incremento demonstrável e propriedade | Dependência | Critérios obrigatórios antes de avançar |
 |---|---|---|---|
@@ -1104,3 +1104,19 @@ Responsável confirmou a reconstrução externa dos quatro artefatos detectados.
 Preservados arquivos externos atuais e evidências anteriores, com hashes históricos/atuais separados. Os quatro artefatos reconstruídos sob dist/06a-final não são a release 06A original; o bot ali contém fontes 06B. Rollback exato requer os artefatos históricos; recuperação compatível com fontes 06B deve identificar o core reconstruído/lock correspondente e repetir checks se executada. Essa ressalva não foi ocultada nem usada para alterar protocolo selado ou renovar a janela final.
 
 Próxima etapa elegível: detalhar/revisar 06D. Não houve piloto, implementação de 07/BT, rede de mercado, mensagens/AWS, operação privada ou commit/publicação. Sprint 06 permanece parcial e 07 não é liberada. Seção 30 conserva o estado anterior ao esclarecimento.
+
+
+## 32. Sprint 06D especificada — 26/10/2026
+
+A [especificação 06D](sprints/sprint-06d.md) detalha o PAPER contínuo local após as extrações aprovadas: novo modelo/store de execução parcial, scheduler/relógio/dados causais, risco/custódia/controles, outbox e clientes HTTP locais, relatórios/runbook e prompt autossuficiente. Preserva modelos/CLI/bancos anteriores e registro final; biblioteca de dados e analytics mantêm suas fronteiras. Define marcos de software offline e operação externa separados, preflight elegível, canais/destinatários autorizados, sete dias UTC/672 slots/≥666 processados no prazo, com falhas e drills transparentes.
+
+Pré-requisitos conferidos: APPROVED_OFFLINE_06C/C01–C18, 214/214 hashes de fontes/controles/configuração/testes e 16/16 arquivos de artefatos atuais compatíveis; cinco repositórios limpos. Reconstrução externa anterior conserva hashes e limitações documentados. Nenhuma suíte/build, banco, coleta, envio ou piloto executado por esta criação documental. Próxima ação: revisar 06D antes de solicitar implementação; software pronto não substitui período observado nem autoriza mensagens. Sprint 06 permanece parcial e 07 não é liberada.
+
+
+## 33. Sprint 06D — software validado; piloto pendente
+
+Executado o prompt12 da [06D](sprints/sprint-06d.md) no recorte autorizado D-M1→D-M2→D-M3. Modelo/store paper-continuous-v1, ordens/fills parciais/reservas, scheduler/clock/controle/custódia, outbox/fila/clientes locais e relatórios por snapshot implementados. Engine e estratégia permanecem desabilitados por padrão. Core/dados e modelos/DDL anteriores preservados; somente analytics passa a0.1.1 para renderer, sem cálculo financeiro ou upgrade lateral.
+
+Baseline542 testes/22 smokes; suíte completa642; revisão final108 casos sobrepostos; analytics30;31 comandos por quatro wheels e comparação de48 curvas/6 arquivos exatos/Parquet aprovados offline.16 artefatos anteriores e registro final intactos. [Guia](testes/sprint-06d-validacao.md), [evidências](testes/sprint-06d-evidencias.json), [relatório](testes/relatorios/sprint-06d/report.html), [módulo](modulos/paper-continuous.md) e [runbook](operacao/continuous-runbook.md).
+
+Estado SOFTWARE_VALIDATED/PILOT_PENDING; não é aceite global06D. D14/D16/D17 e componentes operacionais de D18/D19/D21/D22 não executados. [Pré-protocolo não armado](testes/sprint-06d-pre-protocolo.json) tem T0/Tend nulos: faltam autorização explícita para dados/serviços/destinatários de teste, preflight elegível/supervisão/recursos e sete dias reais completos. Suite acelerada, respostas mockadas e FakeSender não suprem esses marcos.07/BT não liberados/implementados; nenhuma coleta de mercado, mensagem real, conta/chave Binance, private/order/test, AWS, otimização, commit/remoto/publicação. Seção32 registra o detalhamento anterior.

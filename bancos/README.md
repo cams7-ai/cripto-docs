@@ -44,3 +44,6 @@ Sprint 06B: implementação do mercado SQLite v1 extraída para `cripto-market-d
 
 
 Sprint 06C: [projeção analítica](backtest-analytics.md) extraída para cripto-analytics por snapshots/portas readonly; stores financeiros e reconciliação permanecem no bot. [ADR 0010](../decisoes/0010-analytics-por-snapshots-somente-leitura.md).
+
+
+Sprint 06D: [continuous.sqlite3](continuous-sqlite.md) e [notifications.sqlite3](notification-sqlite.md), ambos schema1 novos, sem migração dos anteriores. Finanças/journal no bot; fila derivada e entrega independentes. [ADR0011](../decisoes/0011-paper-continuous-e-entrega-local.md), [API](../api/continuous.md), [runbook](../operacao/continuous-runbook.md) e [validação](../testes/sprint-06d-validacao.md). Operação externa e sete dias pendentes.

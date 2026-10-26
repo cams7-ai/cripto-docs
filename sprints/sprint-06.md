@@ -1,6 +1,6 @@
 # Sprint 06 — Extração multiprojeto e PAPER contínuo local
 
-Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B/06C implementadas/validadas; 06D pendente.** Documento agregador alinhado ao planejamento vigente. Substitui a organização anterior, de 25/10/2026, que concentrava a Sprint no piloto contínuo; seus critérios operacionais são preservados em 06D.
+Revisão: 26/10/2026. **Estado: PARCIAL — 06A/06B/06C implementadas/validadas; software 06D validado offline; piloto/gate global pendentes.** Documento agregador alinhado ao planejamento vigente. Substitui a organização anterior, de 25/10/2026, que concentrava a Sprint no piloto contínuo; seus critérios operacionais são preservados em 06D.
 
 Registro da revisão documental original: esta entrega atualizava somente a documentação. Não cria projetos, move fontes/dados, executa testes, coleta, envia mensagens, inicia o piloto ou autoriza operações externas. O detalhamento executável de cada etapa deve preceder sua implementação e usar o estado real dos repositórios.
 
@@ -113,6 +113,8 @@ Avanço: composição integrada funciona antes de aposentar a implementação an
 
 ### 5.4 06D — PAPER contínuo local com a composição validada
 
+[Especificação/execução 06D](sprint-06d.md): software D-M1–D-M3 validado offline; observação real/mensagens e D-M4/D-M5 pendentes. Estado SOFTWARE_VALIDATED/PILOT_PENDING; ver seção21 e guia próprio.
+
 Dependência: 06A–06C aprovadas, versões/hashes/configuração/modelo congelados e pré-requisitos operacionais revisados.
 
 Entregar o piloto original: ciclo contínuo com dados públicos reais, execução interna, carteira/risco/coordenação sob controle do bot, outbox/clientes HTTP locais, relatórios diários e runbook de pausa/retomada. Modelo de execução ampliado e versionado, com fill integral, parcial, atraso, ausência de fill e cancelamento. Detalhar antes de executar o relógio, validade de dados/cotações, frequência, filtros, orçamento do ciclo e política de recuperação de evento atrasado; não executar sinais antigos para compensar indisponibilidade.
@@ -158,7 +160,7 @@ Não há novos comandos executáveis de aplicação definidos por esta revisão.
 
 ## 9. Critérios objetivos de aceite
 
-AC01–AC08 conservam os temas do contrato anterior e aplicam-se ao piloto 06D. AC09–AC18 acrescentam aceites das extrações e da integração. **AC09/AC10 concluídos em 06A; AC06 e AC14–AC17 verificados no alcance da 06A**, conforme seu guia. Os critérios das extrações seguintes, do piloto e AC18 permanecem pendentes; os casos comuns serão repetidos no alcance de cada nova composição. Não atribuir os testes sintéticos da 06A aos aceites operacionais de 06D.
+AC01–AC08 conservam os temas do contrato anterior e aplicam-se ao piloto 06D. AC09–AC18 acrescentam aceites das extrações e da integração. **AC09–AC13 cumpridos nas extrações 06A–06C; AC06 e AC14–AC17 verificados no alcance das composições entregues**, conforme seu guia. Os critérios operacionais do piloto e AC18 permanecem pendentes; os casos comuns serão repetidos no alcance de cada nova composição. Não atribuir os testes sintéticos da 06A aos aceites operacionais de 06D.
 
 | ID | Etapa | Condição verificável |
 |---|---|---|
@@ -295,3 +297,17 @@ C01/C12/C18 pendentes: quatro artefatos 06A foram encontrados substituídos apó
 Reconstrução externa confirmada pelo responsável; conteúdo/inventário de wheels/sdists verificado contra fontes 06B e composição/locks testados inalterados. C01/C12/C18 resolvidos; C01–C18/C-M1–C-M3 aprovados offline conforme [guia](../testes/sprint-06c-validacao.md), [prova complementar](../testes/sprint-06c-reconstrucao-externa.json) e [relatório](../testes/relatorios/sprint-06c/report.html). Hashes históricos/atuais separados; não afirmar que os quatro artefatos reconstruídos são os originais 06A. Limitação de rollback exato documentada, sem restaurar/apagar trabalho externo.
 
 AC12/AC13 cumpridos; critérios comuns de composição verificados no recorte 06C, a repetir conforme a evolução. 06D fica somente elegível para detalhamento/revisão. Critérios operacionais/piloto/gate global/07 continuam pendentes; Sprint 06 ainda parcial. Seção 18 preserva o estado anterior ao esclarecimento.
+
+
+## 20. Detalhamento da próxima etapa — 06D
+
+Criada a [especificação 06D](sprint-06d.md) após conferir 214/214 hashes e 16/16 artefatos atuais da 06C, com cinco repositórios limpos no início. Define implementação incremental offline, modelo/store parcial separado, scheduler/clock/causalidade, controles/custódia, outbox/workers/clientes locais, protocolo de sete dias UTC/672 slots/≥666 válidos e relatórios/drills separados. D01–D22 e prompt autossuficiente distinguem preparo de software e operação externa autorizada.
+
+Estado: especificada, aguardando revisão/implementação. Não houve suíte/build, abertura de banco, coleta, mensagem ou piloto nesta revisão. Autorizações para dados públicos e destinatários de teste não são presumidas; falta de período/recurso mantém o respectivo marco pendente. Próxima ação: revisar a especificação. Nenhum critério operacional 06D ou gate 07 foi liberado por este detalhamento.
+
+
+## 21. Execução offline 06D — SOFTWARE_VALIDATED/PILOT_PENDING
+
+Modelo contínuo parcial isolado, scheduler/clock/controles/custódia, outbox/entrega local e snapshots implementados. Baseline542; suíte635, revisão final108 casos sobrepostos, analytics30;31 comandos instalados,48 curvas sintéticas e6 arquivos exatos/Parquet comparados. Core/dados e16 artefatos anteriores preservados; analytics0.1.1 apenas renderer. [Guia](../testes/sprint-06d-validacao.md), [evidências](../testes/sprint-06d-evidencias.json), [relatório](../testes/relatorios/sprint-06d/report.html), [módulo](../modulos/paper-continuous.md).
+
+D-M1–D-M3 aprovados no recorte offline; D-M4/D-M5 e gate global pendentes. Não houve preflight público, entrega real ou sete dias observados; T0/Tend reais não definidos. Preservar672 slots/≥666 válidos, autorização/configuração específica e revisão antes de qualquer aceite. Drills/recibos falsos não preenchem critérios operacionais;07 continua não elegível para implementação. Seções anteriores conservam seus estados históricos.
